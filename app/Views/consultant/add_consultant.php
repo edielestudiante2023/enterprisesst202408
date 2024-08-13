@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Agregar Consultor</title>
+    <title>Agregar Nuevo Consultor</title>
 </head>
+
 <body>
+
+    <a href="<?= base_url('/index.php/listConsultants') ?>">
+        <button type="button">Ver Lista de Consultores</button>
+    </a>
+
+    <br><br>
+
+    <a href="<?= base_url('/dashboardconsultant') ?>">
+        <button type="button">Volver al Dashboard</button>
+    </a>
+
+    <br><br>
+
     <h2>Agregar Nuevo Consultor</h2>
-    <?php if(session()->getFlashdata('msg')):?>
-        <div class="alert alert-warning">
-            <?= session()->getFlashdata('msg') ?>
-        </div>
-    <?php endif;?>
-    <form action="<?= base_url('/addConsultant') ?>" method="post">
+
+    <form action="<?= base_url('/addConsultantPost') ?>" method="post" enctype="multipart/form-data">
+        <!-- Campos del formulario -->
         <label>Nombre Consultor:</label>
         <input type="text" name="nombre_consultor" required><br>
 
@@ -29,10 +41,22 @@
         <label>Teléfono Consultor:</label>
         <input type="text" name="telefono_consultor" required><br>
 
+        <label>Número de Licencia:</label>
+        <input type="text" name="numero_licencia" required><br>
+
+        <label>Foto del Consultor:</label>
+        <input type="file" name="foto_consultor" accept="image/*"><br>
+
+        <label>Firma del Consultor:</label>
+        <input type="file" name="firma_consultor" accept="image/*"><br>
+
+
         <label>ID Cliente:</label>
         <input type="number" name="id_cliente" required><br>
 
         <button type="submit">Agregar Consultor</button>
     </form>
+
 </body>
+
 </html>
