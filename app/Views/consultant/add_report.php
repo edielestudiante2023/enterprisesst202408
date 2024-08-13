@@ -47,11 +47,19 @@
         <textarea name="observaciones"></textarea><br>
 
         <label>Cliente:</label>
-        <select name="id_cliente" required>
-            <?php foreach ($clients as $client): ?>
-                <option value="<?= $client['id_cliente'] ?>"><?= $client['nombre_cliente'] ?></option>
-            <?php endforeach; ?>
-        </select><br>
+        <?php if(isset($clients)): ?>
+    <select name="id_cliente">
+        <option value="">Todos</option>
+        <?php foreach ($clients as $client) : ?>
+            <option value="<?= $client['id_cliente'] ?>" <?= (isset($_GET['id_cliente']) && $_GET['id_cliente'] == $client['id_cliente']) ? 'selected' : '' ?>><?= $client['nombre_cliente'] ?></option>
+        <?php endforeach; ?>
+    </select>
+<?php else: ?>
+    <p>Error: No se han encontrado clientes.</p>
+<?php endif; ?>
+
+        
+        <br>
 
         <button type="submit">Agregar Reporte</button>
     </form>
@@ -61,5 +69,7 @@
     
 
     <a href="<?= base_url('/logout') ?>">Cerrar Sesión</a>
+
+    
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ClientModel;
 use App\Models\ConsultantModel;
+use App\Models\ReporteModel;
 use CodeIgniter\Controller;
 
 class ConsultantController extends Controller
@@ -105,4 +106,27 @@ class ConsultantController extends Controller
 
         return redirect()->to('/addConsultant');
     }
+
+    public function dashboard()
+{
+    $clientModel = new ClientModel();
+    $clients = $clientModel->findAll();
+
+    $reportModel = new ReporteModel();
+    $reports = $reportModel->orderBy('created_at', 'DESC')->findAll();
+
+    // Verificar qué datos se están pasando a la vista
+    var_dump($clients);
+    var_dump($reports);
+    exit;
+
+    $data = [
+        'clients' => $clients,
+        'reports' => $reports
+    ];
+
+    return view('consultant/dashboard', $data);
+}
+
+
 }

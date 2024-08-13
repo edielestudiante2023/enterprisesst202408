@@ -144,4 +144,29 @@ class ReportController extends Controller
         $model->delete($id);
         return redirect()->to('/dashboardconsultant')->with('msg', 'Reporte eliminado exitosamente');
     }
+
+    public function dashboard()
+{
+    $clientModel = new ClientModel();
+    $clients = $clientModel->findAll();
+
+    $reportModel = new ReporteModel();
+    $reports = $reportModel->orderBy('created_at', 'DESC')->findAll();
+
+    // Verificar qué datos se están pasando a la vista
+    var_dump($clients);
+    var_dump($reports);
+    exit;
+
+    $data = [
+        'clients' => $clients,
+        'reports' => $reports
+    ];
+
+    return view('consultant/dashboard', $data);
+}
+
+
+
+
 }

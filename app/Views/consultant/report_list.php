@@ -16,15 +16,27 @@
     <!-- Botón para ir a la vista de agregar reportes -->
     <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
     <br><br>
+    
+    <h2>Agregar Nuevo Reporte</h2>
+    <!-- Botón para ir a la vista de agregar reportes -->
+    <a href="<?= base_url('/addReport') ?>"><button type="button">Agregar Nuevo Reporte</button></a>
+    <br><br>
 
+   
     <h3>Filtrar Reportes por Cliente</h3>
     <form method="get" action="<?= base_url('/reportList') ?>">
         <label>Cliente:</label>
-        <select name="id_cliente">
-            <option value="">Todos</option>
-            <?php foreach ($clients as $client) : ?>
-                <option value="<?= $client['id_cliente'] ?>" <?= (isset($_GET['id_cliente']) && $_GET['id_cliente'] == $client['id_cliente']) ? 'selected' : '' ?>><?= $client['nombre_cliente'] ?></option>
-            <?php endforeach; ?>
+        <?php if(isset($clients)): ?>
+    <select name="id_cliente">
+        <option value="">Todos</option>
+        <?php foreach ($clients as $client) : ?>
+            <option value="<?= $client['id_cliente'] ?>" <?= (isset($_GET['id_cliente']) && $_GET['id_cliente'] == $client['id_cliente']) ? 'selected' : '' ?>><?= $client['nombre_cliente'] ?></option>
+        <?php endforeach; ?>
+    </select>
+<?php else: ?>
+    <p>Error: No se han encontrado clientes.</p>
+<?php endif; ?>
+
         </select>
         <button type="submit">Filtrar</button>
     </form>
