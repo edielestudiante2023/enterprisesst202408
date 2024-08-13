@@ -11,9 +11,19 @@ class ReportController extends Controller
     public function index()
     {
         $model = new ReporteModel();
-        $reports = $model->orderBy('created_at', 'DESC')->findAll();
-
         $clientModel = new ClientModel();
+
+        // Recuperar el parámetro de filtrado
+        $clientId = $this->request->getGet('id_cliente');
+
+        // Si se ha seleccionado un cliente específico, filtrar los reportes por ese cliente
+        if ($clientId) {
+            // Modificación: Añadir filtrado por id_cliente
+            $reports = $model->where('id_cliente', $clientId)->orderBy('created_at', 'DESC')->findAll();
+        } else {
+            $reports = $model->orderBy('created_at', 'DESC')->findAll();
+        }
+
         $clients = $clientModel->findAll();
 
         $data = [
@@ -21,15 +31,26 @@ class ReportController extends Controller
             'clients' => $clients
         ];
 
-        return view('consultant/dashboard', $data);
+        // Modificación: Asegurarse de pasar los datos necesarios a la vista add_report
+        return view('consultant/add_report', $data);
     }
 
     public function reportList()
     {
         $model = new ReporteModel();
-        $reports = $model->orderBy('created_at', 'DESC')->findAll();
-
         $clientModel = new ClientModel();
+
+        // Recuperar el parámetro de filtrado
+        $clientId = $this->request->getGet('id_cliente');
+
+        // Si se ha seleccionado un cliente específico, filtrar los reportes por ese cliente
+        if ($clientId) {
+            // Modificación: Añadir filtrado por id_cliente
+            $reports = $model->where('id_cliente', $clientId)->orderBy('created_at', 'DESC')->findAll();
+        } else {
+            $reports = $model->orderBy('created_at', 'DESC')->findAll();
+        }
+
         $clients = $clientModel->findAll();
 
         $data = [
@@ -37,8 +58,10 @@ class ReportController extends Controller
             'clients' => $clients
         ];
 
+        // Modificación: Asegurarse de pasar los datos necesarios a la vista report_list
         return view('consultant/report_list', $data);
     }
+
 
     public function addReport()
     {

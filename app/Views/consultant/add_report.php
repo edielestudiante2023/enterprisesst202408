@@ -4,6 +4,16 @@
     <title>Agregar y Ver Reportes</title>
 </head>
 <body>
+    <h2>Ir a Dashboard</h2>
+    <!-- Botón para ir a la vista de agregar reportes -->
+    <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
+    <br><br>
+
+    <h2>Ir a Lista de Documentos</h2>
+    <!-- Botón para ir a la vista de agregar reportes -->
+    <a href="<?= base_url('/reportList') ?>"><button type="button">Ir a Lista de documentos</button></a>
+    <br><br>
+
     <h2>Agregar Nuevo Reporte</h2>
     <?php if(session()->getFlashdata('msg')): ?>
         <div class="alert alert-warning">
@@ -48,7 +58,7 @@
 
     <br><br>
 
-    <?php include('report_list.php'); ?>
+    
 
     <a href="<?= base_url('/logout') ?>">Cerrar Sesión</a>
 </body>

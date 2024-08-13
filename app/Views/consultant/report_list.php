@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Lista de Reportes</title>
 </head>
+
 <body>
+
+    <h2>Lista de Reportes</h2>
+    <!-- Botón para ir a la vista de agregar reportes -->
+    <a href="<?= base_url('/addReport') ?>"><button type="button">Agregar Nuevo Reporte</button></a>
+    <br><br>
+
+    <h2>Ir a Dashboard</h2>
+    <!-- Botón para ir a la vista de agregar reportes -->
+    <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
+    <br><br>
+
     <h3>Filtrar Reportes por Cliente</h3>
-    <form method="get" action="<?= base_url('/dashboardconsultant') ?>">
+    <form method="get" action="<?= base_url('/reportList') ?>">
         <label>Cliente:</label>
         <select name="id_cliente">
             <option value="">Todos</option>
-            <?php foreach ($clients as $client): ?>
+            <?php foreach ($clients as $client) : ?>
                 <option value="<?= $client['id_cliente'] ?>" <?= (isset($_GET['id_cliente']) && $_GET['id_cliente'] == $client['id_cliente']) ? 'selected' : '' ?>><?= $client['nombre_cliente'] ?></option>
             <?php endforeach; ?>
         </select>
@@ -17,7 +30,7 @@
     </form>
 
     <h3>Reportes</h3>
-    <?php if (isset($reports) && !empty($reports)): ?>
+    <?php if (isset($reports) && !empty($reports)) : ?>
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -31,7 +44,7 @@
                 <th>Fecha de Creación</th>
                 <th>Acciones</th>
             </tr>
-            <?php foreach ($reports as $report): ?>
+            <?php foreach ($reports as $report) : ?>
                 <tr>
                     <td><?= $report['id_reporte'] ?></td>
                     <td><?= $report['titulo_reporte'] ?></td>
@@ -49,8 +62,9 @@
                 </tr>
             <?php endforeach; ?>
         </table>
-    <?php else: ?>
+    <?php else : ?>
         <p>No hay reportes disponibles.</p>
     <?php endif; ?>
 </body>
+
 </html>
