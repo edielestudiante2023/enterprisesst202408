@@ -71,6 +71,16 @@
             <option value="pendiente" <?= $client['estado'] == 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
         </select><br>
 
+        <label>Consultor Asignado:</label>
+        <select name="id_consultor">
+            <!-- Si el cliente ya tiene un consultor asignado, se seleccionará por defecto -->
+            <?php foreach ($consultants as $consultant) : ?>
+                <option value="<?= $consultant['id_consultor'] ?>" <?= $consultant['id_consultor'] == $client['id_consultor'] ? 'selected' : '' ?>>
+                    <?= $consultant['nombre_consultor'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select><br>
+
         <label>Logo:</label>
         <input type="file" name="logo"><br>
         <?php if ($client['logo']): ?>
@@ -85,10 +95,11 @@
 
         <label>Estándares:</label>
         <select name="estandares">
-            <option value="7" <?= $client['estandares'] == '7' ? 'selected' : '' ?>>7 Estándares</option>
-            <option value="21" <?= $client['estandares'] == '21' ? 'selected' : '' ?>>21 Estándares</option>
-            <option value="60" <?= $client['estandares'] == '60' ? 'selected' : '' ?>>60 Estándares</option>
+            <option value="7 Estándares" <?= $client['estandares'] == '7 Estándares' ? 'selected' : '' ?>>7 Estándares</option>
+            <option value="21 Estándares" <?= $client['estandares'] == '21 Estándares' ? 'selected' : '' ?>>21 Estándares</option>
+            <option value="60 Estándares" <?= $client['estandares'] == '60 Estándares' ? 'selected' : '' ?>>60 Estándares</option>
         </select><br>
+
 
         <button type="submit">Actualizar Cliente</button>
     </form>

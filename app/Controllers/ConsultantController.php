@@ -292,21 +292,28 @@ class ConsultantController extends Controller
         return view('consultant/list_clients', ['clients' => $clients]);
     }
 
-    public function editClient($id_cliente)
-    {
-        $clientModel = new ClientModel();
-        $client = $clientModel->find($id_cliente);
+    
 
-        if (!$client) {
-            return redirect()->to('/listClients')->with('error', 'Cliente no encontrado');
-        }
+    public function editClient($id)
+{
+    $clientModel = new ClientModel();
+    $consultantModel = new ConsultantModel();
 
-        $data = [
-            'client' => $client
-        ];
+    $client = $clientModel->find($id);
+    $consultants = $consultantModel->findAll();
 
-        return view('consultant/edit_client', $data);
+    if (!$client) {
+        return redirect()->to('/listClients')->with('error', 'Cliente no encontrado.');
     }
+
+    $data = [
+        'client' => $client,
+        'consultants' => $consultants
+    ];
+
+    return view('consultant/edit_client', $data);
+}
+
 
 
     public function updateClient($id)

@@ -8,11 +8,11 @@
 
 <body>
 
-<a href="<?= base_url('/listClients') ?>">
-    <button type="button">Ver Lista de Clientes</button>
-</a>
+    <a href="<?= base_url('/listClients') ?>">
+        <button type="button">Ver Lista de Clientes</button>
+    </a>
 
-<br><br>
+    <br><br>
     <h2>Agregar Nuevo Cliente</h2>
     <?php if (session()->getFlashdata('msg')) : ?>
         <div class="alert alert-warning">
@@ -78,11 +78,17 @@
         <!-- <input type="number" name="id_consultor" required><br> -->
 
         <select name="id_consultor" required>
-            <option value="">Seleccione un Consultor</option>
+            <!-- Opción predeterminada -->
+            <option value="1" selected>Seleccione un Consultor</option>
+
+            <!-- Lista de otros consultores -->
             <?php foreach ($consultants as $consultant) : ?>
-                <option value="<?= $consultant['id_consultor'] ?>"><?= $consultant['nombre_consultor'] ?></option>
+                <?php if ($consultant['id_consultor'] != 1) : ?>
+                    <option value="<?= $consultant['id_consultor'] ?>"><?= $consultant['nombre_consultor'] ?></option>
+                <?php endif; ?>
             <?php endforeach; ?>
         </select>
+
 
         <label>Logo:</label>
         <input type="file" name="logo"><br>
