@@ -51,8 +51,9 @@
         <input type="file" name="firma_consultor" accept="image/*"><br>
 
 
-        <label>ID Cliente:</label>
-        <input type="number" name="id_cliente" required><br>
+       <!-- Campo oculto para asignar el ID del Cliente por defecto -->
+        <input type="hidden" name="id_cliente" value="1">
+
 
         <button type="submit">Agregar Consultor</button>
     </form>

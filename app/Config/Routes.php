@@ -54,6 +54,11 @@ $routes->get('/editClient/(:num)', 'ConsultantController::editClient/$1');
 $routes->post('/updateClient/(:num)', 'ConsultantController::updateClient/$1');
 $routes->get('/deleteClient/(:num)', 'ConsultantController::deleteClient/$1');
 $routes->post('/addClientPost', 'ConsultantController::addClientPost');
+$routes->get('/responsableSGSST/(:num)', 'SGSSTPlanear::responsableDelSGSST/$1');
+
+$routes->get('/error', 'ErrorController::index');
+
+
 
 
 

@@ -4,6 +4,13 @@
     <title>Dashboard Cliente</title>
 </head>
 <body>
+
+<?php if (session()->getFlashdata('error')): ?>
+    <div style="color: red;">
+        <?= session()->getFlashdata('error') ?>
+    </div>
+<?php endif; ?>
+
     <h2>Bienvenido, Cliente</h2>
 
     <h3>Documentos Relacionados</h3>
@@ -13,10 +20,13 @@
         <button type="button">Ver Documentos Relacionados</button>
     </a>
 
-    <a href="<?= base_url('/documento') ?>">
-    <button type="button">ASIGNACIÓN DE RESPONSABLE</button>
+    <br><br>
+
+    <a href="<?= base_url('/responsableSGSST/1') ?>">
+    <button type="button">Ver Carta de Asignación de Responsabilidad</button>
 </a>
 
+<br><br>
 
     <!-- Botón para cerrar sesión -->
     <a href="<?= base_url('/logout') ?>">Cerrar Sesión</a>

@@ -261,12 +261,7 @@ class ConsultantController extends Controller
             $data['foto_consultor'] = $newPhotoName;
         }
 
-        // Guardar los datos actualizados
-        if ($consultantModel->update($id, $data)) {
-            return redirect()->to('/listConsultants')->with('msg', 'Consultor actualizado exitosamente');
-        } else {
-            return redirect()->to('/editConsultant/' . $id)->with('msg', 'Error al actualizar consultor');
-        }
+       
 
         // Manejar la subida de una nueva firma
         $newSignature = $this->request->getFile('firma_consultor');
@@ -282,6 +277,14 @@ class ConsultantController extends Controller
             // Actualizar el campo en la base de datos
             $data['firma_consultor'] = $newSignatureName;
         }
+
+
+        // Guardar los datos actualizados
+        if ($consultantModel->update($id, $data)) {
+            return redirect()->to('/listConsultants')->with('msg', 'Consultor actualizado exitosamente');
+        } else {
+            return redirect()->to('/editConsultant/' . $id)->with('msg', 'Error al actualizar consultor');
+        }
     }
 
     public function listClients()
@@ -292,27 +295,27 @@ class ConsultantController extends Controller
         return view('consultant/list_clients', ['clients' => $clients]);
     }
 
-    
+
 
     public function editClient($id)
-{
-    $clientModel = new ClientModel();
-    $consultantModel = new ConsultantModel();
+    {
+        $clientModel = new ClientModel();
+        $consultantModel = new ConsultantModel();
 
-    $client = $clientModel->find($id);
-    $consultants = $consultantModel->findAll();
+        $client = $clientModel->find($id);
+        $consultants = $consultantModel->findAll();
 
-    if (!$client) {
-        return redirect()->to('/listClients')->with('error', 'Cliente no encontrado.');
+        if (!$client) {
+            return redirect()->to('/listClients')->with('error', 'Cliente no encontrado.');
+        }
+
+        $data = [
+            'client' => $client,
+            'consultants' => $consultants
+        ];
+
+        return view('consultant/edit_client', $data);
     }
-
-    $data = [
-        'client' => $client,
-        'consultants' => $consultants
-    ];
-
-    return view('consultant/edit_client', $data);
-}
 
 
 
@@ -384,31 +387,30 @@ class ConsultantController extends Controller
     }
 
     public function deleteClient($id)
-{
-    $clientModel = new ClientModel();
+    {
+        $clientModel = new ClientModel();
 
-    try {
-        // Intentar eliminar el cliente
-        $client = $clientModel->find($id);
-        if ($client) {
-            // Eliminar las imágenes relacionadas si existen
-            if (!empty($client['logo']) && file_exists(ROOTPATH . 'public/uploads/' . $client['logo'])) {
-                unlink(ROOTPATH . 'public/uploads/' . $client['logo']);
-            }
-            if (!empty($client['firma_representante_legal']) && file_exists(ROOTPATH . 'public/uploads/' . $client['firma_representante_legal'])) {
-                unlink(ROOTPATH . 'public/uploads/' . $client['firma_representante_legal']);
-            }
+        try {
             // Intentar eliminar el cliente
-            $clientModel->delete($id);
+            $client = $clientModel->find($id);
+            if ($client) {
+                // Eliminar las imágenes relacionadas si existen
+                if (!empty($client['logo']) && file_exists(ROOTPATH . 'public/uploads/' . $client['logo'])) {
+                    unlink(ROOTPATH . 'public/uploads/' . $client['logo']);
+                }
+                if (!empty($client['firma_representante_legal']) && file_exists(ROOTPATH . 'public/uploads/' . $client['firma_representante_legal'])) {
+                    unlink(ROOTPATH . 'public/uploads/' . $client['firma_representante_legal']);
+                }
+                // Intentar eliminar el cliente
+                $clientModel->delete($id);
 
-            return redirect()->to('/listClients')->with('msg', 'Cliente eliminado exitosamente');
-        } else {
-            return redirect()->to('/listClients')->with('msg', 'Cliente no encontrado');
+                return redirect()->to('/listClients')->with('msg', 'Cliente eliminado exitosamente');
+            } else {
+                return redirect()->to('/listClients')->with('msg', 'Cliente no encontrado');
+            }
+        } catch (\Exception $e) {
+            // Capturar la excepción y mostrar un mensaje de advertencia
+            return redirect()->to('/listClients')->with('error', 'No puedes eliminar clientes que ya tienen registros grabados en la base de datos. Póngase en contacto con su administrador.');
         }
-    } catch (\Exception $e) {
-        // Capturar la excepción y mostrar un mensaje de advertencia
-        return redirect()->to('/listClients')->with('error', 'No puedes eliminar clientes que ya tienen registros grabados en la base de datos. Póngase en contacto con su administrador.');
     }
-}
-
 }
