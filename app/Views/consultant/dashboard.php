@@ -24,6 +24,13 @@
     <button type="button">Ver Lista de Consultores</button>
 </a>
 
+<br><br>
+
+<a href="<?= base_url('/listClients') ?>">
+    <button type="button">Ver Lista de Clientes</button>
+</a>
+
+<br><br>
 
     <h2>Ir a Lista de Documentos</h2>
     <!-- Botón para ir a la vista de agregar reportes -->

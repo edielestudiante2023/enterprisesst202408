@@ -49,6 +49,13 @@ $routes->get('/showPhoto/(:num)', 'ConsultantController::showPhoto/$1');
 $routes->post('/editConsultantPost/(:num)', 'ConsultantController::editConsultantPost/$1');
 $routes->get('/documento', 'ClientController::documento');
 
+$routes->get('/listClients', 'ConsultantController::listClients');
+$routes->get('/editClient/(:num)', 'ConsultantController::editClient/$1');
+$routes->post('/updateClient/(:num)', 'ConsultantController::updateClient/$1');
+$routes->get('/deleteClient/(:num)', 'ConsultantController::deleteClient/$1');
+
+
+
 
 
 

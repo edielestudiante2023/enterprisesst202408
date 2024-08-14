@@ -7,13 +7,20 @@
 </head>
 
 <body>
+
+<a href="<?= base_url('/listClients') ?>">
+    <button type="button">Ver Lista de Clientes</button>
+</a>
+
+<br><br>
     <h2>Agregar Nuevo Cliente</h2>
     <?php if (session()->getFlashdata('msg')) : ?>
         <div class="alert alert-warning">
             <?= session()->getFlashdata('msg') ?>
         </div>
     <?php endif; ?>
-    <form action="<?= base_url('/addClient') ?>" method="post">
+
+    <form action="<?= base_url('/addClientPost') ?>" method="post" enctype="multipart/form-data">
 
         <label>Fecha Inicio del Contrato:</label>
         <input type="date" name="fecha_ingreso" required><br>
@@ -76,6 +83,21 @@
                 <option value="<?= $consultant['id_consultor'] ?>"><?= $consultant['nombre_consultor'] ?></option>
             <?php endforeach; ?>
         </select>
+
+        <label>Logo:</label>
+        <input type="file" name="logo"><br>
+
+        <label>Firma del Representante Legal:</label>
+        <input type="file" name="firma_representante_legal"><br>
+
+        <label>Estándares:</label>
+        <select name="estandares">
+            <option value="7 Estándares">7 Estándares</option>
+            <option value="21 Estándares">21 Estándares</option>
+            <option value="60 Estándares">60 Estándares</option>
+        </select><br>
+
+
 
 
 

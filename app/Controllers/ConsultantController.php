@@ -33,6 +33,8 @@ class ConsultantController extends Controller
 
     /* http://localhost/enterprise-sst202408/public/index.php/addClient */
 
+
+
     public function addClientPost()
     {
         $clientModel = new ClientModel();
@@ -41,6 +43,22 @@ class ConsultantController extends Controller
         $id_consultor = $this->request->getPost('id_consultor');
         if (empty($id_consultor)) {
             return redirect()->back()->with('error', 'Debe seleccionar un consultor.');
+        }
+
+        $logo = $this->request->getFile('logo');
+        $firma = $this->request->getFile('firma_representante_legal');
+
+        $logoName = null;
+        $firmaName = null;
+
+        if ($logo && $logo->isValid() && !$logo->hasMoved()) {
+            $logoName = $logo->getRandomName();
+            $logo->move(ROOTPATH . 'public/uploads', $logoName); // Cambiado WRITEPATH por ROOTPATH
+        }
+
+        if ($firma && $firma->isValid() && !$firma->hasMoved()) {
+            $firmaName = $firma->getRandomName();
+            $firma->move(ROOTPATH . 'public/uploads', $firmaName); // Cambiado WRITEPATH por ROOTPATH
         }
 
         $data = [
@@ -62,6 +80,9 @@ class ConsultantController extends Controller
             'ciudad_cliente' => $this->request->getVar('ciudad_cliente'),
             'estado' => 'activo',
             'id_consultor' => $id_consultor,  // Modificado para usar el valor del formulario
+            'logo' => $logoName,
+            'firma_representante_legal' => $firmaName,
+            'estandares' => $this->request->getVar('estandares'),
         ];
 
         if ($clientModel->save($data)) {
@@ -74,6 +95,10 @@ class ConsultantController extends Controller
 
         return redirect()->to('/addClient');
     }
+
+
+
+
 
     public function addConsultant()
     {
@@ -123,35 +148,6 @@ class ConsultantController extends Controller
             return redirect()->to('/addConsultant')->with('msg', 'Error al agregar consultor');
         }
     }
-
-
-
-
-
-
-    /* public function dashboard()
-    {
-        // Instanciar los modelos
-        $clientModel = new ClientModel();
-        $reportModel = new ReporteModel();
-
-        // Recuperar los datos
-        $clients = $clientModel->findAll();
-        $reports = $reportModel->orderBy('created_at', 'DESC')->findAll();
-
-        // Verificar que los datos están siendo recuperados correctamente
-        var_dump($clients);
-        var_dump($reports);
-        exit; // Detener la ejecución para ver los datos
-
-        // Pasar los datos a la vista
-        $data = [
-            'clients' => $clients,
-            'reports' => $reports
-        ];
-
-        return view('consultant/dashboard', $data);
-    } */
 
     public function listConsultants()
     {
@@ -287,4 +283,125 @@ class ConsultantController extends Controller
             $data['firma_consultor'] = $newSignatureName;
         }
     }
+
+    public function listClients()
+    {
+        $clientModel = new ClientModel();
+        $clients = $clientModel->findAll();
+
+        return view('consultant/list_clients', ['clients' => $clients]);
+    }
+
+    public function editClient($id_cliente)
+    {
+        $clientModel = new ClientModel();
+        $client = $clientModel->find($id_cliente);
+
+        if (!$client) {
+            return redirect()->to('/listClients')->with('error', 'Cliente no encontrado');
+        }
+
+        $data = [
+            'client' => $client
+        ];
+
+        return view('consultant/edit_client', $data);
+    }
+
+
+    public function updateClient($id)
+    {
+        $clientModel = new ClientModel();
+        $client = $clientModel->find($id);
+
+        if (!$client) {
+            return redirect()->to('/listClients')->with('msg', 'Cliente no encontrado');
+        }
+
+        // Datos que siempre se actualizarán
+        $data = [
+            'nombre_cliente' => $this->request->getVar('nombre_cliente'),
+            'nit_cliente' => $this->request->getVar('nit_cliente'),
+            'usuario' => $this->request->getVar('usuario'),
+            'correo_cliente' => $this->request->getVar('correo_cliente'),
+            'telefono_1_cliente' => $this->request->getVar('telefono_1_cliente'),
+            'telefono_2_cliente' => $this->request->getVar('telefono_2_cliente'),
+            'direccion_cliente' => $this->request->getVar('direccion_cliente'),
+            'persona_contacto_compras' => $this->request->getVar('persona_contacto_compras'),
+            'codigo_actividad_economica' => $this->request->getVar('codigo_actividad_economica'),
+            'nombre_rep_legal' => $this->request->getVar('nombre_rep_legal'),
+            'cedula_rep_legal' => $this->request->getVar('cedula_rep_legal'),
+            'fecha_fin_contrato' => $this->request->getVar('fecha_fin_contrato'),
+            'ciudad_cliente' => $this->request->getVar('ciudad_cliente'),
+            'estado' => $this->request->getVar('estado'),
+            'id_consultor' => $this->request->getVar('id_consultor'),
+            'estandares' => $this->request->getVar('estandares')
+        ];
+
+        // Manejar la subida de un nuevo logo
+        $newLogo = $this->request->getFile('logo');
+        if ($newLogo && $newLogo->isValid() && !$newLogo->hasMoved()) {
+            $newLogoName = $newLogo->getRandomName();
+            $newLogo->move(ROOTPATH . 'public/uploads', $newLogoName);
+
+            // Eliminar el logo anterior si existe
+            if (!empty($client['logo']) && file_exists(ROOTPATH . 'public/uploads/' . $client['logo'])) {
+                unlink(ROOTPATH . 'public/uploads/' . $client['logo']);
+            }
+
+            // Actualizar el campo en la base de datos
+            $data['logo'] = $newLogoName;
+        }
+
+        // Manejar la subida de una nueva firma
+        $newSignature = $this->request->getFile('firma_representante_legal');
+        if ($newSignature && $newSignature->isValid() && !$newSignature->hasMoved()) {
+            $newSignatureName = $newSignature->getRandomName();
+            $newSignature->move(ROOTPATH . 'public/uploads', $newSignatureName);
+
+            // Eliminar la firma anterior si existe
+            if (!empty($client['firma_representante_legal']) && file_exists(ROOTPATH . 'public/uploads/' . $client['firma_representante_legal'])) {
+                unlink(ROOTPATH . 'public/uploads/' . $client['firma_representante_legal']);
+            }
+
+            // Actualizar el campo en la base de datos
+            $data['firma_representante_legal'] = $newSignatureName;
+        }
+
+        // Guardar los datos actualizados
+        if ($clientModel->update($id, $data)) {
+            return redirect()->to('/listClients')->with('msg', 'Cliente actualizado exitosamente');
+        } else {
+            return redirect()->to('/editClient/' . $id)->with('msg', 'Error al actualizar cliente');
+        }
+    }
+
+    public function deleteClient($id)
+{
+    $clientModel = new ClientModel();
+
+    try {
+        // Intentar eliminar el cliente
+        $client = $clientModel->find($id);
+        if ($client) {
+            // Eliminar las imágenes relacionadas si existen
+            if (!empty($client['logo']) && file_exists(ROOTPATH . 'public/uploads/' . $client['logo'])) {
+                unlink(ROOTPATH . 'public/uploads/' . $client['logo']);
+            }
+            if (!empty($client['firma_representante_legal']) && file_exists(ROOTPATH . 'public/uploads/' . $client['firma_representante_legal'])) {
+                unlink(ROOTPATH . 'public/uploads/' . $client['firma_representante_legal']);
+            }
+            // Intentar eliminar el cliente
+            $clientModel->delete($id);
+
+            return redirect()->to('/listClients')->with('msg', 'Cliente eliminado exitosamente');
+        } else {
+            return redirect()->to('/listClients')->with('msg', 'Cliente no encontrado');
+        }
+    } catch (\Exception $e) {
+        // Capturar la excepción y mostrar un mensaje de advertencia
+        return redirect()->to('/listClients')->with('error', 'No puedes eliminar clientes que ya tienen registros grabados en la base de datos. Póngase en contacto con su administrador.');
+    }
+}
+
 }

@@ -12,7 +12,8 @@ class ClientModel extends Model
         'password', 'correo_cliente', 'telefono_1_cliente', 'telefono_2_cliente',
         'direccion_cliente', 'persona_contacto_compras', 'codigo_actividad_economica',
         'nombre_rep_legal', 'cedula_rep_legal', 'fecha_fin_contrato', 'ciudad_cliente',
-        'estado', 'id_consultor'
+        'estado', 'id_consultor', 'logo', 'firma_representante_legal', 'estandares'
     ];
+    
 }
 ?>
