@@ -57,5 +57,32 @@ class ClientController extends Controller
 {
     return view('client/documento');
 }
+// Dentro del controlador ClientController o el que uses para los clientes
+
+public function viewDocuments()
+{
+    $reportModel = new ReporteModel();
+
+    // Obtener el ID del cliente desde la sesión
+    $clientId = session()->get('user_id'); // Asegúrate de que 'user_id' almacene el ID del cliente
+
+    // Filtrar los documentos por el ID del cliente
+    $hojasDeCalculo = $reportModel->where('id_cliente', $clientId)
+                                  ->where('id_report_type', 1) // ID para 'Hojas de cálculo interactivas'
+                                  ->findAll();
+
+    $matrices = $reportModel->where('id_cliente', $clientId)
+                            ->where('id_report_type', 2) // ID para 'Matrices'
+                            ->findAll();
+
+    $data = [
+        'hojasDeCalculo' => $hojasDeCalculo,
+        'matrices' => $matrices
+    ];
+
+    return view('client/document_view', $data);
+
+}
+
 
 }

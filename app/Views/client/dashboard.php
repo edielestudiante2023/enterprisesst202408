@@ -28,6 +28,12 @@
 
 <br><br>
 
+<a href="<?= base_url('/viewDocuments') ?>">
+    <button type="button">Ver Documentos x tipo de documento</button>
+</a>
+
+<br><br>
+
     <!-- Botón para cerrar sesión -->
     <a href="<?= base_url('/logout') ?>">Cerrar Sesión</a>
 </body>

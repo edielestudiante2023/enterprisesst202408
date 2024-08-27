@@ -53,6 +53,7 @@
                 <th>Observaciones</th>
                 <th>ID Cliente</th>
                 <th>Nombre del Cliente</th>
+                <th>Tipo de Reporte</th>
                 <th>Fecha de Creación</th>
                 <th>Acciones</th>
             </tr>
@@ -66,6 +67,8 @@
                     <td><?= $report['observaciones'] ?></td>
                     <td><?= $report['id_cliente'] ?></td>
                     <td><?= $clients[array_search($report['id_cliente'], array_column($clients, 'id_cliente'))]['nombre_cliente'] ?></td>
+                    <td><?= $reportTypes[array_search($report['id_report_type'], array_column($reportTypes, 'id_report_type'))]['report_type'] ?></td>
+
                     <td><?= $report['created_at'] ?></td>
                     <td>
                         <a href="<?= base_url('/editReport/' . $report['id_reporte']) ?>">Editar</a>

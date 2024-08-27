@@ -58,6 +58,28 @@ $routes->get('/responsableSGSST/(:num)', 'SGSSTPlanear::responsableDelSGSST/$1')
 
 $routes->get('/error', 'ErrorController::index');
 
+$routes->get('/reportTypes', 'ReportTypeController::index');
+$routes->get('/reportTypes/add', 'ReportTypeController::add');
+$routes->post('/reportTypes/addPost', 'ReportTypeController::addPost');
+
+$routes->get('/addReportType', 'ReportTypeController::addReportType');
+$routes->post('/addReportTypePost', 'ReportTypeController::addReportTypePost');
+
+$routes->get('/listReportTypes', 'ReportTypeController::index');
+
+$routes->get('/listReportTypes', 'ReportTypeController::listReportTypes');
+$routes->get('/addReportType', 'ReportTypeController::addReportType');
+$routes->post('/addReportTypePost', 'ReportTypeController::addReportTypePost');
+$routes->get('/editReportType/(:num)', 'ReportTypeController::edit/$1');
+$routes->post('/editReportTypePost/(:num)', 'ReportTypeController::editPost/$1');
+$routes->get('/deleteReportType/(:num)', 'ReportTypeController::delete/$1');
+
+$routes->get('/viewDocuments', 'ClientController::viewDocuments');
+
+
+
+
+
 
 
 

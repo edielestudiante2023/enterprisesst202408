@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ReporteModel;
 use App\Models\ClientModel;
+use App\Models\ReportTypeModel;
 use CodeIgniter\Controller;
 
 class ReportController extends Controller
@@ -37,24 +38,22 @@ class ReportController extends Controller
 
     public function reportList()
     {
-        $model = new ReporteModel();
+        $reporteModel = new ReporteModel();
+        $reportTypeModel = new ReportTypeModel();
         $clientModel = new ClientModel();
 
-        // Recuperar el parámetro de filtrado
-        $clientId = $this->request->getGet('id_cliente');
+        // Obtener todos los reportes
+        $reports = $reporteModel->findAll();
 
-        // Si se ha seleccionado un cliente específico, filtrar los reportes por ese cliente
-        if ($clientId) {
-            // Modificación: Añadir filtrado por id_cliente
-            $reports = $model->where('id_cliente', $clientId)->orderBy('created_at', 'DESC')->findAll();
-        } else {
-            $reports = $model->orderBy('created_at', 'DESC')->findAll();
-        }
+        // Obtener todos los tipos de reporte
+        $reportTypes = $reportTypeModel->findAll();
 
+        // Obtener todos los clientes
         $clients = $clientModel->findAll();
 
         $data = [
             'reports' => $reports,
+            'reportTypes' => $reportTypes,
             'clients' => $clients
         ];
 
@@ -65,10 +64,14 @@ class ReportController extends Controller
 
     public function addReport()
     {
+        $documentTypeModel = new \App\Models\ReportTypeModel();
+        $reportTypes = $documentTypeModel->findAll();
+
         $clientModel = new ClientModel();
         $clients = $clientModel->findAll();
 
         $data = [
+            'reportTypes' => $reportTypes,
             'clients' => $clients
         ];
 
@@ -90,6 +93,7 @@ class ReportController extends Controller
             'observaciones' => $this->request->getVar('observaciones'),
             'id_cliente' => $this->request->getVar('id_cliente'),
             'id_consultor' => $consultantId, // Usar id_consultor de la sesión
+            'id_report_type' => $this->request->getVar('id_report_type'),
             'created_at' => date('Y-m-d H:i:s'), // Asegurarse de que se cree el campo created_at
             'updated_at' => date('Y-m-d H:i:s')  // Asegurarse de que se cree el campo updated_at
         ];
@@ -106,11 +110,15 @@ class ReportController extends Controller
         $model = new ReporteModel();
         $report = $model->find($id);
 
+        $documentTypeModel = new \App\Models\ReportTypeModel();
+        $reportTypes = $documentTypeModel->findAll();
+
         $clientModel = new ClientModel();
         $clients = $clientModel->findAll();
 
         $data = [
             'report' => $report,
+            'reportTypes' => $reportTypes,
             'clients' => $clients
         ];
 
@@ -128,6 +136,7 @@ class ReportController extends Controller
             'estado' => $this->request->getVar('estado'),
             'observaciones' => $this->request->getVar('observaciones'),
             'id_cliente' => $this->request->getVar('id_cliente'),
+            'id_report_type' => $this->request->getVar('id_report_type'),
             'updated_at' => date('Y-m-d H:i:s') // Asegurarse de que se actualice el campo updated_at
         ];
 
@@ -146,27 +155,23 @@ class ReportController extends Controller
     }
 
     public function dashboard()
-{
-    $clientModel = new ClientModel();
-    $clients = $clientModel->findAll();
+    {
+        $clientModel = new ClientModel();
+        $clients = $clientModel->findAll();
 
-    $reportModel = new ReporteModel();
-    $reports = $reportModel->orderBy('created_at', 'DESC')->findAll();
+        $reportModel = new ReporteModel();
+        $reports = $reportModel->orderBy('created_at', 'DESC')->findAll();
 
-    // Verificar qué datos se están pasando a la vista
-    var_dump($clients);
-    var_dump($reports);
-    exit;
+        // Verificar qué datos se están pasando a la vista
+        var_dump($clients);
+        var_dump($reports);
+        exit;
 
-    $data = [
-        'clients' => $clients,
-        'reports' => $reports
-    ];
+        $data = [
+            'clients' => $clients,
+            'reports' => $reports
+        ];
 
-    return view('consultant/dashboard', $data);
-}
-
-
-
-
+        return view('consultant/dashboard', $data);
+    }
 }

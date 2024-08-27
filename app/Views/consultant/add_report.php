@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Agregar y Ver Reportes</title>
 </head>
+
 <body>
     <h2>Ir a Dashboard</h2>
     <!-- Botón para ir a la vista de agregar reportes -->
@@ -15,7 +17,7 @@
     <br><br>
 
     <h2>Agregar Nuevo Reporte</h2>
-    <?php if(session()->getFlashdata('msg')): ?>
+    <?php if (session()->getFlashdata('msg')): ?>
         <div class="alert alert-warning">
             <?= session()->getFlashdata('msg') ?>
         </div>
@@ -47,29 +49,37 @@
         <textarea name="observaciones"></textarea><br>
 
         <label>Cliente:</label>
-        <?php if(isset($clients)): ?>
-    <select name="id_cliente">
-        <option value="">Todos</option>
-        <?php foreach ($clients as $client) : ?>
-            <option value="<?= $client['id_cliente'] ?>" <?= (isset($_GET['id_cliente']) && $_GET['id_cliente'] == $client['id_cliente']) ? 'selected' : '' ?>><?= $client['nombre_cliente'] ?></option>
-        <?php endforeach; ?>
-    </select>
-<?php else: ?>
-    <p>Error: No se han encontrado clientes.</p>
-<?php endif; ?>
-
-        
+        <?php if (isset($clients)): ?>
+            <select name="id_cliente">
+                <option value="">Todos</option>
+                <?php foreach ($clients as $client) : ?>
+                    <option value="<?= $client['id_cliente'] ?>" <?= (isset($_GET['id_cliente']) && $_GET['id_cliente'] == $client['id_cliente']) ? 'selected' : '' ?>><?= $client['nombre_cliente'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        <?php else: ?>
+            <p>Error: No se han encontrado clientes.</p>
+        <?php endif; ?>
         <br>
+
+        <label for="id_report_type">Tipo de Reporte:</label>
+        <select name="id_report_type" required>
+            <?php foreach ($reportTypes as $type): ?>
+                <option value="<?= $type['id_report_type'] ?>"><?= $type['report_type'] ?></option>
+            <?php endforeach; ?>
+        </select>
+        <br>
+
 
         <button type="submit">Agregar Reporte</button>
     </form>
 
     <br><br>
 
-    
+
 
     <a href="<?= base_url('/logout') ?>">Cerrar Sesión</a>
 
-    
+
 </body>
+
 </html>

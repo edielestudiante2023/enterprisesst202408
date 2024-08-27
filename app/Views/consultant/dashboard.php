@@ -32,6 +32,13 @@
 
 <br><br>
 
+<!-- Botón para ir a la lista de tipos de reporte -->
+<a href="<?= base_url('/listReportTypes') ?>">
+    <button type="button">Ver Lista de Tipos de Reporte</button>
+</a>
+
+<br><br>
+
     <h2>Ir a Lista de Documentos</h2>
     <!-- Botón para ir a la vista de agregar reportes -->
     <a href="<?= base_url('/reportList') ?>"><button type="button">Ir a Lista de documentos</button></a>

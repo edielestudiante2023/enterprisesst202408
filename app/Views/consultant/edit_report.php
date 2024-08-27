@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Editar Reporte</title>
 </head>
+
 <body>
     <h2>Editar Reporte</h2>
-    <?php if(session()->getFlashdata('msg')): ?>
+    <?php if (session()->getFlashdata('msg')): ?>
         <div class="alert alert-warning">
             <?= session()->getFlashdata('msg') ?>
         </div>
@@ -43,7 +45,19 @@
             <?php endforeach; ?>
         </select><br>
 
+        <label for="id_report_type">Tipo de Reporte:</label>
+        <select name="id_report_type" required>
+            <?php foreach ($reportTypes as $type): ?>
+                <option value="<?= $type['id_report_type'] ?>" <?= $report['id_report_type'] == $type['id_report_type'] ? 'selected' : '' ?>>
+                    <?= $type['report_type'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <br>
+
+
         <button type="submit">Actualizar Reporte</button>
     </form>
 </body>
+
 </html>
