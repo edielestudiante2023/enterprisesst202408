@@ -4,6 +4,10 @@
     <title>Documentos del Cliente</title>
 </head>
 <body>
+
+<a href="<?= base_url('/dashboardclient') ?>">Volver al Dashboard</a>
+
+
     <h2>Documentos Relacionados</h2>
 
     <?php if (!empty($reports)): ?>

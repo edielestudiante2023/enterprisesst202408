@@ -1,3 +1,5 @@
+<a href="<?= base_url('/dashboardclient') ?>">Volver al Dashboard</a>
+
 <h2>Hojas de Cálculo Interactivas</h2>
 <?php if (!empty($hojasDeCalculo)) : ?>
     <table border="1">
