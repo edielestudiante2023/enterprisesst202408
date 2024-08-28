@@ -76,6 +76,22 @@ $routes->get('/deleteReportType/(:num)', 'ReportTypeController::delete/$1');
 
 $routes->get('/viewDocuments', 'ClientController::viewDocuments');
 
+$routes->get('/listPolicies', 'PolicyController::listPolicies');
+$routes->get('/addPolicy', 'PolicyController::addPolicy');
+$routes->post('/addPolicyPost', 'PolicyController::addPolicyPost');
+$routes->get('/editPolicy/(:num)', 'PolicyController::editPolicy/$1');
+$routes->post('/editPolicyPost/(:num)', 'PolicyController::editPolicyPost/$1');
+$routes->get('/deletePolicy/(:num)', 'PolicyController::deletePolicy/$1');
+
+$routes->get('/listPolicyTypes', 'PolicyController::listPolicyTypes');
+$routes->get('/addPolicyType', 'PolicyController::addPolicyType');
+$routes->post('/addPolicyTypePost', 'PolicyController::addPolicyTypePost');
+$routes->get('/editPolicyType/(:num)', 'PolicyController::editPolicyType/$1');
+$routes->post('/editPolicyTypePost/(:num)', 'PolicyController::editPolicyTypePost/$1');
+$routes->get('/deletePolicyType/(:num)', 'PolicyController::deletePolicyType/$1');
+
+
+
 
 
 

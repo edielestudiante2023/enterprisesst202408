@@ -46,6 +46,30 @@
 
     <a href="<?= base_url('/addReport') ?>">Agregar Nuevo Reporte</a> <br><br>
 
+    <!-- Botón para ir a la vista de editar política -->
+<a href="<?= base_url('/editPolicy') ?>">
+    <button type="button">Editar Política</button>
+</a>
+
+<br>
+
+<!-- Botón para ir a la vista de agregar nueva política -->
+<a href="<?= base_url('/addPolicy') ?>">
+    <button type="button">Agregar Nueva Política</button>
+</a>
+
+<br>
+<!-- Botón para ir a la vista de listar políticas -->
+<a href="<?= base_url('/listPolicies') ?>">
+    <button type="button">Ver Lista de Políticas</button>
+</a>
+<br>
+<br>
+<a href="<?= base_url('/listPolicyTypes') ?>"><button>Ver Tipos de Políticas</button></a>
+<br>
+<a href="<?= base_url('/addPolicyType') ?>"><button>Añadir Nuevo Tipo de Política</button></a>
+<br>
+
     <a href="<?= base_url('/logout') ?>">Cerrar Sesión</a>
 
     
