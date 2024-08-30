@@ -26,7 +26,15 @@
     <button type="button">Ver Carta de Asignación de Responsabilidad</button>
 </a>
 
+
 <br><br>
+
+<!-- Botón para ir a la vista de la política de No Alcohol, Drogas ni Tabaco -->
+<a href="<?= base_url('/policyNoAlcoholDrogas/1') ?>">
+    <button type="button">Ver Política de No Alcohol, Drogas ni Tabaco</button>
+</a>
+
+ <br><br>
 
 <a href="<?= base_url('/viewDocuments') ?>">
     <button type="button">Ver Documentos x tipo de documento</button>

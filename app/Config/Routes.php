@@ -90,6 +90,17 @@ $routes->get('/editPolicyType/(:num)', 'PolicyController::editPolicyType/$1');
 $routes->post('/editPolicyTypePost/(:num)', 'PolicyController::editPolicyTypePost/$1');
 $routes->get('/deletePolicyType/(:num)', 'PolicyController::deletePolicyType/$1');
 
+$routes->get('/policyNoAlcoholDrogas/(:num)', 'SGSSTPlanear::policyNoAlcoholDrogas/$1');
+
+
+
+
+
+
+
+
+
+
 
 
 
