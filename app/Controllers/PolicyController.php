@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\ClientPolicyModel;
+use App\Models\ClientPoliciesModel;
 use App\Models\ClientModel;
 use App\Models\PolicyTypeModel;
 use CodeIgniter\Controller;
@@ -14,7 +14,7 @@ class PolicyController extends Controller
     $clientModel = new ClientModel();
     $clients = $clientModel->findAll();
 
-    $policyModel = new ClientPolicyModel();
+    $policyModel = new ClientPoliciesModel();
     $policies = $policyModel->findAll();
 
     $policyTypeModel = new PolicyTypeModel();
@@ -46,7 +46,7 @@ class PolicyController extends Controller
 
     public function addPolicyPost()
     {
-        $model = new ClientPolicyModel();
+        $model = new ClientPoliciesModel();
 
         $data = [
             'client_id' => $this->request->getVar('client_id'),
@@ -63,7 +63,7 @@ class PolicyController extends Controller
 
     public function editPolicy($id)
     {
-        $model = new ClientPolicyModel();
+        $model = new ClientPoliciesModel();
         $policy = $model->find($id);
 
         $clientModel = new ClientModel();
@@ -81,7 +81,7 @@ class PolicyController extends Controller
 
     public function editPolicyPost($id)
     {
-        $model = new ClientPolicyModel();
+        $model = new ClientPoliciesModel();
 
         $data = [
             'client_id' => $this->request->getVar('client_id'),
@@ -98,7 +98,7 @@ class PolicyController extends Controller
 
     public function deletePolicy($id)
     {
-        $model = new ClientPolicyModel();
+        $model = new ClientPoliciesModel();
         $model->delete($id);
 
         return redirect()->to('/listPolicies')->with('msg', 'Política eliminada exitosamente');

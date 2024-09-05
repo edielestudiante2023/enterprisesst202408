@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,41 +13,54 @@
             background-color: #f4f4f4;
             color: #333;
         }
+
         .container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             text-align: center;
             color: #2c3e50;
         }
+
         p {
             margin: 15px 0;
             text-align: justify;
         }
+
         .section {
             margin-bottom: 20px;
         }
+
         .section-title {
             font-weight: bold;
             margin-bottom: 10px;
             color: #34495e;
         }
-        .signature, .logo {
+
+        .signature,
+        .logo {
             margin-top: 20px;
             text-align: center;
         }
-        .signature img, .logo img {
+
+        .signature img,
+        .logo img {
             max-width: 200px;
             display: block;
             margin: 0 auto;
         }
-        .signature p, .logo p {
+
+        .signature p,
+        .logo p {
             margin-top: 5px;
             font-weight: bold;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -86,33 +100,35 @@
         }
     </style>
 </head>
+
 <body>
 
 <table>
         <tr>
             <td rowspan="2" class="logo">
-            <img src="<?= base_url('uploads/' . $client['logo']) ?>" alt="Logo de <?= $client['nombre_cliente'] ?>" width="100%">
+                <img src="<?= base_url('uploads/' . $client['logo']) ?>" alt="Logo de <?= $client['nombre_cliente'] ?>" width="100%">
             </td>
             <td class="main-title">
                 SISTEMA DE GESTION EN SEGURIDAD Y SALUD EN EL TRABAJO
             </td>
             <td class="code">
-                PLT-SST-002
+                <?= $documentVersion['document_type'] ?>-<?= $documentVersion['acronym'] ?>
             </td>
         </tr>
         <tr>
             <td class="subtitle">
-                POLITICA DE NO ALCOHOL, DROGAS NI TABACO
+            <?= $policyType['type_name'] ?> <!-- Aquí se muestra el Nombre del Tipo de Política desde la tabla policy_types -->
             </td>
             <td class="code right">
-                Versión: 1<br>
-                Fecha: 1 abril 2024
+                Versión: <?= $documentVersion['version_number'] ?><br>
+                Fecha: <?= date('d M Y', strtotime($documentVersion['created_at'])) ?>
             </td>
         </tr>
     </table>
 
+
     <div class="container">
-        <h1>POLÍTICA DE NO ALCOHOL, DROGAS NI TABACO</h1>
+        <h1>  <?= $policyType['type_name'] ?> <!-- Aquí se muestra el Nombre del Tipo de Política desde la tabla policy_types --></h1>
 
         <!-- Datos del Cliente -->
         <div class="section">
@@ -136,7 +152,7 @@
             <p>Ciudad Cliente: <?= $client['ciudad_cliente'] ?></p>
             <p>Estado: <?= $client['estado'] ?></p>
             <p>ID Consultor: <?= $client['id_consultor'] ?></p>
-            
+
             <!-- Mostrar logo del cliente -->
             <div class="logo">
                 <img src="<?= base_url('uploads/' . $client['logo']) ?>" alt="Logo de <?= $client['nombre_cliente'] ?>">
@@ -159,7 +175,7 @@
             <p>Nombre Consultor: <?= $consultant['nombre_consultor'] ?></p>
             <p>Cédula Consultor: <?= $consultant['cedula_consultor'] ?></p>
             <p>Número de Licencia: <?= $consultant['numero_licencia'] ?></p>
-            
+
             <!-- Mostrar foto del consultor -->
             <div class="logo">
                 <img src="<?= base_url('uploads/' . $consultant['foto_consultor']) ?>" alt="Foto de <?= $consultant['nombre_consultor'] ?>">
@@ -189,6 +205,10 @@
             <p>Fecha de Creación: <?= $clientPolicy['created_at'] ?></p>
             <p>Última Actualización: <?= $clientPolicy['updated_at'] ?></p>
         </div>
+
     </div>
+
+    
 </body>
+
 </html>

@@ -91,6 +91,19 @@ $routes->post('/editPolicyTypePost/(:num)', 'PolicyController::editPolicyTypePos
 $routes->get('/deletePolicyType/(:num)', 'PolicyController::deletePolicyType/$1');
 
 $routes->get('/policyNoAlcoholDrogas/(:num)', 'SGSSTPlanear::policyNoAlcoholDrogas/$1');
+$routes->get('/viewPolicy/(:num)', 'ClientDocumentController::viewPolicy/$1');
+$routes->get('/addVersion', 'VersionController::addVersion');
+$routes->post('/addVersionPost', 'VersionController::addVersionPost');
+$routes->get('/editVersion/(:num)', 'VersionController::editVersion/$1');
+$routes->post('/editVersionPost/(:num)', 'VersionController::editVersionPost/$1');
+$routes->get('/deleteVersion/(:num)', 'VersionController::deleteVersion/$1');
+$routes->get('/listVersions', 'VersionController::listVersions');
+
+
+
+
+
+
 
 
 

@@ -70,6 +70,12 @@
 <a href="<?= base_url('/addPolicyType') ?>"><button>Añadir Nuevo Tipo de Política</button></a>
 <br>
 
+<br>
+<a href="<?= base_url('listVersions') ?>"><button type="button">Lista de Versiones</button></a>
+
+<br>
+<br>
+
     <a href="<?= base_url('/logout') ?>">Cerrar Sesión</a>
 
     
