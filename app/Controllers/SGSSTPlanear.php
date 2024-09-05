@@ -64,8 +64,6 @@ class SGSSTPlanear extends Controller
 
     // Obtener los datos del cliente
     $client = $clientModel->find($clientId);
-
-    // Verificar si se obtuvo correctamente el cliente
     if (!$client) {
         return redirect()->to('/dashboardclient')->with('error', 'No se pudo encontrar la información del cliente');
     }
@@ -85,18 +83,20 @@ class SGSSTPlanear extends Controller
         return redirect()->to('/dashboardclient')->with('error', 'No se encontró la política de No Alcohol, Drogas y Tabaco para este cliente.');
     }
 
-    // Obtener el tipo de política (Nombre del tipo de política)
+    // Obtener el tipo de política
     $policyType = $policyTypeModel->find($policyTypeId);
 
-    // Obtener la versión del documento
-    $documentVersion = $versionModel->where('client_id', $clientId)
-                                    ->where('policy_type_id', $policyTypeId)
-                                    ->orderBy('created_at', 'DESC')
-                                    ->first();
+    // Obtener la versión más reciente del documento
+    $latestVersion = $versionModel->where('client_id', $clientId)
+                                  ->where('policy_type_id', $policyTypeId)
+                                  ->orderBy('created_at', 'DESC')
+                                  ->first();
 
-    if (!$documentVersion) {
-        return redirect()->to('/dashboardclient')->with('error', 'No se encontró una versión de la política para este cliente.');
-    }
+    // Obtener todas las versiones del documento
+    $allVersions = $versionModel->where('client_id', $clientId)
+                                ->where('policy_type_id', $policyTypeId)
+                                ->orderBy('created_at', 'DESC')
+                                ->findAll();
 
     // Pasar los datos a la vista
     $data = [
@@ -104,13 +104,12 @@ class SGSSTPlanear extends Controller
         'consultant' => $consultant,
         'clientPolicy' => $clientPolicy,
         'policyType' => $policyType,
-        'documentVersion' => $documentVersion,
+        'latestVersion' => $latestVersion,
+        'allVersions' => $allVersions,  // Pasamos todas las versiones al footer
     ];
 
     return view('client/sgsst/1planear/no_alcohol_drogas', $data);
 }
-
-
 
   
 }

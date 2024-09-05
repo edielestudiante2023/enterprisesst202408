@@ -98,6 +98,24 @@
             text-align: left;
             padding-left: 10px;
         }
+
+        footer {
+            margin-top: 50px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-top: 1px solid #ccc;
+            font-size: 14px;
+            text-align: left;
+        }
+        footer table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        footer th, footer td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
     </style>
 </head>
 
@@ -112,7 +130,7 @@
                 SISTEMA DE GESTION EN SEGURIDAD Y SALUD EN EL TRABAJO
             </td>
             <td class="code">
-                <?= $documentVersion['document_type'] ?>-<?= $documentVersion['acronym'] ?>
+                <?= $latestVersion['document_type'] ?>-<?= $latestVersion['acronym'] ?>
             </td>
         </tr>
         <tr>
@@ -120,8 +138,8 @@
             <?= $policyType['type_name'] ?> <!-- Aquí se muestra el Nombre del Tipo de Política desde la tabla policy_types -->
             </td>
             <td class="code right">
-                Versión: <?= $documentVersion['version_number'] ?><br>
-                Fecha: <?= date('d M Y', strtotime($documentVersion['created_at'])) ?>
+                Versión: <?= $latestVersion['version_number'] ?><br>
+                Fecha: <?= date('d M Y', strtotime($latestVersion['created_at'])) ?>
             </td>
         </tr>
     </table>
@@ -207,6 +225,28 @@
         </div>
 
     </div>
+
+    <footer>
+        <h2>Historial de Versiones</h2>
+        <table>
+            <tr>
+                <th>Versión</th>
+                <th>Tipo de Documento</th>
+                <th>Acrónimo</th>
+                <th>Fecha de Creación</th>
+                <th>Observaciones</th>
+            </tr>
+            <?php foreach ($allVersions as $version): ?>
+                <tr>
+                    <td><?= $version['version_number'] ?></td>
+                    <td><?= $version['document_type'] ?></td>
+                    <td><?= $version['acronym'] ?></td>
+                    <td><?= date('d M Y', strtotime($version['created_at'])) ?></td>
+                    <td><?= $version['change_control'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </footer>
 
     
 </body>
