@@ -48,9 +48,14 @@ class AuthController extends Controller
         return redirect()->to('/login');
     }
 
+
     public function logout()
-    {
-        session()->destroy();
-        return redirect()->to('/login');
-    }
+{
+    // Destruir la sesión por completo
+    $session = session();
+    $session->destroy(); // Esto eliminará la sesión en todas las ventanas
+
+    // Redirigir al usuario a la página de inicio de sesión o página principal
+    return redirect()->to('/login');
+}
 }

@@ -35,6 +35,11 @@
 </a>
 
  <br><br>
+<a href="<?= base_url('/prueba1/1') ?>">
+    <button type="button">PRUEBA 1</button>
+</a>
+
+ <br><br>
 
 <a href="<?= base_url('/viewDocuments') ?>">
     <button type="button">Ver Documentos x tipo de documento</button>
