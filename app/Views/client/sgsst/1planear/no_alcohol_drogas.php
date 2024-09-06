@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
-            background-color: #f4f4f4;
+            background-color: white;
             color: #333;
         }
 
@@ -20,6 +20,16 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        @media print {
+            .no-print {
+                position: absolute;
+                top: -9999px;
+                /* Mueve el botón fuera de la página */
+            }
+        }
+
+
 
         h1,
         h2 {
@@ -101,17 +111,20 @@
 
         footer {
             margin-top: 50px;
-            background-color: #f4f4f4;
+            background-color: white;
             padding: 20px;
             border-top: 1px solid #ccc;
             font-size: 14px;
             text-align: left;
         }
+
         footer table {
             width: 100%;
             border-collapse: collapse;
         }
-        footer th, footer td {
+
+        footer th,
+        footer td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
@@ -121,7 +134,7 @@
 
 <body>
 
-<table>
+    <table>
         <tr>
             <td rowspan="2" class="logo">
                 <img src="<?= base_url('uploads/' . $client['logo']) ?>" alt="Logo de <?= $client['nombre_cliente'] ?>" width="100%">
@@ -135,7 +148,7 @@
         </tr>
         <tr>
             <td class="subtitle">
-            <?= $policyType['type_name'] ?> <!-- Aquí se muestra el Nombre del Tipo de Política desde la tabla policy_types -->
+                <?= $policyType['type_name'] ?> <!-- Aquí se muestra el Nombre del Tipo de Política desde la tabla policy_types -->
             </td>
             <td class="code right">
                 Versión: <?= $latestVersion['version_number'] ?><br>
@@ -145,8 +158,10 @@
     </table>
 
 
+
+
     <div class="container">
-        <h1>  <?= $policyType['type_name'] ?> <!-- Aquí se muestra el Nombre del Tipo de Política desde la tabla policy_types --></h1>
+        <h1> <?= $policyType['type_name'] ?> <!-- Aquí se muestra el Nombre del Tipo de Política desde la tabla policy_types --></h1>
 
         <!-- Datos del Cliente -->
         <div class="section">
@@ -247,8 +262,13 @@
             <?php endforeach; ?>
         </table>
     </footer>
+    <br>
+    <div class="no-print">
+        <a href="<?= base_url('/generatePdfNoAlcoholDrogas') ?>" target="_blank">
+            <button type="button">PDF</button>
+        </a>
+    </div>
 
-    
 </body>
 
 </html>

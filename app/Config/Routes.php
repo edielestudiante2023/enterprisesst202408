@@ -98,6 +98,8 @@ $routes->get('/editVersion/(:num)', 'VersionController::editVersion/$1');
 $routes->post('/editVersionPost/(:num)', 'VersionController::editVersionPost/$1');
 $routes->get('/deleteVersion/(:num)', 'VersionController::deleteVersion/$1');
 $routes->get('/listVersions', 'VersionController::listVersions');
+$routes->get('/generatePdfNoAlcoholDrogas', 'SGSSTPlanear::generatePdfNoAlcoholDrogas');
+
 
 
 

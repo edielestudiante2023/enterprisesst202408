@@ -7,6 +7,8 @@ use App\Models\ClientPoliciesModel; // Usaremos este modelo para client_policies
 use App\Models\DocumentVersionModel; // Usaremos este modelo para client_policies
 use App\Models\PolicyTypeModel; // Usaremos este modelo para client_policies
 
+use Dompdf\Dompdf;
+
 use CodeIgniter\Controller;
 
 class SGSSTPlanear extends Controller
@@ -111,7 +113,65 @@ class SGSSTPlanear extends Controller
     return view('client/sgsst/1planear/no_alcohol_drogas', $data);
 }
 
-  
+public function generatePdfNoAlcoholDrogas()
+{
+    // Instanciar Dompdf
+    $dompdf = new Dompdf();
+    $dompdf->set_option('isRemoteEnabled', true);
+
+    // Obtener los mismos datos que en la función policyNoAlcoholDrogas
+    $session = session();
+    $clientId = $session->get('user_id');
+
+    $clientModel = new ClientModel();
+    $consultantModel = new ConsultantModel();
+    $clientPoliciesModel = new ClientPoliciesModel();
+    $policyTypeModel = new PolicyTypeModel();
+    $versionModel = new DocumentVersionModel();
+
+    // Obtener los datos necesarios
+    $client = $clientModel->find($clientId);
+    $consultant = $consultantModel->find($client['id_consultor']);
+    $policyTypeId = 1; // Supongamos que el ID de la política de alcohol y drogas es 1
+    $clientPolicy = $clientPoliciesModel->where('client_id', $clientId)
+                                        ->where('policy_type_id', $policyTypeId)
+                                        ->first();
+    $policyType = $policyTypeModel->find($policyTypeId);
+    $latestVersion = $versionModel->where('client_id', $clientId)
+                                  ->where('policy_type_id', $policyTypeId)
+                                  ->orderBy('created_at', 'DESC')
+                                  ->first();
+    $allVersions = $versionModel->where('client_id', $clientId)
+                                ->where('policy_type_id', $policyTypeId)
+                                ->orderBy('created_at', 'DESC')
+                                ->findAll();
+
+    // Preparar los datos para la vista
+    $data = [
+        'client' => $client,
+        'consultant' => $consultant,
+        'clientPolicy' => $clientPolicy,
+        'policyType' => $policyType,
+        'latestVersion' => $latestVersion,
+        'allVersions' => $allVersions,  // Pasamos todas las versiones al footer
+    ];
+
+    // Cargar la vista y pasar los datos
+    $html = view('client/sgsst/1planear/no_alcohol_drogas', $data);
+
+    // Cargar el HTML en Dompdf
+    $dompdf->loadHtml($html);
+
+    // Configurar el tamaño del papel y la orientación
+    $dompdf->setPaper('A4', 'portrait');
+
+    // Renderizar el PDF
+    $dompdf->render();
+
+    // Enviar el PDF al navegador para descargar
+    $dompdf->stream('policy_no_alcohol_drogas.pdf', ['Attachment' => false]);
+}
+
 }
 
 
