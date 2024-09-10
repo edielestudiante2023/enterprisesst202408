@@ -265,18 +265,14 @@
             </ul>
         </section>
 
-        <!-- <div class="signature-container">
+        <div class="signature-container">
             <div class="signature">
                 <img src="<?= base_url('uploads/' . $client['firma_representante_legal']) ?>" alt="Firma rep. legal">
                 <div class="name"><b><?= $client['nombre_rep_legal'] ?></b></div>
                 <div class="title">Representante Legal</div>
             </div>
-            <div class="signature">
-                <img src="<?= base_url('uploads/' . $consultant['firma_consultor']) ?>" alt="Firma consultor">
-                <div class="name"><b><?= $consultant['nombre_consultor'] ?></b></div>
-                <div class="title">responsable del SG-SST</div>
-            </div>
-        </div> -->
+            
+        </div>
 
 
     </div>
