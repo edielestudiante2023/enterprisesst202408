@@ -5,7 +5,7 @@
     <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
         <tr>
             <th>Nombre del Cliente</th>
-            <th>Nombre de la Política</th>
+            <th>Nombre del Documento</th>
             <th>Tipo de Documento</th>
             <th>Acrónimo</th>
             <th>Número de Versión</th>

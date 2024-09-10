@@ -10,7 +10,7 @@
     </select>
     <br><br>
 
-    <label for="policy_type_id">Nombre de la Política:</label>
+    <label for="policy_type_id">Nombre del Documento:</label>
     <select name="policy_type_id" required>
         <?php foreach ($policyTypes as $policyType): ?>
             <option value="<?= $policyType['id'] ?>"><?= $policyType['type_name'] ?></option>

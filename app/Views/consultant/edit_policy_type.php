@@ -3,12 +3,14 @@
     <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
     <br><br>
 
-<h1>Editar Tipo de Política</h1>
+<h1>Editar Tipo de Documento</h1>
 
 <?php if (isset($policyType)): ?>
 <form action="<?= base_url('/editPolicyTypePost/'.$policyType['id']) ?>" method="post">
-    <label for="type_name">Nombre del Tipo de Política:</label>
+    <label for="type_name">Nombre del Tipo de Documento:</label>
     <input type="text" name="type_name" value="<?= $policyType['type_name'] ?>" required><br>
+    <label for="type_name">Descripción del Tipo de Documento:</label>
+    <input type="text" name="description" value="<?= $policyType['description'] ?>" ><br>
     <button type="submit">Actualizar</button>
 </form>
 <?php else: ?>

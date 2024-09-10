@@ -22,21 +22,15 @@
 
     <br><br>
 
-    <a href="<?= base_url('/responsableSGSST/1') ?>">
-    <button type="button">Ver Carta de Asignación de Responsabilidad</button>
-</a>
 
-
-<br><br>
-
-<!-- Botón para ir a la vista de la política de No Alcohol, Drogas ni Tabaco -->
-<a href="<?= base_url('/policyNoAlcoholDrogas/1') ?>">
-    <button type="button">Ver Política de No Alcohol, Drogas ni Tabaco</button>
-</a>
 
  <br><br>
-<a href="<?= base_url('/prueba1/1') ?>">
-    <button type="button">PRUEBA 1</button>
+<a href="<?= base_url('/asignacionResponsable/1') ?>" target="_blank">
+    <button type="button">1.1.1 Asignación de Responsable</button>
+</a>
+ <br><br>
+<a href="<?= base_url('/asignacionResponsabilidades/1') ?>" target="_blank">
+    <button type="button">1.1.2 Asignación de Responsabilidades</button>
 </a>
 
  <br><br>

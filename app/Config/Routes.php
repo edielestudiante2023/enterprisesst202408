@@ -91,6 +91,8 @@ $routes->post('/editPolicyTypePost/(:num)', 'PolicyController::editPolicyTypePos
 $routes->get('/deletePolicyType/(:num)', 'PolicyController::deletePolicyType/$1');
 
 $routes->get('/policyNoAlcoholDrogas/(:num)', 'SGSSTPlanear::policyNoAlcoholDrogas/$1');
+$routes->get('/asignacionResponsable/(:num)', 'PzasignacionresponsableController::asignacionResponsable/$1');
+$routes->get('/asignacionResponsabilidades/(:num)', 'PzasignacionresponsabilidadesController::asignacionResponsabilidades/$1');
 $routes->get('/prueba1/(:num)', 'Prueba1Controller::prueba1/$1');
 $routes->get('/viewPolicy/(:num)', 'ClientDocumentController::viewPolicy/$1');
 $routes->get('/addVersion', 'VersionController::addVersion');
@@ -100,6 +102,8 @@ $routes->post('/editVersionPost/(:num)', 'VersionController::editVersionPost/$1'
 $routes->get('/deleteVersion/(:num)', 'VersionController::deleteVersion/$1');
 $routes->get('/listVersions', 'VersionController::listVersions');
 $routes->get('/generatePdfNoAlcoholDrogas', 'SGSSTPlanear::generatePdfNoAlcoholDrogas');
+$routes->get('/generatePdf_asignacionResponsable', 'PzasignacionresponsableController::generatePdf_asignacionResponsable');
+$routes->get('/generatePdf_asignacionResponsabilidades', 'PzasignacionresponsabilidadesController::generatePdf_asignacionResponsabilidades');
 
 
 

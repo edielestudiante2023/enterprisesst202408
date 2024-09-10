@@ -4,14 +4,14 @@
     <br><br>
 
 
-<h1>Lista de Tipos de Políticas</h1>
+<h1>Lista de Tipos de Documentos</h1>
 
-<a href="<?= base_url('/addPolicyType') ?>">Añadir Nuevo Tipo de Política</a>
+<a href="<?= base_url('/addPolicyType') ?>">Añadir Nuevo Tipo de Documentos</a>
 
 <table>
     <thead>
         <tr>
-            <th>Nombre del Tipo de Política</th>
+            <th>Nombre del Tipo de Documento</th>
             <th>Descripción</th>
             <th>Acciones</th>
         </tr>

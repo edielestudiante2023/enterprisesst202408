@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lista de Políticas</title>
+    <title>Lista de Contenidos</title>
 </head>
 <body>
 
@@ -10,7 +10,7 @@
     <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
     <br><br>
 
-<h1>Lista de Políticas</h1>
+<h1>Lista de Contenidos</h1>
 
 <?php if (session()->getFlashdata('msg')): ?>
     <p><?= session()->getFlashdata('msg') ?></p>
@@ -20,8 +20,8 @@
     <thead>
         <tr>
             <th>Cliente</th>
-            <th>Tipo de Política</th>
-            <th>Contenido</th>
+            <th>Tipo de Contenido</th>
+            <th>Texto del Contenido</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -41,7 +41,7 @@
 </table>
 
 
-<a href="<?= base_url('/addPolicy') ?>">Agregar Nueva Política</a>
+<a href="<?= base_url('/addPolicy') ?>">Agregar Nuevo Texto a Documento</a>
 
 </body>
 </html>

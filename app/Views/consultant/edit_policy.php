@@ -33,11 +33,11 @@
     <textarea name="policy_content" required><?= $policy['policy_content'] ?></textarea>
     <br>
 
-    <button type="submit">Actualizar Política</button>
+    <button type="submit">Actualizar Texto</button>
 </form>
 
 
-<a href="<?= base_url('/listPolicies') ?>">Volver a la lista de políticas</a>
+<a href="<?= base_url('/listPolicies') ?>">Volver a la lista de Documentos</a>
 
 </body>
 </html>

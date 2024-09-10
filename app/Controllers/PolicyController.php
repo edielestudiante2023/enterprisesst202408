@@ -90,9 +90,9 @@ class PolicyController extends Controller
         ];
 
         if ($model->update($id, $data)) {
-            return redirect()->to('/listPolicies')->with('msg', 'Política actualizada exitosamente');
+            return redirect()->to('/listPolicies')->with('msg', 'Contenido actualizado exitosamente');
         } else {
-            return redirect()->back()->with('msg', 'Error al actualizar política');
+            return redirect()->back()->with('msg', 'Error al actualizar Contenido');
         }
     }
 
@@ -123,6 +123,7 @@ class PolicyController extends Controller
         $model = new PolicyTypeModel();
         $data = [
             'type_name' => $this->request->getPost('type_name'),
+            'description' => $this->request->getPost('description'),
         ];
         $model->save($data);
         return redirect()->to('/listPolicyTypes')->with('msg', 'Tipo de política añadido con éxito');
@@ -142,6 +143,7 @@ class PolicyController extends Controller
         $model = new PolicyTypeModel();
         $data = [
             'type_name' => $this->request->getPost('type_name'),
+            'description' => $this->request->getPost('description'),
         ];
         $model->update($id, $data);
         return redirect()->to('/listPolicyTypes')->with('msg', 'Tipo de política actualizado con éxito');

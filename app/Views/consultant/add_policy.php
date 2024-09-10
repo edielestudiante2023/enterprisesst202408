@@ -12,7 +12,7 @@
     <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
     <br><br>
 
-    <h1>Agregar Nueva Política</h1>
+    <h1>Agregar Nuevo Texto a Documento</h1>
 
     <form action="<?= base_url('/addPolicyPost') ?>" method="post">
         <label for="client_id">Cliente:</label>
@@ -25,7 +25,7 @@
 
         
 
-        <label for="policy_type_id">Tipo de Política:</label>
+        <label for="policy_type_id">Tipo de Documento:</label>
         <select name="policy_type_id" required>
             <?php foreach ($policyTypes as $type): ?>
                 <option value="<?= $type['id'] ?>"><?= $type['type_name'] ?></option>
@@ -38,10 +38,10 @@
         <textarea name="policy_content" required></textarea>
         <br>
 
-        <button type="submit">Agregar Política</button>
+        <button type="submit">Agregar Texto</button>
     </form>
 
-    <a href="<?= base_url('/listPolicies') ?>">Volver a la lista de políticas</a>
+    <a href="<?= base_url('/listPolicies') ?>">Volver a la lista de Documentos</a>
 
 </body>
 
