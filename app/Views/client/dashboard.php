@@ -34,6 +34,21 @@
 </a>
 
  <br><br>
+<a href="<?= base_url('/asignacionVigia/1') ?>" target="_blank">
+    <button type="button">1.1.3 Asignación de Vigía</button>
+</a>
+
+ <br><br>
+<a href="<?= base_url('/exoneracionCocolab/1') ?>" target="_blank">
+    <button type="button">1.1.4 Exoneración de Comité de Convivencia Laboral</button>
+</a>
+
+ <br><br>
+<a href="<?= base_url('/registroAsistencia/1') ?>" target="_blank">
+    <button type="button">1.1.5 Registro de Asistencia a Capacitación</button>
+</a>
+
+ <br><br>
 
 <a href="<?= base_url('/viewDocuments') ?>">
     <button type="button">Ver Documentos x tipo de documento</button>

@@ -73,6 +73,16 @@
 <br>
 <br>
 
+<br>
+<a href="<?= base_url('listVigias') ?>"><button type="button">Lista de Vigías</button></a>
+<br>
+<br>
+<a href="<?= base_url('addVigia') ?>"><button type="button">Añadir Vigía</button></a>
+<br>
+<br>
+
+
+
     <a href="<?= base_url('/logout') ?>">Cerrar Sesión</a>
 
     

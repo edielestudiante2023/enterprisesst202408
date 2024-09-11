@@ -105,6 +105,22 @@ $routes->get('/generatePdfNoAlcoholDrogas', 'SGSSTPlanear::generatePdfNoAlcoholD
 $routes->get('/generatePdf_asignacionResponsable', 'PzasignacionresponsableController::generatePdf_asignacionResponsable');
 $routes->get('/generatePdf_asignacionResponsabilidades', 'PzasignacionresponsabilidadesController::generatePdf_asignacionResponsabilidades');
 
+$routes->get('/asignacionVigia/(:num)', 'PzvigiaController::asignacionVigia/$1');
+$routes->get('/generatePdf_asignacionVigia', 'PzvigiaController::generatePdf_asignacionVigia');
+$routes->get('/exoneracionCocolab/(:num)', 'PzexoneracioncocolabController::exoneracionCocolab/$1');
+$routes->get('/generatePdf_exoneracionCocolab', 'PzexoneracioncocolabController::generatePdf_exoneracionCocolab');
+$routes->get('/registroAsistencia/(:num)', 'PzregistroasistenciaController::registroAsistencia/$1');
+$routes->get('/generatePdf_registroAsistencia', 'PzregistroasistenciaController::generatePdf_registroAsistencia');
+
+
+
+$routes->get('/listVigias', 'VigiaController::listVigias');
+$routes->get('/addVigia', 'VigiaController::addVigia');
+$routes->post('/saveVigia', 'VigiaController::saveVigia');
+$routes->get('/editVigia/(:num)', 'VigiaController::editVigia/$1');
+$routes->post('/updateVigia/(:num)', 'VigiaController::updateVigia/$1');
+$routes->get('/deleteVigia/(:num)', 'VigiaController::deleteVigia/$1');
+
 
 
 
