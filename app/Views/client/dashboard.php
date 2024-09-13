@@ -74,6 +74,18 @@
 </a>
 
  <br><br>
+<a href="<?= base_url('/quejaCocolab/1') ?>" target="_blank">
+    <button type="button">1.1.11 Formato quejas de situaciones que pueden constituir acoso laboral
+</button>
+</a>
+
+ <br><br>
+<a href="<?= base_url('/manconvivenciaLaboral/1') ?>" target="_blank">
+    <button type="button">1.1.12 Manual de Convivencia Laboral
+</button>
+</a>
+
+ <br><br>
 
 <a href="<?= base_url('/viewDocuments') ?>">
     <button type="button">Ver Documentos x tipo de documento</button>
