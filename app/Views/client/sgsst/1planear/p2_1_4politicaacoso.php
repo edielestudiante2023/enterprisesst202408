@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>2.1.4 Política para la Prevención y Gestión del Acoso Laboral</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,9 +120,26 @@
             font-style: italic;
         }
 
-        /* ********************ESTILOS DEL FORMATO************************************* */
 
-       
+
+
+
+        .alpha-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .beta-parrafo {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .delta-lista {
+            margin-left: 20px;
+        }
     </style>
 
 
@@ -154,8 +171,32 @@
         </table>
     </div>
 
+    <div class="alpha-title">Política de Prevención de Acoso Laboral</div>
 
-   
+    <p class="beta-parrafo">
+        <strong><?= $client['nombre_cliente'] ?></strong>, buscando promover y mantener un excelente ambiente de convivencia laboral, para fomentar relaciones interpersonales positivas entre todos los trabajadores, se compromete a adoptar medidas para prevenir, corregir y sancionar el acoso laboral y cualquier abuso en el marco de las relaciones de trabajo.
+    </p>
+
+    <p class="beta-parrafo">
+        Esta política está dirigida a todos los trabajadores de la empresa y reafirma el compromiso que deben tener frente a las actividades que promuevan el respeto y la sinergia laboral, reflejándose desde la alta dirección en el día a día.
+    </p>
+
+    <p class="beta-parrafo">
+        <strong><?= $client['nombre_cliente'] ?></strong> establece el cumplimiento de las obligaciones introducidas en la Ley 1010 de 2006 y cualquier otra reglamentación legal que busque impedir conductas de acoso laboral, tales como: maltrato, persecución, discriminación, entorpecimiento, inequidad y/o desprotección laboral. El incumplimiento de esta política dará lugar a los procesos investigativos y sancionatorios que enmarca la ley.
+    </p>
+
+    <p class="beta-parrafo">
+        La Gerencia resuelve que la presente política sea revisada periódicamente, difundida e implementada en todos los niveles de la organización.
+    </p>
+
+    <div class="signature-container">
+        <div class="signature">
+            <img src="<?= base_url('uploads/' . $client['firma_representante_legal']) ?>" alt="Firma rep. legal">
+            <div class="name"><b><?= $client['nombre_rep_legal'] ?></b></div>
+            <div class="title">Representante Legal</div>
+        </div>
+
+    </div>
 
     <footer>
         <h2>Historial de Versiones</h2>
@@ -181,7 +222,7 @@
     <br>
 
     <div>
-        <a href="<?= base_url('/generatePdf_quejaCocolab') ?>" target="_blank">
+        <a href="<?= base_url('/generatePdf_politicaAcoso') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
     </div>

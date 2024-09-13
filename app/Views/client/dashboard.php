@@ -95,6 +95,34 @@
             <td>1.2.3 Evaluación de la Inducción y/o Reinducción</td>
             <td><a href="<?= base_url('/ftevaluacionInduccion/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
         </tr>
+        <tr>
+            <td>2.1.1 Política de Seguridad y Salud en el Trabajo</td>
+            <td><a href="<?= base_url('/politicaSst/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.1.2 Política de No Alcohol Drogas Ni Tabaco</td>
+            <td><a href="<?= base_url('/politicaAlcohol/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.1.3 Política de Prevención, Preparación y Respuesta ante Emergencias</td>
+            <td><a href="<?= base_url('/politicaEmergencias/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.1.4 Política para la Prevención y Gestión del Acoso Laboral</td>
+            <td><a href="<?= base_url('/politicaAcoso/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.1.5 Política de Seguridad Vial</td>
+            <td><a href="<?= base_url('/politicaPesv/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.1.6 Reglamento de Higiene y Seguridad Industrial</td>
+            <td><a href="<?= base_url('/regHigsegind/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.1.7 Objetivos del Sistema de Gestión de la Seguridad y Salud en el Trabajo (SG-SST)</td>
+            <td><a href="<?= base_url('/oBjetivos/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
     </tbody>
 </table>
 

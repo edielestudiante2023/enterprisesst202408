@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>2.1.5 Política de Seguridad Vial</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,9 +120,26 @@
             font-style: italic;
         }
 
-        /* ********************ESTILOS DEL FORMATO************************************* */
 
-       
+
+
+
+        .alpha-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .beta-parrafo {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .delta-lista {
+            margin-left: 20px;
+        }
     </style>
 
 
@@ -154,8 +171,41 @@
         </table>
     </div>
 
+    <div class="alpha-title">Política de Seguridad Vial</div>
 
-   
+    <p class="beta-parrafo">
+        <strong><?= $client['nombre_cliente'] ?></strong> se compromete a planificar e implementar estrategias y acciones de educación, promoción y prevención encaminadas a la reducción y eliminación de accidentes viales, fomentando el comportamiento seguro de los diferentes actores viales. En consecuencia, todas las personas que laboran en la empresa son responsables de participar activamente en las actividades que programe y desarrolle el líder de Seguridad Vial, tendientes a disminuir la probabilidad de ocurrencia de accidentes que puedan afectar la integridad física, mental y social de los funcionarios, contratistas, de la comunidad en general y el medio ambiente.
+    </p>
+
+    <p class="beta-parrafo">
+        Para cumplir esta política, <strong><?= $client['nombre_cliente'] ?></strong> adopta los requisitos del Plan Nacional de Seguridad Vial Colombia (Ley 1503 de 2011-2021) y la Resolución 40595 del 12 de julio de 2022, comprometiéndose a las siguientes medidas:
+    </p>
+
+    <ul class="delta-lista">
+        <li class="beta-parrafo">Cumplir los requisitos legales aplicables en materia de seguridad vial, con un enfoque en la mejora continua de su plan estratégico de seguridad vial.</li>
+        <li class="beta-parrafo">Cumplir con la reglamentación vigente establecida en Colombia de Tránsito Terrestre y demás normas relacionadas que las adicionen, complementen o modifiquen en seguridad vial y medio ambiente.</li>
+        <li class="beta-parrafo">Vigilar y respetar los turnos de conducción y descanso establecidos en <strong><?= $client['nombre_cliente'] ?></strong>, sin permitir exceder las horas previstas.</li>
+        <li class="beta-parrafo">Fomentar que nuestros conductores respeten los límites de velocidad establecidos en la ley: 80 km/h en carretera, 60 km/h en zonas perimetrales y 30 km/h en zonas escolares, residenciales y hospitalarias. Estos límites solo podrán excederse de acuerdo con el artículo 64 de la ley 769 de 2002 (CNT), en los casos debidamente autorizados.</li>
+        <li class="beta-parrafo">Promover el uso obligatorio del cinturón de seguridad entre los colaboradores que, en el ejercicio de su actividad misional, conducen con la finalidad de prevenir los riesgos asociados con la seguridad vial.</li>
+        <li class="beta-parrafo">Prohibir el uso de distractores durante la conducción, tales como teléfonos móviles, asistentes digitales personales, computadores portátiles y demás equipos electrónicos, aunque se cuente con manos libres. En caso de ser necesario realizar o contestar una llamada, el conductor deberá detener el vehículo en un lugar seguro.</li>
+        <li class="beta-parrafo">Establecer estrategias de concientización y educación para todos sus colaboradores mediante acciones formativas orientadas a la prevención de accidentes de tránsito y al respeto por las normas y señales de tránsito vehicular. Estas acciones permitirán la adopción de conductas proactivas frente al manejo defensivo, la creación de un plan de contingencia y la divulgación del Plan Estratégico de Seguridad Vial a las partes interesadas.</li>
+        <li class="beta-parrafo">Diseñar e implementar actividades de promoción del manejo responsable y adecuado de vehículos, enfatizando en la seguridad de todos los actores viales (peatones, conductores, pasajeros, ciclistas y motociclistas).</li>
+        <li class="beta-parrafo">Prohibir expresamente operar un vehículo bajo los efectos del alcohol, drogas y/o sustancias psicotrópicas o psicoactivas que afecten la capacidad cognitiva y física necesarias para la operación segura de cualquier tipo de vehículo.</li>
+    </ul>
+
+    <p class="beta-parrafo">
+        Los anteriores lineamientos se implementarán bajo el enfoque de Mejora Continua, y el incumplimiento de esta política puede resultar en una acción disciplinaria.
+    </p>
+
+
+    <div class="signature-container">
+        <div class="signature">
+            <img src="<?= base_url('uploads/' . $client['firma_representante_legal']) ?>" alt="Firma rep. legal">
+            <div class="name"><b><?= $client['nombre_rep_legal'] ?></b></div>
+            <div class="title">Representante Legal</div>
+        </div>
+
+    </div>
 
     <footer>
         <h2>Historial de Versiones</h2>
@@ -181,7 +231,7 @@
     <br>
 
     <div>
-        <a href="<?= base_url('/generatePdf_quejaCocolab') ?>" target="_blank">
+        <a href="<?= base_url('/generatePdf_politicaPesv') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
     </div>

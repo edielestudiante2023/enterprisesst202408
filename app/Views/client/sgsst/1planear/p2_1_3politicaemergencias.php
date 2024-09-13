@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>2.1.3 Política de Prevención, Preparación y Respuesta ante Emergencias</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,9 +120,26 @@
             font-style: italic;
         }
 
-        /* ********************ESTILOS DEL FORMATO************************************* */
 
-       
+
+
+
+        .alpha-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .beta-parrafo {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            text-align: justify;
+        }
+
+        .delta-lista {
+            margin-left: 20px;
+        }
     </style>
 
 
@@ -154,8 +171,36 @@
         </table>
     </div>
 
+    <div class="alpha-title">Política de Prevención, Preparación y Respuesta Ante Emergencias</div>
 
-   
+    <p class="beta-parrafo">
+        Para <strong><?= $client['nombre_cliente'] ?></strong> es de vital importancia proveer un óptimo nivel de seguridad a sus trabajadores, contratistas y visitantes. Para ello, dispondrá de elementos e instalaciones adecuadas, fomentará una cultura de prevención y brindará el entrenamiento necesario para asegurar el control de emergencias de cualquier naturaleza.
+    </p>
+
+    <p class="beta-parrafo">
+        En concordancia con lo anterior, la Gerencia se compromete a proporcionar todo su apoyo, colaboración y gestión necesaria para adelantar todos los procesos tendientes al cumplimiento de los objetivos propuestos en el Plan de Emergencias adoptado por la empresa.
+    </p>
+
+    <p class="beta-parrafo">
+        Con el fin de:
+    </p>
+
+    <ul class="delta-lista">
+        <li class="beta-parrafo">Preservar la vida e integridad de todas las personas (empleados, contratistas, estudiantes, visitantes y comunidad).</li>
+        <li class="beta-parrafo">Garantizar la preservación de los bienes y activos de la <strong><?= $client['nombre_cliente'] ?></strong>.</li>
+        <li class="beta-parrafo">Velar por que todas las acciones que se adelanten garanticen la protección del medio ambiente.</li>
+        <li class="beta-parrafo">Garantizar la continuidad operativa de las actividades en las instalaciones y una rápida recuperación de los sectores afectados por eventuales emergencias.</li>
+        <li class="beta-parrafo">Dispondrá todos sus esfuerzos para dar cumplimiento a la legislación vigente en materia de prevención y atención de emergencias.</li>
+    </ul>
+
+    <div class="signature-container">
+        <div class="signature">
+            <img src="<?= base_url('uploads/' . $client['firma_representante_legal']) ?>" alt="Firma rep. legal">
+            <div class="name"><b><?= $client['nombre_rep_legal'] ?></b></div>
+            <div class="title">Representante Legal</div>
+        </div>
+
+    </div>
 
     <footer>
         <h2>Historial de Versiones</h2>
@@ -181,7 +226,7 @@
     <br>
 
     <div>
-        <a href="<?= base_url('/generatePdf_quejaCocolab') ?>" target="_blank">
+        <a href="<?= base_url('/generatePdf_politicaEmergencias') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
     </div>

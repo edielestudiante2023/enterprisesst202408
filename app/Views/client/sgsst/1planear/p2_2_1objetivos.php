@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>2.1.7 Objetivos del Sistema de Gestión de la Seguridad y Salud en el Trabajo (SG-SST)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,9 +120,22 @@
             font-style: italic;
         }
 
-        /* ********************ESTILOS DEL FORMATO************************************* */
 
-       
+        .alpha-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .beta-parrafo {
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .delta-lista {
+            margin-left: 20px;
+        }
     </style>
 
 
@@ -154,8 +167,31 @@
         </table>
     </div>
 
+    <div class="alpha-title">Objetivos del Sistema de Gestión de Seguridad y Salud en el Trabajo</div>
 
-   
+    <p class="beta-parrafo">
+        La prioridad de <strong><?= $client['nombre_cliente'] ?></strong> es conservar, preservar y mejorar la seguridad y la salud de los trabajadores que prestan su labor a nuestra organización, como foco de desarrollo humano y laboral, cumpliendo con los parámetros determinados por la legislación colombiana en materia de Seguridad y Salud en el trabajo y en todo lo referente a recursos, políticas y objetivos del área de Seguridad y Salud en el trabajo.
+    </p>
+
+    <ul class="delta-lista">
+        <li class="beta-parrafo">Identificar los Factores de Riesgo existentes con el fin de poner en práctica medidas de control que mejoren las condiciones de trabajo y salud.</li>
+        <li class="beta-parrafo">Promover las normas internas de Seguridad y Salud en el trabajo y el Reglamento de Higiene y Seguridad Industrial, para facilitar el control de los factores de riesgo y prevenir la aparición de accidentes y enfermedades laborales, que produzcan incapacidades, invalidez y/o muerte.</li>
+        <li class="beta-parrafo">Crear estándares de seguridad y vigilancia que ayuden a evitar accidentes de trabajo y enfermedades laborales.</li>
+        <li class="beta-parrafo">Planear, organizar y desarrollar eventos de instrucción y capacitación que sirvan de elementos de formación integral en el trabajo y fomenten la participación de los trabajadores en general.</li>
+        <li class="beta-parrafo">Desarrollar actividades de prevención de enfermedades laborales y accidentes de trabajo apoyados en un prestador de servicios externo, coordinando y optimizando los recursos y servicios dispuestos por ARL.</li>
+        <li class="beta-parrafo">Ubicar y mantener al trabajador según sus aptitudes físicas y psicológicas, en ocupaciones que pueda desempeñar eficientemente sin poner en peligro su salud o la de sus compañeros.</li>
+        <li class="beta-parrafo">Procurar una adecuada y oportuna atención médica en caso de accidente de trabajo o enfermedad profesional.</li>
+        <li class="beta-parrafo">Conformar, fomentar y apoyar los grupos de apoyo del Programa de Seguridad y Salud en el trabajo: Comité Paritario de Seguridad y Salud en el Trabajo, Comité de Convivencia y Brigada de Emergencia, los cuales liderarán el desarrollo y adecuado cumplimiento de las metas establecidas por la empresa, en beneficio de la salud de los trabajadores.</li>
+    </ul>
+
+    <div class="signature-container">
+        <div class="signature">
+            <img src="<?= base_url('uploads/' . $client['firma_representante_legal']) ?>" alt="Firma rep. legal">
+            <div class="name"><b><?= $client['nombre_rep_legal'] ?></b></div>
+            <div class="title">Representante Legal</div>
+        </div>
+
+    </div>
 
     <footer>
         <h2>Historial de Versiones</h2>
@@ -181,7 +217,7 @@
     <br>
 
     <div>
-        <a href="<?= base_url('/generatePdf_quejaCocolab') ?>" target="_blank">
+        <a href="<?= base_url('/generatePdf_oBjetivos') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
     </div>

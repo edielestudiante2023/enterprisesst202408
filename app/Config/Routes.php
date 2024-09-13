@@ -133,6 +133,20 @@ $routes->get('/prgInduccion/(:num)', 'PzprginduccionController::prgInduccion/$1'
 $routes->get('/generatePdf_prgInduccion', 'PzprginduccionController::generatePdf_prgInduccion');
 $routes->get('/ftevaluacionInduccion/(:num)', 'PzftevaluacioninduccionController::ftevaluacionInduccion/$1');
 $routes->get('/generatePdf_ftevaluacionInduccion', 'PzftevaluacioninduccionController::generatePdf_ftevaluacionInduccion');
+$routes->get('/politicaSst/(:num)', 'PzpoliticasstController::politicaSst/$1');
+$routes->get('/generatePdf_politicaSst', 'PzpoliticasstController::generatePdf_politicaSst');
+$routes->get('/politicaAlcohol/(:num)', 'PzpoliticaalcoholController::politicaAlcohol/$1');
+$routes->get('/generatePdf_politicaAlcohol', 'PzpoliticaalcoholController::generatePdf_politicaAlcohol');
+$routes->get('/politicaEmergencias/(:num)', 'PzpoliticaemergenciasController::politicaEmergencias/$1');
+$routes->get('/generatePdf_politicaEmergencias', 'PzpoliticaemergenciasController::generatePdf_politicaEmergencias');
+$routes->get('/politicaAcoso/(:num)', 'PzpoliticaacosoController::politicaAcoso/$1');
+$routes->get('/generatePdf_politicaAcoso', 'PzpoliticaacosoController::generatePdf_politicaAcoso');
+$routes->get('/politicaPesv/(:num)', 'PzpoliticapesvController::politicaPesv/$1');
+$routes->get('/generatePdf_politicaPesv', 'PzpoliticapesvController::generatePdf_politicaPesv');
+$routes->get('/regHigsegind/(:num)', 'PzreghigsegindController::regHigsegind/$1');
+$routes->get('/generatePdf_regHigsegind', 'PzreghigsegindController::generatePdf_regHigsegind');
+$routes->get('/oBjetivos/(:num)', 'PzobjetivosController::oBjetivos/$1');
+$routes->get('/generatePdf_oBjetivos', 'PzobjetivosController::generatePdf_oBjetivos');
 
 
 

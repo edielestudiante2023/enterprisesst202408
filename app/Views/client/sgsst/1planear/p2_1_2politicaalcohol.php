@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>2.1.2 Política de No Alcohol, Drogas Ni Tabaco</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,9 +120,22 @@
             font-style: italic;
         }
 
-        /* ********************ESTILOS DEL FORMATO************************************* */
 
-       
+
+
+
+        .alpha-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .beta-parrafo {
+            margin-bottom: 0px;
+            font-size: 0.8em;
+            text-align: justify;
+        }
     </style>
 
 
@@ -154,8 +167,36 @@
         </table>
     </div>
 
+    <div class="alpha-title">Política de No Alcohol, Drogas ni Tabaco</div>
 
-   
+    <p class="beta-parrafo">
+        <strong><?= $client['nombre_cliente'] ?></strong> ha establecido una política de control para el alcohol, tabaco y drogas con el objetivo de prevenir, mejorar y conservar el bienestar de los trabajadores y su calidad de vida. Adicionalmente, esta política busca garantizar un adecuado desempeño, competitividad del personal y de la institución, así como fomentar estilos de vida saludables y el autocuidado.
+    </p>
+
+    <p class="beta-parrafo">
+        Es política de <strong><?= $client['nombre_cliente'] ?></strong> mantener los lugares de trabajo en óptimas condiciones que permitan alcanzar los más altos estándares de seguridad y bienestar. La empresa es consciente de que el consumo de alcohol, el abuso de tabaco y el uso de sustancias psicoactivas por parte de los funcionarios tiene efectos adversos considerables en la salud y en la capacidad de ejecución de sus labores, afectando tanto a la empresa como a su integridad. Por lo tanto, la indebida utilización de medicamentos no formulados; la posesión y distribución de sustancias psicoactivas; y la posesión, uso y distribución de bebidas alcohólicas están estrictamente prohibidos durante el horario laboral y dentro de las instalaciones.
+    </p>
+
+    <p class="beta-parrafo">
+        Asimismo, se prohíbe el uso de tabaco en las instalaciones de <strong><?= $client['nombre_cliente'] ?></strong> y en lugares no autorizados.
+    </p>
+
+    <p class="beta-parrafo">
+        La violación a esta política se considera una falta grave, y en consecuencia, la empresa adoptará medidas disciplinarias, inclusive la terminación del contrato de trabajo por justa causa, conforme al Código Sustantivo del Trabajo (artículo 62, numeral 12) y como se establece en el reglamento interno de trabajo. Por lo anterior, se ha designado el recurso humano necesario para dar cumplimiento a esta política, y se establecen responsabilidades para todos los trabajadores, quienes deberán participar en los programas de capacitación y sensibilización.
+    </p>
+
+    <p class="beta-parrafo">
+        Esta política aplica a todos los trabajadores, contratistas y visitantes de <strong><?= $client['nombre_cliente'] ?></strong>. Por este motivo, no se permitirá el ingreso a las instalaciones de la empresa a personas que se encuentren en estado de embriaguez o que hayan ingerido cualquier tipo de sustancias psicoactivas.
+    </p>
+
+    <div class="signature-container">
+        <div class="signature">
+            <img src="<?= base_url('uploads/' . $client['firma_representante_legal']) ?>" alt="Firma rep. legal">
+            <div class="name"><b><?= $client['nombre_rep_legal'] ?></b></div>
+            <div class="title">Representante Legal</div>
+        </div>
+
+    </div>
 
     <footer>
         <h2>Historial de Versiones</h2>
@@ -181,7 +222,7 @@
     <br>
 
     <div>
-        <a href="<?= base_url('/generatePdf_quejaCocolab') ?>" target="_blank">
+        <a href="<?= base_url('/generatePdf_politicaAlcohol') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
     </div>

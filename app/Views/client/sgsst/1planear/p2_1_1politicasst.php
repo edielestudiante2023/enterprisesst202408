@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>2.1.1 Política de Seguridad y Salud en el Trabajo</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,9 +120,22 @@
             font-style: italic;
         }
 
-        /* ********************ESTILOS DEL FORMATO************************************* */
 
-       
+        
+
+        
+        .alpha-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .beta-parrafo {
+            margin-bottom: 0px;
+            font-size: 0.9em;
+            text-align: justify;
+        }
     </style>
 
 
@@ -154,8 +167,32 @@
         </table>
     </div>
 
+    <div class="alpha-title">Política de Seguridad y Salud en el Trabajo</div>
 
-   
+    <p class="beta-parrafo">
+        <strong><?= $client['nombre_cliente'] ?></strong> se compromete con la protección y promoción de la salud de los trabajadores, procurando su integridad física, social y psicológica, mediante el control y seguimiento de los factores de riesgos a los que se encuentran expuestos.
+    </p>
+
+    <p class="beta-parrafo">
+        A través de esta política, <strong><?= $client['nombre_cliente'] ?></strong> pronuncia formalmente su compromiso hacia la seguridad y salud en el trabajo y define que todos los niveles de la organización asumen la responsabilidad de promover un ambiente de trabajo sano y seguro, cumpliendo los requisitos legales aplicables, en la implementación del sistema de gestión de seguridad y salud en el trabajo. Adicionalmente, se destinan los recursos humanos, físicos, tecnológicos y financieros necesarios para la gestión de la salud y la seguridad, contando con el apoyo del vigía en Seguridad y Salud en el Trabajo, el Comité de Convivencia y la alta gerencia para la optimización de los recursos presupuestados con el fin de cumplir con las metas propuestas.
+    </p>
+
+    <p class="beta-parrafo">
+        Los programas desarrollados en <strong><?= $client['nombre_cliente'] ?></strong> estarán orientados al fomento de una cultura preventiva y de autocuidado, a la intervención de las condiciones inseguras, con el propósito de disminuir la generación de accidentes de trabajo y enfermedades laborales, ejerciendo un control adecuado de los riesgos en su origen, al control del ausentismo y a la preparación para emergencias.
+    </p>
+
+    <p class="beta-parrafo">
+        Todos los empleados, participantes, visitantes y contratistas tendrán la responsabilidad de cumplir con las normas y procedimientos de seguridad, con el fin de realizar un trabajo seguro y productivo. Igualmente, serán responsables de notificar oportunamente todas aquellas condiciones que puedan generar consecuencias y contingencias para los empleados y la organización.
+    </p>
+
+    <div class="signature-container">
+        <div class="signature">
+            <img src="<?= base_url('uploads/' . $client['firma_representante_legal']) ?>" alt="Firma rep. legal">
+            <div class="name"><b><?= $client['nombre_rep_legal'] ?></b></div>
+            <div class="title">Representante Legal</div>
+        </div>
+
+    </div>
 
     <footer>
         <h2>Historial de Versiones</h2>
@@ -181,7 +218,7 @@
     <br>
 
     <div>
-        <a href="<?= base_url('/generatePdf_quejaCocolab') ?>" target="_blank">
+        <a href="<?= base_url('/generatePdf_politicaSst') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
     </div>
