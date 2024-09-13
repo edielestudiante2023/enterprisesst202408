@@ -22,70 +22,88 @@
 
     <br><br>
 
+    <h2>PLANEAR</h2>
+    <table border="1">
+    <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1.1.1 Asignación de Responsable</td>
+            <td><a href="<?= base_url('/asignacionResponsable/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.2 Asignación de Responsabilidades</td>
+            <td><a href="<?= base_url('/asignacionResponsabilidades/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.3 Asignación de Vigía</td>
+            <td><a href="<?= base_url('/asignacionVigia/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.4 Exoneración de Comité de Convivencia Laboral</td>
+            <td><a href="<?= base_url('/exoneracionCocolab/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.5 Registro de Asistencia a Capacitación</td>
+            <td><a href="<?= base_url('/registroAsistencia/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.6 Acta de Reunión Copasst</td>
+            <td><a href="<?= base_url('/actaCopasst/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.7 Formato de Inscripción al Copasst</td>
+            <td><a href="<?= base_url('/inscripcionCopasst/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.8 Formato de Asistencia (No aplica para capacitaciones)</td>
+            <td><a href="<?= base_url('/formatoAsistencia/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.9 Formato de Acuerdo de Confidencialidad COCOLAB</td>
+            <td><a href="<?= base_url('/confidencialidadCocolab/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.10 Formato de Inscripción al COCOLAB</td>
+            <td><a href="<?= base_url('/inscripcionCocolab/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.11 Formato quejas de situaciones que pueden constituir acoso laboral</td>
+            <td><a href="<?= base_url('/quejaCocolab/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.12 Manual de Convivencia Laboral</td>
+            <td><a href="<?= base_url('/manconvivenciaLaboral/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.1.13 Conformación y Funcionamiento del comité de Convivencia Laboral</td>
+            <td><a href="<?= base_url('/prcCocolab/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.2.1 Programa de Capacitación y Entrenamiento</td>
+            <td><a href="<?= base_url('/prgCapacitacion/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.2.2 Programa de Inducción y Reinducción</td>
+            <td><a href="<?= base_url('/prgInduccion/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>1.2.3 Evaluación de la Inducción y/o Reinducción</td>
+            <td><a href="<?= base_url('/ftevaluacionInduccion/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+    </tbody>
+</table>
 
 
- <br><br>
-<a href="<?= base_url('/asignacionResponsable/1') ?>" target="_blank">
-    <button type="button">1.1.1 Asignación de Responsable</button>
-</a>
- <br><br>
-<a href="<?= base_url('/asignacionResponsabilidades/1') ?>" target="_blank">
-    <button type="button">1.1.2 Asignación de Responsabilidades</button>
-</a>
 
- <br><br>
-<a href="<?= base_url('/asignacionVigia/1') ?>" target="_blank">
-    <button type="button">1.1.3 Asignación de Vigía</button>
-</a>
 
- <br><br>
-<a href="<?= base_url('/exoneracionCocolab/1') ?>" target="_blank">
-    <button type="button">1.1.4 Exoneración de Comité de Convivencia Laboral</button>
-</a>
+ <!-- ******************* SEGMENTO 2************************************************** -->
 
- <br><br>
-<a href="<?= base_url('/registroAsistencia/1') ?>" target="_blank">
-    <button type="button">1.1.5 Registro de Asistencia a Capacitación</button>
-</a>
-
- <br><br>
-<a href="<?= base_url('/actaCopasst/1') ?>" target="_blank">
-    <button type="button">1.1.6 Acta de Reunión Copasst</button>
-</a>
-
- <br><br>
-<a href="<?= base_url('/inscripcionCopasst/1') ?>" target="_blank">
-    <button type="button">1.1.7 Formato de Inscripción al Copasst</button>
-</a>
-
- <br><br>
-<a href="<?= base_url('/formatoAsistencia/1') ?>" target="_blank">
-    <button type="button">1.1.8 Formato de Asistencia (No aplica para capacitaciones)</button>
-</a>
-
- <br><br>
-<a href="<?= base_url('/confidencialidadCocolab/1') ?>" target="_blank">
-    <button type="button">1.1.9 Formato de Acuerdo de Confidencialidad COCOLAB</button>
-</a>
-
- <br><br>
-<a href="<?= base_url('/inscripcionCocolab/1') ?>" target="_blank">
-    <button type="button">1.1.10 Formato de Inscripción al COCOLAB</button>
-</a>
-
- <br><br>
-<a href="<?= base_url('/quejaCocolab/1') ?>" target="_blank">
-    <button type="button">1.1.11 Formato quejas de situaciones que pueden constituir acoso laboral
-</button>
-</a>
-
- <br><br>
-<a href="<?= base_url('/manconvivenciaLaboral/1') ?>" target="_blank">
-    <button type="button">1.1.12 Manual de Convivencia Laboral
-</button>
-</a>
-
- <br><br>
+ <br>
 
 <a href="<?= base_url('/viewDocuments') ?>">
     <button type="button">Ver Documentos x tipo de documento</button>
