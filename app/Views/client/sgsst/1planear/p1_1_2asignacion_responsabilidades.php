@@ -193,7 +193,7 @@
 
         <br>
 
-
+        <p>FECHA: <strong><?= $client['fecha_ingreso'] ?></strong></p>
 
         <p>
 

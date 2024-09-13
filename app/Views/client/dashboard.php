@@ -49,6 +49,31 @@
 </a>
 
  <br><br>
+<a href="<?= base_url('/actaCopasst/1') ?>" target="_blank">
+    <button type="button">1.1.6 Acta de Reunión Copasst</button>
+</a>
+
+ <br><br>
+<a href="<?= base_url('/inscripcionCopasst/1') ?>" target="_blank">
+    <button type="button">1.1.7 Formato de Inscripción al Copasst</button>
+</a>
+
+ <br><br>
+<a href="<?= base_url('/formatoAsistencia/1') ?>" target="_blank">
+    <button type="button">1.1.8 Formato de Asistencia (No aplica para capacitaciones)</button>
+</a>
+
+ <br><br>
+<a href="<?= base_url('/confidencialidadCocolab/1') ?>" target="_blank">
+    <button type="button">1.1.9 Formato de Acuerdo de Confidencialidad COCOLAB</button>
+</a>
+
+ <br><br>
+<a href="<?= base_url('/inscripcionCocolab/1') ?>" target="_blank">
+    <button type="button">1.1.10 Formato de Inscripción al COCOLAB</button>
+</a>
+
+ <br><br>
 
 <a href="<?= base_url('/viewDocuments') ?>">
     <button type="button">Ver Documentos x tipo de documento</button>

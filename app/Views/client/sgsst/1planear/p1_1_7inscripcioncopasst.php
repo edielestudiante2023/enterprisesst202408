@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1.1.5 Registro de Asistencia</title>
+    <title>1.1.7 Formato de Inscripción al Copasst</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 20px;
+            color: #333;
         }
 
-        .container {
-            width: 100%;
+        .container1 {
+            width: 95%;
             margin: 0 auto;
-            padding: 20px;
+            
         }
 
         .header {
@@ -34,11 +34,14 @@
             margin: 10px 0;
         }
 
-        .info-table,
-        .attendance-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        .info-table td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        .signature {
+            margin-top: 20px;
+            text-align: right;
         }
 
         .info-table td,
@@ -160,13 +163,19 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
 
+        th,
         td {
             border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-            height: 40px;
+            padding: 10px;
+            text-align: left;
+            height: 30px;
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
 
         .logo {
@@ -178,6 +187,7 @@
             width: 50%;
             font-weight: bold;
             font-size: 14px;
+            text-align: center;
         }
 
         .code {
@@ -189,6 +199,7 @@
         .subtitle {
             font-weight: bold;
             font-size: 16px;
+            text-align: center;
         }
 
         .right {
@@ -264,7 +275,16 @@
 
         .centered-content table {
             width: 100%;
+            text-align: center;
             /* Asegura que la tabla ocupe el 100% del div */
+        }
+
+        .no-border {
+            border: none;
+        }
+
+        .center {
+            text-align: center;
         }
     </style>
 
@@ -272,7 +292,6 @@
 </head>
 
 <body>
-
 
     <div class="centered-content">
         <table>
@@ -299,126 +318,207 @@
         </table>
     </div>
 
-
-    <div class="container">
-        <h3 style="text-align: center;">REGISTRO DE ASISTENCIA</h3>
+    <div class="container1">
+        
+        <h2>Hoja de Inscripción al Comité Paritario de Seguridad y Salud en el Trabajo</h2>
 
         <table class="info-table">
             <tr>
-                <td><strong>Tema:</strong> _____________________________</td>
-                <td><strong>Lugar:</strong> _____________________________</td>
+                <td><strong>Responsable de Gestionar la Inscripción:</strong> </td>
+                <td><strong>Fecha:</strong> </td>
             </tr>
             <tr>
-                <td><strong>Fecha:</strong> _____________________________</td>
-                <td><strong></strong></td> <!-- Se añade una columna vacía para mantener la estructura -->
-            </tr>
-            <tr>
-                <td colspan="2"><strong>Objetivo:</strong> _________________________________________________________</td>
-            </tr>
-            <tr>
-                <td colspan="2"><strong>Capacitador:</strong> ______________________________________________________</td>
+                <td><strong>Empresa:</strong> <?= $client['nombre_cliente'] ?></p></td>
+                <td><strong>Período:</strong> </td>
             </tr>
         </table>
 
-        <div class="checkboxes">
-            <label><input type="checkbox"> Reunión</label>
-            <label><input type="checkbox"> Charla</label>
-            <label><input type="checkbox"> Inducción</label>
-            <label><input type="checkbox"> Reinducción</label>
-            <label><input type="checkbox"> Capacitación</label>
-            <label><input type="checkbox"> Otro: ________________</label>
-        </div>
-
-        <table class="attendance-table">
+        <table>
             <thead>
                 <tr>
-                    <th>ITEM</th>
                     <th>NOMBRE</th>
-                    <th>CEDULA</th>
                     <th>CARGO</th>
-                    <th>FIRMA</th>
+                    <th>ÁREA</th>
+                    <th>FECHA</th>
                 </tr>
             </thead>
             <tbody>
+                <!-- Filas para los registros de inscripciones, deja estas vacías para que se llenen -->
                 <tr>
-                    <td>1</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>2</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>3</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>4</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>5</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>6</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>7</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>8</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>9</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>10</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>11</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -427,40 +527,48 @@
             </tbody>
         </table>
 
-        <div class="signature-section">
-            <strong>Observaciones:</strong> _________________________________________________ <br><br><br><br>
-            _______________________________________<br>
-            <strong>Firma del Capacitador</strong>
+        <p><strong>Protección de Datos Personales:</strong> En cumplimiento de la Ley 1581 de 2012, el registro de sus datos personales en el presente documento se realiza con el objetivo de autorizar a <strong><?= $client['nombre_cliente'] ?></strong> en la recolección, almacenamiento y uso de la información que se registra en este documento.</p>
+
+        <p>Como titular de la información, tiene derecho a conocer, actualizar y rectificar sus datos personales, solicitar prueba de la autorización otorgada para su tratamiento, ser informado sobre el uso que se le ha dado a estos, presentar quejas ante entidades regulatorias locales por infracción al Régimen de Habeas Data, revocar la autorización y/o solicitar la supresión de sus datos en los casos en que sea procedente, así como acceder a ellos en forma gratuita.</p>
+
+        
+
+        <div class="signature">
+            <p><strong>Responsable:</strong> ______________________</p>
         </div>
 
-        <footer>
-            <h2>Historial de Versiones</h2>
-            <table>
-                <tr>
-                    <th>Versión</th>
-                    <th>Tipo de Documento</th>
-                    <th>Acrónimo</th>
-                    <th>Fecha de Creación</th>
-                    <th>Observaciones</th>
-                </tr>
-                <?php foreach ($allVersions as $version): ?>
-                    <tr>
-                        <td><?= $version['version_number'] ?></td>
-                        <td><?= $version['document_type'] ?></td>
-                        <td><?= $version['acronym'] ?></td>
-                        <td><?= date('d M Y', strtotime($version['created_at'])) ?></td>
-                        <td><?= $version['change_control'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        </footer>
-        <br>
-        <div >
-            <a href="<?= base_url('/generatePdf_registroAsistencia') ?>" target="_blank">
-                <button type="button">PDF</button>
-            </a>
-        </div>
     </div>
+
+
+    <footer>
+        <h2>Historial de Versiones</h2>
+        <table>
+            <tr>
+                <th>Versión</th>
+                <th>Tipo de Documento</th>
+                <th>Acrónimo</th>
+                <th>Fecha de Creación</th>
+                <th>Observaciones</th>
+            </tr>
+            <?php foreach ($allVersions as $version): ?>
+                <tr>
+                    <td><?= $version['version_number'] ?></td>
+                    <td><?= $version['document_type'] ?></td>
+                    <td><?= $version['acronym'] ?></td>
+                    <td><?= date('d M Y', strtotime($version['created_at'])) ?></td>
+                    <td><?= $version['change_control'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </footer>
+    <br>
+
+    <div>
+        <a href="<?= base_url('/generatePdf_inscripcionCopasst') ?>" target="_blank">
+            <button type="button">PDF</button>
+        </a>
+    </div>
+
 </body>
 
 </html>

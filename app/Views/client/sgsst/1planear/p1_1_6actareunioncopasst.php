@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1.1.5 Registro de Asistencia</title>
+    <title>1.1.6 Acta de Reunión Copasst</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -166,7 +166,7 @@
             border: 1px solid black;
             padding: 8px;
             text-align: center;
-            height: 40px;
+            height: 30px;
         }
 
         .logo {
@@ -266,6 +266,14 @@
             width: 100%;
             /* Asegura que la tabla ocupe el 100% del div */
         }
+
+        .no-border {
+            border: none;
+        }
+
+        .center {
+            text-align: center;
+        }
     </style>
 
 
@@ -300,167 +308,155 @@
     </div>
 
 
-    <div class="container">
-        <h3 style="text-align: center;">REGISTRO DE ASISTENCIA</h3>
+    <table>
+        <!-- Título -->
+        <tr>
+            <th colspan="4" class="center">ACTA DE REUNIÓN COPASST #____________</th>
+        </tr>
+        <!-- Motivo, Horario, Lugar, Fecha -->
+        <tr>
+            <td colspan="2">Motivo: Reunión mensual COPASST</td>
+            <td>Horario:</td>
+            <td>Fecha:</td>
+        </tr>
+        <tr>
+            <td colspan="2">Lugar:</td>
+            <td colspan="2"></td>
+        </tr>
+        <!-- Integrantes -->
+        <tr>
+            <th colspan="4">1. INTEGRANTES</th>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <th>Cargo</th>
+            <th>Representa</th>
+            <th>Firma</th>
+        </tr>
+        <!-- Filas para los integrantes -->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <!-- Objetivo -->
+        <tr>
+            <th colspan="4">2. OBJETIVO:</th>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+        <!-- Temas -->
+        <tr>
+            <th colspan="4">3. TEMAS:</th>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+        <!-- Observaciones -->
+        <tr>
+            <th colspan="4">4. OBSERVACIONES:</th>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
 
-        <table class="info-table">
+        <!-- Próxima Reunión -->
+        <tr>
+            <th colspan="4">5. PRÓXIMA REUNIÓN</th>
+        </tr>
+        <tr>
+            <td colspan="4"></td> <!-- Espacio para la información de la próxima reunión -->
+        </tr>
+
+        <!-- Compromisos -->
+        <tr>
+            <th colspan="4">6. COMPROMISOS</th>
+        </tr>
+        <tr>
+            <th colspan="2">ACTIVIDAD</th>
+            <th>FECHA</th>
+            <th>RESPONSABLE</th>
+        </tr>
+        <!-- Filas para compromisos -->
+        <tr>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+    </table>
+
+    <footer>
+        <h2>Historial de Versiones</h2>
+        <table>
             <tr>
-                <td><strong>Tema:</strong> _____________________________</td>
-                <td><strong>Lugar:</strong> _____________________________</td>
+                <th>Versión</th>
+                <th>Tipo de Documento</th>
+                <th>Acrónimo</th>
+                <th>Fecha de Creación</th>
+                <th>Observaciones</th>
             </tr>
-            <tr>
-                <td><strong>Fecha:</strong> _____________________________</td>
-                <td><strong></strong></td> <!-- Se añade una columna vacía para mantener la estructura -->
-            </tr>
-            <tr>
-                <td colspan="2"><strong>Objetivo:</strong> _________________________________________________________</td>
-            </tr>
-            <tr>
-                <td colspan="2"><strong>Capacitador:</strong> ______________________________________________________</td>
-            </tr>
+            <?php foreach ($allVersions as $version): ?>
+                <tr>
+                    <td><?= $version['version_number'] ?></td>
+                    <td><?= $version['document_type'] ?></td>
+                    <td><?= $version['acronym'] ?></td>
+                    <td><?= date('d M Y', strtotime($version['created_at'])) ?></td>
+                    <td><?= $version['change_control'] ?></td>
+                </tr>
+            <?php endforeach; ?>
         </table>
+    </footer>
+    <br>
 
-        <div class="checkboxes">
-            <label><input type="checkbox"> Reunión</label>
-            <label><input type="checkbox"> Charla</label>
-            <label><input type="checkbox"> Inducción</label>
-            <label><input type="checkbox"> Reinducción</label>
-            <label><input type="checkbox"> Capacitación</label>
-            <label><input type="checkbox"> Otro: ________________</label>
-        </div>
-
-        <table class="attendance-table">
-            <thead>
-                <tr>
-                    <th>ITEM</th>
-                    <th>NOMBRE</th>
-                    <th>CEDULA</th>
-                    <th>CARGO</th>
-                    <th>FIRMA</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="signature-section">
-            <strong>Observaciones:</strong> _________________________________________________ <br><br><br><br>
-            _______________________________________<br>
-            <strong>Firma del Capacitador</strong>
-        </div>
-
-        <footer>
-            <h2>Historial de Versiones</h2>
-            <table>
-                <tr>
-                    <th>Versión</th>
-                    <th>Tipo de Documento</th>
-                    <th>Acrónimo</th>
-                    <th>Fecha de Creación</th>
-                    <th>Observaciones</th>
-                </tr>
-                <?php foreach ($allVersions as $version): ?>
-                    <tr>
-                        <td><?= $version['version_number'] ?></td>
-                        <td><?= $version['document_type'] ?></td>
-                        <td><?= $version['acronym'] ?></td>
-                        <td><?= date('d M Y', strtotime($version['created_at'])) ?></td>
-                        <td><?= $version['change_control'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        </footer>
-        <br>
-        <div >
-            <a href="<?= base_url('/generatePdf_registroAsistencia') ?>" target="_blank">
-                <button type="button">PDF</button>
-            </a>
-        </div>
+    <div>
+        <a href="<?= base_url('/generatePdf_actaCopasst') ?>" target="_blank">
+            <button type="button">PDF</button>
+        </a>
     </div>
+    
 </body>
 
 </html>

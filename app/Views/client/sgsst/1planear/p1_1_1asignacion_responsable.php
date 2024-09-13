@@ -183,7 +183,7 @@
         <h3 style="text-align: center;">ASIGNACION PARA EL DISEÑO E IMPLEMENTACION DE SISTEMA DE GESTION DE SEGURIDAD Y SALUD EN EL TRABAJO</h3>
 
         <br>
-
+        <p>FECHA: <strong><?= $client['fecha_ingreso'] ?></strong></p>
         <p>
             <b><?= $client['nombre_rep_legal'] ?></b> con documento de identidad <b><?= $client['cedula_rep_legal'] ?></b> como representante legal de <b><?= $client['nombre_cliente'] ?></b>, nombró a la empresa CYCLOID TALENT S.A.S, asignando como responsable a la profesional en Seguridad y Salud en el Trabajo, <b><?= $consultant['nombre_consultor'] ?></b> con documento de identidad <b><?= $consultant['cedula_consultor'] ?></b>, con número de licencia <b><?= $consultant['numero_licencia'] ?></b>, asignada para la responsabilidad, <?= $clientPolicy['policy_content'] ?>
         </p>

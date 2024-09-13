@@ -192,7 +192,7 @@
         <h3 style="text-align: center;">ACTA DE ASIGNACIÓN DE VIGÍA EN SEGURIDAD Y SALUD EN EL TRABAJO</h3>
 
         <br>
-
+        <p>FECHA: <strong><?= $client['fecha_ingreso'] ?></strong></p>
         <p>
         <p>En las instalaciones de <strong><?= $client['nombre_cliente'] ?></strong>, el representante legal <strong><?= $client['nombre_rep_legal'] ?></strong>, con documento de identidad número <strong><?= $client['cedula_rep_legal'] ?></strong>, asigna como vigía en Seguridad y Salud en el Trabajo a <strong><?= $latestVigia['nombre_vigia'] ?></strong> con documento de identidad número <strong><?= $latestVigia['cedula_vigia'] ?></strong> Por un periodo de <strong><?= $latestVigia['periodo_texto'] ?></strong>, dando cumplimiento a la normativa vigente en materia de Seguridad y Salud en el Trabajo, incluyendo el <strong>Decreto 1072 de 2015</strong> y la <strong>Resolución 0312 de 2019</strong>, así como a las exigencias de la división de salud ocupacional del Ministerio de Trabajo. El empleador está obligado a proporcionar al menos cuatro horas semanales dentro de la jornada laboral normal para el funcionamiento de las actividades del vigía.
     

@@ -12,12 +12,12 @@ use Dompdf\Dompdf;
 
 use CodeIgniter\Controller;
 
-class PzexoneracioncocolabController extends Controller
+class PzinscripcioncocolabController extends Controller
 {
 
 
 
-    public function exoneracionCocolab()
+    public function inscripcionCocolab()
     {
         // Obtener el ID del cliente desde la sesión
         $session = session();
@@ -42,7 +42,7 @@ class PzexoneracioncocolabController extends Controller
         }
 
         // Obtener la política de alcohol y drogas del cliente
-        $policyTypeId = 6; // Supongamos que el ID de la política de alcohol y drogas es 1
+        $policyTypeId = 12; // Supongamos que el ID de la política de alcohol y drogas es 1
         $clientPolicy = $clientPoliciesModel->where('client_id', $clientId)
             ->where('policy_type_id', $policyTypeId)
             ->orderBy('id', 'DESC')
@@ -85,10 +85,10 @@ class PzexoneracioncocolabController extends Controller
             'allVersions' => $allVersions,  // Pasamos todas las versiones al footer
         ];
 
-        return view('client/sgsst/1planear/p1_1_4exoneracion_cocolab', $data);
+        return view('client/sgsst/1planear/p1_1_10inscripcioncocolab', $data);
     }
 
-    public function generatePdf_exoneracionCocolab()
+    public function generatePdf_inscripcionCocolab()
     {
         // Instanciar Dompdf
         $dompdf = new Dompdf();
@@ -107,7 +107,7 @@ class PzexoneracioncocolabController extends Controller
         // Obtener los datos necesarios
         $client = $clientModel->find($clientId);
         $consultant = $consultantModel->find($client['id_consultor']);
-        $policyTypeId = 6; // Supongamos que el ID de la política de alcohol y drogas es 1
+        $policyTypeId = 12; // Supongamos que el ID de la política de alcohol y drogas es 1
         $clientPolicy = $clientPoliciesModel->where('client_id', $clientId)
             ->where('policy_type_id', $policyTypeId)
             ->orderBy('id', 'DESC')
@@ -133,18 +133,17 @@ class PzexoneracioncocolabController extends Controller
         ];
 
         // Cargar la vista y pasar los datos
-        $html = view('client/sgsst/1planear/p1_1_4exoneracion_cocolab', $data);
+        $html = view('client/sgsst/1planear/p1_1_10inscripcioncocolab', $data);
 
         // Cargar el HTML en Dompdf
         $dompdf->loadHtml($html);
 
-        // Configurar el tamaño del papel y la orientación
         $dompdf->setPaper('A3', 'portrait');
-
-        // Renderizar el PDF
+        $dompdf->set_option('isHtml5ParserEnabled', true);
+        $dompdf->set_option('isRemoteEnabled', true); // si usas imágenes externas
         $dompdf->render();
 
         // Enviar el PDF al navegador para descargar
-        $dompdf->stream('exoneracion_cocolab.pdf', ['Attachment' => false]);
+        $dompdf->stream('inscripcion_cocolab.pdf', ['Attachment' => false]);
     }
 }

@@ -193,7 +193,9 @@
 
         <br>
 
+        <p>FECHA: <strong><?= $client['fecha_ingreso'] ?></strong></p>
 
+        
 
         <p>
             <strong><?= $client['nombre_cliente'] ?></strong> con Nit <strong><?= $client['nit_cliente'] ?></strong> certifica que actualmente no cuenta con el número de trabajadores dependientes para la activación de un comité de convivencia. Por lo que no aplica
@@ -289,7 +291,7 @@
     </footer>
     <br>
     <div class="no-print">
-        <a href="<?= base_url('/generatePdf_asignacionResponsabilidades') ?>" target="_blank">
+        <a href="<?= base_url('/generatePdf_exoneracionCocolab') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
     </div>
