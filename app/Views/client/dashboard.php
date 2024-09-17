@@ -123,6 +123,22 @@
             <td>2.1.7 Objetivos del Sistema de Gestión de la Seguridad y Salud en el Trabajo (SG-SST)</td>
             <td><a href="<?= base_url('/oBjetivos/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
         </tr>
+        <tr>
+            <td>2.5.1 Procedimiento para el Control y Conservación de Documentos del SG-SST</td>
+            <td><a href="<?= base_url('/documentosSgsst/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.5.2 Procedimiento de Rendición de Cuentas en Seguridad y Salud en el Trabajo (SG-SST)</td>
+            <td><a href="<?= base_url('/rendicionCuentas/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.5.3 Procedimiento de Comunicación Interna y Externa en Seguridad y Salud en el Trabajo (SG-SST)</td>
+            <td><a href="<?= base_url('/comunicacionInterna/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
+        <tr>
+            <td>2.5.4 Manual de Contratación para Proveedores y Contratistas en Seguridad y Salud en el Trabajo (SST)</td>
+            <td><a href="<?= base_url('/manProveedores/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+        </tr>
     </tbody>
 </table>
 

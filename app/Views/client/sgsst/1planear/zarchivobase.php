@@ -170,7 +170,7 @@
             <p>Fecha/Hora: <?= $client['datetime'] ?></p>
             <p>Fecha de Ingreso: <?= $client['fecha_ingreso'] ?></p>
             <p>NIT Cliente: <?= $client['nit_cliente'] ?></p>
-            <p>Nombre Cliente: <?= $client['nombre_cliente'] ?></p>
+            <p>Nombre Cliente: <strong><?= $client['nombre_cliente'] ?></p></strong>
             <p>Usuario: <?= $client['usuario'] ?></p>
             <p>Password: <?= $client['password'] ?></p>
             <p>Correo Cliente: <?= $client['correo_cliente'] ?></p>

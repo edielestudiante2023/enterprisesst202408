@@ -147,6 +147,14 @@ $routes->get('/regHigsegind/(:num)', 'PzreghigsegindController::regHigsegind/$1'
 $routes->get('/generatePdf_regHigsegind', 'PzreghigsegindController::generatePdf_regHigsegind');
 $routes->get('/oBjetivos/(:num)', 'PzobjetivosController::oBjetivos/$1');
 $routes->get('/generatePdf_oBjetivos', 'PzobjetivosController::generatePdf_oBjetivos');
+$routes->get('/documentosSgsst/(:num)', 'PzdocumentacionController::documentosSgsst/$1');
+$routes->get('/generatePdf_documentosSgsst', 'PzdocumentacionController::generatePdf_documentosSgsst');
+$routes->get('/rendicionCuentas/(:num)', 'PzrendicionController::rendicionCuentas/$1');
+$routes->get('/generatePdf_rendicionCuentas', 'PzrendicionController::generatePdf_rendicionCuentas');
+$routes->get('/comunicacionInterna/(:num)', 'PzcomunicacionController::comunicacionInterna/$1');
+$routes->get('/generatePdf_comunicacionInterna', 'PzcomunicacionController::generatePdf_comunicacionInterna');
+$routes->get('/manProveedores/(:num)', 'PzmanproveedoresController::manProveedores/$1');
+$routes->get('/generatePdf_manProveedores', 'PzmanproveedoresController::generatePdf_manProveedores');
 
 
 
