@@ -13,9 +13,9 @@ use Dompdf\Dompdf;
 
 use CodeIgniter\Controller;
 
-class PzvigiaController extends Controller
+class HzresponsablepesvController extends Controller
 {
-    public function asignacionVigia()
+    public function responsablePesv()
     {
         // Obtener el ID del cliente desde la sesión
         $session = session();
@@ -41,7 +41,7 @@ class PzvigiaController extends Controller
         }
 
         // Obtener la política de alcohol y drogas del cliente
-        $policyTypeId = 5; // Supongamos que el ID de la política de alcohol y drogas es 1
+        $policyTypeId = 37; // Supongamos que el ID de la política de alcohol y drogas es 1
         $clientPolicy = $clientPoliciesModel->where('client_id', $clientId)
             ->where('policy_type_id', $policyTypeId)
             ->orderBy('id', 'DESC')
@@ -75,7 +75,7 @@ class PzvigiaController extends Controller
 
         // Obtener el vigía más reciente relacionado con el cliente
         $latestVigia = $vigiaModel->where('id_cliente', $clientId)
-            ->orderBy('created_at', 'ASC')
+            ->orderBy('created_at', 'DESC')
             ->first();
 
         if (!$latestVigia) {
@@ -93,10 +93,10 @@ class PzvigiaController extends Controller
             'latestVigia' => $latestVigia   // Pasamos la información del vigía más reciente
         ];
 
-        return view('client/sgsst/1planear/p1_1_3vigia', $data);
+        return view('client/sgsst/1planear/h2_1_1responsablepesv', $data);
     }
 
-    public function generatePdf_asignacionVigia()
+    public function generatePdf_responsablePesv()
     {
         // Instanciar Dompdf
         $dompdf = new Dompdf();
@@ -116,7 +116,7 @@ class PzvigiaController extends Controller
         // Obtener los datos necesarios
         $client = $clientModel->find($clientId);
         $consultant = $consultantModel->find($client['id_consultor']);
-        $policyTypeId = 5; // Supongamos que el ID de la política de alcohol y drogas es 1
+        $policyTypeId = 37; // Supongamos que el ID de la política de alcohol y drogas es 1
         $clientPolicy = $clientPoliciesModel->where('client_id', $clientId)
             ->where('policy_type_id', $policyTypeId)
             ->orderBy('id', 'DESC')
@@ -148,7 +148,7 @@ class PzvigiaController extends Controller
         ];
 
         // Cargar la vista y pasar los datos
-        $html = view('client/sgsst/1planear/p1_1_3vigia', $data);
+        $html = view('client/sgsst/1planear/h2_1_1responsablepesv', $data);
 
         // Cargar el HTML en Dompdf
         $dompdf->loadHtml($html);
@@ -160,7 +160,7 @@ class PzvigiaController extends Controller
         $dompdf->render();
 
         // Enviar el PDF al navegador para descargar
-        $dompdf->stream('asignacion_vigia.pdf', ['Attachment' => false]);
+        $dompdf->stream('responsablepesv.pdf', ['Attachment' => false]);
     }
 }
 

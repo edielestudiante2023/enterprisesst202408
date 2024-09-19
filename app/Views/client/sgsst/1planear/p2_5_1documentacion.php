@@ -193,10 +193,10 @@
     <div class="alfa-title" style="text-align: center;"><h2>Procedimiento para Control y Conservación de Documentos del SG-SST</h2></div>
 
     <p class="beta-subtitle"><strong>1. OBJETIVO</strong></p>
-    <p class="beta-parrafo">Establecer el método para controlar y retener la documentación del Sistema de Gestión de la Seguridad y Salud en el Trabajo de la organización <strong><?= $client['nombre_cliente'] ?></p></strong></p>
+    <p class="beta-parrafo">Establecer el método para controlar y retener la documentación del Sistema de Gestión de la Seguridad y Salud en el Trabajo de la organización <strong><?= $client['nombre_cliente'] ?></strong></p>
 
     <p class="beta-subtitle"><strong>2. ALCANCE</strong></p>
-    <p class="beta-parrafo">Este procedimiento aplica a toda la documentación del Sistema de Gestión de la Seguridad y Salud en el Trabajo de la organización <strong><?= $client['nombre_cliente'] ?></p></strong></p>
+    <p class="beta-parrafo">Este procedimiento aplica a toda la documentación del Sistema de Gestión de la Seguridad y Salud en el Trabajo de la organización <strong><?= $client['nombre_cliente'] ?></strong></p>
 
     <p class="beta-subtitle"><strong>3. DEFINICIONES</strong></p>
     <ul class="delta-lista">

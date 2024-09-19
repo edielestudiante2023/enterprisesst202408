@@ -200,7 +200,7 @@
 
     <div class="alfa-parrafo">
         <p class="beta-titulo">OBJETIVO GENERAL:</p>
-        <p>Establecer los requerimientos del Sistema de Gestión de la Seguridad y Salud en el Trabajo que deben cumplir los Proveedores, Contratistas y subcontratistas de <strong><?= $client['nombre_cliente'] ?></p></strong> y su aplicación en todos los procesos de compras y contratación.</p>
+        <p>Establecer los requerimientos del Sistema de Gestión de la Seguridad y Salud en el Trabajo que deben cumplir los Proveedores, Contratistas y subcontratistas de <strong><?= $client['nombre_cliente'] ?></strong> y su aplicación en todos los procesos de compras y contratación.</p>
 
         <p class="beta-titulo">DESCRIPCIÓN DEL PROCEDIMIENTO</p>
 
