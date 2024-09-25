@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KPI Plan de Trabajo Anual</title>
+    <title>Cuatro periodos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -237,8 +237,10 @@
             <thead>
                 <tr>
                     <th>Variables</th>
-                    <th>Ene-Jun</th>
-                    <th>Jul-Dic</th>
+                    <th>Ene-Mar</th>
+                    <th>Abr-Jun</th>
+                    <th>Jul-Sep</th>
+                    <th>Oct-Dic</th>
                     <th>Media Aritmética</th>
                 </tr>
             </thead>
@@ -247,22 +249,30 @@
                     <td>Número de actividades Ejecutadas</td>
                     <td><?= $periodos[0]['dato_variable_numerador'] ?></td>
                     <td><?= $periodos[1]['dato_variable_numerador'] ?></td>
+                    <td><?= $periodos[2]['dato_variable_numerador'] ?></td>
+                    <td><?= $periodos[3]['dato_variable_numerador'] ?></td>
                     <td><?= $promedioNumerador ?></td>
                 </tr>
                 <tr>
                     <td>Número de Actividades Programadas</td>
                     <td><?= $periodos[0]['dato_variable_denominador'] ?></td>
                     <td><?= $periodos[1]['dato_variable_denominador'] ?></td>
+                    <td><?= $periodos[2]['dato_variable_denominador'] ?></td>
+                    <td><?= $periodos[3]['dato_variable_denominador'] ?></td>
                     <td><?= $promedioDenominador ?></td>
                 </tr>
                 <tr>
                     <td>Valor Real</td>
                     <td><?= number_format($periodos[0]['valor_indicador'], 2) ?></td>
                     <td><?= number_format($periodos[1]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($promedioIndicadores * 100, 2) ?>%</td> <!-- Mostrar el promedio del indicador -->
+                    <td><?= number_format($periodos[2]['valor_indicador'], 2) ?></td>
+                    <td><?= number_format($periodos[3]['valor_indicador'], 2) ?></td>
+                    <td><?= number_format($promedioIndicadores * 100, 2) ?>%</td>
                 </tr>
                 <tr>
                     <td>Meta</td>
+                    <td><?= $clientKpi['kpi_target'] ?>%</td>
+                    <td><?= $clientKpi['kpi_target'] ?>%</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
@@ -270,13 +280,15 @@
             </tbody>
         </table>
 
+
+
         <!-- 3. Gráfica -->
         <!-- <h3 class="alpha-title">3. GRÁFICA</h3>
         <p class="gamma-p">[Gráfica omitida en esta versión]</p> -->
 
         <!-- 4. Análisis de Datos -->
         <h3 class="alpha-title">3. ANÁLISIS DE DATOS</h3>
-        <h3 style="text-align: center; color:green"><?= $analisis_datos ?></h3>
+        <p class="gamma-p"><?= $analisis_datos ?></p>
 
         <!-- 5. Seguimiento del Indicador - Plan de Acción -->
         <h3 class="alpha-title">4. SEGUIMIENTO DEL INDICADOR - PLAN DE ACCIÓN</h3>

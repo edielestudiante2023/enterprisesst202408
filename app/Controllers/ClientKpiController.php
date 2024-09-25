@@ -86,19 +86,23 @@ class ClientKpiController extends Controller
             'periodicidad' => 'required|string', // Asegúrate de incluir periodicidad en la validación
             'year' => 'required|integer', // Validar el año
             'month' => 'required|string', // Validar el mes
-            'analisis_datos' => 'required|string', // Validar el mes
-            'seguimiento1' => 'required|string', // Validar el mes
-            'seguimiento2' => 'required|string', // Validar el mes
-            'seguimiento3' => 'required|string', // Validar el mes
+            'analisis_datos' => 'permit_empty|string', // Validar el mes
+            'seguimiento1' => 'permit_empty|string', // Validar el mes
+            'seguimiento2' => 'permit_empty|string', // Validar el mes
+            'seguimiento3' => 'permit_empty|string', // Validar el mes
 
             // Agregar reglas adicionales si es necesario
         ]);
 
         // Si la validación falla
         if (!$this->validate($validation->getRules())) {
-            // Redirigir con errores
+            // Registrar los errores de validación en los logs
+            log_message('error', 'Errores de validación: ' . json_encode($validation->getErrors()));
+            
+            // Redirigir con los errores
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
+        
 
         // Preparar los datos para insertarlos en la base de datos
         // Preparar los datos para insertar en la base de datos
@@ -251,10 +255,10 @@ class ClientKpiController extends Controller
             'periodicidad' => 'required|string', // Agregar periodicidad a la validación
             'year' => 'required|integer', // Validar el año
             'month' => 'required|string', // Validar el mes
-            'analisis_datos' => 'required|string', // Validar el mes
-            'seguimiento1' => 'required|string', // Validar el mes
-            'seguimiento2' => 'required|string', // Validar el mes
-            'seguimiento3' => 'required|string', // Validar el mes
+            'analisis_datos' => 'permit_empty|string', // Validar el mes
+            'seguimiento1' => 'permit_empty|string', // Validar el mes
+            'seguimiento2' => 'permit_empty|string', // Validar el mes
+            'seguimiento3' => 'permit_empty|string', // Validar el mes
             // Puedes agregar reglas adicionales para validar los periodos si es necesario
         ]);
 
@@ -283,7 +287,7 @@ class ClientKpiController extends Controller
             'seguimiento3' => $this->request->getPost('seguimiento3')
 
         ];
-
+        log_message('debug', 'Datos capturados del formulario: ' . json_encode($data));
         // Bucle para actualizar los valores de los periodos de 1 a 12
         for ($i = 1; $i <= 12; $i++) {
             $data['variable_numerador_' . $i] = $this->request->getPost('variable_numerador_' . $i);
@@ -296,7 +300,7 @@ class ClientKpiController extends Controller
             $denominador = $this->request->getPost('dato_variable_denominador_' . $i);
             $data['valor_indicador_' . $i] = $this->calculateIndicator($numerador, $denominador);
         }
-
+        log_message('debug', 'Datos con valores de periodos: ' . json_encode($data));
         // Calcular el total acumulado para los indicadores
         $data['gran_total_indicador'] = $this->calculateTotalIndicator($data);
 

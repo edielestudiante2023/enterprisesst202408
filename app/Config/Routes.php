@@ -269,6 +269,11 @@ $routes->get('/deleteClientKpi/(:num)', 'ClientKpiController::deleteClientKpi/$1
 $routes->get('/listClientKpisFull/(:num)', 'ClientKpiController::listClientKpisFull/$1');
 
 $routes->get('/planDeTrabajoKpi/(:num)', 'kpiplandetrabajoController::plandetrabajoKpi/$1');
+$routes->get('/indicadorTresPeriodos/(:num)', 'kpitresperiodosController::indicadorTresPeriodos/$1');
+$routes->get('/indicadorcuatroPeriodos/(:num)', 'kpicuatroperiodosController::indicadorcuatroPeriodos/$1');
+$routes->get('/indicadorseisPeriodos/(:num)', 'kpiseisperiodosController::indicadorseisPeriodos/$1');
+$routes->get('/indicadordocePeriodos/(:num)', 'kpidoceperiodosController::indicadordocePeriodos/$1');
+$routes->get('/indicadorAnual/(:num)', 'kpianualController::indicadorAnual/$1');
 
 
 

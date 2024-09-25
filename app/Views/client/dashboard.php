@@ -232,6 +232,26 @@
                 <td>Plan de Trabajo</td>
                 <td><a href="<?= base_url('/planDeTrabajoKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
+            <tr>
+                <td>Tres Periodos</td>
+                <td><a href="<?= base_url('/indicadorTresPeriodos/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>Cuatro Periodos</td>
+                <td><a href="<?= base_url('/indicadorcuatroPeriodos/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>Seis Periodos</td>
+                <td><a href="<?= base_url('/indicadorseisPeriodos/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>Doce Periodos</td>
+                <td><a href="<?= base_url('/indicadordocePeriodos/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>Anual</td>
+                <td><a href="<?= base_url('/indicadorAnual/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
           
         </tbody>
     </table>

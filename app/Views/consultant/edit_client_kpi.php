@@ -13,6 +13,15 @@
 
     <form action="<?= base_url('/editClientKpiPost/' . $clientKpi['id_client_kpi']) ?>" method="post">
 
+        <?php if (session()->has('errors')) : ?>
+            <div class="alert alert-danger">
+                <ul>
+                    <?php foreach (session('errors') as $error) : ?>
+                        <li><?= esc($error) ?></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endif ?>
 
         <!-- Selección del Cliente -->
         <label for="id_cliente">Cliente:</label>
@@ -151,19 +160,20 @@
             <label for="dato_variable_denominador_<?= $periodo ?>">Dato Variable Denominador <?= $periodo ?>:</label>
             <input type="number" name="dato_variable_denominador_<?= $periodo ?>" id="dato_variable_denominador_<?= $periodo ?>" value="<?= $clientKpi['dato_variable_denominador_' . $periodo] ?>"><br><br>
 
-            <label for="analisis_datos">Análisis de los datos:</label>
-            <textarea name="analisis_datos" id="analisis_datos"></textarea><br><br>
-
-            <label for="seguimiento1">Seguimiento 1:</label>
-            <textarea name="seguimiento1" id="seguimiento1"></textarea><br><br>
-
-            <label for="seguimiento2">Seguimiento 2:</label>
-            <textarea name="seguimiento2" id="seguimiento2"></textarea><br><br>
-
-            <label for="seguimiento3">Seguimiento 3:</label>
-            <textarea name="seguimiento3" id="seguimiento3"></textarea><br><br>
 
         <?php endforeach; ?>
+        <label for="analisis_datos">Análisis de los datos:</label>
+        <textarea name="analisis_datos" id="analisis_datos"><?= isset($clientKpi['analisis_datos']) ? esc($clientKpi['analisis_datos']) : '' ?></textarea><br><br>
+
+        <label for="seguimiento1">Seguimiento 1:</label>
+        <textarea name="seguimiento1" id="seguimiento1"><?= isset($clientKpi['seguimiento1']) ? esc($clientKpi['seguimiento1']) : '' ?></textarea><br><br>
+
+        <label for="seguimiento2">Seguimiento 2:</label>
+        <textarea name="seguimiento2" id="seguimiento2"><?= isset($clientKpi['seguimiento2']) ? esc($clientKpi['seguimiento2']) : '' ?></textarea><br><br>
+
+        <label for="seguimiento3">Seguimiento 3:</label>
+        <textarea name="seguimiento3" id="seguimiento3"><?= isset($clientKpi['seguimiento3']) ? esc($clientKpi['seguimiento3']) : '' ?></textarea><br><br>
+
 
         <!-- Botón para enviar el formulario -->
         <button type="submit">Guardar Cambios</button>

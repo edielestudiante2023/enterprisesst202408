@@ -18,12 +18,12 @@ use Dompdf\Dompdf;
 
 use CodeIgniter\Controller;
 
-class kpiplandetrabajoController extends Controller
+class kpidoceperiodosController extends Controller
 {
 
 
 
-    public function plandetrabajoKpi()
+    public function indicadordocePeriodos()
     {
         // Obtener el ID del cliente desde la sesión
         $session = session();
@@ -189,6 +189,6 @@ class kpiplandetrabajoController extends Controller
             'promedioIndicadores' => $promedioIndicadores,
         ];
 
-        return view('client/sgsst/kpi/k1_plan_trabajo_anual', $data);
+        return view('client/sgsst/kpi/doceperiodos', $data);
     }
 }
