@@ -194,6 +194,86 @@ $routes->post('/updateVigia/(:num)', 'VigiaController::updateVigia/$1');
 $routes->get('/deleteVigia/(:num)', 'VigiaController::deleteVigia/$1');
 
 
+/* *********************KPI´S ****************************************/
+
+$routes->get('/listKpiTypes', 'KpiTypeController::listKpiTypes');
+$routes->get('/addKpiType', 'KpiTypeController::addKpiType');
+$routes->post('/addKpiTypePost', 'KpiTypeController::addKpiTypePost');
+$routes->get('/editKpiType/(:num)', 'KpiTypeController::editKpiType/$1');
+$routes->post('/editKpiTypePost/(:num)', 'KpiTypeController::editKpiTypePost/$1');
+$routes->get('/deleteKpiType/(:num)', 'KpiTypeController::deleteKpiType/$1');
+
+$routes->get('/listKpiPolicies', 'KpiPolicyController::listKpiPolicies');
+$routes->get('/addKpiPolicy', 'KpiPolicyController::addKpiPolicy');
+$routes->post('/addKpiPolicyPost', 'KpiPolicyController::addKpiPolicyPost');
+$routes->get('/editKpiPolicy/(:num)', 'KpiPolicyController::editKpiPolicy/$1');
+$routes->post('/editKpiPolicyPost/(:num)', 'KpiPolicyController::editKpiPolicyPost/$1');
+$routes->get('/deleteKpiPolicy/(:num)', 'KpiPolicyController::deleteKpiPolicy/$1');
+
+$routes->get('/listObjectives', 'ObjectivesPolicyController::listObjectives');
+$routes->get('/addObjective', 'ObjectivesPolicyController::addObjective');
+$routes->post('/addObjectivePost', 'ObjectivesPolicyController::addObjectivePost');
+$routes->get('/editObjective/(:num)', 'ObjectivesPolicyController::editObjective/$1');
+$routes->post('/editObjectivePost/(:num)', 'ObjectivesPolicyController::editObjectivePost/$1');
+$routes->get('/deleteObjective/(:num)', 'ObjectivesPolicyController::deleteObjective/$1');
+
+$routes->get('/listKpiDefinitions', 'KpiDefinitionController::listKpiDefinitions');
+$routes->get('/addKpiDefinition', 'KpiDefinitionController::addKpiDefinition');
+$routes->post('/addKpiDefinitionPost', 'KpiDefinitionController::addKpiDefinitionPost');
+$routes->get('/editKpiDefinition/(:num)', 'KpiDefinitionController::editKpiDefinition/$1');
+$routes->post('/editKpiDefinitionPost/(:num)', 'KpiDefinitionController::editKpiDefinitionPost/$1');
+$routes->get('/deleteKpiDefinition/(:num)', 'KpiDefinitionController::deleteKpiDefinition/$1');
+
+$routes->get('/listDataOwners', 'DataOwnerController::listDataOwners');
+$routes->get('/addDataOwner', 'DataOwnerController::addDataOwner');
+$routes->post('/addDataOwnerPost', 'DataOwnerController::addDataOwnerPost');
+$routes->get('/editDataOwner/(:num)', 'DataOwnerController::editDataOwner/$1');
+$routes->post('/editDataOwnerPost/(:num)', 'DataOwnerController::editDataOwnerPost/$1');
+$routes->get('/deleteDataOwner/(:num)', 'DataOwnerController::deleteDataOwner/$1');
+
+$routes->get('/listNumeratorVariables', 'VariableNumeratorController::listNumeratorVariables');
+$routes->get('/addNumeratorVariable', 'VariableNumeratorController::addNumeratorVariable');
+$routes->post('/addNumeratorVariablePost', 'VariableNumeratorController::addNumeratorVariablePost');
+$routes->get('/editNumeratorVariable/(:num)', 'VariableNumeratorController::editNumeratorVariable/$1');
+$routes->post('/editNumeratorVariablePost/(:num)', 'VariableNumeratorController::editNumeratorVariablePost/$1');
+$routes->get('/deleteNumeratorVariable/(:num)', 'VariableNumeratorController::deleteNumeratorVariable/$1');
+
+$routes->get('/listKpis', 'KpisController::listKpis');
+$routes->get('/addKpi', 'KpisController::addKpi');
+$routes->post('/addKpiPost', 'KpisController::addKpiPost');
+$routes->get('/editKpi/(:num)', 'KpisController::editKpi/$1');
+$routes->post('/editKpiPost/(:num)', 'KpisController::editKpiPost/$1');
+$routes->get('/deleteKpi/(:num)', 'KpisController::deleteKpi/$1');
+
+$routes->get('/listDenominatorVariables', 'VariableDenominatorController::listDenominatorVariables');
+$routes->get('/addDenominatorVariable', 'VariableDenominatorController::addDenominatorVariable');
+$routes->post('/addDenominatorVariablePost', 'VariableDenominatorController::addDenominatorVariablePost');
+$routes->get('/editDenominatorVariable/(:num)', 'VariableDenominatorController::editDenominatorVariable/$1');
+$routes->post('/editDenominatorVariablePost/(:num)', 'VariableDenominatorController::editDenominatorVariablePost/$1');
+$routes->get('/deleteDenominatorVariable/(:num)', 'VariableDenominatorController::deleteDenominatorVariable/$1');
+
+$routes->get('/listMeasurementPeriods', 'MeasurementPeriodController::listMeasurementPeriods');
+$routes->get('/addMeasurementPeriod', 'MeasurementPeriodController::addMeasurementPeriod');
+$routes->post('/addMeasurementPeriodPost', 'MeasurementPeriodController::addMeasurementPeriodPost');
+$routes->get('/editMeasurementPeriod/(:num)', 'MeasurementPeriodController::editMeasurementPeriod/$1');
+$routes->post('/editMeasurementPeriodPost/(:num)', 'MeasurementPeriodController::editMeasurementPeriodPost/$1');
+$routes->get('/deleteMeasurementPeriod/(:num)', 'MeasurementPeriodController::deleteMeasurementPeriod/$1');
+
+$routes->get('/listClientKpis', 'ClientKpiController::listClientKpis');
+$routes->get('/addClientKpi', 'ClientKpiController::addClientKpi');
+$routes->post('/addClientKpiPost', 'ClientKpiController::addClientKpiPost');
+$routes->get('/editClientKpi/(:num)', 'ClientKpiController::editClientKpi/$1');
+$routes->post('/editClientKpiPost/(:num)', 'ClientKpiController::editClientKpiPost/$1');
+$routes->get('/deleteClientKpi/(:num)', 'ClientKpiController::deleteClientKpi/$1');
+
+$routes->get('/listClientKpisFull/(:num)', 'ClientKpiController::listClientKpisFull/$1');
+
+
+
+
+
+
+
 
 
 
