@@ -5,7 +5,7 @@
     <input type="text" name="numerator_variable_text" id="numerator_variable_text" value="<?= esc($numeratorVariable['numerator_variable_text']) ?>" required><br>
 
     <label for="numerator_variable_data">Datos de la Variable:</label>
-    <input type="number" name="numerator_variable_data" id="numerator_variable_data" value="<?= esc($numeratorVariable['numerator_variable_data']) ?>" required><br>
+    <input type="text" name="numerator_variable_data" id="numerator_variable_data" value="<?= esc($numeratorVariable['numerator_variable_data']) ?>" ><br>
 
     <input type="submit" value="Actualizar Variable Numerador">
 </form>

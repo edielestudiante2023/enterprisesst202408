@@ -5,7 +5,7 @@
     <input type="text" name="denominator_variable_text" id="denominator_variable_text" required><br>
 
     <label for="denominator_variable_data">Datos de la Variable:</label>
-    <input type="number" name="denominator_variable_data" id="denominator_variable_data" required><br>
+    <input type="text" name="denominator_variable_data" id="denominator_variable_data" ><br>
 
     <input type="submit" value="Guardar Variable Denominador">
 </form>

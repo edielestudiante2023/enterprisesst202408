@@ -126,53 +126,30 @@
                 <td><a href="<?= base_url('listKpiTypes') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
-                <td>KPI</td>
-                <td>Añadir Tipo de KPI</td>
-                <td><a href="<?= base_url('addKpiType') ?>" target="_blank"><button type="button">Abrir</button></a></td>
-            </tr>
-            <tr>
-                <td>KPI</td>
-                <td>Añadir Definición de KPI</td>
-                <td><a href="<?= base_url('addKpiDefinition') ?>" target="_blank"><button type="button">Abrir</button></a></td>
-            </tr>
-            <tr>
-                <td>KPI Definitions</td>
-                <td>Ver Lista de Definiciones de KPI</td>
+                <td>5 KPI</td>
+                <td>Definiciones de los Indicadores</td>
                 <td><a href="<?= base_url('listKpiDefinitions') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
+           
             <tr>
-                <td>KPI Policies</td>
-                <td>Ver Lista de Políticas de KPI</td>
-                <td><a href="<?= base_url('listKpiPolicies') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+                <td>6 KPI</td>
+                <td>Cargos que son responsables de los indicadores</td>
+                <td><a href="<?= base_url('listDataOwners') ?>"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
-                <td>Objetivos de Política</td>
-                <td>Añadir Objetivo de Política</td>
-                <td><a href="<?= base_url('addObjective') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+                <td>7 KPI</td>
+                <td>Numeradores de los Indicadores</td>
+                <td><a href="<?= base_url('listNumeratorVariables') ?>"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
-                <td>Cargo Responsable del Cálculo</td>
-                <td>Añadir Responsable</td>
-                <td><a href="<?= base_url('addDataOwner') ?>"><button type="button">Abrir</button></a></td>
-            </tr>
-            <tr>
-                <td>KPI</td>
-                <td>Numerador de Indicador</td>
-                <td><a href="<?= base_url('addNumeratorVariable') ?>"><button type="button">Abrir</button></a></td>
-            </tr>
-            <tr>
-                <td>KPI</td>
-                <td>Denominador del Indicador</td>
+                <td>8 KPI</td>
+                <td>Denominadores de Indicadores</td>
                 <td><a href="<?= base_url('listDenominatorVariables') ?>"><button type="button">Abrir</button></a></td>
             </tr>
+            
             <tr>
-                <td>KPI</td>
-                <td>Periodo de Medición</td>
-                <td><a href="<?= base_url('listMeasurementPeriods') ?>"><button type="button">Abrir</button></a></td>
-            </tr>
-            <tr>
-                <td>KPI</td>
-                <td>Indicador de Plan de Trabajo Anual</td>
+                <td>9 KPI</td>
+                <td>Matriz de Indicadores de Todos los clientes</td>
                 <td><a href="<?= base_url('listClientKpis') ?>"><button type="button">Abrir</button></a></td>
             </tr>
         </tbody>

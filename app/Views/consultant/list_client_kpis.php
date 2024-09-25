@@ -14,19 +14,19 @@
     <table border="1">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Año</th>
-                <th>Mes</th>
+                <!-- <th>ID</th> -->
+                <!-- <th>Año</th>
+                <th>Mes</th> -->
                 <th>Cliente</th>
-                <th>Política KPI</th>
-                <th>Objetivo</th>
+                <!-- <th>Política KPI</th>
+                <th>Objetivo</th> -->
                 <th>KPI</th>
-                <th>Tipo</th>
+                <!-- <th>Tipo</th> -->
                 <th>Definición</th>
                 <th>Meta</th>
-                <th>Fuente de datos</th>
-                <th>Responsable</th>
-                <th>Interpretación</th>
+                <!-- <th>Fuente de datos</th> -->
+                <!-- <th>Responsable</th> -->
+                <!-- <th>Interpretación</th> -->
                 <th>Promedio del Indicador</th> <!-- Cambiar el nombre de la columna -->
                 <th>Acciones</th>
             </tr>
@@ -35,19 +35,19 @@
             <?php if (!empty($clientKpis)) : ?>
                 <?php foreach ($clientKpis as $kpi) : ?>
                     <tr>
-                        <td><?= $kpi['id_client_kpi'] ?></td>
-                        <td><?= $kpi['year'] ?></td>
-                        <td><?= $kpi['month'] ?></td>
+                        <!-- <td><?= $kpi['id_client_kpi'] ?></td> -->
+                        <!-- <td><?= $kpi['year'] ?></td>
+                        <td><?= $kpi['month'] ?></td> -->
                         <td><?= $kpi['cliente'] ?></td>
-                        <td><?= $kpi['kpi_policy'] ?></td>
-                        <td><?= $kpi['objective'] ?></td>
+                        <!-- <td><?= $kpi['kpi_policy'] ?></td>
+                        <td><?= $kpi['objective'] ?></td> -->
                         <td><?= $kpi['kpi'] ?></td>
-                        <td><?= $kpi['kpi_type'] ?></td>
+                        <!-- <td><?= $kpi['kpi_type'] ?></td> -->
                         <td><?= $kpi['kpi_definition'] ?></td>
-                        <td><?= $kpi['kpi_target'] ?></td>
-                        <td><?= $kpi['data_source'] ?></td>
-                        <td><?= $kpi['data_owner'] ?></td>
-                        <td><?= $kpi['kpi_interpretation'] ?></td>
+                        <td><?= $kpi['kpi_target'] ?>%</td>
+                        <!-- <td><?= $kpi['data_source'] ?></td> -->
+                        <!-- <td><?= $kpi['data_owner'] ?></td> -->
+                        <!-- <td><?= $kpi['kpi_interpretation'] ?></td> -->
                         <!-- Reemplazar el Gran Total del Indicador por el Promedio en porcentaje -->
                         <td><?= number_format($kpi['promedio_indicadores'] , 2) ?>%</td>
                         <td>
