@@ -86,6 +86,11 @@ class ClientKpiController extends Controller
             'periodicidad' => 'required|string', // Asegúrate de incluir periodicidad en la validación
             'year' => 'required|integer', // Validar el año
             'month' => 'required|string', // Validar el mes
+            'analisis_datos' => 'required|string', // Validar el mes
+            'seguimiento1' => 'required|string', // Validar el mes
+            'seguimiento2' => 'required|string', // Validar el mes
+            'seguimiento3' => 'required|string', // Validar el mes
+
             // Agregar reglas adicionales si es necesario
         ]);
 
@@ -113,6 +118,10 @@ class ClientKpiController extends Controller
             'periodicidad' => $this->request->getPost('periodicidad'), // Asegúrate de capturar el valor de periodicidad
             'year' => $this->request->getPost('year'), // Capturar año
             'month' => $this->request->getPost('month'), // Capturar mes
+            'analisis_datos' => $this->request->getPost('analisis_datos'),
+            'seguimiento1' => $this->request->getPost('seguimiento1'),
+            'seguimiento2' => $this->request->getPost('seguimiento2'),
+            'seguimiento3' => $this->request->getPost('seguimiento3'),
         ];
 
         // Continuar con los periodos y demás lógica...
@@ -241,7 +250,11 @@ class ClientKpiController extends Controller
             'kpi_interpretation' => 'required|string',
             'periodicidad' => 'required|string', // Agregar periodicidad a la validación
             'year' => 'required|integer', // Validar el año
-            'month' => 'required|string'  // Validar el mes
+            'month' => 'required|string', // Validar el mes
+            'analisis_datos' => 'required|string', // Validar el mes
+            'seguimiento1' => 'required|string', // Validar el mes
+            'seguimiento2' => 'required|string', // Validar el mes
+            'seguimiento3' => 'required|string', // Validar el mes
             // Puedes agregar reglas adicionales para validar los periodos si es necesario
         ]);
 
@@ -263,7 +276,11 @@ class ClientKpiController extends Controller
             'kpi_interpretation' => $this->request->getPost('kpi_interpretation'),
             'periodicidad' => $this->request->getPost('periodicidad'), // Asegúrate de capturar el valor de periodicidad
             'year' => $this->request->getPost('year'), // Capturar el año
-            'month' => $this->request->getPost('month') // Capturar el mes
+            'month' => $this->request->getPost('month'), // Capturar el mes
+            'analisis_datos' => $this->request->getPost('analisis_datos'),
+            'seguimiento1' => $this->request->getPost('seguimiento1'),
+            'seguimiento2' => $this->request->getPost('seguimiento2'),
+            'seguimiento3' => $this->request->getPost('seguimiento3')
 
         ];
 
@@ -472,7 +489,11 @@ class ClientKpiController extends Controller
                 'gran_total_indicador' => $kpi['gran_total_indicador'],
                 'periodicidad' => $kpi['periodicidad'],
                 'promedio_indicadores' => $promedioIndicadores, // Promedio calculado
-                'periodos' => $periodos // Periodos con las descripciones de numerador y denominador
+                'periodos' => $periodos, // Periodos con las descripciones de numerador y denominador
+                'analisis_datos' => $kpi['analisis_datos'],
+                'seguimiento1' => $kpi['seguimiento1'],
+                'seguimiento2' => $kpi['seguimiento2'],
+                'seguimiento3' => $kpi['seguimiento3'],
             ];
         }
 

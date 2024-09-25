@@ -128,6 +128,29 @@
             </table>
         </div>
 
+        <div>
+            <h3 style="text-align: center;">ANALISIS Y SEGUIMIENTOS</h3>
+
+            <table>
+                <tr>
+                    <th>Analisis de los Datos</th>
+                    <td><?= $kpi['analisis_datos'] ?></td>
+                </tr>
+                <tr>
+                    <th>Seguimiento 1 del Indicador - Plan de Acción</th>
+                    <td><?= $kpi['seguimiento1'] ?></td>
+                </tr>
+                <tr>
+                    <th>Seguimiento 2 del Indicador - Plan de Acción</th>
+                    <td><?= $kpi['seguimiento2'] ?></td>
+                </tr>
+                <tr>
+                    <th>Seguimiento 3 del Indicador - Plan de Acción</th>
+                    <td><?= $kpi['seguimiento3'] ?></td>
+                </tr>
+            </table>
+        </div>
+
 
         <br><br> <!-- Espacio entre tablas de diferentes KPIs -->
     <?php endforeach; ?>

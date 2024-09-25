@@ -215,6 +215,27 @@
         </tbody>
     </table>
 
+    <!-- *-************************ KPI **************************************** -->
+
+    
+    <h2>KPI</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Plan de Trabajo</td>
+                <td><a href="<?= base_url('/planDeTrabajoKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+          
+        </tbody>
+    </table>
+
 
     <!-- ******************* SEGMENTO 2************************************************** -->
 

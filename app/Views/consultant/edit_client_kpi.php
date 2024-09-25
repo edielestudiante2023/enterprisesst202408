@@ -151,6 +151,18 @@
             <label for="dato_variable_denominador_<?= $periodo ?>">Dato Variable Denominador <?= $periodo ?>:</label>
             <input type="number" name="dato_variable_denominador_<?= $periodo ?>" id="dato_variable_denominador_<?= $periodo ?>" value="<?= $clientKpi['dato_variable_denominador_' . $periodo] ?>"><br><br>
 
+            <label for="analisis_datos">Análisis de los datos:</label>
+            <textarea name="analisis_datos" id="analisis_datos"></textarea><br><br>
+
+            <label for="seguimiento1">Seguimiento 1:</label>
+            <textarea name="seguimiento1" id="seguimiento1"></textarea><br><br>
+
+            <label for="seguimiento2">Seguimiento 2:</label>
+            <textarea name="seguimiento2" id="seguimiento2"></textarea><br><br>
+
+            <label for="seguimiento3">Seguimiento 3:</label>
+            <textarea name="seguimiento3" id="seguimiento3"></textarea><br><br>
+
         <?php endforeach; ?>
 
         <!-- Botón para enviar el formulario -->

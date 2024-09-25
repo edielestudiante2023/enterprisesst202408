@@ -268,6 +268,9 @@ $routes->get('/deleteClientKpi/(:num)', 'ClientKpiController::deleteClientKpi/$1
 
 $routes->get('/listClientKpisFull/(:num)', 'ClientKpiController::listClientKpisFull/$1');
 
+$routes->get('/planDeTrabajoKpi/(:num)', 'kpiplandetrabajoController::plandetrabajoKpi/$1');
+
+
 
 
 
