@@ -106,14 +106,29 @@
                 <td><a href="<?= base_url('addVigia') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
-                <td>KPI</td>
-                <td>Añadir Tipo de KPI</td>
-                <td><a href="<?= base_url('addKpiType') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+                <td>1 KPI</td>
+                <td>Politica de SST de cada cliente</td>
+                <td><a href="<?= base_url('listKpiPolicies') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>2 KPI</td>
+                <td>Objetivos que persiguen los indicadores</td>
+                <td><a href="<?= base_url('listObjectives') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>3 KPI</td>
+                <td>Nombre del indicador</td>
+                <td><a href="<?= base_url('listKpis') ?>"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>4 KPI</td>
+                <td>Tipos de Indicadores SST y su Significado</td>
+                <td><a href="<?= base_url('listKpiTypes') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
                 <td>KPI</td>
-                <td>Añadir Política de KPI</td>
-                <td><a href="<?= base_url('addKpiPolicy') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+                <td>Añadir Tipo de KPI</td>
+                <td><a href="<?= base_url('addKpiType') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
                 <td>KPI</td>
@@ -131,16 +146,6 @@
                 <td><a href="<?= base_url('listKpiPolicies') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
-                <td>KPI Types</td>
-                <td>Ver Lista de Tipos de KPI</td>
-                <td><a href="<?= base_url('listKpiTypes') ?>" target="_blank"><button type="button">Abrir</button></a></td>
-            </tr>
-            <tr>
-                <td>Objectives</td>
-                <td>Ver Lista de Objetivos</td>
-                <td><a href="<?= base_url('listObjectives') ?>" target="_blank"><button type="button">Abrir</button></a></td>
-            </tr>
-            <tr>
                 <td>Objetivos de Política</td>
                 <td>Añadir Objetivo de Política</td>
                 <td><a href="<?= base_url('addObjective') ?>" target="_blank"><button type="button">Abrir</button></a></td>
@@ -154,11 +159,6 @@
                 <td>KPI</td>
                 <td>Numerador de Indicador</td>
                 <td><a href="<?= base_url('addNumeratorVariable') ?>"><button type="button">Abrir</button></a></td>
-            </tr>
-            <tr>
-                <td>KPI</td>
-                <td>Indicador</td>
-                <td><a href="<?= base_url('listKpis') ?>"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
                 <td>KPI</td>

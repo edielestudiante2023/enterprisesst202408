@@ -199,7 +199,7 @@
         <table class="alpha-table">
             <tr>
                 <th>Nombre del Indicador</th>
-                <td colspan="3"><?= $kpiData['kpi_name'] ?></td>
+                <td colspan="3"><?= $kpiData['kpi_name']. ' - ' . $kpiType['kpi_type']?></td>
             </tr>
             <tr>
                 <th>Definición del Indicador</th>

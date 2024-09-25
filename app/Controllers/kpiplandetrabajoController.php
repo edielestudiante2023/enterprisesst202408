@@ -13,6 +13,8 @@ use App\Models\KpiDefinitionModel;
 use App\Models\DataOwnerModel;
 use App\Models\VariableNumeratorModel;
 use App\Models\VariableDenominatorModel;
+use App\Models\KpiTypeModel;
+
 
 use Dompdf\Dompdf;
 
@@ -40,6 +42,8 @@ class kpiplandetrabajoController extends Controller
         $dataOwnerModel = new DataOwnerModel();
         $numeratorModel = new VariableNumeratorModel();
         $denominatorModel = new VariableDenominatorModel();
+        $kpiTypeModel = new KpiTypeModel();
+
 
         // Obtener los datos del cliente
         $client = $clientModel->find($clientId);
@@ -52,6 +56,11 @@ class kpiplandetrabajoController extends Controller
         if (!$consultant) {
             return redirect()->to('/dashboardclient')->with('error', 'No se pudo encontrar la información del consultor');
         }
+
+        
+
+        
+
 
         // Obtener la política de alcohol y drogas del cliente
         $policyTypeId = 46; // Supongamos que el ID de la política de alcohol y drogas es 1
@@ -98,6 +107,10 @@ class kpiplandetrabajoController extends Controller
         // Obtener la definición del KPI
         $kpiDefinition = $kpiDefinitionModel->find($clientKpi['id_kpi_definition']);
         $kpiData = $kpisModel->find($id_kpis);
+        $kpiType = $kpiTypeModel->find($clientKpi['id_kpi_type']);
+        if (!$kpiType) {
+            return redirect()->to('/dashboardclient')->with('error', 'No se encontró el tipo de KPI');
+        }
 
         // Obtener los datos del responsable del dato
         $dataOwner = $dataOwnerModel->find($clientKpi['id_data_owner']);
@@ -175,6 +188,7 @@ class kpiplandetrabajoController extends Controller
             'clientKpi' => $clientKpi,
             'kpiDefinition' => $kpiDefinition,
             'kpiData' => $kpiData,
+            'kpiType' => $kpiType,
             'dataOwner' => $dataOwner,
             'periodos' => $periodos,
             'analisis_datos' => $analisis_datos,

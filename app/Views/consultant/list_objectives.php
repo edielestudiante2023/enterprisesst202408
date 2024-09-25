@@ -20,6 +20,15 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<br>
+<h2>Crear Nuevo Objetivo de Indicador</h2>
+<!-- Botón para ir a la vista de agregar reportes -->
+<a href="<?= base_url('/addObjective') ?>"><button type="button">Crear</button></a>
+<br><br>
+
+
+
 <br>
 <h2>Ir a Dashboard</h2>
 <!-- Botón para ir a la vista de agregar reportes -->

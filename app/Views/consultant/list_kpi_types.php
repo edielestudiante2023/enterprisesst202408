@@ -22,6 +22,13 @@
 </table>
 
 <br>
+<h2>Crear Nuevo Tipo de Indicador</h2>
+<!-- Botón para ir a la vista de agregar reportes -->
+<a href="<?= base_url('/addKpiType') ?>"><button type="button">Crear</button></a>
+<br><br>
+
+
+<br>
 <h2>Ir a Dashboard</h2>
 <!-- Botón para ir a la vista de agregar reportes -->
 <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
