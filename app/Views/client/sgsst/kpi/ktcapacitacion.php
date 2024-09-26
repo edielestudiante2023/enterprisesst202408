@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tres periodos</title>
+    <title>CUMPLIMIENTO AL PROGRAMA DE CAPACITACION</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -237,12 +237,10 @@
             <thead>
                 <tr>
                     <th>Variables</th>
-                    <th>Ene-Feb</th>
-                    <th>Mar-Abr</th>
-                    <th>May-Jun</th>
-                    <th>Jul-Ago</th>
-                    <th>Sep-Oct</th>
-                    <th>Nov-Dic</th>
+                    <th>Ene-Mar</th>
+                    <th>Abr-Jun</th>
+                    <th>Jul-Sep</th>
+                    <th>Oct-Dic</th>
                     <th>Media Aritmética</th>
                 </tr>
             </thead>
@@ -253,8 +251,6 @@
                     <td><?= $periodos[1]['dato_variable_numerador'] ?></td>
                     <td><?= $periodos[2]['dato_variable_numerador'] ?></td>
                     <td><?= $periodos[3]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[4]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[5]['dato_variable_numerador'] ?></td>
                     <td><?= $promedioNumerador ?></td>
                 </tr>
                 <tr>
@@ -263,8 +259,6 @@
                     <td><?= $periodos[1]['dato_variable_denominador'] ?></td>
                     <td><?= $periodos[2]['dato_variable_denominador'] ?></td>
                     <td><?= $periodos[3]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[4]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[5]['dato_variable_denominador'] ?></td>
                     <td><?= $promedioDenominador ?></td>
                 </tr>
                 <tr>
@@ -273,8 +267,6 @@
                     <td><?= number_format($periodos[1]['valor_indicador'], 2) ?></td>
                     <td><?= number_format($periodos[2]['valor_indicador'], 2) ?></td>
                     <td><?= number_format($periodos[3]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[4]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[5]['valor_indicador'], 2) ?></td>
                     <td><?= number_format($promedioIndicadores * 100, 2) ?>%</td>
                 </tr>
                 <tr>
@@ -284,11 +276,10 @@
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
                 </tr>
             </tbody>
         </table>
+
 
 
         <!-- 3. Gráfica -->
@@ -348,7 +339,7 @@
     </footer>
     <br>
 
-  
+   
 
 </body>
 

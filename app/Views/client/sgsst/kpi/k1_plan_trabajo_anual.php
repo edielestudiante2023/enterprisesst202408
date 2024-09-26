@@ -244,13 +244,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Número de actividades Ejecutadas</td>
+                    <td><?= $periodos[0]['numerador'] ?></td>
                     <td><?= $periodos[0]['dato_variable_numerador'] ?></td>
                     <td><?= $periodos[1]['dato_variable_numerador'] ?></td>
                     <td><?= $promedioNumerador ?></td>
                 </tr>
                 <tr>
-                    <td>Número de Actividades Programadas</td>
+                    <td><?= $periodos[0]['denominador'] ?></td>
                     <td><?= $periodos[0]['dato_variable_denominador'] ?></td>
                     <td><?= $periodos[1]['dato_variable_denominador'] ?></td>
                     <td><?= $promedioDenominador ?></td>
@@ -327,11 +327,7 @@
     </footer>
     <br>
 
-    <div>
-        <a href="<?= base_url('/generatePdf_procedimientoAuditoria') ?>" target="_blank">
-            <button type="button">PDF</button>
-        </a>
-    </div>
+   
 
 </body>
 

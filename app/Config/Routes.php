@@ -274,6 +274,23 @@ $routes->get('/indicadorcuatroPeriodos/(:num)', 'kpicuatroperiodosController::in
 $routes->get('/indicadorseisPeriodos/(:num)', 'kpiseisperiodosController::indicadorseisPeriodos/$1');
 $routes->get('/indicadordocePeriodos/(:num)', 'kpidoceperiodosController::indicadordocePeriodos/$1');
 $routes->get('/indicadorAnual/(:num)', 'kpianualController::indicadorAnual/$1');
+$routes->get('/mipvrdcKpi/(:num)', 'kpimipvrdcController::mipvrdcKpi/$1');
+$routes->get('/gestionriesgoKpi/(:num)', 'kpigestionriesgoController::gestionriesgoKpi/$1');
+$routes->get('/vigepidemiologicaKpi/(:num)', 'kpivigepidemiologicaController::vigepidemiologicaKpi/$1');
+$routes->get('/evinicialKpi/(:num)', 'kpievinicialController::evinicialKpi/$1');
+$routes->get('/accpreventivaKpi/(:num)', 'kpiaccpreventivaController::accpreventivaKpi/$1');
+$routes->get('/cumplilegalKpi/(:num)', 'kpicumplilegalController::cumplilegalKpi/$1');
+$routes->get('/capacitacionKpi/(:num)', 'kpicapacitacionController::capacitacionKpi/$1');
+$routes->get('/estructuraKpi/(:num)', 'kpiestructuraController::estructuraKpi/$1');
+$routes->get('/atelKpi/(:num)', 'kpatelController::atelKpi/$1');
+$routes->get('/indicefrecuenciaKpi/(:num)', 'kpiindicefrecuenciaController::indicefrecuenciaKpi/$1');
+$routes->get('/indiceseveridadKpi/(:num)', 'kpiindiceseveridadController::indiceseveridadKpi/$1');
+$routes->get('/mortalidadKpi/(:num)', 'kpimortalidadController::mortalidadKpi/$1');
+$routes->get('/prevalenciaKpi/(:num)', 'kpiprevalenciaController::prevalenciaKpi/$1');
+$routes->get('/incidenciaKpi/(:num)', 'kpiincidenciaController::incidenciaKpi/$1');
+$routes->get('/rehabilitacionKpi/(:num)', 'kprehabilitacionController::rehabilitacionKpi/$1');
+$routes->get('/ausentismoKpi/(:num)', 'kpiausentismoController::ausentismoKpi/$1');
+$routes->get('/todoslosKpi/(:num)', 'kpitodoslosobjetivosController::todoslosKpi/$1');
 
 
 

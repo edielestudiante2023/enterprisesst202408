@@ -67,7 +67,7 @@
 
     <br>
     <h2>Agregar Indicador</h2>
-    <a href="<?= base_url('/addClientKpi') ?>"><button type="button">Ir a DashBoard</button></a>
+    <a href="<?= base_url('/addClientKpi') ?>"><button type="button">Agrega un Nuevo Indicador</button></a>
     <br><br>
     <h2>Ir a Dashboard</h2>
     <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>

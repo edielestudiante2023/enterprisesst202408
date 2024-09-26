@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tres periodos</title>
+    <title>EVALUACIÓN DEL SISTEMA</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -237,12 +237,8 @@
             <thead>
                 <tr>
                     <th>Variables</th>
-                    <th>Ene-Feb</th>
-                    <th>Mar-Abr</th>
-                    <th>May-Jun</th>
-                    <th>Jul-Ago</th>
-                    <th>Sep-Oct</th>
-                    <th>Nov-Dic</th>
+                    <th>Ene-Dic</th>
+                    
                     <th>Media Aritmética</th>
                 </tr>
             </thead>
@@ -250,46 +246,28 @@
                 <tr>
                     <td><?= $periodos[0]['numerador'] ?></td>
                     <td><?= $periodos[0]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[1]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[2]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[3]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[4]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[5]['dato_variable_numerador'] ?></td>
+                    
                     <td><?= $promedioNumerador ?></td>
                 </tr>
                 <tr>
                     <td><?= $periodos[0]['denominador'] ?></td>
                     <td><?= $periodos[0]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[1]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[2]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[3]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[4]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[5]['dato_variable_denominador'] ?></td>
+                   
                     <td><?= $promedioDenominador ?></td>
                 </tr>
                 <tr>
                     <td>Valor Real</td>
                     <td><?= number_format($periodos[0]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[1]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[2]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[3]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[4]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[5]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($promedioIndicadores * 100, 2) ?>%</td>
+                    
+                    <td><?= number_format($promedioIndicadores * 100, 2) ?>%</td> <!-- Mostrar el promedio del indicador -->
                 </tr>
                 <tr>
                     <td>Meta</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
                 </tr>
             </tbody>
         </table>
-
 
         <!-- 3. Gráfica -->
         <!-- <h3 class="alpha-title">3. GRÁFICA</h3>
@@ -348,7 +326,7 @@
     </footer>
     <br>
 
-  
+    
 
 </body>
 

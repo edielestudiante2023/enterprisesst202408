@@ -229,8 +229,77 @@
         <tbody>
 
             <tr>
-                <td>Plan de Trabajo</td>
+                <td>CUMPLIMIENTO DEL PLAN DE TRABAJO ANUAL</td>
                 <td><a href="<?= base_url('/planDeTrabajoKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>CUMPLIMIENTO MEDIDAS DE INTERVENCIÓN DE LA MATRIZ DE IDENTIFICACIÓN DE PELIGROS, VALORACIÓN DE RIESGOS Y DETERMINACIÓN DE CONTROLES
+                </td>
+                <td><a href="<?= base_url('/mipvrdcKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>CUMPLIMIENTO DE LOS PROGRAMAS DE RIESGOS PRIORITARIOS</td>
+                <td><a href="<?= base_url('/gestionriesgoKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>CUMPLIMIENTO DE LOS PROGRAMAS DE VIGILANCIA EPIDEMIOLOGICA</td>
+                <td><a href="<?= base_url('/vigepidemiologicaKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>EVALUACIÓN DEL SISTEMA</td>
+                <td><a href="<?= base_url('/evinicialKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>EFICACIA DE LAS ACCIONES</td>
+                <td><a href="<?= base_url('/accpreventivaKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>CUMPLIMIENTO LEGAL</td>
+                <td><a href="<?= base_url('/cumplilegalKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>CUMPLIMIENTO AL PROGRAMA DE CAPACITACION</td>
+                <td><a href="<?= base_url('/capacitacionKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>ESTRUCTURA DEL SG SST</td>
+                <td><a href="<?= base_url('/estructuraKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>REPORTE, INVESTIGACIÓN Y  ANÁLISIS ESTADISTICO DE INCIDENTES, ACCIDENTES DE TRABAJO Y ENFERMEDADES LABORALES.</td>
+                <td><a href="<?= base_url('/atelKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>FRECUENCIA DE ACCIDENTES LABORALES</td>
+                <td><a href="<?= base_url('/indicefrecuenciaKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>SEVERIDAD DE ACCIDENTES LABORALES</td>
+                <td><a href="<?= base_url('/indiceseveridadKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>PROPORCIÓN DE ACCIDENTES MORTALES</td>
+                <td><a href="<?= base_url('/mortalidadKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>PREVALENCIA DE ENFERMEDADES LABORALES</td>
+                <td><a href="<?= base_url('/prevalenciaKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>INCIDENCIA DE ENFERMEDADES LABORALES</td>
+                <td><a href="<?= base_url('/incidenciaKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>RESULTADOS DE LOS PROGRAMAS DE REHABILITACIÓN</td>
+                <td><a href="<?= base_url('/rehabilitacionKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>AUSENTISMO</td>
+                <td><a href="<?= base_url('/ausentismoKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>RESULTADO</td>
+                <td><a href="<?= base_url('/todoslosKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
                 <td>Tres Periodos</td>

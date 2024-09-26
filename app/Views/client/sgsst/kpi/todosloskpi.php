@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tres periodos</title>
+    <title>RESULTADO</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -193,137 +193,33 @@
         </table>
     </div>
 
-    <div class="alpha-container">
-        <!-- 1. Información del Indicador -->
-        <h3 class="alpha-title">1. INFORMACIÓN DEL INDICADOR</h3>
-        <table class="alpha-table">
+    <table>
+        <thead>
             <tr>
-                <th>Nombre del Indicador</th>
-                <td colspan="3"><?= $kpiData['kpi_name']. ' - ' . $kpiType['kpi_type']?></td>
-            </tr>
-            <tr>
-                <th>Definición del Indicador</th>
-                <td colspan="3"><?= $kpiDefinition['name_kpi_definition'] ?></td>
-            </tr>
-            <tr>
-                <th>Interpretación del Indicador</th>
-                <td colspan="3"><?= $clientKpi['kpi_interpretation'] ?></td>
-            </tr>
-            <tr>
+                <th>Política</th>
+                <th>Objetivo</th>
+                <th>Indicador</th>
+                <th>Tipo de Indicador</th>
                 <th>Meta</th>
-                <td><?= $clientKpi['kpi_target'] ?>%</td>
-                <th>Frecuencia de Reporte</th>
-                <td><?= $clientKpi['periodicidad'] ?></td>
+                <th>Valor Numerador 1</th>
+                <th>Valor Denominador 1</th>
             </tr>
-            <tr>
-                <th>Fórmula</th>
-                <td colspan="3"><?= $clientKpi['kpi_formula'] ?></td>
-            </tr>
-            <tr>
-                <th>Origen de Datos</th>
-                <td colspan="3"><?= $clientKpi['data_source'] ?></td>
-            </tr>
-            <tr>
-                <th>Cargo Responsable del Cálculo</th>
-                <td><?= $dataOwner['data_owner'] ?></td>
-                <th>Cargos que deben conocer el resultado</th>
-                <td><?= $clientKpi['positions_should_know_result'] ?></td>
-            </tr>
-        </table>
+        </thead>
+        <tbody>
+            <?php foreach ($kpiData as $kpi): ?>
+                <tr>
+                    <td><?= $kpi['politica'] ?></td>
+                    <td><?= $kpi['objetivo'] ?></td>
+                    <td><?= $kpi['indicador'] ?></td>
+                    <td><?= $kpi['tipo_indicador'] ?></td>
+                    <td><?= $kpi['meta'] ?></td>
+                    <td><?= $kpi['valor_numerador_1'] ?></td>
+                    <td><?= $kpi['valor_denominador_1'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
-        <!-- 2. Medición del Indicador -->
-        <h3 class="alpha-title">2. MEDICIÓN DEL INDICADOR</h3>
-        <table class="alpha-table">
-            <thead>
-                <tr>
-                    <th>Variables</th>
-                    <th>Ene-Feb</th>
-                    <th>Mar-Abr</th>
-                    <th>May-Jun</th>
-                    <th>Jul-Ago</th>
-                    <th>Sep-Oct</th>
-                    <th>Nov-Dic</th>
-                    <th>Media Aritmética</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><?= $periodos[0]['numerador'] ?></td>
-                    <td><?= $periodos[0]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[1]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[2]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[3]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[4]['dato_variable_numerador'] ?></td>
-                    <td><?= $periodos[5]['dato_variable_numerador'] ?></td>
-                    <td><?= $promedioNumerador ?></td>
-                </tr>
-                <tr>
-                    <td><?= $periodos[0]['denominador'] ?></td>
-                    <td><?= $periodos[0]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[1]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[2]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[3]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[4]['dato_variable_denominador'] ?></td>
-                    <td><?= $periodos[5]['dato_variable_denominador'] ?></td>
-                    <td><?= $promedioDenominador ?></td>
-                </tr>
-                <tr>
-                    <td>Valor Real</td>
-                    <td><?= number_format($periodos[0]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[1]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[2]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[3]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[4]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($periodos[5]['valor_indicador'], 2) ?></td>
-                    <td><?= number_format($promedioIndicadores * 100, 2) ?>%</td>
-                </tr>
-                <tr>
-                    <td>Meta</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                    <td><?= $clientKpi['kpi_target'] ?>%</td>
-                </tr>
-            </tbody>
-        </table>
-
-
-        <!-- 3. Gráfica -->
-        <!-- <h3 class="alpha-title">3. GRÁFICA</h3>
-        <p class="gamma-p">[Gráfica omitida en esta versión]</p> -->
-
-        <!-- 4. Análisis de Datos -->
-        <h3 class="alpha-title">3. ANÁLISIS DE DATOS</h3>
-        <h3 style="text-align: center; color:green"><?= $analisis_datos ?></h3>
-
-        <!-- 5. Seguimiento del Indicador - Plan de Acción -->
-        <h3 class="alpha-title">4. SEGUIMIENTO DEL INDICADOR - PLAN DE ACCIÓN</h3>
-        <table class="alpha-table">
-            <thead>
-                <tr>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Seguimiento 1</th>
-                    <td><?= $seguimiento1 ?></td>
-                </tr>
-                <tr>
-                    <th>Seguimiento 2</th>
-                    <td><?= $seguimiento2 ?></td>
-
-                </tr>
-                <tr>
-                    <th>Seguimiento 3</th>
-                    <td><?= $seguimiento3 ?></td>
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
     <footer>
         <h2>Historial de Versiones</h2>
@@ -348,7 +244,7 @@
     </footer>
     <br>
 
-  
+
 
 </body>
 

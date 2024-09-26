@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tres periodos</title>
+    <title>AUSENTISMO</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -237,12 +237,18 @@
             <thead>
                 <tr>
                     <th>Variables</th>
-                    <th>Ene-Feb</th>
-                    <th>Mar-Abr</th>
-                    <th>May-Jun</th>
-                    <th>Jul-Ago</th>
-                    <th>Sep-Oct</th>
-                    <th>Nov-Dic</th>
+                    <th>Ene</th>
+                    <th>Feb</th>
+                    <th>Mar</th>
+                    <th>Abr</th>
+                    <th>May</th>
+                    <th>Jun</th>
+                    <th>Jul</th>
+                    <th>Ago</th>
+                    <th>Sep</th>
+                    <th>Oct</th>
+                    <th>Nov</th>
+                    <th>Dic</th>
                     <th>Media Aritmética</th>
                 </tr>
             </thead>
@@ -255,6 +261,12 @@
                     <td><?= $periodos[3]['dato_variable_numerador'] ?></td>
                     <td><?= $periodos[4]['dato_variable_numerador'] ?></td>
                     <td><?= $periodos[5]['dato_variable_numerador'] ?></td>
+                    <td><?= $periodos[6]['dato_variable_numerador'] ?></td>
+                    <td><?= $periodos[7]['dato_variable_numerador'] ?></td>
+                    <td><?= $periodos[8]['dato_variable_numerador'] ?></td>
+                    <td><?= $periodos[9]['dato_variable_numerador'] ?></td>
+                    <td><?= $periodos[10]['dato_variable_numerador'] ?></td>
+                    <td><?= $periodos[11]['dato_variable_numerador'] ?></td>
                     <td><?= $promedioNumerador ?></td>
                 </tr>
                 <tr>
@@ -265,6 +277,12 @@
                     <td><?= $periodos[3]['dato_variable_denominador'] ?></td>
                     <td><?= $periodos[4]['dato_variable_denominador'] ?></td>
                     <td><?= $periodos[5]['dato_variable_denominador'] ?></td>
+                    <td><?= $periodos[6]['dato_variable_denominador'] ?></td>
+                    <td><?= $periodos[7]['dato_variable_denominador'] ?></td>
+                    <td><?= $periodos[8]['dato_variable_denominador'] ?></td>
+                    <td><?= $periodos[9]['dato_variable_denominador'] ?></td>
+                    <td><?= $periodos[10]['dato_variable_denominador'] ?></td>
+                    <td><?= $periodos[11]['dato_variable_denominador'] ?></td>
                     <td><?= $promedioDenominador ?></td>
                 </tr>
                 <tr>
@@ -275,6 +293,12 @@
                     <td><?= number_format($periodos[3]['valor_indicador'], 2) ?></td>
                     <td><?= number_format($periodos[4]['valor_indicador'], 2) ?></td>
                     <td><?= number_format($periodos[5]['valor_indicador'], 2) ?></td>
+                    <td><?= number_format($periodos[6]['valor_indicador'], 2) ?></td>
+                    <td><?= number_format($periodos[7]['valor_indicador'], 2) ?></td>
+                    <td><?= number_format($periodos[8]['valor_indicador'], 2) ?></td>
+                    <td><?= number_format($periodos[9]['valor_indicador'], 2) ?></td>
+                    <td><?= number_format($periodos[10]['valor_indicador'], 2) ?></td>
+                    <td><?= number_format($periodos[11]['valor_indicador'], 2) ?></td>
                     <td><?= number_format($promedioIndicadores * 100, 2) ?>%</td>
                 </tr>
                 <tr>
@@ -286,9 +310,16 @@
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
                     <td><?= $clientKpi['kpi_target'] ?>%</td>
+                    <td><?= $clientKpi['kpi_target'] ?>%</td>
+                    <td><?= $clientKpi['kpi_target'] ?>%</td>
+                    <td><?= $clientKpi['kpi_target'] ?>%</td>
+                    <td><?= $clientKpi['kpi_target'] ?>%</td>
+                    <td><?= $clientKpi['kpi_target'] ?>%</td>
+                    <td><?= $clientKpi['kpi_target'] ?>%</td>
                 </tr>
             </tbody>
         </table>
+
 
 
         <!-- 3. Gráfica -->
@@ -348,7 +379,7 @@
     </footer>
     <br>
 
-  
+    
 
 </body>
 

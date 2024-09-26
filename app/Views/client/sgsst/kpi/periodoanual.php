@@ -244,13 +244,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Número de actividades Ejecutadas</td>
+                    <td><?= $periodos[0]['numerador'] ?></td>
                     <td><?= $periodos[0]['dato_variable_numerador'] ?></td>
                     
                     <td><?= $promedioNumerador ?></td>
                 </tr>
                 <tr>
-                    <td>Número de Actividades Programadas</td>
+                    <td><?= $periodos[0]['denominador'] ?></td>
                     <td><?= $periodos[0]['dato_variable_denominador'] ?></td>
                    
                     <td><?= $promedioDenominador ?></td>
@@ -275,7 +275,7 @@
 
         <!-- 4. Análisis de Datos -->
         <h3 class="alpha-title">3. ANÁLISIS DE DATOS</h3>
-        <p class="gamma-p"><?= $analisis_datos ?></p>
+        <h3 style="text-align: center; color:green"><?= $analisis_datos ?></h3>
 
         <!-- 5. Seguimiento del Indicador - Plan de Acción -->
         <h3 class="alpha-title">4. SEGUIMIENTO DEL INDICADOR - PLAN DE ACCIÓN</h3>
@@ -326,11 +326,7 @@
     </footer>
     <br>
 
-    <div>
-        <a href="<?= base_url('/generatePdf_procedimientoAuditoria') ?>" target="_blank">
-            <button type="button">PDF</button>
-        </a>
-    </div>
+    
 
 </body>
 

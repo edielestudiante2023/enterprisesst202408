@@ -20,12 +20,12 @@ use Dompdf\Dompdf;
 
 use CodeIgniter\Controller;
 
-class kpiplandetrabajoController extends Controller
+class kpiausentismoController extends Controller
 {
 
 
 
-    public function plandetrabajoKpi()
+    public function ausentismoKpi()
     {
         // Obtener el ID del cliente desde la sesión
         $session = session();
@@ -57,14 +57,9 @@ class kpiplandetrabajoController extends Controller
             return redirect()->to('/dashboardclient')->with('error', 'No se pudo encontrar la información del consultor');
         }
 
-        
-
-        
-
-
         // Obtener la política de alcohol y drogas del cliente
         $policyTypeId = 46; // Supongamos que el ID de la política de alcohol y drogas es 1
-        $id_kpis = 1; // Primer indicador: Plan de Trabajo Anual
+        $id_kpis = 17; // Primer indicador: Plan de Trabajo Anual
         $clientPolicy = $clientPoliciesModel->where('client_id', $clientId)
             ->where('policy_type_id', $policyTypeId)
             ->orderBy('id', 'DESC')
@@ -188,8 +183,8 @@ class kpiplandetrabajoController extends Controller
             'clientKpi' => $clientKpi,
             'kpiDefinition' => $kpiDefinition,
             'kpiData' => $kpiData,
-            'kpiType' => $kpiType,
             'dataOwner' => $dataOwner,
+            'kpiType' => $kpiType,
             'periodos' => $periodos,
             'analisis_datos' => $analisis_datos,
             'seguimiento1' => $seguimiento1,
@@ -203,6 +198,6 @@ class kpiplandetrabajoController extends Controller
             'promedioIndicadores' => $promedioIndicadores,
         ];
 
-        return view('client/sgsst/kpi/k1_plan_trabajo_anual', $data);
+        return view('client/sgsst/kpi/kmausentismo', $data);
     }
 }
