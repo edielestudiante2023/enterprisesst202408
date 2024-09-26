@@ -168,81 +168,67 @@
 </head>
 
 <body>
-    <div class="centered-content">
-        <table>
-            <tr>
-                <td rowspan="2" class="logo">
-                    <img src="<?= base_url('uploads/' . $client['logo']) ?>" alt="Logo de <?= $client['nombre_cliente'] ?>" width="100%">
-                </td>
-                <td class="main-title">
-                    SISTEMA DE GESTION EN SEGURIDAD Y SALUD EN EL TRABAJO
-                </td>
-                <td class="code">
-                    <?= $latestVersion['document_type'] ?>-<?= $latestVersion['acronym'] ?>
-                </td>
-            </tr>
-            <tr>
-                <td class="subtitle">
-                    <?= $policyType['type_name'] ?>
-                </td>
-                <td class="code right">
-                    Versión: <?= $latestVersion['version_number'] ?><br>
-                    Fecha: <?= date('d M Y', strtotime($latestVersion['created_at'])) ?>
-                </td>
-            </tr>
-        </table>
-    </div>
+
+
+
+
+    <h1>Lista de KPIs del Cliente</h1>
+
+    <!-- Mostrar el KPI del primer cliente -->
+    <?php if (!empty($clientKpis)): ?>
+        <h3>POLÍTICA SST : <?= esc($clientKpis[0]['kpi_policy']) ?></h3>
+    <?php endif; ?>
 
     <table>
         <thead>
             <tr>
-                <th>Política</th>
+                <th>Cliente</th>
+                <!-- <th>Política</th> -->
                 <th>Objetivo</th>
-                <th>Indicador</th>
-                <th>Tipo de Indicador</th>
-                <th>Meta</th>
-                <th>Valor Numerador 1</th>
-                <th>Valor Denominador 1</th>
+                <th>KPI</th>
+                <th>Tipo de KPI</th>
+                    <!-- <th>Definición</th>
+                    <th>Meta</th>
+                    <th>Fórmula</th>
+                    <th>Responsable del Dato</th>
+                    <th>Fuente de Datos</th>
+                    <th>Gran Total Indicador</th> -->
+                <th>Promedio de Indicadores</th>
+                <th>Periodicidad</th>
+                <!--  <th>Análisis de Datos</th>
+                    <th>Seguimiento 1</th>
+                    <th>Seguimiento 2</th>
+                    <th>Seguimiento 3</th> -->
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($kpiData as $kpi): ?>
+            <?php foreach ($clientKpis as $kpi): ?>
                 <tr>
-                    <td><?= $kpi['politica'] ?></td>
-                    <td><?= $kpi['objetivo'] ?></td>
-                    <td><?= $kpi['indicador'] ?></td>
-                    <td><?= $kpi['tipo_indicador'] ?></td>
-                    <td><?= $kpi['meta'] ?></td>
-                    <td><?= $kpi['valor_numerador_1'] ?></td>
-                    <td><?= $kpi['valor_denominador_1'] ?></td>
+                    <td><?= esc($kpi['cliente']) ?></td>
+                    <!-- <td><?= esc($kpi['kpi_policy']) ?></td> -->
+                    <td><?= esc($kpi['objective']) ?></td>
+                    <td><?= esc($kpi['kpi']) ?></td>
+                     <td><?= esc($kpi['kpi_type']) ?></td><!-- 
+                        <td><?= esc($kpi['kpi_definition']) ?></td>
+                        <td><?= esc($kpi['kpi_target']) ?></td>
+                        <td><?= esc($kpi['kpi_formula']) ?></td>
+                        <td><?= esc($kpi['data_owner']) ?></td>
+                        <td><?= esc($kpi['data_source']) ?></td>
+                        <td><?= esc($kpi['gran_total_indicador']) ?></td> -->
+                    <td><?= number_format($kpi['promedio_indicadores'], 2) ?>%</td>
+                    <td><?= esc($kpi['periodicidad']) ?></td>
+                    <!--  <td><?= esc($kpi['analisis_datos']) ?></td>
+                        <td><?= esc($kpi['seguimiento1']) ?></td>
+                        <td><?= esc($kpi['seguimiento2']) ?></td>
+                        <td><?= esc($kpi['seguimiento3']) ?></td> -->
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 
 
-    <footer>
-        <h2>Historial de Versiones</h2>
-        <table>
-            <tr>
-                <th>Versión</th>
-                <th>Tipo de Documento</th>
-                <th>Acrónimo</th>
-                <th>Fecha de Creación</th>
-                <th>Observaciones</th>
-            </tr>
-            <?php foreach ($allVersions as $version): ?>
-                <tr>
-                    <td><?= $version['version_number'] ?></td>
-                    <td><?= $version['document_type'] ?></td>
-                    <td><?= $version['acronym'] ?></td>
-                    <td><?= date('d M Y', strtotime($version['created_at'])) ?></td>
-                    <td><?= $version['change_control'] ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </footer>
-    <br>
+
+
 
 
 
