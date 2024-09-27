@@ -14,6 +14,10 @@ use App\Models\VariableDenominatorModel;
 use App\Models\MeasurementPeriodModel;
 use App\Models\ClientKpiModel; // Faltaba este uso
 use CodeIgniter\Controller;
+use App\Models\ConsultantModel;
+use App\Models\ClientPoliciesModel; // Usaremos este modelo para client_policies
+use App\Models\DocumentVersionModel; // Usaremos este modelo para client_policies
+use App\Models\PolicyTypeModel;
 
 class kpitodoslosobjetivosController extends Controller
 {
@@ -22,7 +26,7 @@ class kpitodoslosobjetivosController extends Controller
         // Obtener el ID del cliente desde la sesión
         $session = session();
         $clientId = $session->get('user_id'); // Asegúrate de que este ID es el del cliente autenticado
-
+    
         // Modelos que necesitamos para obtener los datos relacionados
         $clientKpiModel = new ClientKpiModel();
         $clientModel = new ClientModel();
@@ -34,13 +38,61 @@ class kpitodoslosobjetivosController extends Controller
         $dataOwnerModel = new DataOwnerModel();
         $numeratorModel = new VariableNumeratorModel();
         $denominatorModel = new VariableDenominatorModel();
-
+        $consultantModel = new ConsultantModel();
+        $clientPoliciesModel = new ClientPoliciesModel();
+        $policyTypeModel = new PolicyTypeModel();
+        $versionModel = new DocumentVersionModel();
+    
+        // Obtener el cliente
+        $client = $clientModel->find($clientId);
+        if (!$client) {
+            return redirect()->to('/dashboardclient')->with('error', 'No se pudo encontrar la información del cliente');
+        }
+    
+        // Obtener los datos del consultor relacionado con el cliente
+        $consultant = $consultantModel->find($client['id_consultor']);
+        if (!$consultant) {
+            return redirect()->to('/dashboardclient')->with('error', 'No se pudo encontrar la información del consultor');
+        }
+    
+        // Obtener la política de alcohol y drogas del cliente
+        $policyTypeId = 46; // Ajusta según sea necesario
+        $clientPolicy = $clientPoliciesModel->where('client_id', $clientId)
+            ->where('policy_type_id', $policyTypeId)
+            ->orderBy('id', 'DESC')
+            ->first();
+        if (!$clientPolicy) {
+            return redirect()->to('/dashboardclient')->with('error', 'No se encontró este documento para este cliente.');
+        }
+    
+        // Obtener el tipo de política
+        $policyType = $policyTypeModel->find($policyTypeId);
+    
+        // Obtener la versión más reciente del documento
+        $latestVersion = $versionModel->where('client_id', $clientId)
+            ->where('policy_type_id', $policyTypeId)
+            ->orderBy('created_at', 'DESC')
+            ->first();
+        if (!$latestVersion) {
+            return redirect()->to('/dashboardclient')->with('error', 'No se encontró un versionamiento para este documento de este cliente.');
+        }
+    
+        // Obtener todas las versiones del documento
+        $allVersions = $versionModel->where('client_id', $clientId)
+            ->where('policy_type_id', $policyTypeId)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+    
+        if (!$allVersions) {
+            return redirect()->to('/dashboardclient')->with('error', 'No se encontró un versionamiento para este documento de este cliente.');
+        }
+    
         // Obtener solo los KPIs del cliente autenticado
         $clientKpis = $clientKpiModel->where('id_cliente', $clientId)->findAll();
-
+    
         // Crear un array para almacenar los datos procesados
-        $data = [];
-
+        $kpisData = [];
+    
         foreach ($clientKpis as $kpi) {
             // Obtener los nombres correspondientes a partir de los IDs
             $cliente = $clientModel->find($kpi['id_cliente']);
@@ -50,28 +102,28 @@ class kpitodoslosobjetivosController extends Controller
             $kpiType = $kpiTypeModel->find($kpi['id_kpi_type']);
             $kpiDefinition = $kpiDefinitionModel->find($kpi['id_kpi_definition']);
             $dataOwner = $dataOwnerModel->find($kpi['id_data_owner']);
-
+    
             // Variables para el cálculo del promedio
             $sumIndicadores = 0;
             $validIndicadores = 0;
-
+    
             // Construir la estructura de periodos y consultar los textos de numerador y denominador
             $periodos = [];
             for ($i = 1; $i <= 12; $i++) {
                 // Consulta las descripciones de numerador y denominador
                 $numerador = $numeratorModel->find($kpi['variable_numerador_' . $i]);
                 $denominador = $denominatorModel->find($kpi['variable_denominador_' . $i]);
-
+    
                 // Obtener el valor del indicador
                 $indicador = $kpi['valor_indicador_' . $i];
-
+    
                 // Verificar si el numerador y denominador son ambos diferentes de 0
                 if ($kpi['dato_variable_numerador_' . $i] != 0 && $kpi['dato_variable_denominador_' . $i] != 0) {
                     // Sumar el valor del indicador y aumentar el contador de indicadores válidos
                     $sumIndicadores += $indicador;
                     $validIndicadores++;
                 }
-
+    
                 // Agregar los valores de los periodos al arreglo
                 $periodos[] = [
                     'numerador' => $numerador['numerator_variable_text'] ?? 'Numerador no encontrado',
@@ -81,12 +133,12 @@ class kpitodoslosobjetivosController extends Controller
                     'valor_indicador' => $indicador
                 ];
             }
-
+    
             // Calcular el promedio solo si hay indicadores válidos
             $promedioIndicadores = ($validIndicadores > 0) ? ($sumIndicadores / $validIndicadores) : 0;
-
+    
             // Agregar los datos del KPI junto con los periodos y el promedio
-            $data[] = [
+            $kpisData[] = [
                 'id_client_kpi' => $kpi['id_client_kpi'],
                 'year' => $kpi['year'],
                 'month' => $kpi['month'],
@@ -112,9 +164,19 @@ class kpitodoslosobjetivosController extends Controller
                 'seguimiento3' => $kpi['seguimiento3'],
             ];
         }
-
+    
         // Pasar los datos a la vista
-        return view('client/sgsst/kpi/todosloskpi', ['clientKpis' => $data]);
-
+        $viewData = [
+            'clientKpis' => $kpisData,
+            'client' => $client,
+            'consultant' => $consultant,
+            'clientPolicy' => $clientPolicy,
+            'policyType' => $policyType,
+            'latestVersion' => $latestVersion,
+            'allVersions' => $allVersions,
+        ];
+    
+        return view('client/sgsst/kpi/todosloskpi', $viewData);
     }
+    
 }

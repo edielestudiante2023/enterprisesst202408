@@ -301,7 +301,7 @@
                 <td>RESULTADO</td>
                 <td><a href="<?= base_url('/todoslosKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
-            <tr>
+           <!--  <tr>
                 <td>Tres Periodos</td>
                 <td><a href="<?= base_url('/indicadorTresPeriodos/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
@@ -320,7 +320,7 @@
             <tr>
                 <td>Anual</td>
                 <td><a href="<?= base_url('/indicadorAnual/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
-            </tr>
+            </tr> -->
           
         </tbody>
     </table>

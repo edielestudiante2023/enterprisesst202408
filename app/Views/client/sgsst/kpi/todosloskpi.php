@@ -169,10 +169,33 @@
 
 <body>
 
+<div class="centered-content">
+        <table>
+            <tr>
+                <td rowspan="2" class="logo">
+                    <img src="<?= base_url('uploads/' . $client['logo']) ?>" alt="Logo de <?= $client['nombre_cliente'] ?>" width="100%">
+                </td>
+                <td class="main-title">
+                    SISTEMA DE GESTION EN SEGURIDAD Y SALUD EN EL TRABAJO
+                </td>
+                <td class="code">
+                    <?= $latestVersion['document_type'] ?>-<?= $latestVersion['acronym'] ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="subtitle">
+                    <?= $policyType['type_name'] ?>
+                </td>
+                <td class="code right">
+                    Versión: <?= $latestVersion['version_number'] ?><br>
+                    Fecha: <?= date('d M Y', strtotime($latestVersion['created_at'])) ?>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 
-
-    <h1>Lista de KPIs del Cliente</h1>
+    <h1>MATRIZ GENERAL DE INDICADORES</h1>
 
     <!-- Mostrar el KPI del primer cliente -->
     <?php if (!empty($clientKpis)): ?>
@@ -228,7 +251,27 @@
 
 
 
-
+    <footer>
+        <h2>Historial de Versiones</h2>
+        <table>
+            <tr>
+                <th>Versión</th>
+                <th>Tipo de Documento</th>
+                <th>Acrónimo</th>
+                <th>Fecha de Creación</th>
+                <th>Observaciones</th>
+            </tr>
+            <?php foreach ($allVersions as $version): ?>
+                <tr>
+                    <td><?= $version['version_number'] ?></td>
+                    <td><?= $version['document_type'] ?></td>
+                    <td><?= $version['acronym'] ?></td>
+                    <td><?= date('d M Y', strtotime($version['created_at'])) ?></td>
+                    <td><?= $version['change_control'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </footer>
 
 
 
