@@ -145,7 +145,7 @@
                 <td>2.5.4 Manual de Contratación para Proveedores y Contratistas en Seguridad y Salud en el Trabajo (SST)</td>
                 <td><a href="<?= base_url('/manProveedores/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
-            
+
 
         </tbody>
     </table>
@@ -217,7 +217,7 @@
 
     <!-- *-************************ KPI **************************************** -->
 
-    
+
     <h2>KPI</h2>
     <table border="1">
         <thead>
@@ -266,7 +266,7 @@
                 <td><a href="<?= base_url('/estructuraKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
-                <td>REPORTE, INVESTIGACIÓN Y  ANÁLISIS ESTADISTICO DE INCIDENTES, ACCIDENTES DE TRABAJO Y ENFERMEDADES LABORALES.</td>
+                <td>REPORTE, INVESTIGACIÓN Y ANÁLISIS ESTADISTICO DE INCIDENTES, ACCIDENTES DE TRABAJO Y ENFERMEDADES LABORALES.</td>
                 <td><a href="<?= base_url('/atelKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
@@ -301,7 +301,13 @@
                 <td>RESULTADO</td>
                 <td><a href="<?= base_url('/todoslosKpi/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
-           <!--  <tr>
+            <tr>
+                <td>EVALUACION INICIAL</td>
+                <td><a href="<?= base_url('listEvaluaciones/' . $client['id_cliente']) ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+
+
+            <!--  <tr>
                 <td>Tres Periodos</td>
                 <td><a href="<?= base_url('/indicadorTresPeriodos/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
@@ -321,7 +327,7 @@
                 <td>Anual</td>
                 <td><a href="<?= base_url('/indicadorAnual/1') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr> -->
-          
+
         </tbody>
     </table>
 

@@ -301,38 +301,12 @@ $routes->get('/editEvaluacion/(:num)', 'EvaluationController::editEvaluacion/$1'
 $routes->post('/editEvaluacionPost/(:num)', 'EvaluationController::editEvaluacionPost/$1');
 $routes->get('/deleteEvaluacion/(:num)', 'EvaluationController::deleteEvaluacion/$1');
 
+$routes->get('/listEvaluaciones/(:num)', 'ClientEvaluationController::listEvaluaciones/$1');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$routes->get('/listCapacitaciones', 'CapacitacionController::listCapacitaciones');
+$routes->get('/addCapacitacion', 'CapacitacionController::addCapacitacion');
+$routes->post('/addCapacitacionPost', 'CapacitacionController::addCapacitacionPost');
+$routes->get('/editCapacitacion/(:num)', 'CapacitacionController::editCapacitacion/$1');
+$routes->post('/editCapacitacionPost/(:num)', 'CapacitacionController::editCapacitacionPost/$1');
+$routes->get('/deleteCapacitacion/(:num)', 'CapacitacionController::deleteCapacitacion/$1');

@@ -164,6 +164,16 @@
                 <td>Listado de todas las evaluaciones</td>
                 <td><a href="<?= base_url('listEvaluaciones') ?>"><button type="button">Abrir</button></a></td>
             </tr>
+            <tr>
+                <td>Capacitaciones</td>
+                <td>Listado de capacitaciones</td>
+                <td><a href="<?= base_url('listCapacitaciones') ?>"><button type="button">Abrir</button></a></td>
+            </tr>
+            <!-- <tr>
+                <td>Cronograma de Capacitaciones</td>
+                <td>Cronograma de capacitaciones</td>
+                <td><a href="<?= base_url('') ?>"><button type="button">Abrir</button></a></td>
+            </tr> -->
 
         </tbody>
     </table>
@@ -171,6 +181,10 @@
     <div class="logout-button">
         <a href="<?= base_url('/logout') ?>" target="_blank"><button type="button">Cerrar Sesión</button></a>
     </div>
+
+    <br>
+
+
 
 </body>
 
