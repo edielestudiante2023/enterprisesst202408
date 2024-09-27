@@ -292,6 +292,14 @@ $routes->get('/rehabilitacionKpi/(:num)', 'kprehabilitacionController::rehabilit
 $routes->get('/ausentismoKpi/(:num)', 'kpiausentismoController::ausentismoKpi/$1');
 $routes->get('/todoslosKpi/(:num)', 'kpitodoslosobjetivosController::todoslosKpi/$1');
 
+/* *******************************EVALUACION INICIAL***************************************** */
+
+$routes->get('/listEvaluaciones', 'EvaluationController::listEvaluaciones');
+$routes->get('/addEvaluacion', 'EvaluationController::addEvaluacion');
+$routes->post('/addEvaluacionPost', 'EvaluationController::addEvaluacionPost');
+$routes->get('/editEvaluacion/(:num)', 'EvaluationController::editEvaluacion/$1');
+$routes->post('/editEvaluacionPost/(:num)', 'EvaluationController::editEvaluacionPost/$1');
+$routes->get('/deleteEvaluacion/(:num)', 'EvaluationController::deleteEvaluacion/$1');
 
 
 

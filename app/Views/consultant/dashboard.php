@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Dashboard Consultor</title>
     <style>
@@ -8,24 +9,30 @@
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid black;
             padding: 10px;
             text-align: center;
         }
+
         h2 {
             text-align: center;
         }
+
         button {
             padding: 10px;
             width: 100%;
         }
+
         .logout-button {
             text-align: center;
             margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
 
     <h2>Bienvenido, Consultor</h2>
@@ -130,7 +137,7 @@
                 <td>Definiciones de los Indicadores</td>
                 <td><a href="<?= base_url('listKpiDefinitions') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
-           
+
             <tr>
                 <td>6 KPI</td>
                 <td>Cargos que son responsables de los indicadores</td>
@@ -146,12 +153,18 @@
                 <td>Denominadores de Indicadores</td>
                 <td><a href="<?= base_url('listDenominatorVariables') ?>"><button type="button">Abrir</button></a></td>
             </tr>
-            
+
             <tr>
                 <td>9 KPI</td>
                 <td>Matriz de Indicadores de Todos los clientes</td>
                 <td><a href="<?= base_url('listClientKpis') ?>"><button type="button">Abrir</button></a></td>
             </tr>
+            <tr>
+                <td>Evaluaciones</td>
+                <td>Listado de todas las evaluaciones</td>
+                <td><a href="<?= base_url('listEvaluaciones') ?>"><button type="button">Abrir</button></a></td>
+            </tr>
+
         </tbody>
     </table>
 
@@ -160,4 +173,5 @@
     </div>
 
 </body>
+
 </html>
