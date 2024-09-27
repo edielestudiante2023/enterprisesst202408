@@ -1,46 +1,63 @@
 
 
-INSERT INTO `document_versions` (`client_id`, `policy_type_id`, `version_number`, `created_at`, `updated_at`, `document_type`, `acronym`, `location`, `status`, `change_control`) VALUES
-(999, 1, 1, '2024-09-04 07:26:31', '2024-09-10 06:03:42', 'FT', 'SST-001', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 4 sept 2024'),
-(999, 4, 1, '2024-09-05 06:40:13', '2024-09-10 06:03:26', 'FT', 'SST-002', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent el 5 sept 2024'),
-(999, 5, 1, '2024-09-11 21:30:04', '2024-09-11 21:30:04', 'FT', 'SST-003', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 11 de septiembre de 2024'),
-(999, 6, 1, '2024-09-11 22:34:41', '2024-09-11 22:34:41', 'FT', 'SST-004', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 11 sept 2024'),
-(999, 7, 1, '2024-09-11 23:15:27', '2024-09-11 23:15:27', 'FT', 'SST-005', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 11 sept 2024'),
-(999, 8, 1, '2024-09-12 06:58:11', '2024-09-12 06:58:11', 'FT', 'SST-006', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 11 sept 2024'),
-(999, 9, 1, '2024-09-12 07:47:42', '2024-09-12 07:47:42', 'FT', 'SST-007', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 11 sept 2024'),
-(999, 10, 1, '2024-09-12 23:59:36', '2024-09-12 23:59:36', 'FT', 'SST-008', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 12 sept 2024'),
-(999, 11, 1, '2024-09-13 01:38:05', '2024-09-13 01:38:05', 'FT', 'SST-009', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 12 sept 2024'),
-(999, 12, 1, '2024-09-13 04:30:24', '2024-09-13 04:30:24', 'FT', 'SST-010', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 12 sept 2024'),
-(999, 13, 1, '2024-09-13 05:17:35', '2024-09-13 05:17:35', 'FT', 'SST-011', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 12 sept 2024'),
-(999, 14, 1, '2024-09-13 18:55:44', '2024-09-13 18:55:44', 'MAN', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 17, 1, '2024-09-13 21:23:44', '2024-09-13 21:23:44', 'PRC', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 18, 1, '2024-09-13 21:39:32', '2024-09-13 21:39:32', 'PRG', 'SST-001', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 13 sept 2024'),
-(999, 19, 1, '2024-09-13 22:20:03', '2024-09-13 22:20:03', 'PRG', 'SST-002', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 20, 1, '2024-09-13 22:51:47', '2024-09-13 22:51:47', 'FT', 'SST-012', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 21, 1, '2024-09-13 23:02:32', '2024-09-13 23:02:50', 'PL', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 22, 1, '2024-09-14 00:29:54', '2024-09-14 00:30:09', 'PL', 'SST-002', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 23, 1, '2024-09-14 00:45:38', '2024-09-14 00:45:38', 'PL', 'SST-003', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 24, 1, '2024-09-14 01:14:52', '2024-09-14 01:14:52', 'PL', 'SST-004', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 25, 1, '2024-09-14 01:22:46', '2024-09-14 01:22:46', 'PL', 'SST-005', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 26, 1, '2024-09-14 01:37:32', '2024-09-14 01:37:32', 'REG', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 27, 1, '2024-09-14 02:08:21', '2024-09-14 02:08:35', 'FT', 'SST-013', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
-(999, 28, 1, '2024-09-17 20:03:07', '2024-09-17 20:03:07', 'FT', 'SST-014', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
-(999, 29, 1, '2024-09-17 20:59:53', '2024-09-17 20:59:53', 'PRC', 'SST-002', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
-(999, 30, 1, '2024-09-18 00:02:40', '2024-09-18 00:02:40', 'PRC', 'SST-003', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
-(999, 31, 1, '2024-09-18 00:33:22', '2024-09-18 00:33:22', 'MAN', 'SST-002', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
-(999, 32, 1, '2024-09-18 05:56:50', '2024-09-18 07:09:02', 'PRC', 'SST-004', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
-(999, 33, 1, '2024-09-18 06:59:35', '2024-09-18 07:08:49', 'PRG', 'SST-005', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
-(999, 34, 1, '2024-09-18 18:47:03', '2024-09-18 18:47:03', 'PRC', 'SST-006', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
-(999, 35, 1, '2024-09-18 19:18:11', '2024-09-18 19:18:11', 'PRG', 'SST-003', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
-(999, 36, 1, '2024-09-18 20:09:21', '2024-09-18 20:09:21', 'PRC', 'SST-007', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
-(999, 37, 1, '2024-09-18 20:53:56', '2024-09-18 20:53:56', 'FT', 'SST-101', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
-(999, 38, 1, '2024-09-18 21:50:20', '2024-09-18 21:50:20', 'FT', 'SST-015', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
-(999, 39, 1, '2024-09-19 00:08:08', '2024-09-19 00:08:08', 'PRC', 'SST-008', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
-(999, 40, 1, '2024-09-19 02:02:08', '2024-09-19 02:02:08', 'PRC', 'SST-009', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
-(999, 41, 1, '2024-09-19 18:29:45', '2024-09-19 18:30:08', 'PRC', 'SST-010', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 19 sept 2024'),
-(999, 42, 1, '2024-09-19 18:40:08', '2024-09-19 18:40:26', 'PRG', 'SST-004', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 19 sept 2024'),
-(999, 43, 1, '2024-09-19 23:04:21', '2024-09-19 23:04:21', 'PRG', 'SST-005', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 19 sept 2024'),
-(999, 44, 1, '2024-09-20 00:16:12', '2024-09-20 00:16:34', 'FT', 'SST-016', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 19 sept 2024'),
-(999, 45, 1, '2024-09-20 00:51:00', '2024-09-20 00:51:00', 'PRC', 'SST-011', 'DIGITAL', 'ACTIVO', '	Elaborado por Cycloid Talent 19 sept 2024'),
-(999, 46, 1, '2024-09-25 20:02:26', '2024-09-25 20:03:36', 'MA', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 25 sept 2024');
+INSERT INTO `document_versions` (`client_id`, `policy_type_id`, `version_number`, `document_type`, `acronym`, `location`, `status`, `change_control`) VALUES
+(999, 1, 1,  'FT', 'SST-001', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 4 sept 2024'),
+(999, 4, 1,  'FT', 'SST-002', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent el 5 sept 2024'),
+(999, 5, 1,  'FT', 'SST-003', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 11 de septiembre de 2024'),
+(999, 6, 1,  'FT', 'SST-004', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 11 sept 2024'),
+(999, 7, 1,  'FT', 'SST-005', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 11 sept 2024'),
+(999, 8, 1,  'FT', 'SST-006', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 11 sept 2024'),
+(999, 9, 1,  'FT', 'SST-007', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 11 sept 2024'),
+(999, 10, 1, 'FT', 'SST-008', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 12 sept 2024'),
+(999, 11, 1, 'FT', 'SST-009', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 12 sept 2024'),
+(999, 12, 1, 'FT', 'SST-010', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 12 sept 2024'),
+(999, 13, 1, 'FT', 'SST-011', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 12 sept 2024'),
+(999, 14, 1, 'MAN', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 17, 1, 'PRC', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 18, 1, 'PRG', 'SST-001', 'DIGITAL', 'ACTIVO', 'Creado por Cycloid Talent 13 sept 2024'),
+(999, 19, 1, 'PRG', 'SST-002', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 20, 1, 'FT', 'SST-012', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 21, 1, 'PL', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 22, 1, 'PL', 'SST-002', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 23, 1, 'PL', 'SST-003', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 24, 1, 'PL', 'SST-004', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 25, 1, 'PL', 'SST-005', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 26, 1, 'REG', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 27, 1, 'FT', 'SST-013', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 13 sept 2024'),
+(999, 28, 1, 'FT', 'SST-014', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
+(999, 29, 1, 'PRC', 'SST-002', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
+(999, 30, 1, 'PRC', 'SST-003', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
+(999, 31, 1, 'MAN', 'SST-002', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
+(999, 32, 1, 'PRC', 'SST-004', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 17 sept 2024'),
+(999, 33, 1, 'PRG', 'SST-005', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
+(999, 34, 1, 'PRC', 'SST-006', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
+(999, 35, 1, 'PRG', 'SST-003', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
+(999, 36, 1, 'PRC', 'SST-007', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
+(999, 37, 1, 'FT', 'SST-101', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
+(999, 38, 1, 'FT', 'SST-015', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
+(999, 39, 1, 'PRC', 'SST-008', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
+(999, 40, 1, 'PRC', 'SST-009', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 18 sept 2024'),
+(999, 41, 1, 'PRC', 'SST-010', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 19 sept 2024'),
+(999, 42, 1, 'PRG', 'SST-004', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 19 sept 2024'),
+(999, 43, 1, 'PRG', 'SST-005', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 19 sept 2024'),
+(999, 44, 1, 'FT', 'SST-016', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 19 sept 2024'),
+(999, 45, 1, 'PRC', 'SST-011', 'DIGITAL', 'ACTIVO', '	Elaborado por Cycloid Talent 19 sept 2024'),
+(999, 46, 1, 'MA', 'SST-001', 'DIGITAL', 'ACTIVO', 'Elaborado por Cycloid Talent 25 sept 2024');
 
+/* TIEMSTAMP
+
+UPDATE `document_versions`
+SET `created_at` = NOW(),
+    `updated_at` = NOW()
+WHERE `created_at` IS NULL OR `updated_at` IS NULL;
+
+ 2. Si necesitas actualizar los campos existentes que están en NULL
+Para aquellos registros que ya tienen los valores NULL, puedes ejecutar una consulta para actualizarlos:
+
+sql
+Copiar código
+
+UPDATE `document_versions`
+SET `created_at` = NOW(),
+    `updated_at` = NOW()
+WHERE `created_at` IS NULL OR `updated_at` IS NULL;*/

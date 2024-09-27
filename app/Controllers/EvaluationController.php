@@ -48,6 +48,15 @@ class EvaluationController extends Controller
     {
         $model = new EvaluationModel();
 
+        $valor = $this->request->getVar('valor');
+        $evaluacion_inicial = $this->request->getVar('evaluacion_inicial');
+
+        // Lógica del CASE para puntaje_cuantitativo
+        $puntaje_cuantitativo = 0;
+        if ($evaluacion_inicial == 'CUMPLE TOTALMENTE' || $evaluacion_inicial == 'NO APLICA') {
+            $puntaje_cuantitativo = $valor;
+        }
+
         $data = [
             'id_cliente' => $this->request->getVar('id_cliente'),
             'ciclo' => $this->request->getVar('ciclo'),
@@ -60,9 +69,9 @@ class EvaluationController extends Controller
             'veintiun' => $this->request->getVar('veintiun'),
             'sesenta' => $this->request->getVar('sesenta'),
             'item_del_estandar' => $this->request->getVar('item_del_estandar'),
-            'evaluacion_inicial' => $this->request->getVar('evaluacion_inicial'),
-            'valor' => $this->request->getVar('valor'),
-            'puntaje_cuantitativo' => $this->request->getVar('puntaje_cuantitativo'),
+            'evaluacion_inicial' => $evaluacion_inicial,
+            'valor' => $valor,
+            'puntaje_cuantitativo' => $puntaje_cuantitativo,  // Asignar el puntaje calculado
             'item' => $this->request->getVar('item'),
             'criterio' => $this->request->getVar('criterio'),
             'modo_de_verificacion' => $this->request->getVar('modo_de_verificacion'),
@@ -97,6 +106,15 @@ class EvaluationController extends Controller
     {
         $model = new EvaluationModel();
 
+        $valor = $this->request->getVar('valor');
+        $evaluacion_inicial = $this->request->getVar('evaluacion_inicial');
+
+        // Lógica del CASE para puntaje_cuantitativo
+        $puntaje_cuantitativo = 0;
+        if ($evaluacion_inicial == 'CUMPLE TOTALMENTE' || $evaluacion_inicial == 'NO APLICA') {
+            $puntaje_cuantitativo = $valor;
+        }
+
         $data = [
             'id_cliente' => $this->request->getVar('id_cliente'),
             'ciclo' => $this->request->getVar('ciclo'),
@@ -109,9 +127,9 @@ class EvaluationController extends Controller
             'veintiun' => $this->request->getVar('veintiun'),
             'sesenta' => $this->request->getVar('sesenta'),
             'item_del_estandar' => $this->request->getVar('item_del_estandar'),
-            'evaluacion_inicial' => $this->request->getVar('evaluacion_inicial'),
-            'valor' => $this->request->getVar('valor'),
-            'puntaje_cuantitativo' => $this->request->getVar('puntaje_cuantitativo'),
+            'evaluacion_inicial' => $evaluacion_inicial,
+            'valor' => $valor,
+            'puntaje_cuantitativo' => $puntaje_cuantitativo,  // Asignar el puntaje calculado
             'item' => $this->request->getVar('item'),
             'criterio' => $this->request->getVar('criterio'),
             'modo_de_verificacion' => $this->request->getVar('modo_de_verificacion'),
@@ -127,6 +145,7 @@ class EvaluationController extends Controller
             return redirect()->back()->with('msg', 'Error al actualizar evaluación');
         }
     }
+
 
     // Eliminar una evaluación
     public function deleteEvaluacion($id)

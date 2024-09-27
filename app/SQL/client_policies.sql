@@ -1,47 +1,65 @@
 
 
-INSERT INTO `client_policies` (`client_id`, `policy_type_id`, `policy_content`, `created_at`, `updated_at`) VALUES
-( 999, 1, 'administración  e implementación del sistema, para lo cual deberá planificar, organizar y dirigir una evaluación, informar a la alta dirección sobre el funcionamiento y los resultados del SG-SST, y actualización de acuerdo con la normatividad vigente.', '2024-09-06 23:01:02', '2024-09-07 00:27:50'),
-( 999, 4, 'Este enfoque permitirá no solo cumplir con los requisitos legales, sino también fomentar una cultura preventiva dentro de la organización, donde todos los miembros, desde la alta dirección hasta los trabajadores, asumen un rol activo en la identificación y control de riesgos. La participación constante, la formación adecuada y el monitoreo continuo del Sistema de Gestión en SST garantizarán la mejora continua y el bienestar de los empleados, al tiempo que contribuyen a la sostenibilidad y productividad de la empresa.', '2024-09-10 06:23:30', '2024-09-10 06:23:30'),
-( 999, 5, ' ', '2024-09-11 21:28:56', '2024-09-11 22:27:01'),
-( 999, 6, ' ', '2024-09-11 22:22:35', '2024-09-11 22:36:03'),
-( 999, 7, ' ', '2024-09-11 23:01:38', '2024-09-11 23:01:38'),
-( 999, 8, ' ', '2024-09-12 06:53:46', '2024-09-12 06:53:46'),
-( 999, 9, ' ', '2024-09-12 07:27:31', '2024-09-12 07:27:31'),
-( 999, 10, ' ', '2024-09-12 23:57:25', '2024-09-12 23:57:25'),
-( 999, 11, ' ', '2024-09-13 01:36:35', '2024-09-13 01:36:35'),
-( 999, 12, ' ', '2024-09-13 04:29:18', '2024-09-13 04:29:18'),
-( 999, 13, ' ', '2024-09-13 05:16:58', '2024-09-13 05:16:58'),
-( 999, 14, ' ', '2024-09-13 18:50:06', '2024-09-13 19:42:07'),
-( 999, 15, 'En Cycloid Talent, nuestra misión fundamental es liderar la transformación positiva en el entorno laboral mediante el diagnóstico especializado en la Batería de Riesgo Psicosocial y Consultoría en Seguridad y Salud en el Trabajo. Nos dedicamos exclusivamente a la evaluación exhaustiva y precisa de los factores psicosociales y las condiciones de seguridad y salud en la Propiedad Horizontal y las Empresas.', '2024-09-13 18:51:05', '2024-09-13 19:42:29'),
-( 999, 16, 'Posicionar a Cycloid Talent como el principal proveedor de administración SG-SST en Soacha para el 2024 y en Bogotá para el 2025, Así como crecer en 2024 un 50% la participación de nuestros clientes de Diagnóstico de Evaluación de Factores de Riesgo psicosocial en relación al año anterior', '2024-09-13 19:42:53', '2024-09-13 19:42:53'),
-( 999, 17, ' ', '2024-09-13 21:16:32', '2024-09-13 21:16:32'),
-( 999, 18, ' ', '2024-09-13 21:38:42', '2024-09-13 21:38:42'),
-( 999, 19, ' ', '2024-09-13 22:19:16', '2024-09-13 22:19:16'),
-( 999, 20, ' ', '2024-09-13 22:50:42', '2024-09-13 22:50:42'),
-( 999, 21, ' ', '2024-09-13 23:01:41', '2024-09-13 23:01:41'),
-( 999, 22, ' ', '2024-09-14 00:29:30', '2024-09-14 00:29:30'),
-( 999, 23, ' ', '2024-09-14 00:45:02', '2024-09-14 00:45:02'),
-( 999, 24, ' ', '2024-09-14 01:14:21', '2024-09-14 01:14:21'),
-( 999, 25, ' ', '2024-09-14 01:22:18', '2024-09-14 01:22:18'),
-( 999, 26, 'No Existen Sucursales', '2024-09-14 01:36:51', '2024-09-14 01:36:51'),
-( 999, 27, ' ', '2024-09-14 01:58:47', '2024-09-14 01:58:47'),
-( 999, 28, ' ', '2024-09-17 19:49:39', '2024-09-17 19:49:39'),
-( 999, 29, ' ', '2024-09-17 20:59:06', '2024-09-17 20:59:06'),
-( 999, 30, ' ', '2024-09-18 00:01:59', '2024-09-18 00:01:59'),
-( 999, 31, ' ', '2024-09-18 00:31:30', '2024-09-18 00:31:30'),
-( 999, 32, ' ', '2024-09-18 05:55:46', '2024-09-18 05:55:46'),
-( 999, 33, ' ', '2024-09-18 06:58:42', '2024-09-18 06:58:42'),
-( 999, 34, 'ARL SURA', '2024-09-18 18:46:01', '2024-09-18 18:46:01'),
-( 999, 35, ' ', '2024-09-18 19:17:17', '2024-09-18 19:17:17'),
-( 999, 36, ' ', '2024-09-18 20:08:32', '2024-09-18 20:08:32'),
-( 999, 37, ' ', '2024-09-18 20:53:13', '2024-09-18 20:53:13'),
-( 999, 38, ' ', '2024-09-18 21:49:44', '2024-09-18 21:49:44'),
-( 999, 39, ' ', '2024-09-19 00:07:27', '2024-09-19 00:07:27'),
-( 999, 40, ' ', '2024-09-19 02:00:18', '2024-09-19 02:00:18'),
-( 999, 41, ' ', '2024-09-19 18:20:28', '2024-09-19 18:20:28'),
-( 999, 42, ' ', '2024-09-19 18:39:14', '2024-09-19 18:39:14'),
-( 999, 43, ' ', '2024-09-19 23:03:19', '2024-09-19 23:03:19'),
-( 999, 44, ' ', '2024-09-20 00:15:28', '2024-09-20 00:15:28'),
-( 999, 45, ' ', '2024-09-20 00:50:07', '2024-09-20 00:50:07'),
-( 999, 46, ' ', '2024-09-25 20:01:42', '2024-09-25 20:01:42');
+INSERT INTO `client_policies` (`client_id`, `policy_type_id`, `policy_content`) VALUES
+( 999, 1, 'administración  e implementación del sistema, para lo cual deberá planificar, organizar y dirigir una evaluación, informar a la alta dirección sobre el funcionamiento y los resultados del SG-SST, y actualización de acuerdo con la normatividad vigente.'),
+( 999, 4, 'Este enfoque permitirá no solo cumplir con los requisitos legales, sino también fomentar una cultura preventiva dentro de la organización, donde todos los miembros, desde la alta dirección hasta los trabajadores, asumen un rol activo en la identificación y control de riesgos. La participación constante, la formación adecuada y el monitoreo continuo del Sistema de Gestión en SST garantizarán la mejora continua y el bienestar de los empleados, al tiempo que contribuyen a la sostenibilidad y productividad de la empresa.'),
+( 999, 5, ' '),
+( 999, 6, ' '),
+( 999, 7, ' '),
+( 999, 8, ' '),
+( 999, 9, ' '),
+( 999, 10, ' '),
+( 999, 11, ' '),
+( 999, 12, ' '),
+( 999, 13, ' '),
+( 999, 14, ' '),
+( 999, 15, 'En Cycloid Talent, nuestra misión fundamental es liderar la transformación positiva en el entorno laboral mediante el diagnóstico especializado en la Batería de Riesgo Psicosocial y Consultoría en Seguridad y Salud en el Trabajo. Nos dedicamos exclusivamente a la evaluación exhaustiva y precisa de los factores psicosociales y las condiciones de seguridad y salud en la Propiedad Horizontal y las Empresas.'),
+( 999, 16, 'Posicionar a Cycloid Talent como el principal proveedor de administración SG-SST en Soacha para el 2024 y en Bogotá para el 2025, Así como crecer en 2024 un 50% la participación de nuestros clientes de Diagnóstico de Evaluación de Factores de Riesgo psicosocial en relación al año anterior'),
+( 999, 17, ' '),
+( 999, 18, ' '),
+( 999, 19, ' '),
+( 999, 20, ' '),
+( 999, 21, ' '),
+( 999, 22, ' '),
+( 999, 23, ' '),
+( 999, 24, ' '),
+( 999, 25, ' '),
+( 999, 26, 'No Existen Sucursales'),
+( 999, 27, ' '),
+( 999, 28, ' '),
+( 999, 29, ' '),
+( 999, 30, ' '),
+( 999, 31, ' '),
+( 999, 32, ' '),
+( 999, 33, ' '),
+( 999, 34, 'ARL SURA'),
+( 999, 35, ' '),
+( 999, 36, ' '),
+( 999, 37, ' '),
+( 999, 38, ' '),
+( 999, 39, ' '),
+( 999, 40, ' '),
+( 999, 41, ' '),
+( 999, 42, ' '),
+( 999, 43, ' '),
+( 999, 44, ' '),
+( 999, 45, ' '),
+( 999, 46, ' ');
+
+/* TIEMSTAMP
+
+UPDATE `client_policies`
+SET `created_at` = NOW(),
+    `updated_at` = NOW()
+WHERE `created_at` IS NULL OR `updated_at` IS NULL;
+
+ 2. Si necesitas actualizar los campos existentes que están en NULL
+Para aquellos registros que ya tienen los valores NULL, puedes ejecutar una consulta para actualizarlos:
+
+sql
+Copiar código
+
+UPDATE `client_policies`
+SET `created_at` = NOW(),
+    `updated_at` = NOW()
+WHERE `created_at` IS NULL OR `updated_at` IS NULL;*/
