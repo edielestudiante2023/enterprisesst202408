@@ -310,3 +310,22 @@ $routes->post('/addCapacitacionPost', 'CapacitacionController::addCapacitacionPo
 $routes->get('/editCapacitacion/(:num)', 'CapacitacionController::editCapacitacion/$1');
 $routes->post('/editCapacitacionPost/(:num)', 'CapacitacionController::editCapacitacionPost/$1');
 $routes->get('/deleteCapacitacion/(:num)', 'CapacitacionController::deleteCapacitacion/$1');
+
+
+$routes->get('/listcronogCapacitacion', 'CronogcapacitacionController::listcronogCapacitacion');
+$routes->get('/addcronogCapacitacion', 'CronogcapacitacionController::addcronogCapacitacion');
+$routes->post('/addcronogCapacitacionPost', 'CronogcapacitacionController::addcronogCapacitacionPost');
+$routes->get('/editcronogCapacitacion/(:num)', 'CronogcapacitacionController::editcronogCapacitacion/$1');
+$routes->post('/editcronogCapacitacionPost/(:num)', 'CronogcapacitacionController::editcronogCapacitacionPost/$1');
+$routes->get('/deletecronogCapacitacion/(:num)', 'CronogcapacitacionController::deletecronogCapacitacion/$1');
+
+$routes->get('/listPlanDeTrabajoAnual', 'PlanDeTrabajoAnualController::listPlanDeTrabajoAnual');
+$routes->get('/addPlanDeTrabajoAnual', 'PlanDeTrabajoAnualController::addPlanDeTrabajoAnual');
+$routes->post('/addPlanDeTrabajoAnualPost', 'PlanDeTrabajoAnualController::addPlanDeTrabajoAnualPost');
+
+$routes->get('/editPlanDeTrabajoAnual/(:num)', 'PlanDeTrabajoAnualController::editPlanDeTrabajoAnual/$1');
+$routes->post('/editPlanDeTrabajoAnualPost/(:num)', 'PlanDeTrabajoAnualController::editPlanDeTrabajoAnualPost/$1');
+$routes->get('/deletePlanDeTrabajoAnual/(:num)', 'PlanDeTrabajoAnualController::deletePlanDeTrabajoAnual/$1');
+
+
+
