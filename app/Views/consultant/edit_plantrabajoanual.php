@@ -24,15 +24,15 @@
                     <?php endforeach; ?>
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="id_plandetrabajo">Actividad del Plan de Trabajo:</label>
                 <select name="id_plandetrabajo" id="id_plandetrabajo" class="form-control" required>
                     <option value="">Seleccione una actividad</option>
                     <?php foreach ($actividades as $actividad) : ?>
-                        <option value="<?= $actividad->id_inventario_actividades_plandetrabajo ?>" <?= ($actividad->id_inventario_actividades_plandetrabajo == $plan['id_plandetrabajo']) ? 'selected' : '' ?>>
-                            <?= $actividad->actividad_plandetrabajo ?>
+                        <option value="<?= $actividad['id_inventario_actividades_plandetrabajo'] ?>" <?= ($actividad['id_inventario_actividades_plandetrabajo'] == $plan['id_plandetrabajo']) ? 'selected' : '' ?>>
+                            <?= $actividad['actividad_plandetrabajo'] ?>
                         </option>
-
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -56,6 +56,7 @@
                 <label for="responsable_sugerido_plandetrabajo">Responsable Sugerido:</label>
                 <input type="text" class="form-control" id="responsable_sugerido_plandetrabajo" name="responsable_sugerido_plandetrabajo" value="<?= $plan['responsable_sugerido_plandetrabajo'] ?>" required>
             </div>
+
             <div class="form-group">
                 <label for="fecha_propuesta">Fecha Propuesta:</label>
                 <input type="date" class="form-control" id="fecha_propuesta" name="fecha_propuesta" value="<?= $plan['fecha_propuesta'] ?>" required>
@@ -64,10 +65,12 @@
                 <label for="fecha_cierre">Fecha Cierre:</label>
                 <input type="date" class="form-control" id="fecha_cierre" name="fecha_cierre" value="<?= $plan['fecha_cierre'] ?>">
             </div>
+
             <div class="form-group">
                 <label for="responsable_definido_paralaactividad">Responsable Definido:</label>
                 <input type="text" class="form-control" id="responsable_definido_paralaactividad" name="responsable_definido_paralaactividad" value="<?= $plan['responsable_definido_paralaactividad'] ?>">
             </div>
+
             <div class="form-group">
                 <label for="estado_actividad">Estado de la Actividad:</label>
                 <select name="estado_actividad" id="estado_actividad" class="form-control" required>
@@ -75,18 +78,22 @@
                     <option value="CERRADA" <?= ($plan['estado_actividad'] == 'CERRADA') ? 'selected' : '' ?>>CERRADA</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="porcentaje_avance">Porcentaje de Avance:</label>
                 <input type="number" class="form-control" id="porcentaje_avance" name="porcentaje_avance" value="<?= $plan['porcentaje_avance'] ?>" step="0.01" required>
             </div>
+
             <div class="form-group">
                 <label for="semana">Semana:</label>
                 <input type="text" class="form-control" id="semana" name="semana" value="<?= $plan['semana'] ?>">
             </div>
+
             <div class="form-group">
                 <label for="observaciones">Observaciones:</label>
                 <textarea class="form-control" id="observaciones" name="observaciones"><?= $plan['observaciones'] ?></textarea>
             </div>
+
             <button type="submit" class="btn btn-primary">Actualizar Actividad</button>
         </form>
     </div>

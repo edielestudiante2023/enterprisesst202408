@@ -328,4 +328,16 @@ $routes->post('/editPlanDeTrabajoAnualPost/(:num)', 'PlanDeTrabajoAnualControlle
 $routes->get('/deletePlanDeTrabajoAnual/(:num)', 'PlanDeTrabajoAnualController::deletePlanDeTrabajoAnual/$1');
 
 
+$routes->get('/listPendientes', 'PendientesController::listPendientes');
+$routes->get('/addPendiente', 'PendientesController::addPendiente');
+$routes->post('/addPendientePost', 'PendientesController::addPendientePost');
+$routes->get('/editPendiente/(:num)', 'PendientesController::editPendiente/$1');
+$routes->post('/editPendientePost/(:num)', 'PendientesController::editPendientePost/$1');
+$routes->get('/deletePendiente/(:num)', 'PendientesController::deletePendiente/$1');
+
+$routes->get('/listPendientesCliente/(:num)', 'ClientePendientesController::listPendientesCliente/$1');
+$routes->get('/listCronogramasCliente/(:num)', 'CronogramaCapacitacionController::listCronogramasCliente/$1');
+$routes->get('/listPlanTrabajoCliente/(:num)', 'ClientePlanTrabajoController::listPlanTrabajoCliente/$1');
+
+
 

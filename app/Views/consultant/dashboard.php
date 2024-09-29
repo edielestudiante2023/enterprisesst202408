@@ -179,6 +179,11 @@
                 <td>Listado de actividades del plan de trabajo anual</td>
                 <td><a href="<?= base_url('listPlanDeTrabajoAnual') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
+            <tr>
+                <td>Pendientes</td>
+                <td>Listado de Pendientes</td>
+                <td><a href="<?= base_url('listPendientes') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
 
 
 

@@ -306,6 +306,21 @@
                 <td><a href="<?= base_url('listEvaluaciones/' . $client['id_cliente']) ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
 
+            <tr>
+                <td>PENDIENTES</td>
+                <td><a href="<?= base_url('listPendientesCliente/' . $client['id_cliente']) ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+
+            <tr>
+                <td>CRONOGRAMA DE CAPACITACION</td>
+                <td><a href="<?= base_url('listCronogramasCliente/' . $client['id_cliente']) ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
+                <td>PLAN DE TRABAJO ANUAL</td>
+                <td><a href="<?= base_url('listPlanTrabajoCliente/' . $client['id_cliente']) ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+
+
 
             <!--  <tr>
                 <td>Tres Periodos</td>
