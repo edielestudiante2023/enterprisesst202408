@@ -5,12 +5,21 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
+ $routes->cli('routes', function() use ($routes) {
+    print_r($routes->getRoutes());
+});
+
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'AuthController::login');
 $routes->post('/loginPost', 'AuthController::loginPost');
 $routes->get('/logout', 'AuthController::logout');
 $routes->get('/dashboardclient', 'ClientController::index');
 $routes->get('/dashboardclient', 'ClientController::dashboard');
+$routes->get('/dashboard', 'ClientController::dashboard');
+$routes->get('client/dashboard', 'ClientController::dashboard');
+
+
 
 $routes->get('/dashboardconsultant', 'ConsultantController::index');
 
@@ -338,6 +347,14 @@ $routes->get('/deletePendiente/(:num)', 'PendientesController::deletePendiente/$
 $routes->get('/listPendientesCliente/(:num)', 'ClientePendientesController::listPendientesCliente/$1');
 $routes->get('/listCronogramasCliente/(:num)', 'CronogramaCapacitacionController::listCronogramasCliente/$1');
 $routes->get('/listPlanTrabajoCliente/(:num)', 'ClientePlanTrabajoController::listPlanTrabajoCliente/$1');
+
+$routes->get('/listMatricesCycloid', 'MatrizCycloidController::listMatricesCycloid');
+$routes->get('/addMatrizCycloid', 'MatrizCycloidController::addMatrizCycloid');
+$routes->post('/addMatrizCycloidPost', 'MatrizCycloidController::addMatrizCycloidPost');
+$routes->get('/editMatrizCycloid/(:num)', 'MatrizCycloidController::editMatrizCycloid/$1');
+$routes->post('/editMatrizCycloidPost/(:num)', 'MatrizCycloidController::editMatrizCycloidPost/$1');
+$routes->get('/deleteMatrizCycloid/(:num)', 'MatrizCycloidController::deleteMatrizCycloid/$1');
+
 
 
 

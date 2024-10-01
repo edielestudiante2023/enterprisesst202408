@@ -29,7 +29,7 @@ class AuthController extends Controller
                     'role' => 'client',
                     'isLoggedIn' => true
                 ]);
-                return redirect()->to('/dashboardclient');
+                return redirect()->to('/dashboard');
             }
         } elseif ($role === 'consultant') {
             $consultantModel = new ConsultantModel();

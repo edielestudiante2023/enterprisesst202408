@@ -83,6 +83,11 @@
                 <td><a href="<?= base_url('listVersions') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
             <tr>
+                <td>Listado de Documentos y Matrices</td>
+                <td>Ver Lista</td>
+                <td><a href="<?= base_url('listReportTypes') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+            <tr>
                 <td>Políticas</td>
                 <td>Ver Lista de Políticas</td>
                 <td><a href="<?= base_url('/listPolicies') ?>" target="_blank"><button type="button">Abrir</button></a></td>
@@ -184,6 +189,12 @@
                 <td>Listado de Pendientes</td>
                 <td><a href="<?= base_url('listPendientes') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
+            <tr>
+                <td>Matrices Cycloid</td>
+                <td>Listado de Matrices Cycloid</td>
+                <td><a href="<?= base_url('listMatricesCycloid') ?>" target="_blank"><button type="button">Abrir</button></a></td>
+            </tr>
+
 
 
 
