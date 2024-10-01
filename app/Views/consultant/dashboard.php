@@ -1,29 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Consultor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        body {
+            background-color: #EFEBDF;
+            /* Fondo claro */
+            color: #1C2437;
+            /* Texto oscuro */
         }
 
-        th,
-        td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
+        .navbar {
+            background-color: #EFEBDF;
         }
 
-        h2 {
-            text-align: center;
+        .navbar-brand img {
+            max-height: 50px;
         }
 
-        button {
-            padding: 10px;
-            width: 100%;
+        .header-logos img {
+            max-height: 50px;
+            margin-right: 10px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .table th {
+            background-color: #47485A;
+            /* Encabezado de tabla en gris oscuro */
+            color: #EFEBDF;
+            /* Texto en blanco crema */
+        }
+
+        .table td a {
+            color: #1C2437;
+            text-decoration: none;
+        }
+
+        .table td a:hover {
+            color: #B89553;
+            /* Efecto dorado en hover */
         }
 
         .logout-button {
@@ -35,10 +60,27 @@
 
 <body>
 
-    <h2>Bienvenido, Consultor</h2>
-    <p>Esta es tu dashboard donde puedes gestionar la información.</p>
+    <!-- Navbar con logo y botón de cerrar sesión -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="<?= base_url('uploads/logo_enterprisesst.jpeg') ?>" alt="Enterprisesst Logo">
+            </a>
+            <span class="navbar-text ms-auto">
+                <a href="<?= base_url('/logout') ?>" style="display: inline-block; padding: 10px 20px; background-color: #B89553; color: #1C2437; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                    Cerrar Sesión
+                </a>
+            </span>
+        </div>
+    </nav>
 
-    <table>
+    <div class="container-fluid content">
+        <h2 class="text-center">Bienvenido, Consultor</h2>
+        <p class="text-center">Esta es tu dashboard donde puedes gestionar la información.</p>
+
+        <!-- Tabla con DataTables -->
+        <table id="consultorTable" class="table table-bordered table-striped">
+        
         <thead>
             <tr>
                 <th>Elemento de Gestión</th>
@@ -143,6 +185,7 @@
                 <td><a href="<?= base_url('listKpiDefinitions') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
 
+
             <tr>
                 <td>6 KPI</td>
                 <td>Cargos que son responsables de los indicadores</td>
@@ -158,6 +201,7 @@
                 <td>Denominadores de Indicadores</td>
                 <td><a href="<?= base_url('listDenominatorVariables') ?>"><button type="button">Abrir</button></a></td>
             </tr>
+
 
             <tr>
                 <td>9 KPI</td>
@@ -194,22 +238,32 @@
                 <td>Listado de Matrices Cycloid</td>
                 <td><a href="<?= base_url('listMatricesCycloid') ?>" target="_blank"><button type="button">Abrir</button></a></td>
             </tr>
-
-
-
-
         </tbody>
     </table>
 
-
-
-    <div class="logout-button">
-        <a href="<?= base_url('/logout') ?>" target="_blank"><button type="button">Cerrar Sesión</button></a>
+        <div class="logout-button">
+            <a href="<?= base_url('/logout') ?>" target="_blank"><button type="button" class="btn btn-danger">Cerrar Sesión</button></a>
+        </div>
     </div>
 
-    <br>
-
-
+    <!-- jQuery y DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#consultorTable').DataTable({
+                paging: true,
+                searching: true,
+                lengthChange: true,
+                pageLength: 5,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json' // Traducción al español
+                }
+            });
+        });
+    </script>
 
 </body>
 
