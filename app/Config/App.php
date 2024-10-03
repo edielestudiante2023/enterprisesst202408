@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'https://gestor.cycloidtalent.com/public/';
+    public string $baseURL = 'http://localhost/enterprise-sst202408/public/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
