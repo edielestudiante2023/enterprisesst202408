@@ -4,53 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Hojas de Cálculo y Matrices - Enterprisesst</title>
+    <title>Dashboard de Documentos - Enterprisesst</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
     <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #EFEBDF;
-            color: #1C2437;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            margin-top: 30px;
+            max-width: 1200px;
         }
 
         .table-container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
             margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container h2 {
+            color: #333;
+            font-weight: 600;
+            font-size: 24px;
+            margin-bottom: 15px;
         }
 
         .table th {
-            background-color: #47485A;
-            color: #EFEBDF;
+            background-color: #0066cc;
+            color: #fff;
             text-align: center;
+            font-size: 16px;
+        }
+
+        .table td {
+            font-size: 15px;
+            vertical-align: middle;
         }
 
         .table td a {
-            color: #1C2437;
-            text-decoration: none;
-            font-weight: bold;
+            color: #0066cc;
+            text-decoration: underline;
+            font-weight: 500;
         }
 
         .table td a:hover {
-            color: #B89553;
+            color: #004c99;
         }
 
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
             padding: 10px 20px;
-            background-color: #B89553;
-            color: #1C2437;
+            background-color: #0066cc;
+            color: #fff;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #004c99;
         }
 
         .empty-message {
-            color: #1C2437;
+            color: #333;
             font-size: 18px;
             font-weight: bold;
-            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
         }
     </style>
 </head>
@@ -63,7 +91,7 @@
         <div class="table-container">
             <h2>Hojas de Cálculo Interactivas</h2>
             <?php if (!empty($hojasDeCalculo)) : ?>
-                <table id="hojasCalculoTable" class="table table-bordered table-striped">
+                <table id="hojasCalculoTable" class="table table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>Título</th>
@@ -91,7 +119,7 @@
         <div class="table-container">
             <h2>Matrices</h2>
             <?php if (!empty($matrices)) : ?>
-                <table id="matricesTable" class="table table-bordered table-striped">
+                <table id="matricesTable" class="table table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>Título</th>
@@ -124,7 +152,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#hojasCalculoTable').DataTable({
                 paging: true,
                 searching: true,
