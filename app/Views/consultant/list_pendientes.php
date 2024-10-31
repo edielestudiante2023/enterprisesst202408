@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <style>
         td, th {
             max-width: 100px;
@@ -126,8 +126,12 @@
             table.column(column).search($(this).val()).draw();
         });
 
-        // Inicializar tooltips de Bootstrap
-        $('[title]').tooltip();
+        // Inicializar tooltips de Bootstrap después de que la tabla se haya renderizado
+        $('body').tooltip({
+            selector: '[title]',
+            placement: 'top',
+            trigger: 'hover'
+        });
     });
 </script>
 </body>
