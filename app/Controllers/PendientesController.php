@@ -20,7 +20,7 @@ class PendientesController extends Controller
         // Añadir el nombre del cliente a cada pendiente
         foreach ($pendientes as &$pendiente) {
             $cliente = $clientModel->find($pendiente['id_cliente']);
-            $pendiente['cliente'] = $cliente['nombre_cliente'] ?? 'Cliente desconocido';
+            $pendiente['nombre_cliente'] = $cliente['nombre_cliente'] ?? 'Cliente desconocido';
         }
 
         $data['pendientes'] = $pendientes;
