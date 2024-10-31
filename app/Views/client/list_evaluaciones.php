@@ -55,7 +55,7 @@
 <body class="bg-light">
 
     <div class="container my-5">
-        <h2 class="mb-4 text-primary">Evaluaciones del Cliente: <?= esc($client['nombre_cliente']) ?></h2>
+        <h2 class="mb-4 text-dark">Evaluaciones del Cliente: <?= esc($client['nombre_cliente']) ?></h2>
 
         <!-- Tarjetas de indicadores -->
         <div class="row text-center mb-4">
