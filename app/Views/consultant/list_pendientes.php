@@ -11,6 +11,18 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        td, th {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 50px;
+        }
+
+        td[title], th[title] {
+            cursor: help;
+        }
+    </style>
 </head>
 
 <body class="bg-light">
@@ -59,7 +71,7 @@
                 <tbody>
                     <?php if (!empty($pendientes)) : ?>
                         <?php foreach ($pendientes as $pendiente) : ?>
-                            <tr style="height: 100%;">
+                            <tr>
                                 <td><span title="<?= $pendiente['id_pendientes'] ?>"><?= $pendiente['id_pendientes'] ?></span></td>
                                 <td><span title="<?= $pendiente['id_cliente'] ?>"><?= $pendiente['id_cliente'] ?></span></td>
                                 <td><span title="<?= $pendiente['created_at'] ?>"><?= $pendiente['created_at'] ?></span></td>
@@ -109,6 +121,12 @@
                         table.column(i).search(this.value).draw();
                     }
                 });
+            });
+
+            // Inicializar tooltips de Bootstrap
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
             });
         });
     </script>
