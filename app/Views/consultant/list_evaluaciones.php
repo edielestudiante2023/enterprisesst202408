@@ -50,6 +50,11 @@
         td[title], th[title] {
             cursor: help;
         }
+
+        .tooltip-inner {
+            max-width: 300px;
+            white-space: normal;
+        }
     </style>
 </head>
 <body>
@@ -112,26 +117,26 @@
                             <!-- <td><?= esc($evaluacion['id_ev_ini']); ?></td> -->
                             <!-- <td><?= esc($evaluacion['created_at']); ?></td>
                             <td><?= esc($evaluacion['updated_at']); ?></td> -->
-                            <td title="<?= esc($evaluacion['nombre_cliente']); ?>"><?= esc($evaluacion['nombre_cliente']); ?></td>
-                            <td title="<?= esc($evaluacion['ciclo']); ?>"><?= esc($evaluacion['ciclo']); ?></td>
-                            <td title="<?= esc($evaluacion['estandar']); ?>"><?= esc($evaluacion['estandar']); ?></td>
-                            <td title="<?= esc($evaluacion['detalle_estandar']); ?>"><?= esc($evaluacion['detalle_estandar']); ?></td>
-                            <td title="<?= esc($evaluacion['estandares_minimos']); ?>"><?= esc($evaluacion['estandares_minimos']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['nombre_cliente']); ?>"><?= esc($evaluacion['nombre_cliente']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['ciclo']); ?>"><?= esc($evaluacion['ciclo']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['estandar']); ?>"><?= esc($evaluacion['estandar']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['detalle_estandar']); ?>"><?= esc($evaluacion['detalle_estandar']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['estandares_minimos']); ?>"><?= esc($evaluacion['estandares_minimos']); ?></td>
                             <!-- <td><?= esc($evaluacion['numeral']); ?></td> -->
-                            <td title="<?= esc($evaluacion['numerales_del_cliente']); ?>"><?= esc($evaluacion['numerales_del_cliente']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['numerales_del_cliente']); ?>"><?= esc($evaluacion['numerales_del_cliente']); ?></td>
                             <!-- <td><?= esc($evaluacion['siete']); ?></td>
                             <td><?= esc($evaluacion['veintiun']); ?></td>
                             <td><?= esc($evaluacion['sesenta']); ?></td> -->
-                            <td title="<?= esc($evaluacion['item_del_estandar']); ?>"><?= esc($evaluacion['item_del_estandar']); ?></td>
-                            <td title="<?= esc($evaluacion['evaluacion_inicial']); ?>"><?= esc($evaluacion['evaluacion_inicial']); ?></td>
-                            <td title="<?= esc($evaluacion['valor']); ?>"><?= esc($evaluacion['valor']); ?></td>
-                            <td title="<?= esc($evaluacion['puntaje_cuantitativo']); ?>"><?= esc($evaluacion['puntaje_cuantitativo']); ?></td>
-                            <td title="<?= esc($evaluacion['item']); ?>"><?= esc($evaluacion['item']); ?></td>
-                            <td title="<?= esc($evaluacion['criterio']); ?>"><?= esc($evaluacion['criterio']); ?></td>
-                            <td title="<?= esc($evaluacion['modo_de_verificacion']); ?>"><?= esc($evaluacion['modo_de_verificacion']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['item_del_estandar']); ?>"><?= esc($evaluacion['item_del_estandar']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['evaluacion_inicial']); ?>"><?= esc($evaluacion['evaluacion_inicial']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['valor']); ?>"><?= esc($evaluacion['valor']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['puntaje_cuantitativo']); ?>"><?= esc($evaluacion['puntaje_cuantitativo']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['item']); ?>"><?= esc($evaluacion['item']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['criterio']); ?>"><?= esc($evaluacion['criterio']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['modo_de_verificacion']); ?>"><?= esc($evaluacion['modo_de_verificacion']); ?></td>
                             <!-- <td><?= esc($evaluacion['calificacion']); ?></td>
                             <td><?= esc($evaluacion['nivel_de_evaluacion']); ?></td> -->
-                            <td title="<?= esc($evaluacion['observaciones']); ?>"><?= esc($evaluacion['observaciones']); ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($evaluacion['observaciones']); ?>"><?= esc($evaluacion['observaciones']); ?></td>
                             <td>
                                 <a href="<?= base_url('editEvaluacion/' . $evaluacion['id_ev_ini']); ?>" class="btn btn-sm btn-warning">Editar</a>
                                 <a href="<?= base_url('deleteEvaluacion/' . $evaluacion['id_ev_ini']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que quieres eliminar esta evaluación?');">Eliminar</a>
@@ -172,6 +177,12 @@
                     that.search(this.value).draw();
                 }
             });
+        });
+
+        // Inicializar tooltips de Bootstrap
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
         });
     });
 </script>
