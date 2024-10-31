@@ -12,15 +12,14 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         td, th {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 70px;
             max-width: 100ch;
+            height: 70px;
         }
 
         td[title], th[title] {
@@ -31,12 +30,10 @@
 
 <body class="bg-light">
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Ir a Agregar Pendiente</h2>
-        <!-- Botón para ir a la vista de agregar pendientes -->
+        <h2>Ir a Agregar Pendiente</h2>
         <a href="<?php echo base_url('/addPendiente') ?>" class="btn btn-info mb-3">Ir a Agregar Pendiente</a>
 
-        <h2 class="text-center mb-4">Ir a Dashboard</h2>
-        <!-- Botón para ir a la vista de agregar reportes -->
+        <h2>Ir a Dashboard</h2>
         <a href="<?php echo base_url('/dashboardconsultant') ?>" class="btn btn-secondary mb-5">Ir a DashBoard</a>
 
         <h2 class="text-center mb-4">Lista de Pendientes</h2>
@@ -58,34 +55,21 @@
                         <th>Evidencia para Cerrarla</th>
                         <th>Acciones</th>
                     </tr>
-                    <tr>
-                        <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por ID"></th>
-                        <th><select class="form-control form-control-sm filter-select"><option value=""></option></select></th>
-                        <th></th>
-                        <th><select class="form-control form-control-sm filter-select"><option value=""></option></select></th>
-                        <th></th>
-                        <th></th>
-                        <th><select class="form-control form-control-sm filter-select"><option value=""></option></select></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
                 </thead>
                 <tbody>
                     <?php if (!empty($pendientes)) : ?>
                         <?php foreach ($pendientes as $pendiente) : ?>
                             <tr>
-                                <td><span title="<?php echo $pendiente['id_pendientes'] ?>"><?php echo $pendiente['id_pendientes'] ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['nombre_cliente'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['nombre_cliente'], ENT_QUOTES, 'UTF-8') ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['created_at'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['created_at'], ENT_QUOTES, 'UTF-8') ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['responsable'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['responsable'], ENT_QUOTES, 'UTF-8') ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['tarea_actividad'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['tarea_actividad'], ENT_QUOTES, 'UTF-8') ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['fecha_cierre'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['fecha_cierre'], ENT_QUOTES, 'UTF-8') ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['estado'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['estado'], ENT_QUOTES, 'UTF-8') ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['conteo_dias'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['conteo_dias'], ENT_QUOTES, 'UTF-8') ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['estado_avance'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['estado_avance'], ENT_QUOTES, 'UTF-8') ?></span></td>
-                                <td><span title="<?php echo htmlspecialchars($pendiente['evidencia_para_cerrarla'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['evidencia_para_cerrarla'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td title="<?php echo $pendiente['id_pendientes'] ?>"><?php echo $pendiente['id_pendientes'] ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['nombre_cliente'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['nombre_cliente'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['created_at'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['created_at'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['responsable'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['responsable'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['tarea_actividad'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['tarea_actividad'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['fecha_cierre'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['fecha_cierre'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['estado'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['estado'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['conteo_dias'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['conteo_dias'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['estado_avance'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['estado_avance'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td title="<?php echo htmlspecialchars($pendiente['evidencia_para_cerrarla'], ENT_QUOTES, 'UTF-8') ?>"><?php echo htmlspecialchars($pendiente['evidencia_para_cerrarla'], ENT_QUOTES, 'UTF-8') ?></td>
                                 <td>
                                     <a href="<?php echo base_url('/editPendiente/' . $pendiente['id_pendientes']) ?>" class="btn btn-warning btn-sm">Editar</a>
                                     <a href="<?php echo base_url('/deletePendiente/' . $pendiente['id_pendientes']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este pendiente?')">Eliminar</a>
@@ -104,8 +88,7 @@
 
     <script>
         $(document).ready(function () {
-            // Inicializar DataTable
-            var table = $('#pendientesTable').DataTable({
+            $('#pendientesTable').DataTable({
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es-ES.json"
                 },
@@ -115,25 +98,10 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
-                "responsive": true,
-                "initComplete": function() {
-                    this.api().columns([1, 3, 6]).every(function() {
-                        var column = this;
-                        var select = $(column.header()).find('select');
-                        column.data().unique().sort().each(function(d, j) {
-                            $('<option/>').val(d).text(d).appendTo(select);
-                        });
-                    });
-                }
+                "responsive": true
             });
 
-            // Aplicar los filtros de búsqueda
-            $('.filter-select').on('change', function () {
-                var column = $(this).parent().index();
-                table.column(column).search($(this).val()).draw();
-            });
-
-            // Inicializar tooltips de Bootstrap
+            // Inicializar tooltips de Bootstrap para todas las celdas con contenido de texto largo
             $('[title]').tooltip();
         });
     </script>
