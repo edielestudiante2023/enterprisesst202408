@@ -119,7 +119,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script para inicializar DataTables y crear filtros dinámicos -->
+    <!-- Script para inicializar DataTables, filtros dinámicos y tooltips -->
     <script>
         $(document).ready(function() {
             // Inicialización de DataTables
@@ -150,6 +150,16 @@
             });
             $('#filterEstado').on('change', function () {
                 table.column(7).search(this.value).draw();
+            });
+
+            // Inicializar tooltips en celdas truncadas
+            $('#planesTable tbody').on('mouseenter', 'td', function() {
+                var cell = table.cell(this);
+                var cellData = cell.data();
+                // Mostrar tooltip solo si el texto es truncado
+                if (this.offsetWidth < this.scrollWidth) {
+                    $(this).attr('title', cellData).tooltip({ trigger: 'hover' }).tooltip('show');
+                }
             });
         });
     </script>
