@@ -1543,12 +1543,12 @@
         </table>
     </footer>
     <br>
-
+<!-- 
     <div>
         <a href="<?= base_url('/generatePdf_indentPeligros') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
-    </div>
+    </div> -->
 
 </body>
 

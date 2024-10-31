@@ -180,11 +180,11 @@
     </footer>
     <br>
 
-    <div>
+   <!--  <div>
         <a href="<?= base_url('/generatePdf_quejaCocolab') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
-    </div>
+    </div> -->
 
 </body>
 

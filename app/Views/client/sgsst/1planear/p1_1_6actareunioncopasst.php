@@ -451,11 +451,11 @@
     </footer>
     <br>
 
-    <div>
+   <!--  <div>
         <a href="<?= base_url('/generatePdf_actaCopasst') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
-    </div>
+    </div> -->
     
 </body>
 

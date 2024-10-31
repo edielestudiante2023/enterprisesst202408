@@ -263,11 +263,11 @@
         </table>
     </footer>
     <br>
-    <div class="no-print">
+    <!-- <div class="no-print">
         <a href="<?= base_url('/generatePdfNoAlcoholDrogas') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
-    </div>
+    </div> -->
 
 </body>
 

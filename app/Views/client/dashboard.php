@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,67 +10,72 @@
     <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #EFEBDF;
-            color: #1C2437;
+            background-color: #F5F7FA;
+            color: #2C3E50;
         }
-
+        
         .navbar {
-            background-color: #B89553;
+            background-color: #3A3F51;
             padding: 15px;
         }
 
         .navbar-brand img {
-            max-height: 50px;
+            max-height: 80px;
         }
 
         .header-logos img {
-            max-height: 50px;
+            max-height: 80px;
             margin-right: 10px;
         }
 
         .sidebar {
-            background-color: #EFEBDF;
+            background-color: #E9ECEF;
             height: 100vh;
-            border-right: 2px solid #B89553;
+            border-right: 1px solid #B0BEC5;
+            padding-top: 15px;
         }
 
         .sidebar h4 {
-            color: #B89553;
+            color: #3A3F51;
+            font-weight: bold;
             text-align: center;
         }
 
         .sidebar a {
-            color: #1C2437;
+            color: #2C3E50;
             text-decoration: none;
             font-weight: bold;
         }
 
         .sidebar a:hover {
-            color: #B89553;
+            color: #3A3F51;
         }
 
         .content {
             padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            margin-top: 20px;
         }
 
         .table th {
-            background-color: #47485A;
-            color: #EFEBDF;
+            background-color: #546E7A;
+            color: #ECEFF1;
         }
 
         .table td a {
-            color: #1C2437;
+            color: #3A3F51;
             text-decoration: none;
         }
 
         .table td a:hover {
-            color: #B89553;
+            color: #007BFF;
         }
 
         .asesoria-section {
             padding: 30px;
-            background-color: #EFEBDF;
-            border: 2px solid #B89553;
+            background-color: #E9ECEF;
+            border: 1px solid #B0BEC5;
             border-radius: 10px;
             margin-top: 20px;
             text-align: center;
@@ -80,32 +84,35 @@
         .image-flex {
             display: flex;
             justify-content: space-between;
-            gap: 10px;
+            gap: 15px;
             margin-top: 20px;
         }
 
         .image-flex img {
             max-width: 48%;
             height: auto;
-            border: 2px solid #B89553;
+            border: 1px solid #B0BEC5;
             border-radius: 10px;
         }
 
         .logout-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #B89553;
-            color: #1C2437;
+            padding: 8px 16px;
+            background-color: #3A3F51;
+            color: #FFFFFF;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 4px;
             font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background-color: #546E7A;
         }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="<?= base_url('uploads/logo_enterprisesst.jpeg') ?>" alt="Enterprisesst Logo" class="header-logos">
@@ -116,7 +123,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 sidebar p-3">
+            <div class="col-md-2 sidebar">
                 <nav>
                     <h4>Menú Principal</h4>
                     <ul class="nav flex-column">
@@ -124,7 +131,7 @@
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('listCronogramasCliente/' . $client['id_cliente']) ?>" target="_blank">Cronograma</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('listPendientesCliente/' . $client['id_cliente']) ?>" target="_blank">Pendientes</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('listEvaluaciones/' . $client['id_cliente']) ?>" target="_blank">Evaluaciones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('/report_dashboard') ?>" target="blank">Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('/report_dashboard') ?>" target="_blank">Reportes</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('/viewDocuments') ?>" target="_blank">Documentos</a></li>
                     </ul>
                 </nav>
@@ -133,7 +140,7 @@
             <div class="col-md-10 content">
                 <section>
                     <header class="major">
-                        <h2><?= esc($client['nombre_cliente']) ?> </h2>
+                        <h2><?= esc($client['nombre_cliente']) ?></h2>
                         <h3>Bienvenido a tu Plataforma Tecnológica Enterprise-SST</h3>
                     </header>
                     <p>Gestiona todos tus indicadores y documentos del Sistema de Seguridad y Salud en el Trabajo de forma eficiente y moderna.</p>
@@ -174,14 +181,14 @@
                     <div>
                         <p><strong>diana.cuestas@cycloidtalent.com</strong></p>
                         <p>3229074371</p>
-                        <p><strong style="color: #B89553;">Normatividad SST Actualizada</strong></p>
+                        <p><strong style="color: #546E7A;">Normatividad SST Actualizada</strong></p>
                     </div>
                     <div class="image-flex">
                         <img src="<?= base_url('uploads/imagen1dashboard.png') ?>" alt="Imagen Dashboard 1">
                         <img src="<?= base_url('uploads/imagen2dashboard.png') ?>" alt="Imagen Dashboard 2">
                     </div>
                     <div style="margin-top: 20px;">
-                        <img src="<?= base_url('uploads/logocycloid.png') ?>" alt="Cycloid Logo" style="max-height: 60px;">
+                        <img src="<?= base_url('uploads/logocycloid.png') ?>" alt="Cycloid Logo" style="max-height: 70px;">
                     </div>
                 </section>
             </div>

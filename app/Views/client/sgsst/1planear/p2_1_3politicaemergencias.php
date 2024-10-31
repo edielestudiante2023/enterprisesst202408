@@ -225,12 +225,12 @@
     </footer>
     <br>
 
-    <div>
+    <!-- <div>
         <a href="<?= base_url('/generatePdf_politicaEmergencias') ?>" target="_blank">
             <button type="button">PDF</button>
         </a>
     </div>
-
+ -->
 </body>
 
 </html>
