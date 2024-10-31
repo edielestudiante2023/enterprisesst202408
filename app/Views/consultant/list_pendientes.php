@@ -17,6 +17,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             height: 70px;
+            max-width: 100ch;
         }
 
         td[title], th[title] {
@@ -73,15 +74,15 @@
                         <?php foreach ($pendientes as $pendiente) : ?>
                             <tr>
                                 <td><span title="<?= $pendiente['id_pendientes'] ?>"><?= $pendiente['id_pendientes'] ?></span></td>
-                                <td><span title="<?= $pendiente['nombre_cliente'] ?>"><?= $pendiente['nombre_cliente'] ?></span></td>
-                                <td><span title="<?= $pendiente['created_at'] ?>"><?= $pendiente['created_at'] ?></span></td>
-                                <td><span title="<?= $pendiente['responsable'] ?>"><?= $pendiente['responsable'] ?></span></td>
-                                <td><span title="<?= $pendiente['tarea_actividad'] ?>"><?= $pendiente['tarea_actividad'] ?></span></td>
-                                <td><span title="<?= $pendiente['fecha_cierre'] ?>"><?= $pendiente['fecha_cierre'] ?></span></td>
-                                <td><span title="<?= $pendiente['estado'] ?>"><?= $pendiente['estado'] ?></span></td>
-                                <td><span title="<?= $pendiente['conteo_dias'] ?>"><?= $pendiente['conteo_dias'] ?></span></td>
-                                <td><span title="<?= $pendiente['estado_avance'] ?>"><?= $pendiente['estado_avance'] ?></span></td>
-                                <td><span title="<?= $pendiente['evidencia_para_cerrarla'] ?>"><?= $pendiente['evidencia_para_cerrarla'] ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['nombre_cliente'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['nombre_cliente'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['created_at'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['created_at'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['responsable'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['responsable'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['tarea_actividad'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['tarea_actividad'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['fecha_cierre'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['fecha_cierre'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['estado'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['estado'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['conteo_dias'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['conteo_dias'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['estado_avance'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['estado_avance'], ENT_QUOTES, 'UTF-8') ?></span></td>
+                                <td><span title="<?= htmlspecialchars($pendiente['evidencia_para_cerrarla'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pendiente['evidencia_para_cerrarla'], ENT_QUOTES, 'UTF-8') ?></span></td>
                                 <td>
                                     <a href="<?= base_url('/editPendiente/' . $pendiente['id_pendientes']) ?>" class="btn btn-warning btn-sm">Editar</a>
                                     <a href="<?= base_url('/deletePendiente/' . $pendiente['id_pendientes']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este pendiente?')">Eliminar</a>
@@ -117,7 +118,7 @@
                         var column = this;
                         var select = $(column.header()).find('select');
                         column.data().unique().sort().each(function(d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>');
+                            select.append('<option value="' + $('<div/>').text(d).html() + '">' + $('<div/>').text(d).html() + '</option>');
                         });
                     });
                 }
