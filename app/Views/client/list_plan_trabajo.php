@@ -30,7 +30,7 @@
 
 <body>
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Plan de Trabajo Anual</h2>
+        <h2 class="text-center mb-4">Plan de Trabajo Anual - <?= esc($plan['id_ptacliente']) ?></h2>
 
         <!-- Botón para ir a la vista de agregar reportes -->
         <div class="text-center btn-dashboard">
@@ -49,13 +49,13 @@
             <table id="planesTable" class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>ID Plan</th>
-                        <th>Cliente</th>
-                        <th>ID Plan de Trabajo</th>
+                        <!-- <th>ID Plan</th> -->
+                        <!-- <th>Cliente</th> -->
+                        <!-- <th>ID Plan de Trabajo</th> -->
                         <th>PHVA</th>
                         <th>Numeral</th>
                         <th>Actividad</th>
-                        <th>Responsable Sugerido</th>
+                        <!-- <th>Responsable Sugerido</th> -->
                         <th>Fecha Propuesta</th>
                         <th>Fecha Cierre</th>
                         <th>Responsable Definido</th>
@@ -63,8 +63,8 @@
                         <th>Porcentaje de Avance</th>
                         <th>Semana</th>
                         <th>Observaciones</th>
-                        <th>Fecha Creación</th>
-                        <th>Última Actualización</th>
+                        <!-- <th>Fecha Creación</th>
+                        <th>Última Actualización</th> -->
                     </tr>
                 </thead>
                 <tbody>
