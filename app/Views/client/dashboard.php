@@ -84,7 +84,7 @@
             padding: 20px;
             background-color: #FFFFFF;
             border-radius: 8px;
-            margin-top: 140px; /* Adjust for navbar height */
+            margin-top: 20px;
         }
 
         .table th {
@@ -123,6 +123,11 @@
             height: auto;
             border: 1px solid #B0BEC5;
             border-radius: 10px;
+        }
+
+        /* Adjust for navbar */
+        .container-fluid {
+            margin-top: 140px; /* Adjust for navbar height */
         }
     </style>
 </head>
