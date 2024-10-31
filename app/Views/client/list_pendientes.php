@@ -73,7 +73,7 @@
             <table id="pendientesTable" class="table table-bordered table-striped">
                 <thead class="thead-light">
                     <tr>
-                        <th>ID</th>
+                        <!-- <th>ID</th> -->
                         <th>Cliente</th>
                         <th>Responsable</th>
                         <th>Tarea Actividad</th>
@@ -92,7 +92,7 @@
                     <?php else: ?>
                         <?php foreach ($pendientes as $pendiente): ?>
                             <tr>
-                                <td><?= esc($pendiente['id_pendientes']) ?></td>
+                                <!-- <td><?= esc($pendiente['id_pendientes']) ?></td> -->
                                 <td><?= esc($pendiente['nombre_cliente']) ?></td>
                                 <td><?= esc($pendiente['responsable']) ?></td>
                                 <td><?= esc($pendiente['tarea_actividad']) ?></td>

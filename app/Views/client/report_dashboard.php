@@ -91,7 +91,7 @@
                 <table id="reportTable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <!-- <th>ID</th> -->
                             <th>Título del Reporte</th>
                             <th>Tipo de Documento</th>
                             <th>Enlace</th>
@@ -103,7 +103,7 @@
                     <tbody>
                         <?php foreach ($reports as $report): ?>
                             <tr>
-                                <td><?= $report['id_reporte'] ?></td>
+                                <!-- <td><?= $report['id_reporte'] ?></td> -->
                                 <td><?= $report['titulo_reporte'] ?></td>
                                 <td><?= $report['Tipo_documento'] ?></td>
                                 <td><a href="<?= $report['enlace'] ?>" target="_blank"><?= $report['enlace'] ?></a></td>

@@ -140,15 +140,16 @@
     <nav class="navbar">
         <div class="header-logos">
             <!-- Left Logo -->
-            <a href="#">
+            <a href="https://dashboard.cycloidtalent.com/login" target="_blank">
                 <img src="<?= base_url('uploads/logoenterprisesstblancoslogan.png') ?>" alt="Enterprisesst Logo">
             </a>
             <!-- Center Logo -->
-            <a href="#">
+            <a href="https://cycloidtalent.com/index.php/consultoria-sst" target="_blank">
                 <img src="<?= base_url('uploads/logosst.png') ?>" alt="SST Logo">
             </a>
             <!-- Right Logo -->
-            <a href="#">
+            <a href="https://cycloidtalent.com/"  target="_blank">
+
                 <img src="<?= base_url('uploads/logocycloidsinfondo.png') ?>" alt="Cycloids Logo">
             </a>
             <!-- Logout Button -->
@@ -179,7 +180,7 @@
                 <section>
                     <header class="major">
                         <h2><?= esc($client['nombre_cliente']) ?></h2>
-                        <h3>Bienvenido a tu Plataforma Tecnológica Enterprise-SST</h3>
+                        <h3>Bienvenido a tu Plataforma Tecnológica Enterprisesst</h3>
                     </header>
                     <p>Gestiona todos tus indicadores y documentos del Sistema de Seguridad y Salud en el Trabajo de forma eficiente y moderna.</p>
                 </section>
