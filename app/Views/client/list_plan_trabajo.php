@@ -75,6 +75,20 @@
                         <th>Semana</th>
                         <th>Observaciones</th>
                     </tr>
+                    <!-- Fila adicional para los filtros dinámicos -->
+                    <tr>
+                        <th></th>
+                        <th><select id="filterPHVA" class="form-control form-control-sm"><option value="">Todos</option></select></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th><select id="filterResponsable" class="form-control form-control-sm"><option value="">Todos</option></select></th>
+                        <th><select id="filterEstado" class="form-control form-control-sm"><option value="">Todos</option></select></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($planes as $plan): ?>
@@ -114,38 +128,29 @@
                     url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/Spanish.json'
                 },
                 pageLength: 10,
-                responsive: true
+                responsive: true,
+                initComplete: function () {
+                    // Crear filtros dinámicos
+                    this.api().columns([1, 6, 7]).every(function () {
+                        var column = this;
+                        var select = $(column.header()).find('select');
+                        column.data().unique().sort().each(function (d) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    });
+                }
             });
 
-            // Crear filtros dinámicos basados en los valores únicos de las columnas "PHVA", "Responsable Definido" y "Estado de Actividad"
-            function createFilter(columnIndex, filterId) {
-                var uniqueValues = [];
-                table.column(columnIndex).data().each(function(value) {
-                    if (value && uniqueValues.indexOf(value) === -1) {
-                        uniqueValues.push(value);
-                    }
-                });
-                uniqueValues.sort(); // Ordenar valores alfabéticamente
-
-                // Crear las opciones de selección dinámicamente
-                var select = $('<select id="' + filterId + '" class="form-control form-control-sm"><option value="">Todos</option></select>');
-                uniqueValues.forEach(function(value) {
-                    select.append('<option value="' + value + '">' + value + '</option>');
-                });
-
-                // Agregar el filtro encima de la tabla
-                $('#planesTable thead tr').append($('<th>').append(select));
-
-                // Filtrar al seleccionar una opción
-                select.on('change', function() {
-                    table.column(columnIndex).search($(this).val()).draw();
-                });
-            }
-
-            // Crear filtros dinámicos para las columnas deseadas
-            createFilter(1, 'filterPHVA');           // Filtro para PHVA
-            createFilter(6, 'filterResponsable');    // Filtro para Responsable Definido
-            createFilter(7, 'filterEstado');         // Filtro para Estado de Actividad
+            // Filtrado basado en los select de la segunda fila
+            $('#filterPHVA').on('change', function () {
+                table.column(1).search(this.value).draw();
+            });
+            $('#filterResponsable').on('change', function () {
+                table.column(6).search(this.value).draw();
+            });
+            $('#filterEstado').on('change', function () {
+                table.column(7).search(this.value).draw();
+            });
         });
     </script>
 </body>
