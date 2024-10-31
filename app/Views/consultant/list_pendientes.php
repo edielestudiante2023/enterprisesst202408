@@ -56,12 +56,12 @@
                     </tr>
                     <tr>
                         <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por ID"></th>
-                        <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por Cliente"></th>
+                        <th><select class="form-control form-control-sm filter-select"><option value=""></option></select></th>
                         <th></th>
-                        <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por Responsable"></th>
+                        <th><select class="form-control form-control-sm filter-select"><option value=""></option></select></th>
                         <th></th>
                         <th></th>
-                        <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por Estado"></th>
+                        <th><select class="form-control form-control-sm filter-select"><option value=""></option></select></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -73,7 +73,7 @@
                         <?php foreach ($pendientes as $pendiente) : ?>
                             <tr>
                                 <td><span title="<?= $pendiente['id_pendientes'] ?>"><?= $pendiente['id_pendientes'] ?></span></td>
-                                <td><span title="<?= $pendiente['id_cliente'] ?>"><?= $pendiente['id_cliente'] ?></span></td>
+                                <td><span title="<?= $pendiente['cliente'] ?>"><?= $pendiente['cliente'] ?></span></td>
                                 <td><span title="<?= $pendiente['created_at'] ?>"><?= $pendiente['created_at'] ?></span></td>
                                 <td><span title="<?= $pendiente['responsable'] ?>"><?= $pendiente['responsable'] ?></span></td>
                                 <td><span title="<?= $pendiente['tarea_actividad'] ?>"><?= $pendiente['tarea_actividad'] ?></span></td>
@@ -111,16 +111,22 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
-                "responsive": true
+                "responsive": true,
+                "initComplete": function() {
+                    this.api().columns([1, 3, 6]).every(function() {
+                        var column = this;
+                        var select = $(column.header()).find('select');
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    });
+                }
             });
 
-            // Filtros de columna
-            $('#pendientesTable thead tr:eq(1) th').each(function (i) {
-                $('input', this).on('keyup change', function () {
-                    if (table.column(i).search() !== this.value) {
-                        table.column(i).search(this.value).draw();
-                    }
-                });
+            // Aplicar los filtros de búsqueda
+            $('.filter-select').on('change', function () {
+                var column = $(this).parent().index();
+                table.column(column).search($(this).val()).draw();
             });
 
             // Inicializar tooltips de Bootstrap
