@@ -12,10 +12,22 @@ class PendientesController extends Controller
     public function listPendientes()
     {
         $pendientesModel = new PendientesModel();
-        $data['pendientes'] = $pendientesModel->findAll(); // Obtener todos los pendientes
+        $clientModel = new ClientModel();
 
-        return view('consultant/list_pendientes', $data); // Cargar la vista con los datos
+        // Obtener todos los pendientes
+        $pendientes = $pendientesModel->findAll();
+
+        // Añadir el nombre del cliente a cada pendiente
+        foreach ($pendientes as &$pendiente) {
+            $cliente = $clientModel->find($pendiente['id_cliente']);
+            $pendiente['cliente'] = $cliente['nombre_cliente'] ?? 'Cliente desconocido';
+        }
+
+        $data['pendientes'] = $pendientes;
+
+        return view('consultant/list_pendientes', $data);
     }
+
 
     // Mostrar formulario para agregar nuevo pendiente
     public function addPendiente()
