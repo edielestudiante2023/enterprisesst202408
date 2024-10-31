@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Pendiente</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h2 {
+            color: #333;
+        }
+        .form-control, .btn {
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
 </head>
 
 <body>
@@ -59,7 +82,7 @@
 
             <div class="form-group">
                 <label for="estado_avance">Estado Avance:</label>
-                <input type="text" class="form-control" id="estado_avance" name="estado_avance" >
+                <input type="text" class="form-control" id="estado_avance" name="estado_avance">
             </div>
 
             <div class="form-group">
@@ -69,7 +92,41 @@
 
             <button type="submit" class="btn btn-primary">Guardar Pendiente</button>
         </form>
+
+        <!-- Ejemplo de tabla interactiva -->
+        <div class="mt-5">
+            <h3 class="text-center">Pendientes</h3>
+            <table id="pendientesTable" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Responsable</th>
+                        <th>Tarea</th>
+                        <th>Fecha Cierre</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rellena con datos dinámicos de PHP si es necesario -->
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#pendientesTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -9,6 +9,36 @@
     <style>
         body {
             font-size: 0.9rem;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 900px;
+        }
+
+        h2 {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            font-weight: bold;
+        }
+
+        .btn-secondary {
+            font-weight: bold;
+        }
+
+        .alert {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -28,7 +58,7 @@
         <form action="<?= base_url('/addcronogCapacitacionPost') ?>" method="post">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="id_capacitacion">Capacitación</label>
                         <select name="id_capacitacion" class="form-control" required>
                             <option value="" disabled selected>Selecciona una capacitación</option>
@@ -40,7 +70,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="id_cliente">Cliente</label>
                         <select name="id_cliente" class="form-control" required>
                             <option value="" disabled selected>Selecciona un cliente</option>
@@ -52,17 +82,17 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="fecha_programada">Fecha Programada</label>
                         <input type="date" name="fecha_programada" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="fecha_de_realizacion">Fecha de Realización</label>
                         <input type="date" name="fecha_de_realizacion" class="form-control">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="estado">Estado</label>
                         <select name="estado" class="form-control" required>
                             <option value="" disabled selected>Selecciona un estado</option>
@@ -73,8 +103,7 @@
                         </select>
                     </div>
 
-
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="perfil_de_asistentes">Perfil de Asistentes</label>
                         <select name="perfil_de_asistentes" class="form-control" required>
                             <option value="" disabled selected>Selecciona un perfil</option>
@@ -86,21 +115,20 @@
                             <option value="ADMINISTRADOR">ADMINISTRADOR</option>
                         </select>
                     </div>
-
                 </div>
 
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="nombre_del_capacitador">Nombre del Capacitador</label>
                         <input type="text" name="nombre_del_capacitador" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="horas_de_duracion_de_la_capacitacion">Horas de Duración</label>
                         <input type="number" name="horas_de_duracion_de_la_capacitacion" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="indicador_de_realizacion_de_la_capacitacion">Indicador de Realización</label>
                         <select name="indicador_de_realizacion_de_la_capacitacion" class="form-control" required>
                             <option value="" disabled selected>Selecciona un indicador</option>
@@ -112,35 +140,32 @@
                         </select>
                     </div>
 
-
-
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="numero_de_asistentes_a_capacitacion">Número de Asistentes</label>
                         <input type="number" name="numero_de_asistentes_a_capacitacion" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="numero_total_de_personas_programadas">Número Total de Programados</label>
                         <input type="number" name="numero_total_de_personas_programadas" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="porcentaje_cobertura">Porcentaje de Cobertura</label>
                         <input type="text" name="porcentaje_cobertura" class="form-control" readonly>
                     </div>
 
-
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="numero_de_personas_evaluadas">Número de Evaluados</label>
                         <input type="number" name="numero_de_personas_evaluadas" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="promedio_de_calificaciones">Promedio de Calificaciones</label>
                         <input type="number" step="0.01" name="promedio_de_calificaciones" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="observaciones">Observaciones</label>
                         <textarea name="observaciones" class="form-control"></textarea>
                     </div>
@@ -153,12 +178,11 @@
     </div>
 
     <br>
-    <h2>Ir a Dashboard</h2>
-    <!-- Botón para ir a la vista de agregar reportes -->
-    <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
-    <br><br>
-
-
+    <div class="text-center">
+        <h2>Ir a Dashboard</h2>
+        <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button" class="btn btn-dark">Ir a Dashboard</button></a>
+    </div>
+    <br>
 
     <script src="path/to/bootstrap.min.js"></script> <!-- Asegúrate de agregar el path correcto a tu archivo JS -->
 </body>
