@@ -6,42 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Pendientes</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            background-color: #f9f9f9;
-            font-family: Arial, sans-serif;
-        }
-
-        .dataTables_filter input {
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            padding: 6px;
-        }
-
-        .dataTables_length select {
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            padding: 6px;
-        }
-
-        td, th {
-            max-width: 80ch;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            height: 50px;
-        }
-
-        td[title], th[title] {
-            cursor: help;
-        }
-    </style>
 </head>
 
 <body class="bg-light">
@@ -58,7 +27,7 @@
         <a href="<?= base_url('/addPendiente') ?>" class="btn btn-primary mb-3">Añadir Nuevo Pendiente</a>
 
         <div class="table-responsive">
-            <table id="pendientesTable" class="table table-striped table-bordered">
+            <table id="pendientesTable" class="table table-bordered table-striped">
                 <thead class="thead-light">
                     <tr>
                         <th>ID</th>
@@ -73,14 +42,14 @@
                         <th>Evidencia para Cerrarla</th>
                         <th>Acciones</th>
                     </tr>
-                    <tr class="filters">
+                    <tr>
+                        <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por ID"></th>
+                        <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por Cliente"></th>
                         <th></th>
-                        <th><select class="form-control form-control-sm filter-select"></select></th>
-                        <th></th>
-                        <th><select class="form-control form-control-sm filter-select"></select></th>
+                        <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por Responsable"></th>
                         <th></th>
                         <th></th>
-                        <th><select class="form-control form-control-sm filter-select"></select></th>
+                        <th><input type="text" class="form-control form-control-sm" placeholder="Filtrar por Estado"></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -90,7 +59,7 @@
                 <tbody>
                     <?php if (!empty($pendientes)) : ?>
                         <?php foreach ($pendientes as $pendiente) : ?>
-                            <tr style="height: 50px;">
+                            <tr style="height: 100%;">
                                 <td><span title="<?= $pendiente['id_pendientes'] ?>"><?= $pendiente['id_pendientes'] ?></span></td>
                                 <td><span title="<?= $pendiente['id_cliente'] ?>"><?= $pendiente['id_cliente'] ?></span></td>
                                 <td><span title="<?= $pendiente['created_at'] ?>"><?= $pendiente['created_at'] ?></span></td>
@@ -122,7 +91,7 @@
             // Inicializar DataTable
             var table = $('#pendientesTable').DataTable({
                 "language": {
-                    "url": "https://cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+                    "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
                 },
                 "paging": true,
                 "lengthChange": true,
@@ -130,28 +99,16 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
-                "responsive": true,
-                "initComplete": function() {
-                    this.api().columns([1, 3, 6]).every(function() {
-                        var column = this;
-                        var select = $(column.header()).find('select');
-                        column.data().unique().sort().each(function(d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    });
-                }
+                "responsive": true
             });
 
-            // Aplicar los filtros de búsqueda
-            $('.filter-select').on('change', function () {
-                var column = $(this).parent().index();
-                table.column(column).search($(this).val()).draw();
-            });
-
-            // Inicializar tooltips de Bootstrap
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
-            tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
+            // Filtros de columna
+            $('#pendientesTable thead tr:eq(1) th').each(function (i) {
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table.column(i).search(this.value).draw();
+                    }
+                });
             });
         });
     </script>
