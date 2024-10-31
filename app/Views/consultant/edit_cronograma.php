@@ -6,9 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Cronograma de Capacitación</title>
     <link rel="stylesheet" href="path/to/bootstrap.min.css"> <!-- Asegúrate de agregar el path correcto a tu archivo CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <style>
         body {
             font-size: 0.9rem;
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            color: #495057;
+        }
+
+        .form-control {
+            background-color: #ffffff;
+            border-color: #ced4da;
+            color: #495057;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
         }
     </style>
 </head>
@@ -57,7 +84,7 @@
 
                     <div class="form-group">
                         <label for="fecha_de_realizacion">Fecha de Realización</label>
-                        <input type="date" name="fecha_de_realizacion" class="form-control" value="<?= esc($cronograma['fecha_de_realizacion']) ?>" >
+                        <input type="date" name="fecha_de_realizacion" class="form-control" value="<?= esc($cronograma['fecha_de_realizacion']) ?>">
                     </div>
 
                     <div class="form-group">
@@ -70,7 +97,6 @@
                         </select>
                     </div>
 
-
                     <div class="form-group">
                         <label for="perfil_de_asistentes">Perfil de Asistentes</label>
                         <select name="perfil_de_asistentes" class="form-control" required>
@@ -82,8 +108,6 @@
                             <option value="ADMINISTRADOR" <?= ($cronograma['perfil_de_asistentes'] == 'ADMINISTRADOR') ? 'selected' : '' ?>>ADMINISTRADOR</option>
                         </select>
                     </div>
-
-
                 </div>
 
                 <div class="col-md-6">
@@ -108,7 +132,6 @@
                         </select>
                     </div>
 
-
                     <div class="form-group">
                         <label for="numero_de_asistentes_a_capacitacion">Número de Asistentes</label>
                         <input type="number" name="numero_de_asistentes_a_capacitacion" class="form-control" value="<?= esc($cronograma['numero_de_asistentes_a_capacitacion']) ?>" required>
@@ -119,7 +142,6 @@
                         <input type="number" name="numero_total_de_personas_programadas" class="form-control" value="<?= esc($cronograma['numero_total_de_personas_programadas']) ?>" required>
                     </div>
 
-
                     <div class="form-group">
                         <label for="indicador_de_realizacion_de_la_capacitacion">Indicador de Realización</label>
                         <input type="text" name="indicador_de_realizacion_de_la_capacitacion" class="form-control" value="<?= esc($cronograma['indicador_de_realizacion_de_la_capacitacion']) ?>" readonly>
@@ -129,7 +151,6 @@
                         <label for="porcentaje_cobertura">Porcentaje de Cobertura</label>
                         <input type="text" name="porcentaje_cobertura" class="form-control" value="<?= esc($cronograma['porcentaje_cobertura']) ?>" readonly>
                     </div>
-
 
                     <div class="form-group">
                         <label for="numero_de_personas_evaluadas">Número de Evaluados</label>
@@ -156,12 +177,12 @@
     <br>
     <h2>Ir a Dashboard</h2>
     <!-- Botón para ir a la vista de agregar reportes -->
-    <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
+    <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button" class="btn btn-outline-dark">Ir a Dashboard</button></a>
     <br><br>
 
-
-
     <script src="path/to/bootstrap.min.js"></script> <!-- Asegúrate de agregar el path correcto a tu archivo JS -->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 </body>
 
 </html>

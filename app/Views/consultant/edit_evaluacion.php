@@ -1,102 +1,143 @@
-<h2>Editar Evaluación</h2>
+<!DOCTYPE html>
+<html lang="es">
 
-<form action="<?= base_url('editEvaluacionPost/' . $evaluacion['id_ev_ini']) ?>" method="post">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Evaluación</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 
-    <!-- Selección del cliente -->
-    <label for="id_cliente">Cliente:</label>
-    <select name="id_cliente" id="id_cliente" required>
-        <?php foreach ($clients as $cliente): ?>
-            <option value="<?= esc($cliente['id_cliente']) ?>"
-                <?= $cliente['id_cliente'] == $evaluacion['id_cliente'] ? 'selected' : '' ?>>
-                <?= esc($cliente['nombre_cliente']) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <br><br>
+<body class="bg-light">
+    <div class="container my-5">
+        <h2 class="mb-4 text-center">Editar Evaluación</h2>
 
-    <!-- Otros campos de la evaluación -->
-    <label for="ciclo">Ciclo:</label>
-    <input type="text" name="ciclo" id="ciclo" value="<?= esc($evaluacion['ciclo']) ?>" required>
-    <br><br>
+        <form action="<?= base_url('editEvaluacionPost/' . $evaluacion['id_ev_ini']) ?>" method="post" class="p-4 bg-white shadow-sm rounded">
+            
+            <!-- Selección del cliente -->
+            <div class="form-group">
+                <label for="id_cliente">Cliente:</label>
+                <select class="form-control" name="id_cliente" id="id_cliente" required>
+                    <?php foreach ($clients as $cliente): ?>
+                        <option value="<?= esc($cliente['id_cliente']) ?>" <?= $cliente['id_cliente'] == $evaluacion['id_cliente'] ? 'selected' : '' ?>>
+                            <?= esc($cliente['nombre_cliente']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-    <label for="estandar">Estandar:</label>
-    <input type="text" name="estandar" id="estandar" value="<?= esc($evaluacion['estandar']) ?>" required>
-    <br><br>
+            <!-- Otros campos de la evaluación -->
+            <div class="form-group">
+                <label for="ciclo">Ciclo:</label>
+                <input type="text" class="form-control" name="ciclo" id="ciclo" value="<?= esc($evaluacion['ciclo']) ?>" required>
+            </div>
 
-    <label for="detalle_estandar">Detalle del Estándar:</label>
-    <textarea name="detalle_estandar" id="detalle_estandar" required><?= esc($evaluacion['detalle_estandar']) ?></textarea>
-    <br><br>
+            <div class="form-group">
+                <label for="estandar">Estandar:</label>
+                <input type="text" class="form-control" name="estandar" id="estandar" value="<?= esc($evaluacion['estandar']) ?>" required>
+            </div>
 
-    <label for="estandares_minimos">Estándares Mínimos:</label>
-    <input type="text" name="estandares_minimos" id="estandares_minimos" value="<?= esc($evaluacion['estandares_minimos']) ?>" required>
-    <br><br>
+            <div class="form-group">
+                <label for="detalle_estandar">Detalle del Estándar:</label>
+                <textarea class="form-control" name="detalle_estandar" id="detalle_estandar" rows="3" required><?= esc($evaluacion['detalle_estandar']) ?></textarea>
+            </div>
 
-    <label for="numeral">Numeral:</label>
-    <input type="text" name="numeral" id="numeral" value="<?= esc($evaluacion['numeral']) ?>" required>
-    <br><br>
+            <div class="form-group">
+                <label for="estandares_minimos">Estándares Mínimos:</label>
+                <input type="text" class="form-control" name="estandares_minimos" id="estandares_minimos" value="<?= esc($evaluacion['estandares_minimos']) ?>" required>
+            </div>
 
-    <label for="numerales_del_cliente">Numerales del Cliente:</label>
-    <input type="text" name="numerales_del_cliente" id="numerales_del_cliente" value="<?= esc($evaluacion['numerales_del_cliente']) ?>" required>
-    <br><br>
+            <div class="form-group">
+                <label for="numeral">Numeral:</label>
+                <input type="text" class="form-control" name="numeral" id="numeral" value="<?= esc($evaluacion['numeral']) ?>" required>
+            </div>
 
-    <label for="siete">Siete:</label>
-    <input type="text" name="siete" id="siete" value="<?= esc($evaluacion['siete']) ?>" >
-    <br><br>
+            <div class="form-group">
+                <label for="numerales_del_cliente">Numerales del Cliente:</label>
+                <input type="text" class="form-control" name="numerales_del_cliente" id="numerales_del_cliente" value="<?= esc($evaluacion['numerales_del_cliente']) ?>" required>
+            </div>
 
-    <label for="veintiun">Veintiún:</label>
-    <input type="text" name="veintiun" id="veintiun" value="<?= esc($evaluacion['veintiun']) ?>" >
-    <br><br>
+            <div class="form-group">
+                <label for="siete">Siete:</label>
+                <input type="text" class="form-control" name="siete" id="siete" value="<?= esc($evaluacion['siete']) ?>">
+            </div>
 
-    <label for="sesenta">Sesenta:</label>
-    <input type="text" name="sesenta" id="sesenta" value="<?= esc($evaluacion['sesenta']) ?>" >
-    <br><br>
+            <div class="form-group">
+                <label for="veintiun">Veintiún:</label>
+                <input type="text" class="form-control" name="veintiun" id="veintiun" value="<?= esc($evaluacion['veintiun']) ?>">
+            </div>
 
-    <label for="item_del_estandar">Item del Estándar:</label>
-    <input type="text" name="item_del_estandar" id="item_del_estandar" value="<?= esc($evaluacion['item_del_estandar']) ?>" required>
-    <br><br>
+            <div class="form-group">
+                <label for="sesenta">Sesenta:</label>
+                <input type="text" class="form-control" name="sesenta" id="sesenta" value="<?= esc($evaluacion['sesenta']) ?>">
+            </div>
 
-    <label for="evaluacion_inicial">Evaluación Inicial:</label>
-    <select name="evaluacion_inicial" id="evaluacion_inicial" required>
-        <option value="CUMPLE TOTALMENTE" <?= $evaluacion['evaluacion_inicial'] == 'CUMPLE TOTALMENTE' ? 'selected' : '' ?>>CUMPLE TOTALMENTE</option>
-        <option value="NO CUMPLE" <?= $evaluacion['evaluacion_inicial'] == 'NO CUMPLE' ? 'selected' : '' ?>>NO CUMPLE</option>
-        <option value="NO APLICA" <?= $evaluacion['evaluacion_inicial'] == 'NO APLICA' ? 'selected' : '' ?>>NO APLICA</option>
-    </select>
-    <br><br>
+            <div class="form-group">
+                <label for="item_del_estandar">Item del Estándar:</label>
+                <input type="text" class="form-control" name="item_del_estandar" id="item_del_estandar" value="<?= esc($evaluacion['item_del_estandar']) ?>" required>
+            </div>
 
+            <div class="form-group">
+                <label for="evaluacion_inicial">Evaluación Inicial:</label>
+                <select class="form-control" name="evaluacion_inicial" id="evaluacion_inicial" required>
+                    <option value="CUMPLE TOTALMENTE" <?= $evaluacion['evaluacion_inicial'] == 'CUMPLE TOTALMENTE' ? 'selected' : '' ?>>CUMPLE TOTALMENTE</option>
+                    <option value="NO CUMPLE" <?= $evaluacion['evaluacion_inicial'] == 'NO CUMPLE' ? 'selected' : '' ?>>NO CUMPLE</option>
+                    <option value="NO APLICA" <?= $evaluacion['evaluacion_inicial'] == 'NO APLICA' ? 'selected' : '' ?>>NO APLICA</option>
+                </select>
+            </div>
 
-    <label for="valor">Valor:</label>
-    <input type="text" name="valor" id="valor" value="<?= esc($evaluacion['valor']) ?>" required>
-    <br><br>
+            <div class="form-group">
+                <label for="valor">Valor:</label>
+                <input type="text" class="form-control" name="valor" id="valor" value="<?= esc($evaluacion['valor']) ?>" required>
+            </div>
 
-    <label for="puntaje_cuantitativo">Puntaje Cuantitativo:</label>
-    <input type="number" step="0.01" name="puntaje_cuantitativo" id="puntaje_cuantitativo" value="<?= esc($evaluacion['puntaje_cuantitativo']) ?>" required>
-    <br><br>
+            <div class="form-group">
+                <label for="puntaje_cuantitativo">Puntaje Cuantitativo:</label>
+                <input type="number" step="0.01" class="form-control" name="puntaje_cuantitativo" id="puntaje_cuantitativo" value="<?= esc($evaluacion['puntaje_cuantitativo']) ?>" required>
+            </div>
 
-    <label for="item">Item:</label>
-    <input type="text" name="item" id="item" value="<?= esc($evaluacion['item']) ?>" required>
-    <br><br>
+            <div class="form-group">
+                <label for="item">Item:</label>
+                <input type="text" class="form-control" name="item" id="item" value="<?= esc($evaluacion['item']) ?>" required>
+            </div>
 
-    <label for="criterio">Criterio:</label>
-    <textarea name="criterio" id="criterio" required><?= esc($evaluacion['criterio']) ?></textarea>
-    <br><br>
+            <div class="form-group">
+                <label for="criterio">Criterio:</label>
+                <textarea class="form-control" name="criterio" id="criterio" rows="3" required><?= esc($evaluacion['criterio']) ?></textarea>
+            </div>
 
-    <label for="modo_de_verificacion">Modo de Verificación:</label>
-    <textarea name="modo_de_verificacion" id="modo_de_verificacion" required><?= esc($evaluacion['modo_de_verificacion']) ?></textarea>
-    <br><br>
+            <div class="form-group">
+                <label for="modo_de_verificacion">Modo de Verificación:</label>
+                <textarea class="form-control" name="modo_de_verificacion" id="modo_de_verificacion" rows="3" required><?= esc($evaluacion['modo_de_verificacion']) ?></textarea>
+            </div>
 
-    <label for="calificacion">Calificación:</label>
-    <input type="text" name="calificacion" id="calificacion" value="<?= esc($evaluacion['calificacion']) ?>" >
-    <br><br>
+            <div class="form-group">
+                <label for="calificacion">Calificación:</label>
+                <input type="text" class="form-control" name="calificacion" id="calificacion" value="<?= esc($evaluacion['calificacion']) ?>">
+            </div>
 
-    <label for="nivel_de_evaluacion">Nivel de Evaluación:</label>
-    <input type="text" name="nivel_de_evaluacion" id="nivel_de_evaluacion" value="<?= esc($evaluacion['nivel_de_evaluacion']) ?>" >
-    <br><br>
+            <div class="form-group">
+                <label for="nivel_de_evaluacion">Nivel de Evaluación:</label>
+                <input type="text" class="form-control" name="nivel_de_evaluacion" id="nivel_de_evaluacion" value="<?= esc($evaluacion['nivel_de_evaluacion']) ?>">
+            </div>
 
-    <label for="observaciones">Observaciones:</label>
-    <textarea name="observaciones" id="observaciones"><?= esc($evaluacion['observaciones']) ?></textarea>
-    <br><br>
+            <div class="form-group">
+                <label for="observaciones">Observaciones:</label>
+                <textarea class="form-control" name="observaciones" id="observaciones" rows="3"><?= esc($evaluacion['observaciones']) ?></textarea>
+            </div>
 
-    <button type="submit">Guardar Cambios</button>
-    <a href="<?= base_url('listEvaluaciones') ?>"><button type="button">Cancelar</button></a>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a href="<?= base_url('listEvaluaciones') ?>" class="btn btn-secondary">Cancelar</a>
+            </div>
 
-</form>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
