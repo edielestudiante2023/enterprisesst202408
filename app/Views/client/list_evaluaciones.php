@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Incluir Bootstrap y DataTables CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
@@ -27,6 +28,12 @@
         }
 
         /* Limitar el ancho de las columnas específicas */
+        .styled-table thead th:nth-child(2),
+        .styled-table tbody td:nth-child(2),
+        /* Ciclo */
+        .styled-table thead th:nth-child(4),
+        .styled-table tbody td:nth-child(4),
+        /* Detalle Estándar */
         .styled-table thead th:nth-child(9),
         .styled-table tbody td:nth-child(9),
         /* Item */
@@ -218,10 +225,15 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            // Inicializar DataTable y configuración de filtros
+            // Inicializar DataTable con 100 filas por defecto y configuración de filtros
             var table = $('#evaluacionesTable').DataTable({
+                pageLength: 100, // Mostrar 100 filas por defecto
                 initComplete: function() {
                     var api = this.api();
 
@@ -249,7 +261,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>
