@@ -14,20 +14,48 @@
             color: #2C3E50;
         }
         
+        /* Navbar Styles */
         .navbar {
-            background-color: #3A3F51;
-            padding: 15px;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand img {
-            max-height: 80px;
+            height: 100px;
+        }
+
+        .header-logos {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .header-logos img {
-            max-height: 80px;
-            margin-right: 10px;
+            height: 100px;
         }
 
+        .logout-btn {
+            padding: 8px 16px;
+            background-color: #6c757d;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background-color: #495057;
+        }
+
+        /* Sidebar Styles */
         .sidebar {
             background-color: #E9ECEF;
             height: 100vh;
@@ -48,19 +76,20 @@
         }
 
         .sidebar a:hover {
-            color: #3A3F51;
+            color: #495057;
         }
 
+        /* Content and Table Styles */
         .content {
             padding: 20px;
             background-color: #FFFFFF;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-top: 140px; /* Adjust for navbar height */
         }
 
         .table th {
-            background-color: #546E7A;
-            color: #ECEFF1;
+            background-color: #B0BEC5;
+            color: #2C3E50;
         }
 
         .table td a {
@@ -72,6 +101,7 @@
             color: #007BFF;
         }
 
+        /* Asesoria Section */
         .asesoria-section {
             padding: 30px;
             background-color: #E9ECEF;
@@ -94,35 +124,35 @@
             border: 1px solid #B0BEC5;
             border-radius: 10px;
         }
-
-        .logout-btn {
-            padding: 8px 16px;
-            background-color: #3A3F51;
-            color: #FFFFFF;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-
-        .logout-btn:hover {
-            background-color: #546E7A;
-        }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="<?= base_url('uploads/logo_enterprisesst.jpeg') ?>" alt="Enterprisesst Logo" class="header-logos">
+    <!-- Navbar with Images and Logout Button -->
+    <nav class="navbar">
+        <div class="header-logos">
+            <!-- Left Logo -->
+            <a href="#">
+                <img src="<?= base_url('uploads/logoenterprisesstblancoslogan.png') ?>" alt="Enterprisesst Logo">
             </a>
+            <!-- Center Logo -->
+            <a href="#">
+                <img src="<?= base_url('uploads/logosst.png') ?>" alt="SST Logo">
+            </a>
+            <!-- Right Logo -->
+            <a href="#">
+                <img src="<?= base_url('uploads/logocycloidsinfondo.png') ?>" alt="Cycloids Logo">
+            </a>
+            <!-- Logout Button -->
             <a href="<?= base_url('/logout') ?>" class="logout-btn">Cerrar Sesión</a>
         </div>
     </nav>
 
+    <!-- Main Content Area -->
     <div class="container-fluid">
         <div class="row">
+            <!-- Sidebar -->
             <div class="col-md-2 sidebar">
                 <nav>
                     <h4>Menú Principal</h4>
@@ -137,6 +167,7 @@
                 </nav>
             </div>
 
+            <!-- Main Content Area -->
             <div class="col-md-10 content">
                 <section>
                     <header class="major">
@@ -146,6 +177,7 @@
                     <p>Gestiona todos tus indicadores y documentos del Sistema de Seguridad y Salud en el Trabajo de forma eficiente y moderna.</p>
                 </section>
 
+                <!-- Data Table -->
                 <table id="accesosTable" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -173,6 +205,7 @@
                     </tbody>
                 </table>
 
+                <!-- Asesoría Section -->
                 <section class="asesoria-section">
                     <header class="major">
                         <h2>¿Necesitas Asesoría o Acompañamiento en SST?</h2>
@@ -195,10 +228,9 @@
         </div>
     </div>
 
-    <!-- DataTables -->
+    <!-- DataTables and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
