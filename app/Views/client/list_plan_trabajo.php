@@ -64,65 +64,36 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Cliente</th>
-                        <th>PHVA
-                            <select id="filterPHVA" class="form-control form-control-sm">
-                                <option value="">Todos</option>
-                                <!-- Opciones dinámicas en el backend o fijas si son estáticas -->
-                                <option value="Planificar">Planificar</option>
-                                <option value="Hacer">Hacer</option>
-                                <option value="Verificar">Verificar</option>
-                                <option value="Actuar">Actuar</option>
-                            </select>
-                        </th>
+                        <th>PHVA</th>
                         <th>Numeral</th>
-                        <th class="actividad-column">Actividad</th>
+                        <th>Actividad</th>
                         <th>Fecha Propuesta</th>
                         <th>Fecha Cierre</th>
-                        <th>Responsable Definido
-                            <select id="filterResponsable" class="form-control form-control-sm">
-                                <option value="">Todos</option>
-                                <!-- Opciones dinámicas según los responsables en tu base de datos -->
-                                <option value="Responsable 1">Responsable 1</option>
-                                <option value="Responsable 2">Responsable 2</option>
-                            </select>
-                        </th>
-                        <th>Estado de Actividad
-                            <select id="filterEstado" class="form-control form-control-sm">
-                                <option value="">Todos</option>
-                                <option value="Pendiente">Pendiente</option>
-                                <option value="En Proceso">En Proceso</option>
-                                <option value="Completado">Completado</option>
-                            </select>
-                        </th>
+                        <th>Responsable Definido</th>
+                        <th>Estado de Actividad</th>
                         <th>Porcentaje de Avance</th>
                         <th>Semana</th>
                         <th>Observaciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (empty($planes)): ?>
+                    <?php foreach ($planes as $plan): ?>
                         <tr>
-                            <td colspan="11" class="text-center">No hay planes de trabajo registrados.</td>
+                            <td><?= esc($plan['nombre_cliente']) ?></td>
+                            <td><?= esc($plan['phva_plandetrabajo']) ?></td>
+                            <td><?= esc($plan['numeral_actividad']) ?></td>
+                            <td class="actividad-column" title="<?= esc($plan['nombre_actividad']) ?>">
+                                <?= strlen(esc($plan['nombre_actividad'])) > 40 ? substr(esc($plan['nombre_actividad']), 0, 40) . '...' : esc($plan['nombre_actividad']) ?>
+                            </td>
+                            <td><?= esc($plan['fecha_propuesta']) ?></td>
+                            <td><?= esc($plan['fecha_cierre']) ?></td>
+                            <td><?= esc($plan['responsable_definido_paralaactividad']) ?></td>
+                            <td><?= esc($plan['estado_actividad']) ?></td>
+                            <td><?= esc($plan['porcentaje_avance'] * 100) ?>%</td>
+                            <td><?= esc($plan['semana']) ?></td>
+                            <td><?= esc($plan['observaciones']) ?></td>
                         </tr>
-                    <?php else: ?>
-                        <?php foreach ($planes as $plan): ?>
-                            <tr>
-                                <td><?= esc($plan['nombre_cliente']) ?></td>
-                                <td><?= esc($plan['phva_plandetrabajo']) ?></td>
-                                <td><?= esc($plan['numeral_actividad']) ?></td>
-                                <td class="actividad-column" title="<?= esc($plan['nombre_actividad']) ?>">
-                                    <?= strlen(esc($plan['nombre_actividad'])) > 40 ? substr(esc($plan['nombre_actividad']), 0, 40) . '...' : esc($plan['nombre_actividad']) ?>
-                                </td>
-                                <td><?= esc($plan['fecha_propuesta']) ?></td>
-                                <td><?= esc($plan['fecha_cierre']) ?></td>
-                                <td><?= esc($plan['responsable_definido_paralaactividad']) ?></td>
-                                <td><?= esc($plan['estado_actividad']) ?></td>
-                                <td><?= esc($plan['porcentaje_avance'] * 100) ?>%</td>
-                                <td><?= esc($plan['semana']) ?></td>
-                                <td><?= esc($plan['observaciones']) ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -134,32 +105,47 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Inicialización de DataTables con filtros personalizados -->
+    <!-- Script para inicializar DataTables y crear filtros dinámicos -->
     <script>
         $(document).ready(function() {
+            // Inicialización de DataTables
             var table = $('#planesTable').DataTable({
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/Spanish.json'
                 },
                 pageLength: 10,
-                responsive: true,
-                drawCallback: function() {
-                    $('[title]').tooltip({ trigger: 'hover' });
-                }
+                responsive: true
             });
 
-            // Filtros personalizados para PHVA, Responsable y Estado de Actividad
-            $('#filterPHVA').on('change', function() {
-                table.column(1).search(this.value).draw();
-            });
+            // Crear filtros dinámicos basados en los valores únicos de las columnas "PHVA", "Responsable Definido" y "Estado de Actividad"
+            function createFilter(columnIndex, filterId) {
+                var uniqueValues = [];
+                table.column(columnIndex).data().each(function(value) {
+                    if (value && uniqueValues.indexOf(value) === -1) {
+                        uniqueValues.push(value);
+                    }
+                });
+                uniqueValues.sort(); // Ordenar valores alfabéticamente
 
-            $('#filterResponsable').on('change', function() {
-                table.column(6).search(this.value).draw();
-            });
+                // Crear las opciones de selección dinámicamente
+                var select = $('<select id="' + filterId + '" class="form-control form-control-sm"><option value="">Todos</option></select>');
+                uniqueValues.forEach(function(value) {
+                    select.append('<option value="' + value + '">' + value + '</option>');
+                });
 
-            $('#filterEstado').on('change', function() {
-                table.column(7).search(this.value).draw();
-            });
+                // Agregar el filtro encima de la tabla
+                $('#planesTable thead tr').append($('<th>').append(select));
+
+                // Filtrar al seleccionar una opción
+                select.on('change', function() {
+                    table.column(columnIndex).search($(this).val()).draw();
+                });
+            }
+
+            // Crear filtros dinámicos para las columnas deseadas
+            createFilter(1, 'filterPHVA');           // Filtro para PHVA
+            createFilter(6, 'filterResponsable');    // Filtro para Responsable Definido
+            createFilter(7, 'filterEstado');         // Filtro para Estado de Actividad
         });
     </script>
 </body>
