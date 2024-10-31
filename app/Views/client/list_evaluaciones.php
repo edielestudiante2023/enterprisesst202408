@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
     <style>
-        /* Configurar la tabla con 80% de ancho y ancho fijo de columnas */
+        /* Configuración para ajustar ancho de columnas */
         .styled-table {
-            table-layout: fixed;
+            table-layout: auto;
+            /* Permite el autoajuste de ancho de columnas */
             width: 80%;
-            /* Ancho total de la tabla */
         }
 
         .styled-table thead th,
@@ -26,8 +26,20 @@
             text-overflow: ellipsis;
         }
 
-        .styled-table tbody tr {
-            height: 50px;
+        /* Limitar el ancho de las columnas específicas */
+        .styled-table thead th:nth-child(9),
+        .styled-table tbody td:nth-child(9),
+        /* Item */
+        .styled-table thead th:nth-child(10),
+        .styled-table tbody td:nth-child(10),
+        /* Criterio */
+        .styled-table thead th:nth-child(11),
+        .styled-table tbody td:nth-child(11)
+
+        /* Modo de Verificación */
+            {
+            max-width: 20ch;
+            /* Limita el ancho visible a unos 20 caracteres */
         }
     </style>
 
@@ -136,7 +148,6 @@
             <table id="evaluacionesTable" class="styled-table table table-striped">
                 <thead>
                     <tr>
-                        <!-- Ajuste a columnas necesarias y activación de tooltips -->
                         <th>Cliente</th>
                         <th>Ciclo</th>
                         <th>Estándar</th>
