@@ -47,6 +47,13 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+
+        .tooltip-inner {
+            max-width: 300px;
+            /* Asegura un ancho máximo */
+            white-space: normal;
+            /* Permite que el texto haga un salto de línea */
+        }
     </style>
 </head>
 
