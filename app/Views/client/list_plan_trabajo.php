@@ -25,12 +25,28 @@
         .btn-dashboard {
             margin-bottom: 1.5rem;
         }
+        /* Estilo para el tooltip */
+        .tooltip-inner {
+            max-width: 300px;
+            white-space: normal;
+        }
+        /* Ajuste de altura de filas */
+        tbody tr {
+            height: 45px;
+        }
+        /* Ancho máximo de la columna "Actividad" */
+        .actividad-column {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     </style>
 </head>
 
 <body>
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Plan de Trabajo Anual - <?= esc($plan['id_ptacliente']) ?></h2>
+        <h2 class="text-center mb-4">Plan de Trabajo Anual</h2>
 
         <!-- Botón para ir a la vista de agregar reportes -->
         <div class="text-center btn-dashboard">
@@ -49,13 +65,10 @@
             <table id="planesTable" class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <!-- <th>ID Plan</th> -->
-                        <!-- <th>Cliente</th> -->
-                        <!-- <th>ID Plan de Trabajo</th> -->
+                        <th>Cliente</th>
                         <th>PHVA</th>
                         <th>Numeral</th>
-                        <th>Actividad</th>
-                        <!-- <th>Responsable Sugerido</th> -->
+                        <th class="actividad-column">Actividad</th>
                         <th>Fecha Propuesta</th>
                         <th>Fecha Cierre</th>
                         <th>Responsable Definido</th>
@@ -63,34 +76,29 @@
                         <th>Porcentaje de Avance</th>
                         <th>Semana</th>
                         <th>Observaciones</th>
-                        <!-- <th>Fecha Creación</th>
-                        <th>Última Actualización</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (empty($planes)): ?>
                         <tr>
-                            <td colspan="16" class="text-center">No hay planes de trabajo registrados.</td>
+                            <td colspan="11" class="text-center">No hay planes de trabajo registrados.</td>
                         </tr>
                     <?php else: ?>
                         <?php foreach ($planes as $plan): ?>
                             <tr>
-                                <td><?= esc($plan['id_ptacliente']) ?></td>
                                 <td><?= esc($plan['nombre_cliente']) ?></td>
-                                <td><?= esc($plan['id_plandetrabajo']) ?></td>
                                 <td><?= esc($plan['phva_plandetrabajo']) ?></td>
                                 <td><?= esc($plan['numeral_actividad']) ?></td>
-                                <td><?= esc($plan['nombre_actividad']) ?></td>
-                                <td><?= esc($plan['responsable_sugerido_plandetrabajo']) ?></td>
+                                <td class="actividad-column" title="<?= esc($plan['nombre_actividad']) ?>">
+                                    <?= strlen(esc($plan['nombre_actividad'])) > 40 ? substr(esc($plan['nombre_actividad']), 0, 40) . '...' : esc($plan['nombre_actividad']) ?>
+                                </td>
                                 <td><?= esc($plan['fecha_propuesta']) ?></td>
                                 <td><?= esc($plan['fecha_cierre']) ?></td>
                                 <td><?= esc($plan['responsable_definido_paralaactividad']) ?></td>
                                 <td><?= esc($plan['estado_actividad']) ?></td>
-                                <td><?= esc($plan['porcentaje_avance']) ?>%</td>
+                                <td><?= esc($plan['porcentaje_avance'] * 100) ?>%</td>
                                 <td><?= esc($plan['semana']) ?></td>
                                 <td><?= esc($plan['observaciones']) ?></td>
-                                <td><?= esc($plan['created_at']) ?></td>
-                                <td><?= esc($plan['updated_at']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -113,7 +121,14 @@
                     url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/Spanish.json'
                 },
                 pageLength: 10,
-                responsive: true
+                responsive: true,
+                columnDefs: [
+                    { targets: [1, 6, 7], searchable: true },  // Filtros para PHVA, Responsable Definido, Estado de Actividad
+                    { targets: 3, className: 'actividad-column' }
+                ],
+                drawCallback: function() {
+                    $('[title]').tooltip({ trigger: 'hover' });  // Inicializa tooltips en los elementos con el atributo 'title'
+                }
             });
         });
     </script>
