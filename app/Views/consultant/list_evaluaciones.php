@@ -93,14 +93,14 @@
                     <th>Acciones</th>
                 </tr>
                 <tr class="filters">
-                    <th><input type="text" class="form-control form-control-sm" placeholder="Buscar Cliente"></th>
-                    <th><input type="text" class="form-control form-control-sm" placeholder="Buscar Ciclo"></th>
+                    <th><select class="form-control form-control-sm filter-select"></select></th>
+                    <th><select class="form-control form-control-sm filter-select"></select></th>
                     <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th><input type="text" class="form-control form-control-sm" placeholder="Buscar Evaluación Inicial"></th>
+                    <th><select class="form-control form-control-sm filter-select"></select></th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -165,18 +165,22 @@
             },
             "pagingType": "full_numbers",
             "responsive": true,
-            "autoWidth": false
+            "autoWidth": false,
+            "initComplete": function() {
+                this.api().columns([0, 1, 7]).every(function() {
+                    var column = this;
+                    var select = $(column.header()).find('select');
+                    column.data().unique().sort().each(function(d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>');
+                    });
+                });
+            }
         });
 
         // Apply the search filters
-        table.columns().every(function() {
-            var that = this;
-
-            $('input', this.header()).on('keyup change clear', function() {
-                if (that.search() !== this.value) {
-                    that.search(this.value).draw();
-                }
-            });
+        $('.filter-select').on('change', function() {
+            var column = $(this).parent().index();
+            table.column(column).search($(this).val()).draw();
         });
 
         // Inicializar tooltips de Bootstrap
