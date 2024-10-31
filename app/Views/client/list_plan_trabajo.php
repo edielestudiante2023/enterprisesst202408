@@ -47,13 +47,6 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-
-        .tooltip-inner {
-            max-width: 300px;
-            /* Asegura un ancho máximo */
-            white-space: normal;
-            /* Permite que el texto haga un salto de línea */
-        }
     </style>
 </head>
 
@@ -114,19 +107,19 @@
                 <tbody>
                     <?php foreach ($planes as $plan): ?>
                         <tr>
-                            <td><?= esc($plan['nombre_cliente']) ?></td>
-                            <td><?= esc($plan['phva_plandetrabajo']) ?></td>
-                            <td><?= esc($plan['numeral_actividad']) ?></td>
-                            <td class="actividad-column" title="<?= esc($plan['nombre_actividad']) ?>">
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['nombre_cliente']) ?>"><?= esc($plan['nombre_cliente']) ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['phva_plandetrabajo']) ?>"><?= esc($plan['phva_plandetrabajo']) ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['numeral_actividad']) ?>"><?= esc($plan['numeral_actividad']) ?></td>
+                            <td class="actividad-column" data-bs-toggle="tooltip" title="<?= esc($plan['nombre_actividad']) ?>">
                                 <?= strlen(esc($plan['nombre_actividad'])) > 40 ? substr(esc($plan['nombre_actividad']), 0, 40) . '...' : esc($plan['nombre_actividad']) ?>
                             </td>
-                            <td><?= esc($plan['fecha_propuesta']) ?></td>
-                            <td><?= esc($plan['fecha_cierre']) ?></td>
-                            <td><?= esc($plan['responsable_definido_paralaactividad']) ?></td>
-                            <td><?= esc($plan['estado_actividad']) ?></td>
-                            <td><?= esc($plan['porcentaje_avance'] * 100) ?>%</td>
-                            <td><?= esc($plan['semana']) ?></td>
-                            <td><?= esc($plan['observaciones']) ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['fecha_propuesta']) ?>"><?= esc($plan['fecha_propuesta']) ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['fecha_cierre']) ?>"><?= esc($plan['fecha_cierre']) ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['responsable_definido_paralaactividad']) ?>"><?= esc($plan['responsable_definido_paralaactividad']) ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['estado_actividad']) ?>"><?= esc($plan['estado_actividad']) ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['porcentaje_avance'] * 100) ?>%"><?= esc($plan['porcentaje_avance'] * 100) ?>%</td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['semana']) ?>"><?= esc($plan['semana']) ?></td>
+                            <td data-bs-toggle="tooltip" title="<?= esc($plan['observaciones']) ?>"><?= esc($plan['observaciones']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -173,18 +166,10 @@
                 table.column(7).search(this.value).draw();
             });
 
-            // Inicializar tooltips en celdas truncadas con ajustes de visualización
-            $('#planesTable tbody').on('mouseenter', 'td', function() {
-                var cell = table.cell(this);
-                var cellData = cell.data();
-                if (this.offsetWidth < this.scrollWidth) { // Verifica si el texto está truncado
-                    $(this).attr('title', cellData).tooltip({
-                        container: 'body', // Permite que el tooltip se muestre fuera del contenedor de la tabla
-                        placement: 'auto', // Ajusta la posición del tooltip automáticamente
-                        trigger: 'hover',
-                        html: true // Permite contenido HTML en el tooltip
-                    }).tooltip('show');
-                }
+            // Inicializar tooltips de Bootstrap en todas las celdas con el atributo data-bs-toggle="tooltip"
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
             });
         });
     </script>
