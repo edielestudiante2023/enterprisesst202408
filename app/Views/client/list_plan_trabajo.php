@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +12,34 @@
             background-color: #f9f9f9;
             font-family: Arial, sans-serif;
         }
+
         h2 {
             color: #343a40;
             font-weight: 600;
         }
+
         .container {
             background-color: #ffffff;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
+
         .btn-dashboard {
             margin-bottom: 1.5rem;
         }
+
         /* Estilo para el tooltip */
         .tooltip-inner {
             max-width: 300px;
             white-space: normal;
         }
+
         /* Ajuste de altura de filas */
         tbody tr {
             height: 45px;
         }
+
         /* Ancho máximo de la columna "Actividad" */
         .actividad-column {
             max-width: 200px;
@@ -42,6 +49,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container mt-5">
         <h2 class="text-center mb-4">Plan de Trabajo Anual</h2>
@@ -78,13 +86,19 @@
                     <!-- Fila adicional para los filtros dinámicos -->
                     <tr>
                         <th></th>
-                        <th><select id="filterPHVA" class="form-control form-control-sm"><option value="">Todos</option></select></th>
+                        <th><select id="filterPHVA" class="form-control form-control-sm">
+                                <option value="">Todos</option>
+                            </select></th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th><select id="filterResponsable" class="form-control form-control-sm"><option value="">Todos</option></select></th>
-                        <th><select id="filterEstado" class="form-control form-control-sm"><option value="">Todos</option></select></th>
+                        <th><select id="filterResponsable" class="form-control form-control-sm">
+                                <option value="">Todos</option>
+                            </select></th>
+                        <th><select id="filterEstado" class="form-control form-control-sm">
+                                <option value="">Todos</option>
+                            </select></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -129,12 +143,12 @@
                 },
                 pageLength: 10,
                 responsive: true,
-                initComplete: function () {
+                initComplete: function() {
                     // Crear filtros dinámicos
-                    this.api().columns([1, 6, 7]).every(function () {
+                    this.api().columns([1, 6, 7]).every(function() {
                         var column = this;
                         var select = $(column.header()).find('select');
-                        column.data().unique().sort().each(function (d) {
+                        column.data().unique().sort().each(function(d) {
                             select.append('<option value="' + d + '">' + d + '</option>');
                         });
                     });
@@ -142,26 +156,32 @@
             });
 
             // Filtrado basado en los select de la segunda fila
-            $('#filterPHVA').on('change', function () {
+            $('#filterPHVA').on('change', function() {
                 table.column(1).search(this.value).draw();
             });
-            $('#filterResponsable').on('change', function () {
+            $('#filterResponsable').on('change', function() {
                 table.column(6).search(this.value).draw();
             });
-            $('#filterEstado').on('change', function () {
+            $('#filterEstado').on('change', function() {
                 table.column(7).search(this.value).draw();
             });
 
-            // Inicializar tooltips en celdas truncadas
+            // Inicializar tooltips en celdas truncadas con ajustes de visualización
             $('#planesTable tbody').on('mouseenter', 'td', function() {
                 var cell = table.cell(this);
                 var cellData = cell.data();
-                // Mostrar tooltip solo si el texto es truncado
-                if (this.offsetWidth < this.scrollWidth) {
-                    $(this).attr('title', cellData).tooltip({ trigger: 'hover' }).tooltip('show');
+                if (this.offsetWidth < this.scrollWidth) { // Verifica si el texto está truncado
+                    $(this).attr('title', cellData).tooltip({
+                        container: 'body', // Permite que el tooltip se muestre fuera del contenedor de la tabla
+                        placement: 'auto', // Ajusta la posición del tooltip automáticamente
+                        trigger: 'hover',
+                        html: true // Permite contenido HTML en el tooltip
+                    }).tooltip('show');
                 }
             });
         });
     </script>
+
 </body>
+
 </html>
