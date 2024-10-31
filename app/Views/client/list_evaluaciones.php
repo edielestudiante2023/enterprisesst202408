@@ -21,7 +21,7 @@
 
         .styled-table thead th,
         .styled-table tbody td {
-            width: 1%;
+            width: 40%;
             /* Fuerza que cada columna tome el mismo ancho */
             white-space: nowrap;
             overflow: hidden;
