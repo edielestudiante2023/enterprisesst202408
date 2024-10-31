@@ -51,6 +51,37 @@
 </head>
 
 <body>
+
+    <nav style="background-color: white; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;">
+
+            <!-- Logo izquierdo -->
+            <div>
+                <a href="#">
+                    <img src="<?= base_url('uploads/logoenterprisesstblancoslogan.png') ?>" alt="Enterprisesst Logo" style="height: 50px;">
+                </a>
+            </div>
+
+            <!-- Logo centro -->
+            <div>
+                <a href="#">
+                    <img src="<?= base_url('uploads/logosst.png') ?>" alt="SST Logo" style="height: 50px;">
+                </a>
+            </div>
+
+            <!-- Logo derecho -->
+            <div>
+                <a href="#">
+                    <img src="<?= base_url('uploads/logocycloidsinfondo.png') ?>" alt="Cycloids Logo" style="height: 50px;">
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Ajustar el espaciado para evitar que el contenido se oculte bajo el navbar fijo -->
+    <div style="height: 70px;"></div>
+
     <div class="container mt-5">
         <h2 class="text-center mb-4">Plan de Trabajo Anual</h2>
 
