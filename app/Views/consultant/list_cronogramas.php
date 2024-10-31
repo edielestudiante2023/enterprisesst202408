@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Cronogramas de Capacitación</title>
-    <link rel="stylesheet" href="path/to/bootstrap.min.css"> <!-- Asegúrate de agregar el path correcto a tu archivo CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <style>
         body {
             font-size: 0.9rem;
+            background-color: #f9f9f9;
         }
 
         table thead {
@@ -28,7 +30,7 @@
 <body>
 
     <div class="container my-4">
-        <h2 class="text-center">Lista de Cronogramas de Capacitación</h2>
+        <h2 class="text-center mb-4">Lista de Cronogramas de Capacitación</h2>
 
         <!-- Mostrar mensaje si hay algún mensaje flash de éxito o error -->
         <?php if (session()->getFlashdata('msg')): ?>
@@ -38,7 +40,7 @@
         <?php endif; ?>
 
         <div class="table-responsive">
-            <table class="table table-bordered table-hover">
+            <table id="cronogramaTable" class="table table-bordered table-hover">
                 <thead class="text-center">
                     <tr>
                         <th>#</th>
@@ -86,7 +88,6 @@
                                     <a href="<?= base_url('/editcronogCapacitacion/' . esc($cronograma['id_cronograma_capacitacion'])) ?>" class="btn btn-sm btn-warning">Editar</a>
                                     <a href="<?= base_url('/deletecronogCapacitacion/' . esc($cronograma['id_cronograma_capacitacion'])) ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de eliminar este cronograma?');">Eliminar</a>
                                 </td>
-
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
@@ -98,21 +99,30 @@
             </table>
         </div>
     </div>
-    <br>
-    <h2>Agregar Cronograma de Capacitación</h2>
-    <!-- Botón para ir a la vista de agregar un nuevo cronograma de capacitación -->
-    <a href="<?= base_url('/addcronogCapacitacion') ?>"><button type="button">Agregar Cronograma</button></a>
-    <br><br>
 
-    <br>
-    <h2>Ir a Dashboard</h2>
-    <!-- Botón para ir a la vista de agregar reportes -->
-    <a href="<?= base_url('/dashboardconsultant') ?>"><button type="button">Ir a DashBoard</button></a>
-    <br><br>
+    <div class="container my-4">
+        <h2 class="mb-3">Agregar Cronograma de Capacitación</h2>
+        <a href="<?= base_url('/addcronogCapacitacion') ?>" class="btn btn-primary">Agregar Cronograma</a>
+    </div>
 
+    <div class="container my-4">
+        <h2 class="mb-3">Ir a Dashboard</h2>
+        <a href="<?= base_url('/dashboardconsultant') ?>" class="btn btn-secondary">Ir a DashBoard</a>
+    </div>
 
-
-    <script src="path/to/bootstrap.min.js"></script> <!-- Asegúrate de agregar el path correcto a tu archivo JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#cronogramaTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
