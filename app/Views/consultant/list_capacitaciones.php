@@ -68,7 +68,7 @@
             <!-- Botón derecho -->
             <div style="text-align: center;">
                 <h2 style="margin: 0; font-size: 16px;">Añadir Registro</h2>
-                <a href="<?= base_url('/addCapacitacion') ?>" style="display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; margin-top: 5px;">Añadir Registro</a>
+                <a href="<?= base_url('/addCapacitacion') ?>" style="display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; margin-top: 5px;" target="_blank">Añadir Registro</a>
             </div>
         </div>
     </nav>
@@ -119,7 +119,7 @@
             </table>
         </div>
 
-        <div class="mt-4">
+        <!-- <div class="mt-4">
             <a href="<?= base_url('addCapacitacion') ?>" class="btn btn-primary">Agregar Nueva Capacitación</a>
         </div>
 
@@ -127,7 +127,7 @@
             <h2>Ir a Dashboard</h2>
             <a href="<?= base_url('/dashboardconsultant') ?>" class="btn btn-secondary">Ir a DashBoard</a>
         </div>
-    </div>
+    </div> -->
 
 
     <footer style="background-color: white; padding: 20px 0; border-top: 1px solid #B0BEC5; margin-top: 40px; color: #3A3F51; font-size: 14px; text-align: center;">
