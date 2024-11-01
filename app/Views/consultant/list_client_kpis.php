@@ -56,6 +56,9 @@
         </div>
     </nav>
 
+     <!-- Ajustar el espaciado para evitar que el contenido se oculte bajo el navbar fijo -->
+     <div style="height: 160px;"></div>
+
 
     <div class="container my-5">
         <h2 class="text-center mb-4">Lista de KPIs de Clientes</h2>
