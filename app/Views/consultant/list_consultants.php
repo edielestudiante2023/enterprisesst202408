@@ -72,11 +72,7 @@
     <div style="height: 160px;"></div>
 
 
-    <div class="container">
-        <div class="d-flex justify-content-between mb-3">
-            <h2>Lista de Consultores</h2>
-            <a href="<?= base_url('/addConsultant') ?>" class="btn btn-primary">Agregar Nuevo Consultor</a>
-        </div>
+    
 
         <?php if (session()->getFlashdata('msg')): ?>
             <div class="alert alert-warning">
@@ -132,10 +128,7 @@
             </tbody>
         </table>
 
-        <div class="mt-3">
-            <a href="<?= base_url('/dashboardconsultant') ?>" class="btn btn-secondary">Volver al Dashboard</a>
-        </div>
-    </div>
+      
 
 
     <footer style="background-color: white; padding: 20px 0; border-top: 1px solid #B0BEC5; margin-top: 40px; color: #3A3F51; font-size: 14px; text-align: center;">

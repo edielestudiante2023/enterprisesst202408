@@ -29,6 +29,52 @@
 
 <body>
 
+    <nav style="background-color: white; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;">
+
+            <!-- Logo izquierdo -->
+            <div>
+                <a href="https://dashboard.cycloidtalent.com/login">
+                    <img src="<?= base_url('uploads/logoenterprisesstblancoslogan.png') ?>" alt="Enterprisesst Logo" style="height: 100px;">
+                </a>
+            </div>
+
+            <!-- Logo centro -->
+            <div>
+                <a href="https://cycloidtalent.com/index.php/consultoria-sst">
+                    <img src="<?= base_url('uploads/logosst.png') ?>" alt="SST Logo" style="height: 100px;">
+                </a>
+            </div>
+
+            <!-- Logo derecho -->
+            <div>
+                <a href="https://cycloidtalent.com/">
+                    <img src="<?= base_url('uploads/logocycloidsinfondo.png') ?>" alt="Cycloids Logo" style="height: 100px;">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Fila de botones -->
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 10px auto 0; padding: 0 20px;">
+            <!-- Botón izquierdo -->
+            <div style="text-align: center;">
+                <h2 style="margin: 0; font-size: 16px;">Ir a Dashboard</h2>
+                <a href="<?= base_url('/dashboardconsultant') ?>" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; margin-top: 5px;">Ir a DashBoard</a>
+            </div>
+
+            <!-- Botón derecho -->
+            <div style="text-align: center;">
+                <h2 style="margin: 0; font-size: 16px;">Añadir Registro</h2>
+                <a href="<?= base_url('/addcronogCapacitacion') ?>" style="display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; margin-top: 5px;" target="_blank">Añadir Registro</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ajustar el espaciado para evitar que el contenido se oculte bajo el navbar fijo -->
+    <div style="height: 160px;"></div>
+
+
     <div class="container my-4">
         <h2 class="text-center mb-4">Lista de Cronogramas de Capacitación</h2>
 
@@ -100,18 +146,10 @@
         </div>
     </div>
 
-    <div class="container my-4">
-        <h2 class="mb-3">Agregar Cronograma de Capacitación</h2>
-        <a href="<?= base_url('/addcronogCapacitacion') ?>" class="btn btn-primary">Agregar Cronograma</a>
-    </div>
 
-    <div class="container my-4">
-        <h2 class="mb-3">Ir a Dashboard</h2>
-        <a href="<?= base_url('/dashboardconsultant') ?>" class="btn btn-secondary">Ir a DashBoard</a>
-    </div>
 
-    
-<footer style="background-color: white; padding: 20px 0; border-top: 1px solid #B0BEC5; margin-top: 40px; color: #3A3F51; font-size: 14px; text-align: center;">
+
+    <footer style="background-color: white; padding: 20px 0; border-top: 1px solid #B0BEC5; margin-top: 40px; color: #3A3F51; font-size: 14px; text-align: center;">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
             <!-- Company and Rights -->
             <p style="margin: 0; font-weight: bold;">Cycloid Talent SAS</p>
@@ -148,7 +186,7 @@
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#cronogramaTable').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
