@@ -168,9 +168,7 @@
     <?php endforeach; ?>
 
     <div class="text-center mt-5">
-        <a href="<?= base_url('/dashboardconsultant') ?>" class="btn btn-primary btn-dashboard">Ir a Dashboard</a>
-        <br><br>
-        <a href="<?= base_url('/editClientKpi/' . $kpi['id_client_kpi']) ?>" class="btn btn-secondary btn-edit">Editar Indicador</a>
+               <a href="<?= base_url('/editClientKpi/' . $kpi['id_client_kpi']) ?>" class="btn btn-secondary btn-edit">Editar Indicador</a>
     </div>
 
     
