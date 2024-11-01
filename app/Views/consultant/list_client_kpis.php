@@ -44,7 +44,7 @@
             <!-- Botón derecho -->
             <div style="text-align: center;">
                 <h2 style="margin: 0; font-size: 16px;">Añadir Registro</h2>
-                <a href="<?= base_url('/listClientKpis') ?>" style="display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; margin-top: 5px;" target="_blank">Añadir Registro</a>
+                <a href="<?= base_url('/addClientKpi') ?>" style="display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; margin-top: 5px;" target="_blank">Añadir Registro</a>
             </div>
         </div>
     </nav>

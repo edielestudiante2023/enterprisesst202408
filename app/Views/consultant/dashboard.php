@@ -218,7 +218,7 @@
                         <td>9 KPI</td>
                         <td>Matriz de Indicadores de Todos los clientes</td>
                         <td><a href="<?= base_url('listClientKpis') ?>"><button type="button">Abrir</button></a></td>
-                    </tr>
+                    </tr> <!-- ok -->
                     <tr>
                         <td>Evaluaciones</td>
                         <td>Listado de todas las evaluaciones</td>

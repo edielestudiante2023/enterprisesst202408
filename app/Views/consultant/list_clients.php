@@ -102,7 +102,7 @@
             <p>No hay clientes disponibles.</p>
         <?php endif; ?>
 
-        <a href="<?= base_url('/dashboardconsultant') ?>" class="btn btn-secondary mt-3">Volver al Dashboard</a>
+        <!-- <a href="<?= base_url('/dashboardconsultant') ?>" class="btn btn-secondary mt-3">Volver al Dashboard</a> -->
     </div>
 
     
