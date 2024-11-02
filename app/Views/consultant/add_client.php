@@ -49,7 +49,7 @@
     <div class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Agregar Nuevo Cliente</h2>
-            <a href="<?= base_url('/listClients') ?>" class="btn btn-primary">Ver Lista de Clientes</a>
+            
         </div>
 
         <?php if (session()->getFlashdata('msg')) : ?>

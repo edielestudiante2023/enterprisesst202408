@@ -62,32 +62,6 @@
         <h2 class="text-center mb-4">Lista de Reportes</h2>
 
 
-
-        <!-- Filtro de Reportes por Cliente -->
-        <div class="card mb-4">
-            <div class="card-body">
-                <h3 class="card-title">Filtrar Reportes por Cliente</h3>
-                <form method="get" action="<?= base_url('/reportList') ?>">
-                    <div class="mb-3">
-                        <label for="id_cliente" class="form-label">Cliente:</label>
-                        <?php if (isset($clients)) : ?>
-                            <select name="id_cliente" id="id_cliente" class="form-select">
-                                <option value="">Todos</option>
-                                <?php foreach ($clients as $client) : ?>
-                                    <option value="<?= $client['id_cliente'] ?>" <?= (isset($_GET['id_cliente']) && $_GET['id_cliente'] == $client['id_cliente']) ? 'selected' : '' ?>>
-                                        <?= $client['nombre_cliente'] ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        <?php else : ?>
-                            <p class="text-danger">Error: No se han encontrado clientes.</p>
-                        <?php endif; ?>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Filtrar</button>
-                </form>
-            </div>
-        </div>
-
         <!-- Tabla de Reportes -->
         <h3 class="mb-3">Reportes</h3>
         <?php if (isset($reports) && !empty($reports)) : ?>
