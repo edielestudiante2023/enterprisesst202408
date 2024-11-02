@@ -78,9 +78,22 @@
         </div>
     </nav>
 
+    <div style="height: 160px;"></div>
+
     <div class="container-fluid content">
-        <h2 class="text-center mb-4">Bienvenido, Consultor</h2>
-        <p class="text-center mb-4">Esta es tu dashboard donde puedes gestionar la información.</p>
+        <div class="welcome-banner p-4 mb-4 rounded" style="background-color: #E9F7EF; border-left: 5px solid #28A745; color: #2D3436;">
+            <h3 class="mb-3" style="color: #28A745;">¡Bienvenido al Dashboard de Consultores de Cycloid Talent!</h3>
+            <p>En esta plataforma, podrás gestionar de manera eficiente la información esencial para tu labor diaria. Aquí encontrarás:</p>
+            <ul>
+                <li><strong>Capacitaciones y cronogramas</strong>: Planifica y organiza tus sesiones de formación de manera efectiva.</li>
+                <li><strong>Documentación relevante</strong>: Accede a reportes, matrices y políticas actualizadas para mantenerte al día.</li>
+                <li><strong>Gestión de clientes y consultores</strong>: Administra de forma eficiente la información de clientes y colegas.</li>
+                <li><strong>Indicadores y KPIs</strong>: Monitorea y analiza resultados para un desempeño óptimo.</li>
+                <li><strong>Evaluaciones y planes de trabajo</strong>: Asegura la calidad y el cumplimiento de objetivos en tus proyectos.</li>
+            </ul>
+            <p class="mt-3">Explora las diferentes secciones y aprovecha las herramientas disponibles para optimizar tu desempeño.</p>
+        </div>
+
 
         <!-- Tabla con DataTables -->
         <div class="table-responsive">
