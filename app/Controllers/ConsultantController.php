@@ -31,7 +31,7 @@ class ConsultantController extends Controller
         return view('consultant/add_client', $data);
     }
 
-    /* http://localhost/enterprise-sst202408/public/index.php/addClient */
+   
 
 
 
@@ -105,7 +105,7 @@ class ConsultantController extends Controller
         return view('consultant/add_consultant');
     }
 
-    /* http://localhost/enterprise-sst202408/public/addConsultant */
+  
 
 
 

@@ -27,8 +27,8 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'estudio',
-        'password'     => 'Almendra7201+',
+        'username'     => 'root',
+        'password'     => '',
         'database'     => 'enterprise_sst2024',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
