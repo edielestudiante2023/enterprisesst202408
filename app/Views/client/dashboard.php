@@ -148,7 +148,7 @@
                 <img src="<?= base_url('uploads/logosst.png') ?>" alt="SST Logo">
             </a>
             <!-- Right Logo -->
-            <a href="https://cycloidtalent.com/"  target="_blank">
+            <a href="https://cycloidtalent.com/" target="_blank">
 
                 <img src="<?= base_url('uploads/logocycloidsinfondo.png') ?>" alt="Cycloids Logo">
             </a>
@@ -173,6 +173,18 @@
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('/viewDocuments') ?>" target="_blank">Documentos</a></li>
                     </ul>
                 </nav>
+
+                <!-- Línea divisoria -->
+                <hr class="my-4">
+
+                <div class="text-center mt-3">
+                    <!-- Texto con color azul oscuro -->
+                    <h3 class="mt-2" style="color: #003366;">Dashboard Interactivo</h3>
+                    <a href="<?= base_url('/client/lista-lookerstudio') ?>" target="_blank">
+                        <img src="<?= base_url('/uploads/kpi_image.png') ?>" alt="Ir al Dashboard" class="img-fluid" style="max-width: 100px;">
+                    </a>
+                </div>
+
             </div>
 
             <!-- Main Content Area -->

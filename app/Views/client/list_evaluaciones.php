@@ -82,7 +82,7 @@
     </nav>
 
     <!-- Ajustar el espaciado para evitar que el contenido se oculte bajo el navbar fijo -->
-    <div style="height: 120px;"></div>
+    <div style="height: 200px;"></div>
 
     <div class="container my-5">
         <h2 class="mb-4 text-dark">Evaluaciones del Cliente: <?= esc($client['nombre_cliente']) ?></h2>
@@ -182,6 +182,8 @@
         </div>
 
         <div>
+            <button id="exportButton" class="btn btn-primary">Exportar a Excel</button>
+
             <table id="evaluacionesTable" class="styled-table table table-striped">
                 <thead>
                     <tr>
@@ -291,6 +293,22 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        document.getElementById('exportButton').addEventListener('click', function() {
+            // Obtén la tabla HTML
+            const table = document.getElementById('evaluacionesTable');
+
+            // Convierte la tabla a una hoja de trabajo
+            const workbook = XLSX.utils.table_to_book(table, {
+                sheet: "Evaluaciones"
+            });
+
+            // Genera el archivo Excel y descarga
+            XLSX.writeFile(workbook, 'evaluaciones.xlsx');
+        });
+    </script>
+
 
     <script>
         $(document).ready(function() {

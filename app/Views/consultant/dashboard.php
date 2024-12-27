@@ -101,6 +101,7 @@
                 <thead>
                     <tr>
                         <th>Detalle</th>
+                        <th>Descripción/Funcionalidad</th> <!-- Nueva columna -->
                         <th>Acción</th>
                     </tr>
                 </thead>
@@ -108,110 +109,135 @@
                     <!-- Capacitaciones y Evaluaciones -->
                     <tr>
                         <td>Capacitaciones</td>
+                        <td>Accede a la lista de capacitaciones disponibles.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listCapacitaciones') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Cronogramas de Capacitación</td>
+                        <td>Accede a los cronogramas detallados de capacitaciones programadas.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listcronogCapacitacion') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Evaluaciones</td>
+                        <td>Accede a la lista de evaluaciones realizadas y sus resultados.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listEvaluaciones') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
 
                     <!-- Gestión de Clientes y Consultores -->
                     <tr>
                         <td>Clientes</td>
+                        <td>Consulta los detalles de los clientes registrados.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('/listClients') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Consultores</td>
+                        <td>Consulta la información de los consultores activos.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('/index.php/listConsultants') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
 
                     <!-- Documentación -->
                     <tr>
                         <td>Documentos</td>
+                        <td>Accede a los documentos generados en el sistema.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('/reportList') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Documentos y Matrices</td>
+                        <td>Consulta los tipos de documentos y matrices disponibles.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listReportTypes') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Versiones</td>
+                        <td>Accede a la lista de versiones de los documentos generados.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listVersions') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Políticas</td>
+                        <td>Consulta las políticas asociadas a la empresa.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('/listPolicies') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Tipos de Documentos</td>
+                        <td>Consulta los diferentes tipos de documentos configurados.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('/listPolicyTypes') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
 
                     <!-- Indicadores y KPIs -->
                     <tr>
                         <td>Indicadores de Clientes</td>
+                        <td>Consulta los indicadores clave de desempeño para clientes.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listClientKpis') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Tipos de Indicadores y Significados</td>
+                        <td>Accede a la lista de tipos de indicadores y sus significados.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listKpiTypes') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Definiciones de Indicadores</td>
+                        <td>Consulta las definiciones y detalles de los indicadores utilizados.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listKpiDefinitions') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Nombres de Indicadores</td>
+                        <td>Consulta la lista de nombres de indicadores configurados.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listKpis') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Responsables de Indicadores</td>
+                        <td>Consulta la lista de responsables de cada indicador.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listDataOwners') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Numeradores de Indicadores</td>
+                        <td>Consulta los numeradores utilizados en los indicadores.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listNumeratorVariables') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Denominadores de Indicadores</td>
+                        <td>Consulta los denominadores utilizados en los indicadores.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listDenominatorVariables') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Objetivos de Indicadores</td>
+                        <td>Consulta los objetivos de los indicadores establecidos.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listObjectives') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Políticas de SST</td>
+                        <td>Accede a las políticas de Seguridad y Salud en el Trabajo.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listKpiPolicies') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
 
                     <!-- Otros -->
                     <tr>
                         <td>Vigías</td>
+                        <td>Consulta la lista de vigías asociados a la empresa.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listVigias') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Actividades del Plan Anual</td>
+                        <td>Accede a las actividades del plan anual para la empresa.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listPlanDeTrabajoAnual') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Pendientes</td>
+                        <td>Consulta la lista de tareas pendientes dentro de la plataforma.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listPendientes') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Matrices Cycloid</td>
+                        <td>Consulta las matrices de datos de Cycloid.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listMatricesCycloid') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
                         <td>Períodos de Medición</td>
+                        <td>Consulta los períodos de medición configurados para los indicadores.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listMeasurementPeriods') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                 </tbody>
             </table>
+
         </div>
 
         <div class="logout-button">

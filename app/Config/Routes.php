@@ -358,3 +358,12 @@ $routes->get('/deleteMatrizCycloid/(:num)', 'MatrizCycloidController::deleteMatr
 
 
 
+$routes->get('lookerstudio/list', 'LookerStudioController::list');
+$routes->get('lookerstudio/add', 'LookerStudioController::add');
+$routes->post('lookerstudio/addPost', 'LookerStudioController::addPost');
+$routes->get('lookerstudio/edit/(:num)', 'LookerStudioController::edit/$1');
+$routes->post('lookerstudio/editPost/(:num)', 'LookerStudioController::editPost/$1');
+$routes->get('lookerstudio/delete/(:num)', 'LookerStudioController::delete/$1');
+
+$routes->get('/client/lista-lookerstudio', 'ClientLookerStudioController::index');
+

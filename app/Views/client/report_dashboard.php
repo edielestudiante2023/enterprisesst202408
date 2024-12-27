@@ -48,6 +48,12 @@
             text-align: right;
             margin-top: 15px;
         }
+
+        .text-truncate {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 
@@ -106,7 +112,12 @@
                                 <!-- <td><?= $report['id_reporte'] ?></td> -->
                                 <td><?= $report['titulo_reporte'] ?></td>
                                 <td><?= $report['Tipo_documento'] ?></td>
-                                <td><a href="<?= $report['enlace'] ?>" target="_blank"><?= $report['enlace'] ?></a></td>
+                                <td class="text-truncate" style="max-width: 150px;">
+                                    <a href="<?= $report['enlace'] ?>" target="_blank" title="<?= $report['enlace'] ?>" style="display: inline-block;">
+                                        Ver recurso
+                                    </a>
+                                </td>
+
                                 <td><?= $report['estado'] ?></td>
                                 <td><?= $report['observaciones'] ?></td>
                                 <td><?= $report['created_at'] ?></td>
@@ -161,13 +172,52 @@
 
     <script>
         $(document).ready(function() {
+            // Inicializa DataTable con configuraciones personalizadas
             $('#reportTable').DataTable({
                 language: {
                     url: "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+                },
+                pageLength: 50, // Número de filas por defecto
+                order: [
+                    [5, 'desc']
+                ], // Ordenar por Fecha de Creación (columna índice 5)
+                columnDefs: [{
+                    targets: 2, // Índice de la columna Enlace
+                    width: "10%", // Ancho máximo para la columna
+                    className: "text-truncate" // Clase CSS para truncar texto
+                }],
+                initComplete: function() {
+                    // Agregar filtros en las columnas específicas
+                    this.api().columns([0, 1, 3]).every(function() { // Índices: Título del Reporte, Tipo de Documento, Estado
+                        var column = this;
+
+                        // Crear un contenedor para los filtros
+                        var container = $('<div class="d-flex flex-column"></div>');
+
+                        // Agregar el nombre de la columna
+                        container.append('<span>' + $(column.header()).text() + '</span>');
+
+                        // Crear un filtro desplegable
+                        var select = $('<select class="form-select form-select-sm mt-1"><option value="">Todos</option></select>')
+                            .appendTo(container)
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+                            });
+
+                        // Precargar los valores únicos en el filtro
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+
+                        // Vaciar y reemplazar el encabezado con el contenedor
+                        $(column.header()).empty().append(container);
+                    });
                 }
             });
         });
     </script>
+
 </body>
 
 </html>
