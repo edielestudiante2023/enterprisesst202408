@@ -10,6 +10,21 @@
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 
+<style>
+    /* Estilo para truncar el texto en la columna "Enlace" */
+    td.enlace-col {
+        max-width: 100px;
+        /* Ancho máximo de la celda */
+        white-space: nowrap;
+        /* Evita que el texto haga saltos de línea */
+        overflow: hidden;
+        /* Oculta el texto que exceda el ancho */
+        text-overflow: ellipsis;
+        /* Muestra "..." al final si el texto es muy largo */
+    }
+</style>
+
+
 <body class="bg-light">
 
     <nav style="background-color: white; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
@@ -55,7 +70,7 @@
     </nav>
 
     <!-- Ajustar el espaciado para evitar que el contenido se oculte bajo el navbar fijo -->
-    <div style="height: 160px;"></div>
+    <div style="height: 200px;"></div>
 
 
     <div class="container my-4">
@@ -64,6 +79,13 @@
 
         <!-- Tabla de Reportes -->
         <h3 class="mb-3">Reportes</h3>
+
+        <?php if (session()->get('msg')): ?>
+            <div class="alert alert-info">
+                <?= session()->get('msg') ?>
+            </div>
+        <?php endif; ?>
+
         <?php if (isset($reports) && !empty($reports)) : ?>
             <table id="reportTable" class="table table-striped table-hover">
                 <thead>
@@ -87,7 +109,8 @@
                             <td><?= $report['id_reporte'] ?></td>
                             <td><?= $report['titulo_reporte'] ?></td>
                             <td><?= $report['Tipo_documento'] ?></td>
-                            <td><a href="<?= $report['enlace'] ?>" target="_blank"><?= $report['enlace'] ?></a></td>
+                            <td class="enlace-col"><a href="<?= $report['enlace'] ?>" target="_blank" title="<?= $report['enlace'] ?>"><?= $report['enlace'] ?></a></td>
+
                             <td><?= $report['estado'] ?></td>
                             <td><?= $report['observaciones'] ?></td>
                             <td><?= $report['id_cliente'] ?></td>
@@ -145,14 +168,57 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#reportTable').DataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+    $(document).ready(function() {
+        // Inicializa DataTable con configuraciones personalizadas
+        const table = $('#reportTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+            },
+            "pageLength": 50, // Mostrar 50 filas por defecto
+            "order": [[9, "desc"]], // Ordenar por Fecha de Creación (índice 9)
+            "columnDefs": [
+                {
+                    "targets": 3, // Índice de la columna Enlace
+                    "width": "10%", // Fijar el ancho a 10%
+                    "className": "text-truncate" // Clase CSS para truncar el texto
                 }
-            });
+            ],
+            "initComplete": function() {
+                // Iterar sobre las columnas específicas para agregar filtros precargados
+                this.api().columns([7, 8, 1, 4]).every(function() { // Índices: Nombre Cliente, Tipo Reporte, Título del Reporte, Estado
+                    var column = this;
+
+                    // Crear un contenedor para el nombre de la columna y el filtro
+                    var container = $('<div class="d-flex flex-column"></div>');
+
+                    // Agregar el nombre de la columna
+                    container.append('<span>' + $(column.header()).text() + '</span>');
+
+                    // Crear un select para los filtros
+                    var select = $('<select class="form-select form-select-sm mt-1"><option value="">Todos</option></select>')
+                        .appendTo(container)
+                        .on('change', function() {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+
+                    // Precargar los datos únicos de la columna en el filtro
+                    column.data().unique().sort().each(function(d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>');
+                    });
+
+                    // Vaciar y reemplazar el encabezado con el contenedor
+                    $(column.header()).empty().append(container);
+                });
+            }
         });
-    </script>
+    });
+</script>
+
+
+
+
+
 
 </body>
 

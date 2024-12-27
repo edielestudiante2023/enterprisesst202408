@@ -12,7 +12,7 @@
 
 <body class="bg-light">
 
-<nav style="background-color: white; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+    <nav style="background-color: white; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
 
             <!-- Logo izquierdo -->
@@ -57,11 +57,12 @@
                         <?= session()->getFlashdata('msg') ?>
                     </div>
                 <?php endif; ?>
-                <form action="<?= base_url('/editReportPost/' . $report['id_reporte']) ?>" method="post">
+                <form action="<?= base_url('/editReportPost/' . $report['id_reporte']) ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="titulo_reporte">Título del Reporte:</label>
                         <input type="text" class="form-control" id="titulo_reporte" name="titulo_reporte" value="<?= $report['titulo_reporte'] ?>" required>
                     </div>
+
                     <div class="form-group">
                         <label for="Tipo_documento">Tipo de Documento:</label>
                         <select class="form-control" id="Tipo_documento" name="Tipo_documento" required>
@@ -72,10 +73,19 @@
                             <option value="IMAGEN" <?= $report['Tipo_documento'] == 'IMAGEN' ? 'selected' : '' ?>>IMAGEN</option>
                         </select>
                     </div>
+
+                    <!-- Mostrar archivo actual con botón para verlo -->
                     <div class="form-group">
-                        <label for="enlace">Enlace:</label>
-                        <input type="text" class="form-control" id="enlace" name="enlace" value="<?= $report['enlace'] ?>" required>
+                        <label>Documento Actual:</label>
+                        <a href="<?= $report['enlace'] ?>" target="_blank" class="btn btn-info">Ver Documento</a>
                     </div>
+
+                    <!-- Permitir subir un nuevo archivo -->
+                    <div class="form-group">
+                        <label for="archivo">Subir Nuevo Archivo (Opcional):</label>
+                        <input type="file" class="form-control" id="archivo" name="archivo" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.png">
+                    </div>
+
                     <div class="form-group">
                         <label for="estado">Estado:</label>
                         <select class="form-control" id="estado" name="estado" required>
@@ -84,10 +94,12 @@
                             <option value="CERRADO" <?= $report['estado'] == 'CERRADO' ? 'selected' : '' ?>>CERRADO</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="observaciones">Observaciones:</label>
                         <textarea class="form-control" id="observaciones" name="observaciones"><?= $report['observaciones'] ?></textarea>
                     </div>
+
                     <div class="form-group">
                         <label for="id_cliente">Cliente:</label>
                         <select class="form-control" id="id_cliente" name="id_cliente" required>
@@ -98,6 +110,7 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="id_report_type">Tipo de Reporte:</label>
                         <select class="form-control" id="id_report_type" name="id_report_type" required>
@@ -108,8 +121,10 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Actualizar Reporte</button>
                 </form>
+
             </div>
         </div>
     </div>
@@ -146,7 +161,7 @@
     </footer>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('table').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/es_es.json"

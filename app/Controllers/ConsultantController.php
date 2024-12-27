@@ -36,65 +36,74 @@ class ConsultantController extends Controller
 
 
     public function addClientPost()
-    {
-        $clientModel = new ClientModel();
+{
+    $clientModel = new ClientModel();
 
-        // Aquí añadimos el código para obtener el id_consultor desde el formulario
-        $id_consultor = $this->request->getPost('id_consultor');
-        if (empty($id_consultor)) {
-            return redirect()->back()->with('error', 'Debe seleccionar un consultor.');
+    // Aquí añadimos el código para obtener el id_consultor desde el formulario
+    $id_consultor = $this->request->getPost('id_consultor');
+    if (empty($id_consultor)) {
+        return redirect()->back()->with('error', 'Debe seleccionar un consultor.');
+    }
+
+    $logo = $this->request->getFile('logo');
+    $firma = $this->request->getFile('firma_representante_legal');
+
+    $logoName = null;
+    $firmaName = null;
+
+    if ($logo && $logo->isValid() && !$logo->hasMoved()) {
+        $logoName = $logo->getRandomName();
+        $logo->move(ROOTPATH . 'public/uploads', $logoName); // Cambiado WRITEPATH por ROOTPATH
+    }
+
+    if ($firma && $firma->isValid() && !$firma->hasMoved()) {
+        $firmaName = $firma->getRandomName();
+        $firma->move(ROOTPATH . 'public/uploads', $firmaName); // Cambiado WRITEPATH por ROOTPATH
+    }
+
+    $data = [
+        'datetime' => date('Y-m-d H:i:s'),
+        'fecha_ingreso' => $this->request->getVar('fecha_ingreso'),
+        'nit_cliente' => $this->request->getVar('nit_cliente'),
+        'nombre_cliente' => $this->request->getVar('nombre_cliente'),
+        'usuario' => $this->request->getVar('usuario'),
+        'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
+        'correo_cliente' => $this->request->getVar('correo_cliente'),
+        'telefono_1_cliente' => $this->request->getVar('telefono_1_cliente'),
+        'telefono_2_cliente' => $this->request->getVar('telefono_2_cliente'),
+        'direccion_cliente' => $this->request->getVar('direccion_cliente'),
+        'persona_contacto_compras' => $this->request->getVar('persona_contacto_compras'),
+        'codigo_actividad_economica' => $this->request->getVar('codigo_actividad_economica'),
+        'nombre_rep_legal' => $this->request->getVar('nombre_rep_legal'),
+        'cedula_rep_legal' => $this->request->getVar('cedula_rep_legal'),
+        'fecha_fin_contrato' => $this->request->getVar('fecha_fin_contrato'),
+        'ciudad_cliente' => $this->request->getVar('ciudad_cliente'),
+        'estado' => 'activo',
+        'id_consultor' => $id_consultor,  // Modificado para usar el valor del formulario
+        'logo' => $logoName,
+        'firma_representante_legal' => $firmaName,
+        'estandares' => $this->request->getVar('estandares'),
+    ];
+
+    if ($clientModel->save($data)) {
+        // Recuperar el NIT del cliente recién guardado
+        $nitCliente = $this->request->getVar('nit_cliente');
+
+        // Crear la carpeta para el cliente en public/uploads/{nit_cliente}
+        $uploadPath = ROOTPATH . 'public/uploads/' . $nitCliente;
+
+        if (!is_dir($uploadPath)) { // Verificar si la carpeta ya existe
+            mkdir($uploadPath, 0777, true); // Crear la carpeta con permisos 0777
         }
 
-        $logo = $this->request->getFile('logo');
-        $firma = $this->request->getFile('firma_representante_legal');
-
-        $logoName = null;
-        $firmaName = null;
-
-        if ($logo && $logo->isValid() && !$logo->hasMoved()) {
-            $logoName = $logo->getRandomName();
-            $logo->move(ROOTPATH . 'public/uploads', $logoName); // Cambiado WRITEPATH por ROOTPATH
-        }
-
-        if ($firma && $firma->isValid() && !$firma->hasMoved()) {
-            $firmaName = $firma->getRandomName();
-            $firma->move(ROOTPATH . 'public/uploads', $firmaName); // Cambiado WRITEPATH por ROOTPATH
-        }
-
-        $data = [
-            'datetime' => date('Y-m-d H:i:s'),
-            'fecha_ingreso' => $this->request->getVar('fecha_ingreso'),
-            'nit_cliente' => $this->request->getVar('nit_cliente'),
-            'nombre_cliente' => $this->request->getVar('nombre_cliente'),
-            'usuario' => $this->request->getVar('usuario'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
-            'correo_cliente' => $this->request->getVar('correo_cliente'),
-            'telefono_1_cliente' => $this->request->getVar('telefono_1_cliente'),
-            'telefono_2_cliente' => $this->request->getVar('telefono_2_cliente'),
-            'direccion_cliente' => $this->request->getVar('direccion_cliente'),
-            'persona_contacto_compras' => $this->request->getVar('persona_contacto_compras'),
-            'codigo_actividad_economica' => $this->request->getVar('codigo_actividad_economica'),
-            'nombre_rep_legal' => $this->request->getVar('nombre_rep_legal'),
-            'cedula_rep_legal' => $this->request->getVar('cedula_rep_legal'),
-            'fecha_fin_contrato' => $this->request->getVar('fecha_fin_contrato'),
-            'ciudad_cliente' => $this->request->getVar('ciudad_cliente'),
-            'estado' => 'activo',
-            'id_consultor' => $id_consultor,  // Modificado para usar el valor del formulario
-            'logo' => $logoName,
-            'firma_representante_legal' => $firmaName,
-            'estandares' => $this->request->getVar('estandares'),
-        ];
-
-        if ($clientModel->save($data)) {
-            session()->setFlashdata('msg', 'Cliente agregado exitosamente');
-            return redirect()->to('/addClient');
-        } else {
-            session()->setFlashdata('msg', 'Error al agregar cliente');
-            return redirect()->to('/addClient');
-        }
-
+        session()->setFlashdata('msg', 'Cliente agregado exitosamente y carpeta creada.');
+        return redirect()->to('/addClient');
+    } else {
+        session()->setFlashdata('msg', 'Error al agregar cliente');
         return redirect()->to('/addClient');
     }
+}
+
 
 
 

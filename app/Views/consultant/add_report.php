@@ -36,7 +36,7 @@
 </head>
 
 <body>
-<nav style="background-color: white; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+    <nav style="background-color: white; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
 
             <!-- Logo izquierdo -->
@@ -71,7 +71,7 @@
     <!-- Ajustar el espaciado para evitar que el contenido se oculte bajo el navbar fijo -->
     <div style="height: 160px;"></div>
     <div class="container">
-        
+
         <h2>Agregar Nuevo Reporte</h2>
         <?php if (session()->getFlashdata('msg')): ?>
             <div class="alert alert-warning">
@@ -79,7 +79,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= base_url('/addReportPost') ?>" method="post">
+        <form action="<?= base_url('/addReportPost') ?>" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="titulo_reporte">Título del Reporte:</label>
                 <input type="text" name="titulo_reporte" id="titulo_reporte" class="form-control" required>
@@ -97,8 +97,8 @@
             </div>
 
             <div class="form-group">
-                <label for="enlace">Enlace:</label>
-                <input type="text" name="enlace" id="enlace" class="form-control" required>
+                <label for="archivo">Archivo:</label>
+                <input type="file" name="archivo" id="archivo" class="form-control" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.png" required>
             </div>
 
             <div class="form-group">
@@ -117,33 +117,30 @@
 
             <div class="form-group">
                 <label for="id_cliente">Cliente:</label>
-                <?php if (isset($clients)): ?>
-                    <select name="id_cliente" id="id_cliente" class="form-control">
-                        <option value="">Todos</option>
-                        <?php foreach ($clients as $client) : ?>
-                            <option value="<?= $client['id_cliente'] ?>" <?= (isset($_GET['id_cliente']) && $_GET['id_cliente'] == $client['id_cliente']) ? 'selected' : '' ?>>
-                                <?= $client['nombre_cliente'] ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                <?php else: ?>
-                    <p class="text-danger">Error: No se han encontrado clientes.</p>
-                <?php endif; ?>
-            </div>
-
-            <div class="form-group">
-                <label for="id_report_type">Tipo de Reporte:</label>
-                <select name="id_report_type" id="id_report_type" class="form-control" required>
-                    <?php foreach ($reportTypes as $type): ?>
-                        <option value="<?= $type['id_report_type'] ?>"><?= $type['report_type'] ?></option>
+                <select name="id_cliente" id="id_cliente" class="form-control" required>
+                    <?php foreach ($clients as $client): ?>
+                        <option value="<?= $client['id_cliente'] ?>"><?= $client['nombre_cliente'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-success">Agregar Reporte</button>
+            <div class="form-group">
+                <label for="id_report_type">Tipo de Reporte:</label>
+                <select class="form-control" id="id_report_type" name="id_report_type" required>
+                    <?php foreach ($reportTypes as $type): ?>
+                        <option value="<?= $type['id_report_type'] ?>">
+                            <?= $type['report_type'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+
+            <button type="submit" class="btn btn-success">Subir Reporte</button>
         </form>
 
-        
+
+
     </div>
 
     <footer style="background-color: white; padding: 20px 0; border-top: 1px solid #B0BEC5; margin-top: 40px; color: #3A3F51; font-size: 14px; text-align: center;">

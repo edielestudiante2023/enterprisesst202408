@@ -134,12 +134,28 @@
                         <?php foreach ($hojasDeCalculo as $reporte) : ?>
                             <tr>
                                 <td><?= esc($reporte['titulo_reporte']) ?></td>
-                                <td><a href="<?= esc($reporte['enlace']) ?>" target="_blank">Ver Documento</a></td>
+                                <td>
+                                    <?php
+                                    // Validar si el enlace es relativo o absoluto
+                                    if (!empty($reporte['enlace'])):
+                                        // Si es un enlace completo (URL absoluta)
+                                        if (filter_var($reporte['enlace'], FILTER_VALIDATE_URL)): ?>
+                                            <a href="<?= esc($reporte['enlace']) ?>" target="_blank">Ver Documento</a>
+                                        <?php else:
+                                            // Si es una ruta relativa, construir la URL completa
+                                        ?>
+                                            <a href="<?= base_url(esc($reporte['enlace'])) ?>" target="_blank">Ver Documento</a>
+                                        <?php endif;
+                                    else: ?>
+                                        <span class="text-muted">Enlace no disponible</span>
+                                    <?php endif; ?>
+                                </td>
                                 <td><?= esc($reporte['estado']) ?></td>
                                 <td><?= esc($reporte['observaciones']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
+
                 </table>
             <?php else : ?>
                 <p class="empty-message">No hay documentos de Hojas de Cálculo Interactivas disponibles.</p>
