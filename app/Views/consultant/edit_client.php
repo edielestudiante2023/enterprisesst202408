@@ -173,8 +173,22 @@
                 <label class="form-label">Estándares:</label>
                 <select name="estandares" class="form-select">
                     <option value="7A" <?= $client['estandares'] == '7A' ? 'selected' : '' ?>>7A</option>
-                    <!-- Opciones adicionales para estándares -->
+                    <option value="7B" <?= $client['estandares'] == '7B' ? 'selected' : '' ?>>7B</option>
+                    <option value="7C" <?= $client['estandares'] == '7C' ? 'selected' : '' ?>>7C</option>
+                    <option value="7D" <?= $client['estandares'] == '7D' ? 'selected' : '' ?>>7D</option>
+                    <option value="7E" <?= $client['estandares'] == '7E' ? 'selected' : '' ?>>7E</option>
+                    <option value="21A" <?= $client['estandares'] == '21A' ? 'selected' : '' ?>>21A</option>
+                    <option value="21B" <?= $client['estandares'] == '21B' ? 'selected' : '' ?>>21B</option>
+                    <option value="21C" <?= $client['estandares'] == '21C' ? 'selected' : '' ?>>21C</option>
+                    <option value="21D" <?= $client['estandares'] == '21D' ? 'selected' : '' ?>>21D</option>
+                    <option value="21E" <?= $client['estandares'] == '21E' ? 'selected' : '' ?>>21E</option>
+                    <option value="60A" <?= $client['estandares'] == '60A' ? 'selected' : '' ?>>60A</option>
+                    <option value="60B" <?= $client['estandares'] == '60B' ? 'selected' : '' ?>>60B</option>
+                    <option value="60C" <?= $client['estandares'] == '60C' ? 'selected' : '' ?>>60C</option>
+                    <option value="60D" <?= $client['estandares'] == '60D' ? 'selected' : '' ?>>60D</option>
+                    <option value="60E" <?= $client['estandares'] == '60E' ? 'selected' : '' ?>>60E</option>
                 </select>
+
             </div>
 
             <button type="submit" class="btn btn-primary">Actualizar Cliente</button>

@@ -22,12 +22,12 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 10px 0;
+            padding: 0px 0;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand img {
-            height: 100px;
+            height: 50px;
         }
 
         .header-logos {
@@ -40,7 +40,7 @@
         }
 
         .header-logos img {
-            height: 100px;
+            height: 80px;
         }
 
         .logout-btn {
@@ -128,8 +128,78 @@
 
         /* Adjust for navbar */
         .container-fluid {
-            margin-top: 140px;
+            margin-top: 40px;
             /* Adjust for navbar height */
+        }
+
+        /* Estilos para el acordeón */
+        .accordion-button {
+            background-color: #E9ECEF;
+            color: #3A3F51;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #E9ECEF;
+            color: #3A3F51;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #B0BEC5;
+        }
+
+        .accordion-item {
+            background-color: #E9ECEF;
+            border: none;
+        }
+
+        .accordion-body {
+            padding: 0;
+            background-color: #E9ECEF;
+        }
+
+        /* Asegurarse que los enlaces dentro del acordeón tengan el mismo estilo */
+        .accordion-body .nav-link {
+            color: #2C3E50;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+        }
+
+        .accordion-body .nav-link:hover {
+            color: #495057;
+        }
+
+        /* Ajusta el contenedor principal para alinearlo con los logos */
+        .container-fluid {
+            max-width: 1200px;
+            /* Mismo ancho que header-logos */
+            margin: 80px auto 0;
+            /* El margin-top de 140px es para el espacio del navbar */
+            padding: 0 3px;
+            /* 3px de padding */
+        }
+
+        /* Ajusta el header-logos para mantener consistencia */
+        .header-logos {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3px;
+            /* 3px de padding */
+        }
+
+        /* Ajusta el contenido principal */
+        .content {
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -163,27 +233,69 @@
             <!-- Sidebar -->
             <div class="col-md-2 sidebar">
                 <nav>
-                    <h4>Menú Principal</h4>
+                    <h4>Navegación</h4>
                     <ul class="nav flex-column">
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('listPlanTrabajoCliente/' . $client['id_cliente']) ?>" target="_blank">Plan de Trabajo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('listCronogramasCliente/' . $client['id_cliente']) ?>" target="_blank">Cronograma</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('listPendientesCliente/' . $client['id_cliente']) ?>" target="_blank">Pendientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('listEvaluaciones/' . $client['id_cliente']) ?>" target="_blank">Evaluaciones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('/report_dashboard') ?>" target="_blank">Reportes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('/viewDocuments') ?>" target="_blank">Documentos</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('/report_dashboard') ?>" target="_blank">Documentos</a></li>
+
                     </ul>
                 </nav>
+                
+                    <div class="accordion" id="menuGestion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelGestion">
+                                    Panel de Gestión
+                                </button>
+                            </h2>
+                            <div id="panelGestion" class="accordion-collapse collapse" data-bs-parent="#menuGestion">
+                                <div class="accordion-body">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?= base_url('listCronogramasCliente/' . $client['id_cliente']) ?>" target="_blank">
+                                                Cronograma de Capacitaciones
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?= base_url('listPendientesCliente/' . $client['id_cliente']) ?>" target="_blank">
+                                                Pendientes
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?= base_url('listEvaluaciones/' . $client['id_cliente']) ?>" target="_blank">
+                                                Evaluaciones
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?= base_url('/viewDocuments') ?>" target="_blank">
+                                                Gestor Documental
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
 
-                <!-- Línea divisoria -->
-                <hr class="my-4">
+                
+                    <div class="text-center mt-3">
+                        <h5 class="mt-2" style="color: #003366;">Dashboard</h5>
+                        <a href="<?= base_url('/client/lista-lookerstudio') ?>" target="_blank">
+                            <img src="<?= base_url('/uploads/kpi_image.png') ?>" alt="Ir al Dashboard" class="img-fluid" style="max-width: 100px;">
+                        </a>
+                    </div>
 
-                <div class="text-center mt-3">
-                    <!-- Texto con color azul oscuro -->
-                    <h3 class="mt-2" style="color: #003366;">Dashboard Interactivo</h3>
-                    <a href="<?= base_url('/client/lista-lookerstudio') ?>" target="_blank">
-                        <img src="<?= base_url('/uploads/kpi_image.png') ?>" alt="Ir al Dashboard" class="img-fluid" style="max-width: 100px;">
-                    </a>
-                </div>
+                    <hr class="my-4">
+
+                    <div class="text-center mt-3">
+                        <h5 class="mt-2" style="color: #003366;">Matrices</h5>
+                        <a href="<?= base_url('/client/lista-matrices') ?>" target="_blank">
+                            <img src="<?= base_url('/uploads/xlsx.png') ?>" alt="Ir al Dashboard" class="img-fluid" style="max-width: 100px;">
+                        </a>
+                    </div>
+                
 
             </div>
 

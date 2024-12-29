@@ -128,4 +128,7 @@ class ClientController extends Controller
 
         return view('client/document_view', $data);
     }
+  
+
 }
+

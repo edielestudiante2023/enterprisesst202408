@@ -16,6 +16,7 @@ $routes->post('/loginPost', 'AuthController::loginPost');
 $routes->get('/logout', 'AuthController::logout');
 $routes->get('/dashboardclient', 'ClientController::index');
 $routes->get('/dashboardclient', 'ClientController::dashboard');
+$routes->get('/dashboardclient', 'ClientController::dashboardSimplified');
 $routes->get('/dashboard', 'ClientController::dashboard');
 $routes->get('client/dashboard', 'ClientController::dashboard');
 
@@ -367,3 +368,11 @@ $routes->get('lookerstudio/delete/(:num)', 'LookerStudioController::delete/$1');
 
 $routes->get('/client/lista-lookerstudio', 'ClientLookerStudioController::index');
 
+$routes->get('matrices/list', 'MatricesController::list');
+$routes->get('matrices/add', 'MatricesController::add');
+$routes->post('matrices/addPost', 'MatricesController::addPost');
+$routes->get('matrices/edit/(:num)', 'MatricesController::edit/$1');
+$routes->post('matrices/editPost/(:num)', 'MatricesController::editPost/$1');
+$routes->get('matrices/delete/(:num)', 'MatricesController::delete/$1');
+
+$routes->get('/client/lista-matrices', 'ClientMatrices::index');

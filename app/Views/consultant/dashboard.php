@@ -147,6 +147,16 @@
                         <td><a href="<?= base_url('listReportTypes') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
                     </tr>
                     <tr>
+                        <td>Matrices</td>
+                        <td>Matrices Interactivas de Gestión</td> <!-- Descripción -->
+                        <td><a href="<?= base_url('matrices/list') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
+                    </tr>
+                    <tr>
+                        <td>Looker Studio</td>
+                        <td>Tableros de Indicadores del cliente</td> <!-- Descripción -->
+                        <td><a href="<?= base_url('lookerstudio/list') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
+                    </tr>
+                    <tr>
                         <td>Versiones</td>
                         <td>Accede a la lista de versiones de los documentos generados.</td> <!-- Descripción -->
                         <td><a href="<?= base_url('listVersions') ?>" target="_blank"><button type="button" class="btn btn-outline-secondary">Abrir</button></a></td>
