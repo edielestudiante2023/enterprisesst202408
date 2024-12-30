@@ -100,6 +100,8 @@
 
         <!-- Tabla interactiva con DataTables y filtros personalizados -->
         <div class="table-responsive">
+        <button id="downloadExcel" class="btn btn-primary">Descargar Excel</button>
+
             <table id="planesTable" class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
@@ -197,6 +199,20 @@
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+    document.getElementById('downloadExcel').addEventListener('click', function () {
+        // Selecciona la tabla
+        const table = document.getElementById('planesTable');
+        
+        // Crea una hoja de cálculo a partir de la tabla
+        const wb = XLSX.utils.table_to_book(table, {sheet: "Planes de Trabajo"});
+        
+        // Genera el archivo Excel y lo descarga
+        XLSX.writeFile(wb, 'PlanesDeTrabajo.xlsx');
+    });
+</script>
+
 
     <!-- Script para inicializar DataTables, filtros dinámicos y tooltips -->
     <script>

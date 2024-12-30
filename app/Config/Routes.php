@@ -18,6 +18,7 @@ $routes->get('/dashboardclient', 'ClientController::index');
 $routes->get('/dashboardclient', 'ClientController::dashboard');
 $routes->get('/dashboardclient', 'ClientController::dashboardSimplified');
 $routes->get('/dashboard', 'ClientController::dashboard');
+$routes->get('/dashboard', 'ClientController::showPanel');
 $routes->get('client/dashboard', 'ClientController::dashboard');
 
 
@@ -39,10 +40,6 @@ $routes->get('/listConsultants', 'ConsultantController::listConsultants');
 $routes->get('/editConsultant/(:num)', 'ConsultantController::editConsultant/$1');
 $routes->post('/editConsultant/(:num)', 'ConsultantController::editConsultant/$1');
 $routes->get('/deleteConsultant/(:num)', 'ConsultantController::deleteConsultant/$1');
-
-
-
-
 
 
 $routes->get('/reportList', 'ReportController::reportList');
@@ -376,3 +373,6 @@ $routes->post('matrices/editPost/(:num)', 'MatricesController::editPost/$1');
 $routes->get('matrices/delete/(:num)', 'MatricesController::delete/$1');
 
 $routes->get('/client/lista-matrices', 'ClientMatrices::index');
+
+
+$routes->get('client/panel', 'ClientPanelController::showPanel');

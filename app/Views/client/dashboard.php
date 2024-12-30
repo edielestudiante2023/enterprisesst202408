@@ -6,397 +6,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Enterprisesst</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #F5F7FA;
-            color: #2C3E50;
+            background-color: #f5f7fa;
         }
 
-        /* Navbar Styles */
+        /* Estilos de la barra superior */
         .navbar {
-            background-color: white;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 0px 0;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #e9f4ff;
+            border-bottom: 1px solid #c8e1f9;
         }
 
-        .navbar-brand img {
-            height: 50px;
-        }
-
-        .header-logos {
+        .navbar-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 10px 20px;
         }
 
-        .header-logos img {
-            height: 80px;
+        .navbar-content img {
+            max-height: 80px;
         }
 
-        .logout-btn {
-            padding: 8px 16px;
-            background-color: #6c757d;
-            color: #FFFFFF;
-            text-decoration: none;
-            border-radius: 4px;
+        .btn-logout {
+            background-color: #ff4d4d;
+            color: white;
             font-weight: bold;
-        }
-
-        .logout-btn:hover {
-            background-color: #495057;
-        }
-
-        /* Sidebar Styles */
-        .sidebar {
-            background-color: #E9ECEF;
-            height: 100vh;
-            border-right: 1px solid #B0BEC5;
-            padding-top: 15px;
-        }
-
-        .sidebar h4 {
-            color: #3A3F51;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .sidebar a {
-            color: #2C3E50;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .sidebar a:hover {
-            color: #495057;
-        }
-
-        /* Content and Table Styles */
-        .content {
-            padding: 20px;
-            background-color: #FFFFFF;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border-radius: 5px;
             margin-top: 20px;
         }
 
+        .btn-logout:hover {
+            background-color: #e63939;
+        }
+
+        /* Estilo general */
+        .welcome-header {
+            margin-top: 2rem;
+            text-align: center;
+            color: #003366;
+        }
+
+        .quick-access {
+            margin-top: 2rem;
+        }
+
+        .quick-access .btn {
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .quick-access .btn i {
+            margin-right: 0.5rem;
+        }
+
+        .asesoria-card {
+            background-color: #e9ecef;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .asesoria-card img {
+            max-height: 100px;
+            margin: 1rem auto;
+        }
+
         .table th {
-            background-color: #B0BEC5;
-            color: #2C3E50;
+            background-color: #b3d9ff;
+            color: #003366;
         }
 
         .table td a {
-            color: #3A3F51;
+            color: #003366;
             text-decoration: none;
         }
 
         .table td a:hover {
-            color: #007BFF;
-        }
-
-        /* Asesoria Section */
-        .asesoria-section {
-            padding: 30px;
-            background-color: #E9ECEF;
-            border: 1px solid #B0BEC5;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .image-flex {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .image-flex img {
-            max-width: 48%;
-            height: auto;
-            border: 1px solid #B0BEC5;
-            border-radius: 10px;
-        }
-
-        /* Adjust for navbar */
-        .container-fluid {
-            margin-top: 40px;
-            /* Adjust for navbar height */
-        }
-
-        /* Estilos para el acordeón */
-        .accordion-button {
-            background-color: #E9ECEF;
-            color: #3A3F51;
-            font-weight: bold;
-            padding: 10px 15px;
-        }
-
-        .accordion-button:not(.collapsed) {
-            background-color: #E9ECEF;
-            color: #3A3F51;
-        }
-
-        .accordion-button:focus {
-            box-shadow: none;
-            border-color: #B0BEC5;
-        }
-
-        .accordion-item {
-            background-color: #E9ECEF;
-            border: none;
-        }
-
-        .accordion-body {
-            padding: 0;
-            background-color: #E9ECEF;
-        }
-
-        /* Asegurarse que los enlaces dentro del acordeón tengan el mismo estilo */
-        .accordion-body .nav-link {
-            color: #2C3E50;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-        }
-
-        .accordion-body .nav-link:hover {
-            color: #495057;
-        }
-
-        /* Ajusta el contenedor principal para alinearlo con los logos */
-        .container-fluid {
-            max-width: 1200px;
-            /* Mismo ancho que header-logos */
-            margin: 80px auto 0;
-            /* El margin-top de 140px es para el espacio del navbar */
-            padding: 0 3px;
-            /* 3px de padding */
-        }
-
-        /* Ajusta el header-logos para mantener consistencia */
-        .header-logos {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 3px;
-            /* 3px de padding */
-        }
-
-        /* Ajusta el contenido principal */
-        .content {
-            padding: 20px;
-            background-color: #FFFFFF;
-            border-radius: 8px;
-            margin-top: 20px;
+            color: #007bff;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navbar with Images and Logout Button -->
+    <!-- Navbar -->
     <nav class="navbar">
-        <div class="header-logos">
-            <!-- Left Logo -->
+        <div class="container navbar-content">
+            <!-- Logo izquierdo -->
             <a href="https://dashboard.cycloidtalent.com/login" target="_blank">
-                <img src="<?= base_url('uploads/logoenterprisesstblancoslogan.png') ?>" alt="Enterprisesst Logo">
+                <img src="<?= base_url('uploads/logoenterprisesstblancoslogan.png') ?>" alt="Logo Enterprisesst">
             </a>
-            <!-- Center Logo -->
+            <!-- Logo central -->
             <a href="https://cycloidtalent.com/index.php/consultoria-sst" target="_blank">
-                <img src="<?= base_url('uploads/logosst.png') ?>" alt="SST Logo">
+                <img src="<?= base_url('uploads/logosst.png') ?>" alt="Logo SST">
             </a>
-            <!-- Right Logo -->
+            <!-- Logo derecho -->
             <a href="https://cycloidtalent.com/" target="_blank">
-
-                <img src="<?= base_url('uploads/logocycloidsinfondo.png') ?>" alt="Cycloids Logo">
+                <img src="<?= base_url('uploads/logocycloidsinfondo.png') ?>" alt="Logo Cycloid">
             </a>
-            <!-- Logout Button -->
-            <a href="<?= base_url('/logout') ?>" class="logout-btn">Cerrar Sesión</a>
         </div>
     </nav>
 
-    <!-- Main Content Area -->
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-2 sidebar">
-                <nav>
-                    <h4>Navegación</h4>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('listPlanTrabajoCliente/' . $client['id_cliente']) ?>" target="_blank">Plan de Trabajo</a></li>
+    <!-- Header -->
+    <div class="container">
+        <div class="welcome-header">
+            <h1> <?= esc($client['nombre_cliente']) ?>!</h1>
+            <p>Bienvenido a Enterprisesst, tu aplicativo especializado en SG-SST</p>
+        </div>
 
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('/report_dashboard') ?>" target="_blank">Documentos</a></li>
+        
 
-                    </ul>
-                </nav>
-                
-                    <div class="accordion" id="menuGestion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelGestion">
-                                    Panel de Gestión
-                                </button>
-                            </h2>
-                            <div id="panelGestion" class="accordion-collapse collapse" data-bs-parent="#menuGestion">
-                                <div class="accordion-body">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="<?= base_url('listCronogramasCliente/' . $client['id_cliente']) ?>" target="_blank">
-                                                Cronograma de Capacitaciones
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="<?= base_url('listPendientesCliente/' . $client['id_cliente']) ?>" target="_blank">
-                                                Pendientes
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="<?= base_url('listEvaluaciones/' . $client['id_cliente']) ?>" target="_blank">
-                                                Evaluaciones
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="<?= base_url('/viewDocuments') ?>" target="_blank">
-                                                Gestor Documental
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-
-                
-                    <div class="text-center mt-3">
-                        <h5 class="mt-2" style="color: #003366;">Dashboard</h5>
-                        <a href="<?= base_url('/client/lista-lookerstudio') ?>" target="_blank">
-                            <img src="<?= base_url('/uploads/kpi_image.png') ?>" alt="Ir al Dashboard" class="img-fluid" style="max-width: 100px;">
-                        </a>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <div class="text-center mt-3">
-                        <h5 class="mt-2" style="color: #003366;">Matrices</h5>
-                        <a href="<?= base_url('/client/lista-matrices') ?>" target="_blank">
-                            <img src="<?= base_url('/uploads/xlsx.png') ?>" alt="Ir al Dashboard" class="img-fluid" style="max-width: 100px;">
-                        </a>
-                    </div>
-                
-
+        <!-- Quick Access Buttons -->
+        <div class="quick-access text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <a href="<?= base_url('listPlanTrabajoCliente/' . $client['id_cliente']) ?>" target="_blank" class="btn btn-primary w-100">
+                        <i class="fas fa-calendar-alt"></i> Plan de Trabajo
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="<?= base_url('/report_dashboard') ?>" target="_blank" class="btn btn-success w-100">
+                        <i class="fas fa-file-alt"></i> Documentos
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="<?= base_url('client/panel') ?>" target="_blank" class="btn btn-info w-100">
+                        <i class="fas fa-chart-line"></i> Panel de Gestión
+                    </a>
+                </div>
             </div>
+        </div>
 
-            <!-- Main Content Area -->
-            <div class="col-md-10 content">
-                <section>
-                    <header class="major">
-                        <h2><?= esc($client['nombre_cliente']) ?></h2>
-                        <h3>Bienvenido a tu Plataforma Tecnológica Enterprisesst</h3>
-                    </header>
-                    <p>Gestiona todos tus indicadores y documentos del Sistema de Seguridad y Salud en el Trabajo de forma eficiente y moderna.</p>
-                </section>
+        <!-- Data Table -->
+        <div class="mt-5">
+            <h2 class="text-center text-primary">Dispositivos Documentales Sistema de Gestión en Seguridad y Salud en el Trabajo</h2>
+            <table id="accesosTable" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dimensión</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $current_dimension = '';
+                    $index = 1;
 
-                <!-- Data Table -->
-                <table id="accesosTable" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Dimensión</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $current_dimension = '';
-                        $index = 1;
-
-                        foreach ($accesos as $acceso):
-                            if ($current_dimension !== $acceso['dimension']):
-                                $current_dimension = $acceso['dimension']; ?>
-                                <tr>
-                                    <td colspan="2"><strong><?= esc($current_dimension) ?></strong></td>
-                                </tr>
-                            <?php endif; ?>
+                    foreach ($accesos as $acceso):
+                        if ($current_dimension !== $acceso['dimension']):
+                            $current_dimension = $acceso['dimension']; ?>
+                            <!-- Nueva fila para mostrar la dimensión como una sección separada -->
                             <tr>
-                                <td><?= $index++ ?></td>
-                                <td><a href="<?= base_url($acceso['url']) ?>" target="_blank"><?= esc($acceso['nombre']) ?></a></td>
+                                <td><?= $index ?></td>
+                                <td><strong><?= esc($current_dimension) ?></strong></td>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        <?php endif; ?>
+                        <!-- Fila con datos del acceso -->
+                        <tr>
+                            <td><?= $index++ ?></td>
+                            <td><a href="<?= base_url($acceso['url']) ?>" target="_blank"><?= esc($acceso['nombre']) ?></a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
 
-                <!-- Asesoría Section -->
-                <section class="asesoria-section">
-                    <header class="major">
-                        <h2>¿Necesitas Asesoría o Acompañamiento en SST?</h2>
-                    </header>
-                    <p>Somos un equipo de profesionales con una amplia red de aliados para atenderte en lo que necesites.</p>
-                    <div>
-                        <p><strong>diana.cuestas@cycloidtalent.com</strong></p>
-                        <p>3229074371</p>
-                        <p><strong style="color: #546E7A;">Normatividad SST Actualizada</strong></p>
-                    </div>
-                    <div class="image-flex">
-                        <img src="<?= base_url('uploads/imagen1dashboard.png') ?>" alt="Imagen Dashboard 1">
-                        <img src="<?= base_url('uploads/imagen2dashboard.png') ?>" alt="Imagen Dashboard 2">
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <img src="<?= base_url('uploads/logocycloid.png') ?>" alt="Cycloid Logo" style="max-height: 70px;">
-                    </div>
-                </section>
+        <!-- Botón de cerrar sesión -->
+        <div class="text-center">
+            <button class="btn btn-logout" onclick="logout()">Cerrar Sesión</button>
+        </div>
+
+        <!-- Asesoría Section -->
+        <div class="asesoria-card mt-5">
+            <h2>¿Necesitas Asesoría?</h2>
+            <p>Contáctanos para obtener ayuda en la gestión de tu SST.</p>
+            <div>
+                <img src="<?= base_url('uploads/logocycloid.png') ?>" alt="Cycloid">
             </div>
+            <p><strong>Email:</strong> diana.cuestas@cycloidtalent.com</p>
+            <p><strong>Teléfono:</strong> 3229074371</p>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer style="background-color: white; padding: 20px 0; border-top: 1px solid #B0BEC5; margin-top: 40px; color: #3A3F51; font-size: 14px; text-align: center;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
-            <!-- Company and Rights -->
-            <p style="margin: 0; font-weight: bold;">Cycloid Talent SAS</p>
-            <p style="margin: 5px 0;">Todos los derechos reservados © 2024</p>
-            <p style="margin: 5px 0;">NIT: 901.653.912</p>
-
-            <!-- Website Link -->
-            <p style="margin: 5px 0;">
-                Sitio oficial: <a href="https://cycloidtalent.com/" target="_blank" style="color: #007BFF; text-decoration: none;">https://cycloidtalent.com/</a>
-            </p>
-
-            <!-- Social Media Links -->
-            <p style="margin: 15px 0 5px;"><strong>Nuestras Redes Sociales:</strong></p>
-            <div style="display: flex; gap: 15px; justify-content: center;">
-                <a href="https://www.facebook.com/CycloidTalent" target="_blank" style="color: #3A3F51; text-decoration: none;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="height: 24px; width: 24px;">
-                </a>
-                <a href="https://co.linkedin.com/company/cycloid-talent" target="_blank" style="color: #3A3F51; text-decoration: none;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style="height: 24px; width: 24px;">
-                </a>
-                <a href="https://www.instagram.com/cycloid_talent?igsh=Nmo4d2QwZDg5dHh0" target="_blank" style="color: #3A3F51; text-decoration: none;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style="height: 24px; width: 24px;">
-                </a>
-                <a href="https://www.tiktok.com/@cycloid_talent?_t=8qBSOu0o1ZN&_r=1" target="_blank" style="color: #3A3F51; text-decoration: none;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" style="height: 24px; width: 24px;">
-                </a>
-            </div>
-        </div>
+    <footer class="text-center mt-5 py-4" style="background-color: #e9f4ff; color: #003366;">
+        <p>&copy; 2024 Cycloid Talent SAS. Todos los derechos reservados.</p>
     </footer>
 
-
-    <!-- DataTables and Bootstrap JS -->
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         $(document).ready(function() {
@@ -404,12 +214,35 @@
                 paging: true,
                 searching: true,
                 lengthChange: true,
-                pageLength: 5,
+                pageLength: 20, // Mostrar 20 registros por defecto
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
                 }
             });
+
+            // SweetAlert greeting
+            Swal.fire({
+                title: '¡Bienvenido!',
+                text: 'Hola <?= esc($client['nombre_cliente']) ?>, nos alegra tenerte en Enterprisesst - Empowered by Cycloid Talent.   ',
+                icon: 'info',
+                confirmButtonText: 'Gracias'
+            });
         });
+
+        function logout() {
+            Swal.fire({
+                title: 'Cerrar Sesión',
+                text: '¿Estás seguro de que deseas salir?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, salir',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "<?= base_url('/logout') ?>";
+                }
+            });
+        }
     </script>
 
 </body>
