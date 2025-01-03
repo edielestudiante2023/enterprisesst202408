@@ -182,7 +182,12 @@
             </td>
             <td class="code right">
                 Versión: <?= $latestVersion['version_number'] ?><br>
-                Fecha: <?= date('d M Y', strtotime($latestVersion['created_at'])) ?>
+                <?php
+setlocale(LC_TIME, 'es_ES.UTF-8', 'es_ES', 'Spanish_Spain'); // Configura el idioma español
+?>
+
+Fecha: <?= strftime('%d de %B de %Y', strtotime($latestVersion['created_at'])); ?>
+
             </td>
         </tr>
     </table>
@@ -192,7 +197,12 @@
         <h3 style="text-align: center;">ACTA DE ASIGNACIÓN DE VIGÍA EN SEGURIDAD Y SALUD EN EL TRABAJO</h3>
 
         <br>
-        <p>FECHA: <strong><?= $client['fecha_ingreso'] ?></strong></p>
+        <?php
+setlocale(LC_TIME, 'es_ES.UTF-8', 'es_ES', 'Spanish_Spain'); // Configura el idioma español
+?>
+
+<p>FECHA: <strong><?= strftime('%d de %B de %Y', strtotime($client['fecha_ingreso'])); ?></strong></p>
+
         <p>
         <p>En las instalaciones de <strong><?= $client['nombre_cliente'] ?></strong>, el representante legal <strong><?= $client['nombre_rep_legal'] ?></strong>, con documento de identidad número <strong><?= $client['cedula_rep_legal'] ?></strong>, asigna como vigía en Seguridad y Salud en el Trabajo a <strong><?= $latestVigia['nombre_vigia'] ?></strong> con documento de identidad número <strong><?= $latestVigia['cedula_vigia'] ?></strong> Por un periodo de <strong><?= $latestVigia['periodo_texto'] ?></strong>, dando cumplimiento a la normativa vigente en materia de Seguridad y Salud en el Trabajo, incluyendo el <strong>Decreto 1072 de 2015</strong> y la <strong>Resolución 0312 de 2019</strong>, así como a las exigencias de la división de salud ocupacional del Ministerio de Trabajo. El empleador está obligado a proporcionar al menos cuatro horas semanales dentro de la jornada laboral normal para el funcionamiento de las actividades del vigía.
     
@@ -252,27 +262,69 @@
 
 
 
-    <footer>
-        <h2>Historial de Versiones</h2>
-        <table>
+<footer>
+    <h2>Historial de Versiones</h2>
+    <style>
+        footer table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        footer table th, footer table td {
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+            padding: 8px;
+            word-wrap: break-word;
+        }
+        footer table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        footer table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        footer table tr:hover {
+            background-color: #f1f1f1;
+        }
+        /* Ajuste del ancho de las columnas */
+        footer table th:nth-child(5),
+        footer table td:nth-child(5) {
+            width: 35%; /* Más ancho para la columna Observaciones */
+        }
+        footer table th:nth-child(1),
+        footer table td:nth-child(1) {
+            width: 10%; /* Más estrecho para la columna Versión */
+        }
+        footer table th:nth-child(2),
+        footer table td:nth-child(2),
+        footer table th:nth-child(3),
+        footer table td:nth-child(3),
+        footer table th:nth-child(4),
+        footer table td:nth-child(4) {
+            width: 15%; /* Ancho uniforme para las demás columnas */
+        }
+    </style>
+    <table>
+        <tr>
+            <th>Versión</th>
+            <th>Tipo de Documento</th>
+            <th>Acrónimo</th>
+            <th>Fecha de Creación</th>
+            <th>Observaciones</th>
+        </tr>
+        <?php foreach ($allVersions as $version): ?>
             <tr>
-                <th>Versión</th>
-                <th>Tipo de Documento</th>
-                <th>Acrónimo</th>
-                <th>Fecha de Creación</th>
-                <th>Observaciones</th>
+                <td><?= $version['version_number'] ?></td>
+                <td><?= $version['document_type'] ?></td>
+                <td><?= $version['acronym'] ?></td>
+                <td><?= strftime('%d de %B de %Y', strtotime($version['created_at'])); ?></td>
+                <td><?= $version['change_control'] ?></td>
             </tr>
-            <?php foreach ($allVersions as $version): ?>
-                <tr>
-                    <td><?= $version['version_number'] ?></td>
-                    <td><?= $version['document_type'] ?></td>
-                    <td><?= $version['acronym'] ?></td>
-                    <td><?= date('d M Y', strtotime($version['created_at'])) ?></td>
-                    <td><?= $version['change_control'] ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </footer>
+        <?php endforeach; ?>
+    </table>
+</footer>
+
     <br>
     <!-- <div class="no-print">
         <a href="<?= base_url('/generatePdf_asignacionVigia') ?>" target="_blank">

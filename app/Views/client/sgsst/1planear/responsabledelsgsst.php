@@ -13,12 +13,12 @@
                 <h1>SISTEMA DE GESTION DE SEGURIDAD Y SALUD EN EL TRABAJO</h1>
                 <p>Código: FT-SST-002</p>
                 <p>Versión: 001</p>
-                <p>Fecha: <?= $client['fecha_ingreso'] ?></p>
+                <p>Fecha: <p>FECHA: <strong><?= strftime('%d de %B de %Y', strtotime($client['fecha_ingreso'])); ?></strong></p>
             </td>
         </tr>
     </table>
 
-    <p><?= $client['ciudad_cliente'] ?>, <?= $client['fecha_ingreso'] ?></p>
+    <p><?= $client['ciudad_cliente'] ?>, <p>FECHA: <strong><?= strftime('%d de %B de %Y', strtotime($client['fecha_ingreso'])); ?></strong></p>
 
     <h2>ASIGNACION PARA EL DISEÑO E IMPLEMENTACION DE SISTEMA DE GESTION DE SEGURIDAD Y SALUD EN EL TRABAJO</h2>
 
