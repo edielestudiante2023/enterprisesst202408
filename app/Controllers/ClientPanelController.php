@@ -28,7 +28,11 @@ class ClientPanelController extends BaseController
         $estandar = trim(strtoupper($client['estandares']));
         
         // Estándares restringidos
+<<<<<<< HEAD
         $estandaresRestringidos = ['7E', '21E', '60E'];
+=======
+        $estandaresRestringidos = ['Proyecto', 'Trimestral'];
+>>>>>>> main
         $isRestricted = in_array($estandar, $estandaresRestringidos); // Verificar si está restringido
 
         // Log para depuración

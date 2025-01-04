@@ -24,6 +24,10 @@ $routes->get('client/dashboard', 'ClientController::dashboard');
 
 
 $routes->get('/dashboardconsultant', 'ConsultantController::index');
+<<<<<<< HEAD
+=======
+$routes->get('/admindashboard', 'AdminDashboardController::index');
+>>>>>>> main
 
 $routes->get('/addClient', 'ConsultantController::addClient');
 $routes->post('/addClient', 'ConsultantController::addClientPost');
@@ -146,8 +150,13 @@ $routes->get('/politicaAlcohol/(:num)', 'PzpoliticaalcoholController::politicaAl
 $routes->get('/generatePdf_politicaAlcohol', 'PzpoliticaalcoholController::generatePdf_politicaAlcohol');
 $routes->get('/politicaEmergencias/(:num)', 'PzpoliticaemergenciasController::politicaEmergencias/$1');
 $routes->get('/generatePdf_politicaEmergencias', 'PzpoliticaemergenciasController::generatePdf_politicaEmergencias');
+<<<<<<< HEAD
 $routes->get('/politicaAcoso/(:num)', 'PzpoliticaacosoController::politicaAcoso/$1');
 $routes->get('/generatePdf_politicaAcoso', 'PzpoliticaacosoController::generatePdf_politicaAcoso');
+=======
+$routes->get('/politicaEpps/(:num)', 'PzpoliticaeppsController::politicaEpps/$1');
+$routes->get('/generatePdf_politicaEpps', 'PzpoliticaeppsController::generatePdf_politicaEpps');
+>>>>>>> main
 $routes->get('/politicaPesv/(:num)', 'PzpoliticapesvController::politicaPesv/$1');
 $routes->get('/generatePdf_politicaPesv', 'PzpoliticapesvController::generatePdf_politicaPesv');
 $routes->get('/regHigsegind/(:num)', 'PzreghigsegindController::regHigsegind/$1');
@@ -162,15 +171,24 @@ $routes->get('/comunicacionInterna/(:num)', 'PzcomunicacionController::comunicac
 $routes->get('/generatePdf_comunicacionInterna', 'PzcomunicacionController::generatePdf_comunicacionInterna');
 $routes->get('/manProveedores/(:num)', 'PzmanproveedoresController::manProveedores/$1');
 $routes->get('/generatePdf_manProveedores', 'PzmanproveedoresController::generatePdf_manProveedores');
+<<<<<<< HEAD
 $routes->get('/examenMedico/(:num)', 'PzexamedController::examenMedico/$1');
 $routes->get('/generatePdf_examenMedico', 'PzexamedController::generatePdf_examenMedico');
+=======
+$routes->get('/saneamientoBasico/(:num)', 'PzsaneamientoController::saneamientoBasico/$1');
+$routes->get('/generatePdf_saneamientoBasico', 'PzsaneamientoController::generatePdf_saneamientoBasico');
+>>>>>>> main
 $routes->get('/medPreventiva/(:num)', 'PzmedpreventivaController::medPreventiva/$1');
 $routes->get('/generatePdf_medPreventiva', 'PzmedpreventivaController::generatePdf_medPreventiva');
 $routes->get('/reporteAccidente/(:num)', 'PzrepoaccidenteController::reporteAccidente/$1');
 $routes->get('/generatePdf_reporteAccidente', 'PzrepoaccidenteController::generatePdf_reporteAccidente');
 $routes->get('/inspeccionPlanynoplan/(:num)', 'PzinpeccionplanynoplanController::inspeccionPlanynoplan/$1');
 $routes->get('/generatePdf_inspeccionPlanynoplan', 'PzinpeccionplanynoplanController::generatePdf_inspeccionPlanynoplan');
+<<<<<<< HEAD
 $routes->get('/entregaDotacion/(:num)', 'HzentregadotacionController::entregaDotacion/$1');
+=======
+$routes->get('/funcionesyresponsabilidades/(:num)', 'HzfuncionesyrespController::funcionesyresponsabilidades/$1');
+>>>>>>> main
 $routes->get('/generatePdf_entregaDotacion', 'HzentregadotacionController::generatePdf_entregaDotacion');
 $routes->get('/responsablePesv/(:num)', 'HzresponsablepesvController::responsablePesv/$1');
 $routes->get('/generatePdf_responsablePesv', 'HzresponsablepesvController::generatePdf_responsablePesv');
@@ -376,3 +394,14 @@ $routes->get('/client/lista-matrices', 'ClientMatrices::index');
 
 
 $routes->get('client/panel', 'ClientPanelController::showPanel');
+<<<<<<< HEAD
+=======
+
+
+$routes->get('/detailreportlist', 'DetailReportController::detailReportList');
+$routes->get('/detailreportadd', 'DetailReportController::detailReportAdd');
+$routes->post('/detailreportadd', 'DetailReportController::detailReportAddPost');
+$routes->get('/detailreportedit/(:num)', 'DetailReportController::detailReportEdit/$1');
+$routes->post('/detailreportedit', 'DetailReportController::detailReportEditPost');
+$routes->get('/detailreportdelete/(:num)', 'DetailReportController::detailReportDelete/$1');
+>>>>>>> main

@@ -1,5 +1,13 @@
 <?php
 
+<<<<<<< HEAD
+=======
+
+// Configuración de la localización y la zona horaria
+setlocale(LC_TIME, 'es_ES.UTF-8', 'es_ES', 'Spanish_Spain');
+date_default_timezone_set('America/Bogota');
+
+>>>>>>> main
 /*
  *---------------------------------------------------------------
  * CHECK PHP VERSION

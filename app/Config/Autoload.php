@@ -90,5 +90,9 @@ class Autoload extends AutoloadConfig
      *
      * @var list<string>
      */
+<<<<<<< HEAD
     public $helpers = [];
+=======
+    public $helpers = ['form'];
+>>>>>>> main
 }

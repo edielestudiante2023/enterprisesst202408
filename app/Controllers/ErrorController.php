@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace App\Controllers;
@@ -11,3 +12,18 @@ class ErrorController extends Controller
         return view('errors/custom_error');
     }
 }
+=======
+<?php
+
+namespace App\Controllers;
+
+use CodeIgniter\Controller;
+
+class ErrorController extends Controller
+{
+    public function index()
+    {
+        return view('errors/custom_error');
+    }
+}
+>>>>>>> main
